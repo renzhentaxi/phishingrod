@@ -1,10 +1,12 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import javax.mail.Authenticator;
+import javax.mail.PasswordAuthentication;
 
 /***
  * Simple class to load login info for testing
  */
-public class Login {
+public class Login extends Authenticator {
 
     public final String EmailAddress;
     public final String Password;
@@ -35,4 +37,10 @@ public class Login {
         }
         throw new RuntimeException("Cant find Login.txt in Data folder");
     }
+
+    @Override
+    protected PasswordAuthentication getPasswordAuthentication() {
+        return new PasswordAuthentication(EmailAddress, Password);
+    }
+
 }
