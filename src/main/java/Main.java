@@ -1,15 +1,17 @@
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.Properties;
 
 public class Main {
     public static void main(String[] args) {
-        String destMailId = "renzhentaxibaerde@mail.adelphi.edu";
-        String sendMailId = "phishingrod123@gmail.com";
 
-        String name = "phishingrod123@gmail.com";
-        String pwd = "2132018fish";
+        Login login = Login.LoadLogin();
+
+        String destMailId = "phishingrod123@gmail.com";
+        String sendMailId = login.PreferredName;
 
         String smtphost = "smtp.gmail.com";
 
@@ -23,7 +25,7 @@ public class Main {
                 props, new Authenticator() {
                     @Override
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(name, pwd);
+                        return new PasswordAuthentication(login.EmailAddress, login.Password);
                     }
                 }
         );
@@ -34,8 +36,7 @@ public class Main {
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(destMailId));
 
             message.setSubject("hi");
-//            message.setText("hi");
-            message.setContent("<h1> hi</h1>" + "<img src=\"https://www.blog.google/static/blog/images/google-200x200.7714256da16f.png>\"", "test/html");
+            message.setContent(getMail(), "text/html");
             Transport.send(message);
             System.out.println("success!!");
         } catch (MessagingException exception) {
@@ -43,4 +44,16 @@ public class Main {
         }
     }
 
+    public static String getMail() {
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader("./Data/Mails/testmail.html"))) {
+            String str;
+            while ((str = reader.readLine()) != null) {
+                sb.append(str);
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return sb.toString();
+    }
 }
