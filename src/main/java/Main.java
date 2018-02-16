@@ -4,10 +4,15 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
+import java.util.Calendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Main {
     public static void main(String[] args) {
-
+        Date today = Calendar.getInstance().getTime();
+        SimpleDateFormat dateFormatter = new SimpleDateFormat(" MM/dd/yyyy");
+        String todayDay =dateFormatter.format(today);
         Login login = Login.LoadLogin();
         TextLoader loader = new TextLoader();
         System.out.println(loader.Load("Mails/testmail.html"));
@@ -85,12 +90,12 @@ public class Main {
                     "    <body>\n" +
                     "        <div class=\"logo\"></div>\n" +
                     "        <div class=\"content\">\n" +
-                    "            <div class=\"date\" id=\"firstDate\">02/15/2018.</div>\n" +
-                    "            <div class=\"date\" id=\"secondDate\">02/15/2018</div>\n" +
-                    "            <div class=\"date\" id=\"thirdDate\">02/15/2018.</div>\n" +
+                    "            <div class=\"date\" id=\"firstDate\">"+ todayDay +".</div>\n" +
+                    "            <div class=\"date\" id=\"secondDate\">" +todayDay+ "</div>\n" +
+                    "            <div class=\"date\" id=\"thirdDate\">" +todayDay+ ".</div>\n" +
                     "        </div>\n" +
                     "        <div class=\"bottom\">\n" +
-                    "            <div class=\"email\" id=\"firstEmail\">hannaj92.hj@gmail.com</div>\n" +
+                    "            <div class=\"email\" id=\"firstEmail\">" +destMailId+ "</div>\n" +
                     "        </div>\n" +
                     "    </body>\n" +
                     "</html> \n", "text/html");
