@@ -9,9 +9,9 @@ public class Sender extends User
     private final String _password;
     private final Session _session;
 
-    public Sender(String name, String address, String password, String sessionType)
+    public Sender(String firstName, String lastName, String nickName, String address, String password, String sessionType)
     {
-        super(name, address);
+        super(firstName, lastName, nickName, address);
         _password = password;
         _session = Sessions.GetSession(sessionType);
     }

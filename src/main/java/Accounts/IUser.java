@@ -9,7 +9,13 @@ public interface IUser
      *
      * @return full name
      */
-    String getName();
+    String getFirstName();
+
+    String getLastName();
+
+    String getNickName();
+
+    String getFullName();
 
     String getAddress();
 

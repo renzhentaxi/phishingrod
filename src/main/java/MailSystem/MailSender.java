@@ -1,17 +1,16 @@
 package MailSystem;
 
-import Accounts.Receiver;
 import Accounts.Sender;
+import Accounts.User;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
-import java.io.UnsupportedEncodingException;
 
 public class MailSender implements IMailSender
 {
 
     @Override
-    public void Send(IMail mail, Sender from, Receiver to)
+    public void Send(IMail mail, Sender from, User to)
     {
         Message message = mail.getMessage(from, to);
         Session session = message.getSession();
@@ -29,7 +28,7 @@ public class MailSender implements IMailSender
 
     }
 
-    private void Send(Message message, Sender sender, Receiver to, Transport transport)
+    private void Send(Message message, Sender sender, User to, Transport transport)
     {
         try
         {

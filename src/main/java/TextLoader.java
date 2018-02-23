@@ -3,19 +3,24 @@ import java.io.FileReader;
 
 public class TextLoader
 {
-    public static final String DEFAULT_DATA_PATH = "./data/";
-    public static final String DEFAULT_MAILS_PATH = "Mails/";
+    private static final String DEFAULT_DATA_PATH = "./data/";
+    private static final String DEFAULT_MAILS_PATH = "Mails/";
 
-    public String Load(String path)
+    //prevent initialization
+    private TextLoader()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    private static String Load(String path)
     {
         StringBuilder sb = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(DEFAULT_DATA_PATH + path)))
         {
-            String line = reader.readLine();
-            while (line != null)
+            String line;
+            while ((line = reader.readLine()) != null)
             {
                 sb.append(line).append("\n");
-                line = reader.readLine();
             }
 
         } catch (Exception exception)
@@ -25,7 +30,7 @@ public class TextLoader
         return sb.toString();
     }
 
-    public String LoadEmail(String mailName)
+    public static String LoadEmail(String mailName)
     {
         return Load(DEFAULT_MAILS_PATH + mailName + ".html");
     }

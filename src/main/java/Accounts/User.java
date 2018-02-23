@@ -5,19 +5,27 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import javax.mail.internet.InternetAddress;
 import java.io.UnsupportedEncodingException;
 
-public abstract class User implements IUser
+public class User implements IUser
 {
-    private final String _name;
+    private final String _firstName;
+    private final String _lastName;
+    private final String _nickName;
+    private final String _fullName;
+
     private final String _address;
     private InternetAddress _internetAddress;
 
-    User(String name, String address)
+    public User(String firstName, String lastName, String nickName, String address)
     {
-        _name = name;
+        _firstName = firstName;
+        _lastName = lastName;
+        _nickName = nickName;
+        _fullName = firstName + " " + lastName;
+
         _address = address;
         try
         {
-            _internetAddress = new InternetAddress(address, name);
+            _internetAddress = new InternetAddress(address, lastName);
         } catch (UnsupportedEncodingException exception)
         {
             exception.printStackTrace();
@@ -25,9 +33,27 @@ public abstract class User implements IUser
     }
 
     @Override
-    public String getName()
+    public String getFirstName()
     {
-        return _name;
+        return _firstName;
+    }
+
+    @Override
+    public String getLastName()
+    {
+        return _lastName;
+    }
+
+    @Override
+    public String getNickName()
+    {
+        return _nickName;
+    }
+
+    @Override
+    public String getFullName()
+    {
+        return _fullName;
     }
 
     @Override
@@ -37,14 +63,26 @@ public abstract class User implements IUser
     }
 
     @Override
+    public InternetAddress getInternetAddress()
+    {
+        return _internetAddress;
+    }
+
+    @Override
     public String getProperty(String name)
     {
         throw new NotImplementedException();
     }
 
+    private String _stringRepresentation;
+
     @Override
-    public InternetAddress getInternetAddress()
+    public String toString()
     {
-        return _internetAddress;
+        if (_stringRepresentation == null)
+        {
+            _stringRepresentation = "[User] firstName: " + _firstName + ", lastName: " + _lastName + ", nickName: " + _nickName + ", email: " + _address;
+        }
+        return _stringRepresentation;
     }
 }

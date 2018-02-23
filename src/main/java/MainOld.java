@@ -7,11 +7,10 @@ import java.util.Properties;
 
 public class MainOld
 {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         Login login = Login.LoadLogin();
-        TextLoader loader = new TextLoader();
-        System.out.println(loader.Load("Mails/testmail.html"));
         String destMailId = "han.cho95@gmail.com";
 
         String smtphost = "smtp.gmail.com";
@@ -98,7 +97,8 @@ public class MainOld
 
             Transport.send(message);
             System.out.println("success!!");
-        } catch (Exception exception) {
+        } catch (Exception exception)
+        {
             exception.printStackTrace();
         }
 

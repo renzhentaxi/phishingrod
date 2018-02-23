@@ -1,5 +1,5 @@
-import Accounts.Receiver;
 import Accounts.Sender;
+import Accounts.User;
 import MailSystem.HTMLMail;
 import MailSystem.IMail;
 import MailSystem.MailSender;
@@ -21,17 +21,18 @@ public class Main
         Session session = Session.getInstance(props);
         Sessions.AddSession("gmail", session);
 
+        //create a sender and a receiver
+        //later on all these will be stored in a database
+        Sender sender = new Sender("taxi", "wut", "myname", "phishingrod123@gmail.com", "2132018fish", "gmail");
+        User receiver = new User("jeff", "myboi", "boi", "phishingrod123@gmail.com");
 
-        Sender sender = new Sender("taxi", "phishingrod123@gmail.com", "2132018fish", "gmail");
-        Receiver receiver = new Receiver("jeff", "phishingrod123@gmail.com");
-        Receiver receiver1 = new Receiver("hi", "bptashi@gmail.com");
+        //load the email
+        IMail mail = new HTMLMail(TextLoader.LoadEmail("testmail/localimageviamultipart"));
 
-
-        IMail mail = new HTMLMail(new TextLoader().LoadEmail("testmail"));
-
+        //create a MailSender which will send the email
         MailSender mailSender = new MailSender();
-        mailSender.Send(mail, sender, receiver);
-        mailSender.Send(mail, sender, receiver1);
 
+
+        mailSender.Send(mail, sender, receiver);
     }
 }
