@@ -1,7 +1,8 @@
-package Storage.base;
+package Storage.base.Accessors;
 
 import Accounts.User;
-import Storage.base.JdbiUtil.StoredSqlLocator;
+import Storage.base.Daos.UserDao;
+import Storage.base.Util.StoredSqlLocator;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
 

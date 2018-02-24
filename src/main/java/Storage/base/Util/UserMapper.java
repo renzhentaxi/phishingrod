@@ -1,4 +1,4 @@
-package Storage.base;
+package Storage.base.Util;
 
 import Accounts.User;
 import org.jdbi.v3.core.mapper.RowMapper;

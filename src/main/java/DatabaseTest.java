@@ -1,8 +1,6 @@
-import Accounts.User;
 import Storage.Sqlite.DaggerSqliteStorageManager;
-import Storage.base.JdbiUtil.StoredSqlLocator;
 import Storage.base.StorageManager;
-import Storage.base.UserAccessor;
+import Storage.base.Daos.UserDao;
 
 public class DatabaseTest {
     public static void main(String[] args) {
@@ -11,10 +9,11 @@ public class DatabaseTest {
 
         StorageManager storageManager = DaggerSqliteStorageManager.builder().databaseUrl(databaseLocation).build();
 
-        UserAccessor accessor = storageManager.getUserAccessor();
-        System.out.println(accessor.get("gmail.com"));
+//        UserAccessor accessor = storageManager.getUserAccessor();
+//        System.out.println(accessor.get("gmail.com"));
 
-        accessor.update(new User("taxi", "boi", "kdfjkds", "gmail.com")); // update the account with the address of gmail.com
+        UserDao dao = storageManager.getUserDao();
+        System.out.println(dao.get("gmail.com"));
 
     }
 }

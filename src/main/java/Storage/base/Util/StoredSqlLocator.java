@@ -1,4 +1,4 @@
-package Storage.base.JdbiUtil;
+package Storage.base.Util;
 
 import org.antlr.runtime.ANTLRFileStream;
 import org.jdbi.v3.core.config.ConfigRegistry;

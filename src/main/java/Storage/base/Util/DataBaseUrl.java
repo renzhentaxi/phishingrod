@@ -1,4 +1,4 @@
-package Storage.base;
+package Storage.base.Util;
 
 public @interface DataBaseUrl
 {
