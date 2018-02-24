@@ -1,13 +1,13 @@
 import Accounts.User;
 import Storage.Sqlite.DaggerSqliteStorageManager;
+import Storage.base.JdbiUtil.StoredSqlLocator;
 import Storage.base.StorageManager;
 import Storage.base.UserAccessor;
 
-public class DatabaseTest
-{
-    public static void main(String[] args)
-    {
+public class DatabaseTest {
+    public static void main(String[] args) {
         String databaseLocation = System.getProperty("user.dir") + "/data/database/test.db";
+
 
         StorageManager storageManager = DaggerSqliteStorageManager.builder().databaseUrl(databaseLocation).build();
 

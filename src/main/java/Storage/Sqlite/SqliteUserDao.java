@@ -6,17 +6,16 @@ import org.jdbi.v3.sqlobject.customizer.BindBean;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
-public interface SqliteUserDao extends UserDao
-{
+public interface SqliteUserDao extends UserDao {
     @Override
-    @SqlQuery("Sqlite/getUser")
+    @SqlQuery("Sqlite/user/getUser")
     User get(String emailAddress);
 
     @Override
-    @SqlUpdate("Sqlite/addUser")
+    @SqlUpdate("Sqlite/user/addUser")
     void add(@BindBean User user);
 
     @Override
-    @SqlUpdate("Sqlite/updateUser")
+    @SqlUpdate("Sqlite/user/updateUser")
     void update(@BindBean User user);
 }

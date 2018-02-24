@@ -1,7 +1,5 @@
 package Accounts;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import javax.mail.internet.InternetAddress;
 import java.io.UnsupportedEncodingException;
 
@@ -71,7 +69,7 @@ public class User implements IUser
     @Override
     public String getProperty(String name)
     {
-        throw new NotImplementedException();
+        throw new RuntimeException("no implemented");
     }
 
     private String _stringRepresentation;

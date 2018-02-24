@@ -1,7 +1,5 @@
 package Storage.base;
 
-import Storage.Sqlite.SqliteUserAccessor;
-import Storage.Sqlite.SqliteUserDao;
 import dagger.Module;
 import dagger.Provides;
 import org.jdbi.v3.core.Jdbi;
