@@ -46,7 +46,5 @@ public abstract class SqliteModule {
 
     @Binds
     @Singleton
-    public abstract SqlLocator provideSqlLocator(StoredSqlLocator sqlLocator);
-
-
+    public abstract SqlLocator provideSqlLocator(StoredSqlLocator storedSqlLocator);
 }

@@ -1,6 +1,7 @@
 package Storage.base;
 
 import Storage.base.Daos.UserDao;
+import Storage.base.Util.StoredSqlLocator;
 import Storage.base.Util.UserMapper;
 import dagger.Module;
 import dagger.Provides;
