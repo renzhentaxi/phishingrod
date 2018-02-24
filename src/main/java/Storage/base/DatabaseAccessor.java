@@ -1,4 +1,4 @@
-package Storage;
+package Storage.base;
 
 public interface DatabaseAccessor<T>
 {

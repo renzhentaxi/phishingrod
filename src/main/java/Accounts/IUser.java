@@ -17,7 +17,7 @@ public interface IUser
 
     String getFullName();
 
-    String getAddress();
+    String getEmailAddress();
 
     String getProperty(String name);
 

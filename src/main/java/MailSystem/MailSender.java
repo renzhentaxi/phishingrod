@@ -32,8 +32,8 @@ public class MailSender implements IMailSender
     {
         try
         {
-            transport.connect(sender.getAddress(), sender.getPassword());
-            transport.sendMessage(message, new Address[]{new InternetAddress(to.getAddress())});
+            transport.connect(sender.getEmailAddress(), sender.getPassword());
+            transport.sendMessage(message, new Address[]{new InternetAddress(to.getEmailAddress())});
         } catch (MessagingException exception)
         {
             exception.printStackTrace();

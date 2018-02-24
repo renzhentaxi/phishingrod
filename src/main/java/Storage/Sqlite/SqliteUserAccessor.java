@@ -1,17 +1,21 @@
 package Storage.Sqlite;
 
-import Storage.ConnectionProvider;
-import Storage.UserAccessor;
+import Storage.base.JdbiUtil.FilePathSqlLocator;
+import Storage.base.UserAccessor;
+import org.jdbi.v3.core.Jdbi;
+
+import javax.inject.Inject;
 
 public class SqliteUserAccessor extends UserAccessor
 {
-    private static final String getQuery = "SELECT * FROM User WHERE email_address = ?;";
-    private static final String addQuery = "";//todo
-    private static final String updateQuery = "";//todo
+    private static final String getQuery = "SELECT * FROM User WHERE email_address = :emailAddress;";
+    private static final String addQuery = FilePathSqlLocator.locate("Sqlite/addUser");
+    private static final String updateQuery = FilePathSqlLocator.locate("Sqlite/updateUser");
 
-    public SqliteUserAccessor(ConnectionProvider connectionProvider)
+    @Inject
+    public SqliteUserAccessor(Jdbi jdbi)
     {
-        super(connectionProvider);
+        super(jdbi);
     }
 
     @Override

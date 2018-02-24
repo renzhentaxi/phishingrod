@@ -1,8 +1,7 @@
 package Storage.Sqlite;
 
-import Storage.DataBaseUrl;
-import Storage.Sqlite.SqliteModule;
-import Storage.StorageManager;
+import Storage.base.DataBaseUrl;
+import Storage.base.StorageManager;
 import dagger.BindsInstance;
 import dagger.Component;
 
@@ -20,5 +19,6 @@ public interface SqliteStorageManager extends StorageManager
 
         StorageManager build();
     }
+
 
 }

@@ -12,7 +12,7 @@ public class User implements IUser
     private final String _nickName;
     private final String _fullName;
 
-    private final String _address;
+    private final String _emailAddress;
     private InternetAddress _internetAddress;
 
     public User(String firstName, String lastName, String nickName, String address)
@@ -22,7 +22,7 @@ public class User implements IUser
         _nickName = nickName;
         _fullName = firstName + " " + lastName;
 
-        _address = address;
+        _emailAddress = address;
         try
         {
             _internetAddress = new InternetAddress(address, lastName);
@@ -57,9 +57,9 @@ public class User implements IUser
     }
 
     @Override
-    public String getAddress()
+    public String getEmailAddress()
     {
-        return _address;
+        return _emailAddress;
     }
 
     @Override
@@ -81,7 +81,7 @@ public class User implements IUser
     {
         if (_stringRepresentation == null)
         {
-            _stringRepresentation = "[User] firstName: " + _firstName + ", lastName: " + _lastName + ", nickName: " + _nickName + ", email: " + _address;
+            _stringRepresentation = "[User] firstName: " + _firstName + ", lastName: " + _lastName + ", nickName: " + _nickName + ", email: " + _emailAddress;
         }
         return _stringRepresentation;
     }

@@ -1,6 +1,7 @@
+import Accounts.User;
 import Storage.Sqlite.DaggerSqliteStorageManager;
-import Storage.StorageManager;
-import Storage.UserAccessor;
+import Storage.base.StorageManager;
+import Storage.base.UserAccessor;
 
 public class DatabaseTest
 {
@@ -12,6 +13,8 @@ public class DatabaseTest
 
         UserAccessor accessor = storageManager.getUserAccessor();
         System.out.println(accessor.get("gmail.com"));
+
+        accessor.update(new User("taxi", "boi", "kdfjkds", "gmail.com")); // update the account with the address of gmail.com
 
     }
 }
