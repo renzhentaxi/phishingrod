@@ -1,6 +1,6 @@
-package Accounts.Entities;
+package Entities;
 
-import Accounts.Entities.Data.IUserData;
+import Entities.Data.IUserData;
 
 public interface IUser extends IUserData, IEntity
 {

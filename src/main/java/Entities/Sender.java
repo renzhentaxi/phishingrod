@@ -1,7 +1,7 @@
-package Accounts.Entities;
+package Entities;
 
 
-import Accounts.Entities.Data.SenderData;
+import Entities.Data.SenderData;
 
 public class Sender extends SenderData implements ISender
 {

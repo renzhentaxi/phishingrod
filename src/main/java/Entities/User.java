@@ -1,7 +1,7 @@
-package Accounts.Entities;
+package Entities;
 
 
-import Accounts.Entities.Data.UserData;
+import Entities.Data.UserData;
 
 public class User extends UserData implements IUser
 {

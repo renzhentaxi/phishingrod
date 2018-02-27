@@ -1,5 +1,5 @@
-import Accounts.Entities.Sender;
-import Accounts.Entities.User;
+import Entities.Sender;
+import Entities.User;
 import Storage.Sqlite.DaggerSqliteStorageManager;
 import Storage.base.Accessors.Sender.SenderAccessor;
 import Storage.base.Accessors.User.UserAccessor;

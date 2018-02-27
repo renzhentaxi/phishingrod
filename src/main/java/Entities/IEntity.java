@@ -1,4 +1,4 @@
-package Accounts.Entities;
+package Entities;
 
 public interface IEntity
 {

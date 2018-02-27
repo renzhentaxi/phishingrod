@@ -1,7 +1,7 @@
 package Storage.base.Accessors.Sender;
 
-import Accounts.Entities.Data.SenderData;
-import Accounts.Entities.Sender;
+import Entities.Data.SenderData;
+import Entities.Sender;
 import Storage.base.Accessors.ExceptionHandler;
 import Storage.base.Accessors.User.UserAccessor;
 import Storage.base.Util.AlternativeSqlLocator;

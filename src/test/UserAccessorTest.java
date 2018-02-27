@@ -1,4 +1,4 @@
-import Accounts.Entities.Data.UserData;
+import Entities.Data.UserData;
 import Storage.base.Accessors.User.UserAccessor;
 import Storage.base.Util.StoredSqlLocator;
 import org.jdbi.v3.core.Jdbi;

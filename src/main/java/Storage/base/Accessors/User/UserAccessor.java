@@ -1,10 +1,9 @@
 package Storage.base.Accessors.User;
 
-import Accounts.Entities.User;
-import Accounts.Entities.Data.UserData;
+import Entities.User;
+import Entities.Data.UserData;
 import Storage.base.Accessors.ExceptionHandler;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
-import Storage.base.Accessors.User.IUserAccessor;
 import Storage.base.Util.AlternativeSqlLocator;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;

@@ -1,4 +1,4 @@
-package Accounts.Entities.Data;
+package Entities.Data;
 
 public class UserData implements IUserData
 {

@@ -1,7 +1,7 @@
 package MailSystem;
 
-import Accounts.Entities.Data.UserData;
-import Accounts.Entities.Sender;
+import Entities.Data.UserData;
+import Entities.Sender;
 
 import javax.mail.Message;
 

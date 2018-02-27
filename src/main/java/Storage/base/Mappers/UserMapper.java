@@ -1,6 +1,6 @@
 package Storage.base.Mappers;
 
-import Accounts.Entities.User;
+import Entities.User;
 import org.jdbi.v3.core.mapper.RowMapper;
 import org.jdbi.v3.core.statement.StatementContext;
 

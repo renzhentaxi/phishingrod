@@ -1,4 +1,4 @@
-package Accounts.Entities.Data;
+package Entities.Data;
 
 public interface IUserData extends IEntityData
 {
