@@ -1,20 +1,19 @@
 package Storage.Sqlite;
 
+import Storage.base.Accessors.ExceptionHandler;
+import Storage.base.Accessors.Sender.SenderAccessor;
+import Storage.base.Accessors.User.UserAccessor;
+import Storage.base.Util.AlternativeSqlLocator;
 import Storage.base.Util.DataBaseUrl;
-import Storage.base.DatabaseModule;
-import Storage.base.Util.StoredSqlLocator;
-import Storage.base.Accessors.UserAccessor;
-import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 import org.jdbi.v3.core.Jdbi;
-import org.jdbi.v3.sqlobject.locator.SqlLocator;
 import org.sqlite.SQLiteDataSource;
 
 import javax.inject.Singleton;
 import javax.sql.DataSource;
 
-@Module(includes = DatabaseModule.class)
+@Module
 public abstract class SqliteModule {
     @Provides
     @Singleton
@@ -26,25 +25,23 @@ public abstract class SqliteModule {
 
     @Provides
     @Singleton
-    public static UserAccessor provideUserAccessor(Jdbi jdbi, StoredSqlLocator locator) {
+    public static UserAccessor provideUserAccessor(Jdbi jdbi, ExceptionHandler exceptionHandler, AlternativeSqlLocator locator)
+    {
 
-        return new UserAccessor(jdbi, locator);
+        return new UserAccessor(jdbi, exceptionHandler, locator);
     }
 
     @Provides
     @Singleton
-    public static StoredSqlLocator provideStoredSqlLocator() {
-        String rootPath = System.getProperty("user.dir") + "/src/scripts/sql";
-        String parentPath = "sqlite";
-        StoredSqlLocator locator = new StoredSqlLocator(rootPath, parentPath);
-
-        locator.register("addUser", "user/addUser");
-        locator.register("updateUser", "user/updateUser");
-        locator.register("getUser", "user/getUser");
-        return locator;
+    public static SenderAccessor provideSenderAccessor(Jdbi jdbi, AlternativeSqlLocator locator, ExceptionHandler exceptionHandler, UserAccessor userAccessor)
+    {
+        return new SenderAccessor(jdbi, exceptionHandler, locator, userAccessor);
     }
 
-    @Binds
+    @Provides
     @Singleton
-    public abstract SqlLocator provideSqlLocator(StoredSqlLocator storedSqlLocator);
+    public static ExceptionHandler provideExceptionHandler()
+    {
+        return new SqliteExceptionHandler();
+    }
 }

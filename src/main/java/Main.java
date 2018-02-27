@@ -1,5 +1,6 @@
-import Accounts.Sender;
-import Accounts.User;
+import Accounts.Entities.Data.UserData;
+import Accounts.Entities.Sender;
+import Accounts.Entities.User;
 import MailSystem.HTMLMail;
 import MailSystem.IMail;
 import MailSystem.MailSender;
@@ -23,8 +24,9 @@ public class Main
 
         //create a sender and a receiver
         //later on all these will be stored in a database
-        Sender sender = new Sender("taxi", "wut", "myname", "phishingrod123@gmail.com", "2132018fish", "gmail");
-        User receiver = new User("jeff", "myboi", "boi", "phishingrod123@gmail.com");
+        User user = new User(0, "taxi", "wut", "myname", "phishingrod123@gmail.com");
+        Sender sender = new Sender(user, "2132018fish", "gmail");
+        UserData receiver = new UserData("jeff", "myboi", "boi", "phishingrod123@gmail.com");
 
         //load the email
         IMail mail = new HTMLMail(TextLoader.LoadEmail("testmail/localimageviamultipart"));

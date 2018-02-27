@@ -1,8 +1,9 @@
 package Storage.base;
 
-import Storage.base.Daos.UserDao;
-import Storage.base.Util.StoredSqlLocator;
-import Storage.base.Util.UserMapper;
+import Storage.base.Mappers.SenderMapper;
+import Storage.base.Mappers.SessionPropertiesMapper;
+import Storage.base.Mappers.UserMapper;
+import Storage.base.Util.AlternativeSqlLocator;
 import dagger.Module;
 import dagger.Provides;
 import org.jdbi.v3.core.Jdbi;
@@ -17,17 +18,14 @@ import javax.sql.DataSource;
 public class DatabaseModule {
     @Provides
     @Singleton
-    public static Jdbi provideJdbi(DataSource dataSource, SqlLocator sqlLocator) {
+    public static Jdbi provideJdbi(DataSource dataSource, AlternativeSqlLocator sqlLocator) {
         Jdbi jdbi = Jdbi.create(dataSource);
         jdbi.installPlugin(new SqlObjectPlugin());
         jdbi.registerRowMapper(new UserMapper());
+        jdbi.registerRowMapper(new SenderMapper());
+        jdbi.registerRowMapper(new SessionPropertiesMapper());
         jdbi.getConfig().get(SqlObjects.class).setSqlLocator(sqlLocator);
         return jdbi;
     }
 
-    @Provides
-    @Singleton
-    public static UserDao provideUserDao(Jdbi jdbi) {
-        return jdbi.onDemand(UserDao.class);
-    }
 }

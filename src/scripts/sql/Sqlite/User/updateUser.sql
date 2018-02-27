@@ -1,7 +1,8 @@
 UPDATE User
 SET
-  first_name = :firstName,
-  last_name  = :lastName,
-  nick_name  = :nickName
+  email_address = :emailAddress,
+  first_name    = :firstName,
+  last_name     = :lastName,
+  nick_name     = :nickName
 WHERE
-  email_address = :emailAddress;
+  userId = :id;

@@ -1,7 +1,7 @@
 package MailSystem;
 
-import Accounts.Sender;
-import Accounts.User;
+import Accounts.Entities.Data.UserData;
+import Accounts.Entities.Sender;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -18,13 +18,13 @@ public class HTMLMail implements IMail
     }
 
     @Override
-    public Message getMessage(Sender from, User to)
+    public Message getMessage(Sender from, UserData to)
     {
-        Session session = from.getSession();
+        Session session = Sessions.GetSession(from.getSessionType());
         Message message = new MimeMessage(session);
         try
         {
-            message.setFrom(from.getInternetAddress());
+//            message.setFrom(from.getInternetAddress());
             message.setContent(_data, "text/html");
         } catch (MessagingException exception)
         {

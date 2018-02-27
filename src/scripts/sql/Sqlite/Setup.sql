@@ -2,7 +2,7 @@ PRAGMA FOREIGN_KEYS = ON;
 
 DROP TABLE IF EXISTS Sender;
 DROP TABLE IF EXISTS User;
-
+DROP TABLE IF EXISTS SessionType;
 
 CREATE TABLE User
 (
@@ -16,7 +16,17 @@ CREATE TABLE User
 
 CREATE TABLE Sender
 (
-  userId      INTEGER PRIMARY KEY REFERENCES User (userid),
-  password    TEXT NOT NULL,
-  sessionType TEXT NOT NULL
+  userId       INTEGER PRIMARY KEY REFERENCES User (userid),
+  password     TEXT NOT NULL,
+  session_Type TEXT REFERENCES SessionType (name)
 );
+
+CREATE TABLE SessionType
+(
+  name PRIMARY KEY  NOT NULL,
+  host TEXT         NOT NULL,
+  port INTEGER      NOT NULL,
+  auth BOOLEAN      NOT NULL,
+  tls  BOOLEAN      NOT NULL
+);
+

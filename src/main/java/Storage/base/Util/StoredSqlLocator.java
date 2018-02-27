@@ -4,14 +4,13 @@ import org.antlr.runtime.ANTLRFileStream;
 import org.jdbi.v3.core.config.ConfigRegistry;
 import org.jdbi.v3.core.internal.SqlScriptParser;
 import org.jdbi.v3.sqlobject.internal.SqlAnnotations;
-import org.jdbi.v3.sqlobject.locator.SqlLocator;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 
-public class StoredSqlLocator implements SqlLocator {
+public class StoredSqlLocator implements AlternativeSqlLocator {
     private static final SqlScriptParser SQL_SCRIPT_PARSER = new SqlScriptParser((t, sb) -> sb.append(t.getText()));
 
     public static char DEFAULT_SEPARATOR = '/';
@@ -34,7 +33,9 @@ public class StoredSqlLocator implements SqlLocator {
 
     public String locate(String name) {
         if (name == null) throw new RuntimeException("name cant be null!!");
-        return _scripts.get(name);
+        String script = _scripts.get(name);
+        if (script == null) throw new RuntimeException("no such script registered: " + name + "!!");
+        return script;
     }
 
     public void setRootDirectory(String rootPath) {

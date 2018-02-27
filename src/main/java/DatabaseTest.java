@@ -1,6 +1,9 @@
+import Accounts.Entities.Sender;
+import Accounts.Entities.User;
 import Storage.Sqlite.DaggerSqliteStorageManager;
+import Storage.base.Accessors.Sender.SenderAccessor;
+import Storage.base.Accessors.User.UserAccessor;
 import Storage.base.StorageManager;
-import Storage.base.Daos.UserDao;
 
 public class DatabaseTest {
     public static void main(String[] args) {
@@ -9,11 +12,18 @@ public class DatabaseTest {
 
         StorageManager storageManager = DaggerSqliteStorageManager.builder().databaseUrl(databaseLocation).build();
 
-//        UserAccessor accessor = storageManager.getUserAccessor();
-//        System.out.println(accessor.get("gmail.com"));
+        UserAccessor ua2 = storageManager.getUserAccessor();
+        SenderAccessor sa = storageManager.getSenderAccessor();
 
-        UserDao dao = storageManager.getUserDao();
-        System.out.println(dao.get("gmail.com"));
+//        UserData userData = new UserData("taxi", "boi", "245", "taxi@yahoo.com");
+        User user = ua2.getByEmail("gmail.com");
 
+//        SenderData senderData = new SenderData(user, "password", "gmail");
+
+        Sender sender = sa.getByEmail("gmail.com");
+        sender.setPassword("520");
+        sender.getUser().setEmailAddress("gmail.com");
+        sa.update(sender);
+        System.out.println(sender.getUser().getEmailAddress());
     }
 }
