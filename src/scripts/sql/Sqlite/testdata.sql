@@ -9,3 +9,7 @@ VALUES ('taxi@gmail.com', 'renzhentaxi', 'baerde', 'taxi');
 INSERT INTO Sender
 (userId, password, session_Type) VALUES (1, 'no password', 'gmail');
 
+INSERT INTO MailTypes
+(templateId, name, location, dateUpdated)
+VALUES (1,'Chase','Data/Mails/Chase/index.html', '2018-02-28');
+

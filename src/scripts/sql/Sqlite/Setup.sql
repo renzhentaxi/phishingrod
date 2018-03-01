@@ -30,3 +30,11 @@ CREATE TABLE SessionType
   tls  BOOLEAN      NOT NULL
 );
 
+CREATE TABLE MailTypes
+(
+  templateId            INTEGER PRIMARY KEY ,
+  name          TEXT            NOT NULL,
+  location          TEXT        NOT NULL ,
+  dateUpdated             date        NOT NULL
+)
+
