@@ -1,7 +1,12 @@
 import Entities.Data.UserData;
+import Entities.User;
 import Storage.base.Accessors.User.UserAccessor;
-import Storage.base.Util.StoredSqlLocator;
+import Storage.base.Mappers.UserMapper;
+import Storage.base.Util.AlternativeSqlLocator;
 import org.jdbi.v3.core.Jdbi;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * missing tests:
@@ -13,22 +18,28 @@ import org.jdbi.v3.core.Jdbi;
  */
 public class UserAccessorTest
 {
-
+    @Test
     public void get_userExist_userIsReturned()
     {
-        String rootPath = System.getProperty("user.dir") + "/src/scripts/sql";
-        String parentPath = "sqlite";
-        StoredSqlLocator sqlLocator = new StoredSqlLocator(rootPath, parentPath);
+        //setting up testDatabase
+        Jdbi testDatabase = TestHelper.getJdbi(new UserMapper());
+        AlternativeSqlLocator sqlLocator = TestHelper.getMockSqlLocator(
+                "getUser", "user/getUser",
+                "addUser", "user/addUser");
 
-        sqlLocator.register("Setup", "Setup");
-        sqlLocator.register("getUser", "User/getUser");
-        Jdbi jdbi = Jdbi.create("jdbc:sqlite::memory:");
-        jdbi.withHandle(handle -> handle.createScript(sqlLocator.locate("Setup")).execute());
+        UserAccessor ua = new UserAccessor(testDatabase, null, sqlLocator);
 
+        //test data
+        UserData expectedUser = new UserData("firstName", "lastName", "nickName", "address");
+        int userId = ua.add(expectedUser).getId();
 
-        UserAccessor ua = new UserAccessor(jdbi, null, sqlLocator);
+        User actualUser = ua.get(userId);
 
-        ua.add(new UserData("firstName", "lastName", "nickName", "emailAddress"));
+        //compare data
+        assertEquals(expectedUser.getFirstName(), actualUser.getFirstName());
+        assertEquals(expectedUser.getLastName(), actualUser.getLastName());
+        assertEquals(expectedUser.getNickName(), actualUser.getNickName());
+        assertEquals(expectedUser.getEmailAddress(), actualUser.getEmailAddress());
     }
 
     public void get_userDoesNotExist_exceptionIsThrown()

@@ -30,3 +30,4 @@ CREATE TABLE SessionType
   tls  BOOLEAN      NOT NULL
 );
 
+
