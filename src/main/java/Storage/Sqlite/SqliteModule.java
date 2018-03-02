@@ -27,7 +27,6 @@ public abstract class SqliteModule {
     @Singleton
     public static UserAccessor provideUserAccessor(Jdbi jdbi, ExceptionHandler exceptionHandler, AlternativeSqlLocator locator)
     {
-
         return new UserAccessor(jdbi, exceptionHandler, locator);
     }
 
