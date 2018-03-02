@@ -12,7 +12,6 @@ import java.util.HashMap;
 
 public class StoredSqlLocator implements AlternativeSqlLocator {
     private static final SqlScriptParser SQL_SCRIPT_PARSER = new SqlScriptParser((t, sb) -> sb.append(t.getText()));
-
     public static char DEFAULT_SEPARATOR = '/';
     private HashMap<String, String> _scripts;
     private String _rootDirectory;
@@ -38,6 +37,24 @@ public class StoredSqlLocator implements AlternativeSqlLocator {
         return script;
     }
 
+    public String locateAt(String relativeLocation)
+    {
+        String formattedLocation = _rootDirectory + _parentDirectory + formatDirectory(relativeLocation, ".sql", File.separator);
+        return getScriptAt(formattedLocation);
+    }
+
+    public static String getScriptAt(String absoluteLocation)
+    {
+        String sql = null;
+        try
+        {
+            sql = SQL_SCRIPT_PARSER.parse(new ANTLRFileStream(absoluteLocation));
+        } catch (IOException exception)
+        {
+            exception.printStackTrace();
+        }
+        return sql;
+    }
     public void setRootDirectory(String rootPath) {
         _rootDirectory = formatDirectory(rootPath, File.separator, File.separator);
     }
@@ -47,13 +64,7 @@ public class StoredSqlLocator implements AlternativeSqlLocator {
     }
 
     public void register(String name, String relativeLocation) {
-
-        String formattedLocation = _rootDirectory + _parentDirectory + formatDirectory(relativeLocation, ".sql", File.separator);
-        try {
-            _scripts.put(name, SQL_SCRIPT_PARSER.parse(new ANTLRFileStream(formattedLocation)));
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
+        _scripts.put(name, locateAt(relativeLocation));
     }
 
     private String formatDirectory(String pathString, String suffix, String noPrefix) {
@@ -66,4 +77,6 @@ public class StoredSqlLocator implements AlternativeSqlLocator {
         }
         return pathString;
     }
+
+
 }
