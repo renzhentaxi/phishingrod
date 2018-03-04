@@ -1,5 +1,7 @@
 package Entities.Data;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 public class UserData implements IUserData
 {
     protected String firstName;
@@ -40,5 +42,25 @@ public class UserData implements IUserData
     public String getEmailAddress()
     {
         return emailAddress;
+    }
+
+    @Override
+    public boolean equals(Object object)
+    {
+        if (object instanceof UserData)
+        {
+            UserData other = (UserData) object;
+            return this.emailAddress.equals(other.emailAddress) &&
+                    this.firstName.equals(other.firstName) &&
+                    this.lastName.equals(other.lastName) &&
+                    this.nickName.equals(other.nickName);
+        }
+        return false;
+    }
+
+    @Override
+    public String toString()
+    {
+        return ToStringBuilder.reflectionToString(this);
     }
 }
