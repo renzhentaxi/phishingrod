@@ -1,0 +1,8 @@
+name, location, compiled_location, last_change
+
+
+the birthrate is strong > death rate + catastrophe + hunting
+
+when it reaches the cap,
+the population will decrease due to death rate, catastrophe, hunting but no increase because birthrate becomes 0%
+it will decrease to the point where birthrate becomes stronger and start to increase

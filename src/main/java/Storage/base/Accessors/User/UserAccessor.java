@@ -1,13 +1,16 @@
 package Storage.base.Accessors.User;
 
-import Entities.User;
 import Entities.Data.UserData;
+import Entities.User;
 import Storage.base.Accessors.ExceptionHandler;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
+import Storage.base.Accessors.Exceptions.UserWithEmailAlreadyExistException;
 import Storage.base.Util.AlternativeSqlLocator;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.core.statement.UnableToExecuteStatementException;
+import org.sqlite.SQLiteErrorCode;
+import org.sqlite.SQLiteException;
 
 /**
  * the _with methods do not close the handle.
@@ -15,17 +18,30 @@ import org.jdbi.v3.core.statement.UnableToExecuteStatementException;
  */
 public class UserAccessor implements IUserAccessor
 {
+    private static RuntimeException HandleCommonException(UnableToExecuteStatementException exception)
+    {
+        Throwable cause = exception.getCause();
+        if (cause instanceof SQLiteException)
+        {
+            SQLiteException sqLiteException = (SQLiteException) cause;
+            if (sqLiteException.getResultCode() == SQLiteErrorCode.SQLITE_CONSTRAINT_UNIQUE && sqLiteException.getMessage().contains("email_address"))
+            {
+                return new UserWithEmailAlreadyExistException();
+            }
+        }
+        return new RuntimeException("Unknown exception", cause);
+
+    }
+
     private Jdbi jdbi;
-    private ExceptionHandler exceptionHandler;
     private String getQuery;
     private String getByEmailQuery;
     private String addQuery;
     private String updateQuery;
 
-    public UserAccessor(Jdbi jdbi, ExceptionHandler exceptionHandler, AlternativeSqlLocator locator)
+    public UserAccessor(Jdbi jdbi, AlternativeSqlLocator locator)
     {
         this.jdbi = jdbi;
-        this.exceptionHandler = exceptionHandler;
 
         getQuery = locator.locate("getUser");
         getByEmailQuery = locator.locate("getUserByEmail");
@@ -74,27 +90,24 @@ public class UserAccessor implements IUserAccessor
     {
         try
         {
-            int id = handle.inTransaction(h ->
-                    handle.createUpdate(addQuery).bindBean(data).executeAndReturnGeneratedKeys().mapTo(Integer.class).findOnly());
+            int id = handle.createUpdate(addQuery).bindBean(data).executeAndReturnGeneratedKeys().mapTo(Integer.class).findOnly();
             return new User(id, data);
         } catch (UnableToExecuteStatementException exception)
         {
-            throw exceptionHandler.Handle(exception);
+            throw HandleCommonException(exception);
         }
     }
+
 
     public User getWith(int id, Handle handle)
     {
         try
         {
             return handle.createQuery(getQuery).bind("id", id).mapTo(User.class).findOnly();
-        } catch (UnableToExecuteStatementException exception)
-        {
-            throw exceptionHandler.Handle(exception);
         } catch (IllegalStateException exception)
         {
             if (exception.getMessage().equals("No element found in 'only'"))
-                throw new EntityDoesNotExistException();
+                throw new EntityDoesNotExistException("No user with id: " + id + " in database");
             else throw exception;
         }
 
@@ -105,13 +118,10 @@ public class UserAccessor implements IUserAccessor
         try
         {
             return handle.createQuery(getByEmailQuery).bind("emailAddress", emailAddress).mapTo(User.class).findOnly();
-        } catch (UnableToExecuteStatementException exception)
-        {
-            throw exceptionHandler.Handle(exception);
         } catch (IllegalStateException exception)
         {
             if (exception.getMessage().equals("No element found in 'only'"))
-                throw new EntityDoesNotExistException();
+                throw new EntityDoesNotExistException("No user with email: " + emailAddress + " in database");
             else throw exception;
         }
     }
@@ -120,10 +130,13 @@ public class UserAccessor implements IUserAccessor
     {
         try
         {
-            handle.createUpdate(updateQuery).bindBean(user).execute();
+            if (handle.createUpdate(updateQuery).bindBean(user).execute() != 1)
+            {
+                throw new EntityDoesNotExistException("Can not find user: " + user.toString() + " in database");
+            }
         } catch (UnableToExecuteStatementException exception)
         {
-            throw exceptionHandler.Handle(exception);
+            throw HandleCommonException(exception);
         }
     }
 }

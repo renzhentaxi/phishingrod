@@ -3,6 +3,5 @@ package Storage.base.Accessors;
 
 public interface ExceptionHandler
 {
-    RuntimeException Handle(RuntimeException exception);
-
+    RuntimeException Strip(RuntimeException exception);
 }

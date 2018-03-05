@@ -1,3 +1,5 @@
+import Storage.Sqlite.SqliteSqlLocatorModule;
+import Storage.base.Mappers.UserMapper;
 import Storage.base.Util.AlternativeSqlLocator;
 import Storage.base.Util.StoredSqlLocator;
 import org.jdbi.v3.core.Handle;
@@ -17,6 +19,8 @@ public class TestHelper
         Jdbi jdbi = Jdbi.create("jdbc:sqlite:" + System.getProperty("user.dir") + "/src/test/testDb.db");
         try (Handle handle = jdbi.open())
         {
+            Script hardClean = handle.createScript(StoredSqlLocator.getScriptAt(path + "HardClean.sql"));
+            hardClean.executeAsSeparateStatements();
             Script setup = handle.createScript(StoredSqlLocator.getScriptAt(path + "setup.sql"));
             setup.executeAsSeparateStatements();
         }
@@ -26,7 +30,6 @@ public class TestHelper
         }
         return jdbi;
     }
-
 
     public static AlternativeSqlLocator getMockSqlLocator(String... data)
     {
@@ -43,5 +46,14 @@ public class TestHelper
         return sqlLocator;
     }
 
+    public static Jdbi getSimpleJdbi()
+    {
+        return getJdbi(new UserMapper());
+    }
+
+    public static AlternativeSqlLocator getSimpleSqlLocator()
+    {
+        return SqliteSqlLocatorModule.provideAlternativeSqlLocator();
+    }
 
 }

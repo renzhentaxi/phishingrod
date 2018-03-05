@@ -12,4 +12,3 @@ INSERT INTO Sender
 INSERT INTO MailTypes
 (templateId, name, location, dateUpdated)
 VALUES (1,'Chase','Data/Mails/Chase/index.html', '2018-02-28');
-

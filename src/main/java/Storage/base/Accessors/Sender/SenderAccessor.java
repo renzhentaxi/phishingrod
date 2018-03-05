@@ -100,7 +100,7 @@ public class SenderAccessor implements ISenderAccessor
             return new Sender(data);
         } catch (UnableToExecuteStatementException exception)
         {
-            throw exceptionHandler.Handle(exception);
+            throw exceptionHandler.Strip(exception);
         }
     }
 
@@ -112,7 +112,7 @@ public class SenderAccessor implements ISenderAccessor
             handle.createUpdate(updateQuery).bindBean(entity).execute();
         } catch (UnableToExecuteStatementException exception)
         {
-            throw exceptionHandler.Handle(exception);
+            throw exceptionHandler.Strip(exception);
         }
 
     }
