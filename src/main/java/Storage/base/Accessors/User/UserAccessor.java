@@ -2,6 +2,7 @@ package Storage.base.Accessors.User;
 
 import Entities.Users.User;
 import Entities.Users.UserEntity;
+import Storage.base.Accessors.AccessorUtil;
 import Storage.base.Accessors.Exceptions.EntityAlreadyExistException;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
 import Storage.base.Accessors.Exceptions.EntityUpdateException;
@@ -9,8 +10,6 @@ import Storage.base.Util.AlternativeSqlLocator;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.core.statement.UnableToExecuteStatementException;
-import org.sqlite.SQLiteErrorCode;
-import org.sqlite.SQLiteException;
 
 /**
  * the _with methods do not close the handle.
@@ -18,17 +17,6 @@ import org.sqlite.SQLiteException;
  */
 public class UserAccessor implements IUserAccessor
 {
-    private static boolean isExceptionDueToEntityAlreadyExist(UnableToExecuteStatementException exception, String keyName)
-    {
-        Throwable cause = exception.getCause();
-        if (cause instanceof SQLiteException)
-        {
-            SQLiteException sqLiteException = (SQLiteException) cause;
-            return sqLiteException.getResultCode() == SQLiteErrorCode.SQLITE_CONSTRAINT_UNIQUE && sqLiteException.getMessage().contains(keyName);
-        }
-        return false;
-    }
-
     private Jdbi jdbi;
     private String getQuery;
     private String getByEmailQuery;
@@ -90,7 +78,8 @@ public class UserAccessor implements IUserAccessor
             return new UserEntity(id, data);
         } catch (UnableToExecuteStatementException exception)
         {
-            if (isExceptionDueToEntityAlreadyExist(exception, "email_address")) throw new EntityAlreadyExistException();
+            if (AccessorUtil.isExceptionDueToEntityAlreadyExist(exception, "email_address"))
+                throw new EntityAlreadyExistException();
             else throw exception;
         }
     }
@@ -133,7 +122,8 @@ public class UserAccessor implements IUserAccessor
             }
         } catch (UnableToExecuteStatementException exception)
         {
-            if (isExceptionDueToEntityAlreadyExist(exception, "email_address")) throw new EntityUpdateException();
+            if (AccessorUtil.isExceptionDueToEntityAlreadyExist(exception, "email_address"))
+                throw new EntityUpdateException();
             else throw exception;
         }
     }
