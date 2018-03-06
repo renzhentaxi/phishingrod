@@ -1,7 +1,7 @@
-package Entities;
+package Entities.Senders;
 
 
-import Entities.Data.Sender;
+import Entities.Users.UserEntity;
 
 public class SenderEntity extends Sender implements ISenderEntity
 {

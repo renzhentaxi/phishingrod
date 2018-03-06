@@ -1,6 +1,6 @@
-package Entities;
+package Entities.Senders;
 
-import Entities.Data.ISender;
+import Entities.IEntity;
 
 public interface ISenderEntity extends IEntity, ISender
 {

@@ -13,25 +13,26 @@ CREATE TABLE IF NOT EXISTS User
 
 CREATE TABLE IF NOT EXISTS Sender
 (
-  userId       INTEGER PRIMARY KEY REFERENCES User (userid),
-  password     TEXT NOT NULL,
-  session_Type TEXT REFERENCES SessionType (name)
+  userId    INTEGER PRIMARY KEY REFERENCES User (userid),
+  password  TEXT NOT NULL,
+  sessionId INTEGER REFERENCES SessionType (sessionId)
 );
 
 CREATE TABLE IF NOT EXISTS SessionType
 (
-  name PRIMARY KEY  NOT NULL,
-  host TEXT         NOT NULL,
-  port INTEGER      NOT NULL,
-  auth BOOLEAN      NOT NULL,
-  tls  BOOLEAN      NOT NULL
+  sessionId INTEGER PRIMARY KEY,
+  name      TEXT UNIQUE NOT NULL,
+  host      TEXT        NOT NULL,
+  port      INTEGER     NOT NULL,
+  auth      BOOLEAN     NOT NULL,
+  tls       BOOLEAN     NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS MailTypes
 (
-  templateId            INTEGER PRIMARY KEY ,
-  name          TEXT            NOT NULL,
-  location          TEXT        NOT NULL ,
-  dateUpdated             date        NOT NULL
+  templateId  INTEGER PRIMARY KEY,
+  name        TEXT NOT NULL,
+  location    TEXT NOT NULL,
+  dateUpdated DATE NOT NULL
 )
 

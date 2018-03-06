@@ -1,4 +1,4 @@
-package Entities.Data;
+package Entities.Users;
 
 public interface IUser
 {

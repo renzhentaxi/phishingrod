@@ -1,7 +1,7 @@
 package Storage.base.Accessors.User;
 
-import Entities.Data.User;
-import Entities.UserEntity;
+import Entities.Users.User;
+import Entities.Users.UserEntity;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
 import Storage.base.Accessors.IAccessor;
 

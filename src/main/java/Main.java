@@ -1,6 +1,6 @@
-import Entities.Data.User;
-import Entities.SenderEntity;
-import Entities.UserEntity;
+import Entities.Users.User;
+import Entities.Senders.SenderEntity;
+import Entities.Users.UserEntity;
 import MailSystem.HTMLMail;
 import MailSystem.IMail;
 import MailSystem.MailSender;

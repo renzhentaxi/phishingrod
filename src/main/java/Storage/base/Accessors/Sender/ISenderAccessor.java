@@ -1,7 +1,7 @@
 package Storage.base.Accessors.Sender;
 
-import Entities.Data.Sender;
-import Entities.SenderEntity;
+import Entities.Senders.Sender;
+import Entities.Senders.SenderEntity;
 import Storage.base.Accessors.IAccessor;
 
 public interface ISenderAccessor extends IAccessor<SenderEntity, Sender>

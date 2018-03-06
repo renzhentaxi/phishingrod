@@ -1,6 +1,6 @@
-package Entities.Data;
+package Entities.Senders;
 
-import Entities.UserEntity;
+import Entities.Users.UserEntity;
 
 public class Sender implements ISender
 {

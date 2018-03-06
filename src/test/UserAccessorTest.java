@@ -1,5 +1,5 @@
-import Entities.Data.User;
-import Entities.UserEntity;
+import Entities.Users.User;
+import Entities.Users.UserEntity;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
 import Storage.base.Accessors.Exceptions.UserWithEmailAlreadyExistException;
 import Storage.base.Accessors.User.UserAccessor;

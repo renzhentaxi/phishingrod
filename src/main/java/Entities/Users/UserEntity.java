@@ -1,7 +1,5 @@
-package Entities;
+package Entities.Users;
 
-
-import Entities.Data.User;
 
 public class UserEntity extends User implements IUserEntity
 {

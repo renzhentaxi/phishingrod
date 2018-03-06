@@ -1,7 +1,7 @@
 package Storage.base.Mappers;
 
-import Entities.SenderEntity;
-import Entities.UserEntity;
+import Entities.Senders.SenderEntity;
+import Entities.Users.UserEntity;
 import org.jdbi.v3.core.mapper.RowMapper;
 import org.jdbi.v3.core.statement.StatementContext;
 
