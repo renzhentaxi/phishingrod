@@ -1,0 +1,1610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="45ee3aef-8f0e-4230-840f-d919db3276a0" name="Default" comment="moved test classes around &#10;using a new naming scheme for tests&#10;added common test cases for accessors.txt -&gt; guideline on how to write tests for other accessors">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/ISessionTypeAccessor.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/SessionTypeAccessor.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/Storage/SessionTypeAccessorTest.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/DatabaseTest.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Entities/IEntity.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Entities/Senders/ISender.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Entities/Senders/ISenderEntity.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Entities/Senders/Sender.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Entities/Senders/SenderEntity.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Entities/SessionTypes/ISessionType.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Entities/SessionTypes/ISessionTypeEntity.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Entities/SessionTypes/SessionType.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Entities/SessionTypes/SessionTypeEntity.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Entities/Users/IUser.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Entities/Users/IUserEntity.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Entities/Users/User.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Entities/Users/UserEntity.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Login.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/MailSystem/HTMLMail.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/MailSystem/IMail.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/MailSystem/IMailSender.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/MailSystem/MailSender.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/MailSystem/Sessions.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Main.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/MainOld.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/Sqlite/DaggerSqliteStorageManager$1.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/Sqlite/DaggerSqliteStorageManager$Builder.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/Sqlite/DaggerSqliteStorageManager.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/Sqlite/SqliteExceptionHandler.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/Sqlite/SqliteModule.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/Sqlite/SqliteModule_ProvideDataSourceFactory.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/Sqlite/SqliteModule_ProvideExceptionHandlerFactory.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/Sqlite/SqliteModule_ProvideSenderAccessorFactory.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/Sqlite/SqliteModule_ProvideUserAccessorFactory.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/Sqlite/SqliteSqlLocatorModule.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/Sqlite/SqliteSqlLocatorModule_ProvideAlternativeSqlLocatorFactory.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/Sqlite/SqliteStorageManager$Builder.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/Sqlite/SqliteStorageManager.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/ExceptionHandler.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/Exceptions/EntityAlreadyExistException.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/Exceptions/EntityDoesNotExistException.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/Exceptions/EntityUpdateException.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/IAccessor.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/Sender/ISenderAccessor.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/Sender/SenderAccessor.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/SessionType/ISessionTypeAccessor.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/SessionType/SessionTypeAccessor.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/User/IUserAccessor.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/User/UserAccessor.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/DatabaseModule.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/DatabaseModule_ProvideJdbiFactory.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Mappers/SenderMapper.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Mappers/SessionPropertiesMapper.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Mappers/UserMapper.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/StorageManager.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Util/AlternativeSqlLocator.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Util/DataBaseUrl.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Util/StoredSqlLocator.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/TextLoader.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/generated/Storage/Sqlite/DaggerSqliteStorageManager.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/generated/Storage/Sqlite/SqliteModule_ProvideDataSourceFactory.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/generated/Storage/Sqlite/SqliteModule_ProvideExceptionHandlerFactory.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/generated/Storage/Sqlite/SqliteModule_ProvideSenderAccessorFactory.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/generated/Storage/Sqlite/SqliteModule_ProvideUserAccessorFactory.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/generated/Storage/Sqlite/SqliteSqlLocatorModule_ProvideAlternativeSqlLocatorFactory.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/generated/Storage/base/DatabaseModule_ProvideJdbiFactory.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/test-classes/SenderDaoTest.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/test-classes/Storage/AccessorTestHelper.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/test-classes/Storage/SessionTypeAccessorTest.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/target/test-classes/Storage/UserAccessorTest.class" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/70281553-640c-4524-8ad1-3cfde645dc1c/storage_v2/_src_/schema/main.uQUzAA.meta" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MailSystem/Sessions.java" afterPath="$PROJECT_DIR$/src/main/java/MailSystem/Sessions.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Session/ISessionAccessor.java" afterPath="" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="identifier.sqlite" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="identifier.sqlite" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="identifier.sqlite" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="identifier.sqlite" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+        <item name="sqlite_master: table" type="ffe0bd85:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test.db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+        <item name="SessionType: table" type="ffe0bd85:SqliteImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="common test cases for accessors.txt" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/test/Storage/common test cases for accessors.txt">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="210">
+                    <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="phishingrod" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SessionTypeAccessorTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Storage/SessionTypeAccessorTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="13" column="15" lean-forward="false" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+              <folding>
+                <element signature="method#add_sessionTypeAlreadyExist_throwsEntityAlreadyExistException#0;class#SessionTypeAccessorTest#0" expanded="false" />
+                <element signature="method#get_sessionTypeExist_returnSessionType#0;class#SessionTypeAccessorTest#0" expanded="false" />
+                <element signature="method#get_sessionTypeDoesNotExist_throwsEntityDoesNotExistException#0;class#SessionTypeAccessorTest#0" expanded="false" />
+                <element signature="method#getByName_sessionTypeExist_returnsSessionType#0;class#SessionTypeAccessorTest#0" expanded="false" />
+                <element signature="method#getByName_sessionTypeDoesNotExist_throwsEntityDoesNotExistException#0;class#SessionTypeAccessorTest#0" expanded="false" />
+                <element signature="method#update_sessionTypeDoesNotExist_throwsEntityDoesNotExistException#0;class#SessionTypeAccessorTest#0" expanded="false" />
+                <element signature="method#update_sessionTypeExist_updatesSessionType#0;class#SessionTypeAccessorTest#0" expanded="false" />
+                <element signature="method#update_anotherSessionTypeWithSameNewNameExist_throwsEntityUpdateException#0;class#SessionTypeAccessorTest#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserAccessorTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Storage/UserAccessorTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="93" column="5" lean-forward="true" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+              <folding>
+                <element signature="method#add_userExist_throwsEntityAlreadyExistException#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#get_userExist_returnsUser#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#get_userDoesNotExist_throwsEntityDoesNotExistException#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#getByEmail_userExist_returnsUser#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#getByEmail_userDoesNotExist_throwsEntityDoesNotExistException#0;class#UserAccessorTest#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-683">
+              <caret line="1559" column="21" lean-forward="false" selection-start-line="1559" selection-start-column="18" selection-end-line="1559" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MailTest.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MailTest.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="10" column="46" lean-forward="false" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="misc.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sqldialects.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/sqldialects.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uiDesigner.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vcs.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>exceptionHandler</find>
+      <find>cause</find>
+      <find>jdk</find>
+      <find>jd</find>
+    </findStrings>
+    <dirStrings>
+      <dir>C:\Users\Renzh\IdeaProjects\phishingrod</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/MailSystem/IMailSender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Accounts/Entities/Data/SenderData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MailSystem/MailSender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Accounts/Entities/Data/ISenderData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DatabaseTest.java" />
+        <option value="$PROJECT_DIR$/src/test/TestModule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Util/StoredSqlLocator.java" />
+        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/Clean.sql" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/Data/UserData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/Sqlite/SqliteExceptionHandler.java" />
+        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/HardReset.sql" />
+        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/SoftClean.sql" />
+        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/HardClean.sql" />
+        <option value="$PROJECT_DIR$/src/test/TestHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/EntityDoesNotExistException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/EntityAlreadyExistException.java" />
+        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/testdata.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/ExceptionHandler.java" />
+        <option value="$PROJECT_DIR$/src/scripts/plan" />
+        <option value="$PROJECT_DIR$/src/test/UserAccessorTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/IUserAccessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/Sqlite/SqliteModule.java" />
+        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/Setup.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/ISenderEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/Data/ISender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/Users/IUserEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/Users/UserEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/Senders/SenderEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/SessionTypes/ISessionType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/SessionTypes/SessionType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/SessionTypes/ISessionTypeEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/Users/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/SessionTypes/SessionTypeEntity.java" />
+        <option value="$PROJECT_DIR$/src/test/SenderDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/ISessionAccessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/IAccessor.java" />
+        <option value="$PROJECT_DIR$/src/test/Storage/TestHelper.java" />
+        <option value="$PROJECT_DIR$/src/test/Storage/AccessorTestHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/ISessionTypeAccessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/SessionTypeAccessor.java" />
+        <option value="$PROJECT_DIR$/src/test/Storage/SessionTypeAccessorTest.java" />
+        <option value="$PROJECT_DIR$/src/test/Storage/common test cases for accessors.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/UserWithEmailAlreadyExistException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/EntityUpdateException.java" />
+        <option value="$PROJECT_DIR$/src/test/Storage/UserAccessorTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/UserAccessor.java" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="width" value="976" />
+    <option name="height" value="1038" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+              <item name="codeStyles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
+              <item name="Mails" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Storage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Storage" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Storage" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="Accessors" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Storage" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="Accessors" type="462c0819:PsiDirectoryNode" />
+              <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
+              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="Storage" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Sqlite (Xerial)" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="TEXT" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Storage" />
+      <recent name="Storage.base" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\scripts\sql\Sqlite\User" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Storage.base.Accessors.Exceptions" />
+      <recent name="Storage.base.Daos" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\scripts\sql\Sqlite\User" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.UserAccessorTest (1)">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration name="UserAccessorTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Storage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="MailTest" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="Storage" />
+      <option name="MAIN_CLASS_NAME" value="Storage.UserAccessorTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="UserAccessorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="MailTest" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserAccessorTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="UserAccessorTest.getByEmail_userExist_userIsReturned" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="MailTest" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserAccessorTest" />
+      <option name="METHOD_NAME" value="getByEmail_userExist_userIsReturned" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="UserAccessorTest.updateUser_newEmailMatchesWithAnotherUserEmail_databaseIsUpdated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="MailTest" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserAccessorTest" />
+      <option name="METHOD_NAME" value="updateUser_newEmailMatchesWithAnotherUserEmail_databaseIsUpdated" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="UserAccessorTest.updateUser_userDoesNotExist_exceptionIsThrown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="MailTest" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserAccessorTest" />
+      <option name="METHOD_NAME" value="updateUser_userDoesNotExist_exceptionIsThrown" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="clean compile" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="compile" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+    </configuration>
+    <configuration name="compile" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="compile" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <list size="10">
+      <item index="0" class="java.lang.String" itemvalue="Application.DatabaseTest" />
+      <item index="1" class="java.lang.String" itemvalue="Application.DatabaseTest without complile" />
+      <item index="2" class="java.lang.String" itemvalue="Maven.clean compile" />
+      <item index="3" class="java.lang.String" itemvalue="Maven.compile" />
+      <item index="4" class="java.lang.String" itemvalue="Maven.clean" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.UserAccessorTest.getByEmail_userExist_userIsReturned" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.UserAccessorTest" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.UserAccessorTest.updateUser_userDoesNotExist_exceptionIsThrown" />
+      <item index="8" class="java.lang.String" itemvalue="JUnit.UserAccessorTest.updateUser_newEmailMatchesWithAnotherUserEmail_databaseIsUpdated" />
+      <item index="9" class="java.lang.String" itemvalue="JUnit.UserAccessorTest (1)" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.UserAccessorTest (1)" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.UserAccessorTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.UserAccessorTest.updateUser_newEmailMatchesWithAnotherUserEmail_databaseIsUpdated" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.UserAccessorTest.updateUser_userDoesNotExist_exceptionIsThrown" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.UserAccessorTest.getByEmail_userExist_userIsReturned" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="45ee3aef-8f0e-4230-840f-d919db3276a0" name="Default" comment="" />
+      <created>1519457204500</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1519457204500</updated>
+      <workItem from="1519457207813" duration="384000" />
+      <workItem from="1519484634050" duration="10175000" />
+      <workItem from="1519509101925" duration="232000" />
+      <workItem from="1519509371528" duration="8468000" />
+      <workItem from="1519576998370" duration="1528000" />
+      <workItem from="1519578613145" duration="11547000" />
+      <workItem from="1519616127379" duration="698000" />
+      <workItem from="1519675720018" duration="1512000" />
+      <workItem from="1519682721476" duration="92000" />
+      <workItem from="1519682940179" duration="751000" />
+      <workItem from="1519687787005" duration="42000" />
+      <workItem from="1519687861045" duration="166000" />
+      <workItem from="1519688502208" duration="154000" />
+      <workItem from="1519688679182" duration="15918000" />
+      <workItem from="1519745315610" duration="4486000" />
+      <workItem from="1519756886365" duration="3106000" />
+      <workItem from="1519789792264" duration="1330000" />
+      <workItem from="1519861002978" duration="1271000" />
+      <workItem from="1519938221955" duration="6302000" />
+      <workItem from="1520017397810" duration="594000" />
+      <workItem from="1520183598826" duration="14665000" />
+      <workItem from="1520300437511" duration="4022000" />
+      <workItem from="1520305845365" duration="3247000" />
+      <workItem from="1520311886060" duration="2806000" />
+    </task>
+    <task id="LOCAL-00001" summary="added new SqlLocator&#10;simplified storage system">
+      <created>1519492143019</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1519492143019</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Deleted FilePathSqlLocator&#10;Dao classes no longer needs to be implemented by the specific db adaper&#10;Restructured the file locations">
+      <created>1519495954496</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1519495954496</updated>
+    </task>
+    <task id="LOCAL-00003" summary="renamed parameters">
+      <created>1519496220721</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1519496220721</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added Idea runConfigurations">
+      <created>1519496301278</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1519496301278</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Refactored/restructured alot so now we can change emailAddress if needed">
+      <created>1519756147908</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1519756147908</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Renamed package: Account.Entities to Entites">
+      <created>1519757531687</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1519757531687</updated>
+    </task>
+    <task id="LOCAL-00007" summary="removed a line of space...">
+      <created>1519966793684</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1519966793684</updated>
+    </task>
+    <task id="LOCAL-00008" summary="extracted the sql locating logic into a static method">
+      <created>1519966840023</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1519966840023</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Initial testing(not complete)">
+      <created>1519966870582</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1519966870582</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added toString">
+      <created>1520204286337</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1520204286337</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added testing for userAccessor">
+      <created>1520222180954</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1520222180954</updated>
+    </task>
+    <task id="LOCAL-00012" summary="renamed somethingData objects to something &#10;and something objects to somethingEntity&#10;&#10;e.g. userData is now user and user is now userEntity">
+      <created>1520303045651</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1520303045651</updated>
+    </task>
+    <task id="LOCAL-00013" summary="relocated senders, users and their related classes into their own package">
+      <created>1520303160778</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1520303160778</updated>
+    </task>
+    <task id="LOCAL-00014" summary="created sessionType-related classes">
+      <created>1520304560100</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1520304560100</updated>
+    </task>
+    <task id="LOCAL-00015" summary="added a hardClean script which will drop all the tables.&#10;useful when changing table schema during dev">
+      <created>1520304653865</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1520304653865</updated>
+    </task>
+    <task id="LOCAL-00016" summary="ignore .idea/dataSources/">
+      <created>1520304681399</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1520304681399</updated>
+    </task>
+    <task id="LOCAL-00017" summary="empty database for testing only">
+      <created>1520304702695</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1520304702695</updated>
+    </task>
+    <task id="LOCAL-00018" summary="moved test classes around &#10;using a new naming scheme for tests&#10;added common test cases for accessors.txt -&gt; guideline on how to write tests for other accessors">
+      <created>1520313971204</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1520313971204</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="UserAccessorTest - 2018.03.04 at 22h 53m 17s.xml">
+      <configuration name="UserAccessorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserAccessorTest - 2018.03.04 at 22h 55m 18s.xml">
+      <configuration name="UserAccessorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserAccessorTest - 2018.03.04 at 23h 11m 55s.xml">
+      <configuration name="UserAccessorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserAccessorTest_(1) - 2018.03.05 at 22h 12m 04s.xml">
+      <configuration name="UserAccessorTest (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserAccessorTest_(1) - 2018.03.06 at 00h 18m 04s.xml">
+      <configuration name="UserAccessorTest (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserAccessorTest_(1) - 2018.03.06 at 00h 21m 23s.xml">
+      <configuration name="UserAccessorTest (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserAccessorTest_(1) - 2018.03.06 at 00h 24m 31s.xml">
+      <configuration name="UserAccessorTest (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserAccessorTest_updateUser_newEmailMatchesWithAnotherUserEmail_databaseIsUpdated - 2018.03.04 at 20h 48m 46s.xml">
+      <configuration name="UserAccessorTest.updateUser_newEmailMatchesWithAnotherUserEmail_databaseIsUpdated" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserAccessorTest_updateUser_newEmailMatchesWithAnotherUserEmail_databaseIsUpdated - 2018.03.04 at 22h 35m 53s.xml">
+      <configuration name="UserAccessorTest.updateUser_newEmailMatchesWithAnotherUserEmail_databaseIsUpdated" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserAccessorTest_updateUser_newEmailMatchesWithAnotherUserEmail_databaseIsUpdated - 2018.03.04 at 22h 37m 19s.xml">
+      <configuration name="UserAccessorTest.updateUser_newEmailMatchesWithAnotherUserEmail_databaseIsUpdated" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="93496000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.8598958" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34906697" sideWeight="0.60520834" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34906697" sideWeight="0.39479166" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3921875" sideWeight="0.49615806" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.44791666" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39956093" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22447917" sideWeight="0.50384194" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="91" y="91" width="1738" height="848" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added new SqlLocator&#10;simplified storage system" />
+    <MESSAGE value="Deleted FilePathSqlLocator&#10;Dao classes no longer needs to be implemented by the specific db adaper&#10;Restructured the file locations" />
+    <MESSAGE value="renamed parameters" />
+    <MESSAGE value="added Idea runConfigurations" />
+    <MESSAGE value="Refactored/restructured alot so now we can change emailAddress if needed" />
+    <MESSAGE value="Renamed package: Account.Entities to Entites" />
+    <MESSAGE value="removed a line of space..." />
+    <MESSAGE value="extracted the sql locating logic into a static method" />
+    <MESSAGE value="Initial testing(not complete)" />
+    <MESSAGE value="added toString" />
+    <MESSAGE value="added testing for userAccessor" />
+    <MESSAGE value="renamed somethingData objects to something &#10;and something objects to somethingEntity&#10;&#10;e.g. userData is now user and user is now userEntity" />
+    <MESSAGE value="relocated senders, users and their related classes into their own package" />
+    <MESSAGE value="created sessionType-related classes" />
+    <MESSAGE value="added a hardClean script which will drop all the tables.&#10;useful when changing table schema during dev" />
+    <MESSAGE value="ignore .idea/dataSources/" />
+    <MESSAGE value="empty database for testing only" />
+    <MESSAGE value="moved test classes around &#10;using a new naming scheme for tests&#10;added common test cases for accessors.txt -&gt; guideline on how to write tests for other accessors" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved test classes around &#10;using a new naming scheme for tests&#10;added common test cases for accessors.txt -&gt; guideline on how to write tests for other accessors" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="18" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/Sqlite/SqliteModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="664">
+          <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4abc076c/84d66fd6-cd7b-444a-a39c-c3cb77d93917/main.SessionType">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/HardClean.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/testdata.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4abc076c/f7b77a90-b6ce-4981-8db3-3f5f28c9d5bd/main.sqlite_master">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4abc076c/01243528-66cc-4943-9e94-68e358da945d/main.MailTypes">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4abc076c/01243528-66cc-4943-9e94-68e358da945d/main.sqlite_master">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4abc076c/01243528-66cc-4943-9e94-68e358da945d/main.User">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4abc076c/01243528-66cc-4943-9e94-68e358da945d/main.SessionType">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4abc076c/01243528-66cc-4943-9e94-68e358da945d/main.Sender">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/Setup.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="32" column="34" lean-forward="false" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Data/IEntityData.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/IEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Users/IUserEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/ISender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MailSystem/Sessions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="21" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/ISenderEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Mappers/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Users/IUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Users/UserEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/SessionTypes/ISessionTypeEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/SessionTypes/ISessionType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="23" column="7" lean-forward="false" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/SessionTypes/SessionTypeEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/SessionTypes/SessionType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#SessionType#0;class#SessionType#0" expanded="false" />
+            <element signature="method#getSessionInstance#0;class#SessionType#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Users/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/Sender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/SenderEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="e#199#200#0" expanded="false" />
+            <element signature="e#278#279#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/IAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Storage/AccessorTestHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/IUserAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="17" column="41" lean-forward="false" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/SessionTypeAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#265#266#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
+            <element signature="e#366#367#0" expanded="false" />
+            <element signature="e#393#394#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/SenderDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/ISessionTypeAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/EntityUpdateException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/UserAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="135" column="76" lean-forward="false" selection-start-line="135" selection-start-column="76" selection-end-line="135" selection-end-column="76" />
+          <folding>
+            <element signature="method#add#0;class#UserAccessor#0" expanded="false" />
+            <element signature="method#get#0;class#UserAccessor#0" expanded="false" />
+            <element signature="method#getByEmail#0;class#UserAccessor#0" expanded="false" />
+            <element signature="method#update#0;class#UserAccessor#0" expanded="false" />
+            <element signature="method#getWith#0;class#UserAccessor#0" expanded="false" />
+            <element signature="method#getByEmailWith#0;class#UserAccessor#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/dataSources.local.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/dataSources.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/sqldialects.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-683">
+          <caret line="1559" column="21" lean-forward="false" selection-start-line="1559" selection-start-column="18" selection-end-line="1559" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Storage/UserAccessorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="93" column="5" lean-forward="true" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+          <folding>
+            <element signature="method#add_userExist_throwsEntityAlreadyExistException#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#get_userExist_returnsUser#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#get_userDoesNotExist_throwsEntityDoesNotExistException#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#getByEmail_userExist_returnsUser#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#getByEmail_userDoesNotExist_throwsEntityDoesNotExistException#0;class#UserAccessorTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MailTest.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="46" lean-forward="false" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Storage/SessionTypeAccessorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="13" column="15" lean-forward="false" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+          <folding>
+            <element signature="method#add_sessionTypeAlreadyExist_throwsEntityAlreadyExistException#0;class#SessionTypeAccessorTest#0" expanded="false" />
+            <element signature="method#get_sessionTypeExist_returnSessionType#0;class#SessionTypeAccessorTest#0" expanded="false" />
+            <element signature="method#get_sessionTypeDoesNotExist_throwsEntityDoesNotExistException#0;class#SessionTypeAccessorTest#0" expanded="false" />
+            <element signature="method#getByName_sessionTypeExist_returnsSessionType#0;class#SessionTypeAccessorTest#0" expanded="false" />
+            <element signature="method#getByName_sessionTypeDoesNotExist_throwsEntityDoesNotExistException#0;class#SessionTypeAccessorTest#0" expanded="false" />
+            <element signature="method#update_sessionTypeDoesNotExist_throwsEntityDoesNotExistException#0;class#SessionTypeAccessorTest#0" expanded="false" />
+            <element signature="method#update_sessionTypeExist_updatesSessionType#0;class#SessionTypeAccessorTest#0" expanded="false" />
+            <element signature="method#update_anotherSessionTypeWithSameNewNameExist_throwsEntityUpdateException#0;class#SessionTypeAccessorTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Storage/common test cases for accessors.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>9.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>MailTest</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>9.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

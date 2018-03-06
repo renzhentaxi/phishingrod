@@ -22,6 +22,6 @@ public class Sessions {
     public static void AddSession(String name, Session session) {
         if (!sessions._data.containsKey(name))
             sessions._data.put(name, session);
-        else throw new RuntimeException("Session with the given name already exist");
+        else throw new RuntimeException("SessionType with the given name already exist");
     }
 }
