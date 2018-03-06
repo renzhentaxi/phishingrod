@@ -1,6 +1,6 @@
 package Entities.Data;
 
-public interface IUserData extends IEntityData
+public interface IUser
 {
     String getFirstName();
 

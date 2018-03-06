@@ -1,5 +1,5 @@
-import Entities.Data.UserData;
-import Entities.User;
+import Entities.Data.User;
+import Entities.UserEntity;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
 import Storage.base.Accessors.Exceptions.UserWithEmailAlreadyExistException;
 import Storage.base.Accessors.User.UserAccessor;
@@ -30,10 +30,10 @@ public class UserAccessorTest
         UserAccessor ua = getDefaultUserAccessor();
 
         //test data
-        UserData expectedUser = new UserData("firstName", "lastName", "nickName", "address");
+        User expectedUser = new User("firstName", "lastName", "nickName", "address");
         int userId = ua.add(expectedUser).getId();
 
-        User actualUser = ua.get(userId);
+        UserEntity actualUser = ua.get(userId);
 
         //assert
         assertEquals(expectedUser, actualUser);
@@ -59,12 +59,12 @@ public class UserAccessorTest
 
         //test data
         String expectedEmailAddress = "address";
-        UserData expectedUser = new UserData("firstName", "lastName", "nickName", expectedEmailAddress);
+        User expectedUser = new User("firstName", "lastName", "nickName", expectedEmailAddress);
 
         //act
         ua.add(expectedUser);
 
-        User actualUser = ua.getByEmail(expectedEmailAddress);
+        UserEntity actualUser = ua.getByEmail(expectedEmailAddress);
 
         //assert
         assertEquals(expectedUser, actualUser);
@@ -87,10 +87,10 @@ public class UserAccessorTest
     {
         //arrange
         UserAccessor ua = getDefaultUserAccessor();
-        UserData expectedUserData = new UserData("firstName", "lastName", "nickName", "emailAddress");
+        User expectedUserData = new User("firstName", "lastName", "nickName", "emailAddress");
 
         //act
-        User returnedUser = ua.add(expectedUserData);
+        UserEntity returnedUser = ua.add(expectedUserData);
 
         //assert
         assertEquals(expectedUserData, returnedUser);
@@ -101,7 +101,7 @@ public class UserAccessorTest
     {
         //arrange
         UserAccessor ua = getDefaultUserAccessor();
-        UserData expectedUserData = new UserData("firstName", "lastName", "nickName", "emailAddress");
+        User expectedUserData = new User("firstName", "lastName", "nickName", "emailAddress");
         ua.add(expectedUserData);
 
         //act assert
@@ -114,15 +114,15 @@ public class UserAccessorTest
         //arrange
         UserAccessor ua = getDefaultUserAccessor();
         //create and add user to database
-        UserData originalUserData = new UserData("firstName", "lastName", "nickName", "emailAddress");
-        User user = ua.add(originalUserData);
+        User originalUserData = new User("firstName", "lastName", "nickName", "emailAddress");
+        UserEntity user = ua.add(originalUserData);
 
         //modify last name and update
         user.setLastName("taxi");
         ua.update(user);
 
         //retrieve updated user
-        User actualUser = ua.get(user.getId());
+        UserEntity actualUser = ua.get(user.getId());
 
         assertEquals(user, actualUser);
     }
@@ -135,14 +135,14 @@ public class UserAccessorTest
         //create and add user to database
         String email1 = "emailAddress1";
         String email2 = "emailAddress2";
-        UserData originalUserData1 = new UserData("firstName", "lastName", "nickName", email1);
-        UserData originalUserData2 = new UserData("firstName", "lastName", "nickName", email2);
+        User originalUserData1 = new User("firstName", "lastName", "nickName", email1);
+        User originalUserData2 = new User("firstName", "lastName", "nickName", email2);
 
         ua.add(originalUserData1);
         ua.add(originalUserData2);
 
         //get user, modify emailAddress to another user's emailAddress
-        User user1 = ua.getByEmail(email1);
+        UserEntity user1 = ua.getByEmail(email1);
         user1.setEmailAddress(email2);
 
         //expect error
@@ -154,7 +154,7 @@ public class UserAccessorTest
     {
         //arrange
         UserAccessor ua = getDefaultUserAccessor();
-        User fakeUser = new User(0, "l", "d", "ds", "ds");
+        UserEntity fakeUser = new UserEntity(0, "l", "d", "ds", "ds");
         assertThrows(EntityDoesNotExistException.class, () -> ua.update(fakeUser));
 
     }

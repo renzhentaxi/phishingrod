@@ -1,14 +1,14 @@
 package Entities.Data;
 
-import Entities.User;
+import Entities.UserEntity;
 
-public class SenderData implements ISenderData
+public class Sender implements ISender
 {
-    private final User user;
+    private final UserEntity user;
     protected String password;
     protected String sessionType;
 
-    public SenderData(User user, String password, String sessionType)
+    public Sender(UserEntity user, String password, String sessionType)
     {
         this.user = user;
         this.password = password;
@@ -17,7 +17,7 @@ public class SenderData implements ISenderData
 
 
     @Override
-    public User getUser()
+    public UserEntity getUser()
     {
         return user;
     }

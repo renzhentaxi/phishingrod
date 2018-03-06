@@ -1,18 +1,18 @@
 package Entities;
 
 
-import Entities.Data.SenderData;
+import Entities.Data.Sender;
 
-public class Sender extends SenderData implements ISender
+public class SenderEntity extends Sender implements ISenderEntity
 {
     private final int id;
 
-    public Sender(SenderData data)
+    public SenderEntity(Sender data)
     {
         this(data.getUser(), data.getPassword(), data.getSessionType());
     }
 
-    public Sender(User user, String password, String sessionType)
+    public SenderEntity(UserEntity user, String password, String sessionType)
     {
         super(user, password, sessionType);
         id = user.getId();

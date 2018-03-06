@@ -1,8 +1,8 @@
 package Entities;
 
-import Entities.Data.ISenderData;
+import Entities.Data.ISender;
 
-public interface ISender extends IEntity, ISenderData
+public interface ISenderEntity extends IEntity, ISender
 {
     void setPassword(String password);
 

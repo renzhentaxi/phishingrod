@@ -1,8 +1,8 @@
 package Entities;
 
-import Entities.Data.IUserData;
+import Entities.Data.IUser;
 
-public interface IUser extends IUserData, IEntity
+public interface IUserEntity extends IUser, IEntity
 {
     void setFirstName(String firstName);
 

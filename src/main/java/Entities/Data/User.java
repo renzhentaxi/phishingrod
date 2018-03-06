@@ -2,14 +2,14 @@ package Entities.Data;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class UserData implements IUserData
+public class User implements IUser
 {
     protected String firstName;
     protected String lastName;
     protected String nickName;
     protected String emailAddress;
 
-    public UserData(String firstName, String lastName, String nickName, String emailAddress)
+    public User(String firstName, String lastName, String nickName, String emailAddress)
     {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -47,9 +47,9 @@ public class UserData implements IUserData
     @Override
     public boolean equals(Object object)
     {
-        if (object instanceof UserData)
+        if (object instanceof User)
         {
-            UserData other = (UserData) object;
+            User other = (User) object;
             return this.emailAddress.equals(other.emailAddress) &&
                     this.firstName.equals(other.firstName) &&
                     this.lastName.equals(other.lastName) &&

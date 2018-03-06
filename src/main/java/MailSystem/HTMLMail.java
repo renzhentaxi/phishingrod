@@ -1,7 +1,7 @@
 package MailSystem;
 
-import Entities.Data.UserData;
-import Entities.Sender;
+import Entities.Data.User;
+import Entities.SenderEntity;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -18,7 +18,7 @@ public class HTMLMail implements IMail
     }
 
     @Override
-    public Message getMessage(Sender from, UserData to)
+    public Message getMessage(SenderEntity from, User to)
     {
         Session session = Sessions.GetSession(from.getSessionType());
         Message message = new MimeMessage(session);

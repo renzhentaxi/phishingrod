@@ -1,8 +1,7 @@
 package Storage.base.Accessors.User;
 
-import Entities.Data.UserData;
-import Entities.User;
-import Storage.base.Accessors.ExceptionHandler;
+import Entities.Data.User;
+import Entities.UserEntity;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
 import Storage.base.Accessors.Exceptions.UserWithEmailAlreadyExistException;
 import Storage.base.Util.AlternativeSqlLocator;
@@ -50,7 +49,7 @@ public class UserAccessor implements IUserAccessor
     }
 
     @Override
-    public User add(UserData data)
+    public UserEntity add(User data)
     {
         try (Handle handle = jdbi.open())
         {
@@ -59,7 +58,7 @@ public class UserAccessor implements IUserAccessor
     }
 
     @Override
-    public User get(int id)
+    public UserEntity get(int id)
     {
         try (Handle handle = jdbi.open())
         {
@@ -68,7 +67,7 @@ public class UserAccessor implements IUserAccessor
     }
 
     @Override
-    public User getByEmail(String emailAddress)
+    public UserEntity getByEmail(String emailAddress)
     {
         try (Handle handle = jdbi.open())
         {
@@ -77,7 +76,7 @@ public class UserAccessor implements IUserAccessor
     }
 
     @Override
-    public void update(User user)
+    public void update(UserEntity user)
     {
         try (Handle handle = jdbi.open())
         {
@@ -86,12 +85,12 @@ public class UserAccessor implements IUserAccessor
     }
 
 
-    public User addWith(UserData data, Handle handle)
+    public UserEntity addWith(User data, Handle handle)
     {
         try
         {
             int id = handle.createUpdate(addQuery).bindBean(data).executeAndReturnGeneratedKeys().mapTo(Integer.class).findOnly();
-            return new User(id, data);
+            return new UserEntity(id, data);
         } catch (UnableToExecuteStatementException exception)
         {
             throw HandleCommonException(exception);
@@ -99,11 +98,11 @@ public class UserAccessor implements IUserAccessor
     }
 
 
-    public User getWith(int id, Handle handle)
+    public UserEntity getWith(int id, Handle handle)
     {
         try
         {
-            return handle.createQuery(getQuery).bind("id", id).mapTo(User.class).findOnly();
+            return handle.createQuery(getQuery).bind("id", id).mapTo(UserEntity.class).findOnly();
         } catch (IllegalStateException exception)
         {
             if (exception.getMessage().equals("No element found in 'only'"))
@@ -113,11 +112,11 @@ public class UserAccessor implements IUserAccessor
 
     }
 
-    public User getByEmailWith(String emailAddress, Handle handle)
+    public UserEntity getByEmailWith(String emailAddress, Handle handle)
     {
         try
         {
-            return handle.createQuery(getByEmailQuery).bind("emailAddress", emailAddress).mapTo(User.class).findOnly();
+            return handle.createQuery(getByEmailQuery).bind("emailAddress", emailAddress).mapTo(UserEntity.class).findOnly();
         } catch (IllegalStateException exception)
         {
             if (exception.getMessage().equals("No element found in 'only'"))
@@ -126,7 +125,7 @@ public class UserAccessor implements IUserAccessor
         }
     }
 
-    public void updateWith(User user, Handle handle)
+    public void updateWith(UserEntity user, Handle handle)
     {
         try
         {

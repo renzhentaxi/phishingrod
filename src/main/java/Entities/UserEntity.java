@@ -1,20 +1,20 @@
 package Entities;
 
 
-import Entities.Data.UserData;
+import Entities.Data.User;
 
-public class User extends UserData implements IUser
+public class UserEntity extends User implements IUserEntity
 {
 
     private final int id;
 
-    public User(int id, String firstName, String lastName, String nickName, String emailAddress)
+    public UserEntity(int id, String firstName, String lastName, String nickName, String emailAddress)
     {
         super(firstName, lastName, nickName, emailAddress);
         this.id = id;
     }
 
-    public User(int id, UserData data)
+    public UserEntity(int id, User data)
     {
         this(id, data.getFirstName(), data.getLastName(), data.getNickName(), data.getEmailAddress());
     }

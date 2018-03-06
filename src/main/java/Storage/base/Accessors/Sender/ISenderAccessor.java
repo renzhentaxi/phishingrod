@@ -1,10 +1,10 @@
 package Storage.base.Accessors.Sender;
 
-import Entities.Data.SenderData;
-import Entities.Sender;
+import Entities.Data.Sender;
+import Entities.SenderEntity;
 import Storage.base.Accessors.IAccessor;
 
-public interface ISenderAccessor extends IAccessor<Sender, SenderData>
+public interface ISenderAccessor extends IAccessor<SenderEntity, Sender>
 {
-    Sender getByEmail(String emailAddress);
+    SenderEntity getByEmail(String emailAddress);
 }

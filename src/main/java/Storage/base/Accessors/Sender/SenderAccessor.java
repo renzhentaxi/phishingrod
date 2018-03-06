@@ -1,7 +1,7 @@
 package Storage.base.Accessors.Sender;
 
-import Entities.Data.SenderData;
-import Entities.Sender;
+import Entities.Data.Sender;
+import Entities.SenderEntity;
 import Storage.base.Accessors.ExceptionHandler;
 import Storage.base.Accessors.User.UserAccessor;
 import Storage.base.Util.AlternativeSqlLocator;
@@ -31,7 +31,7 @@ public class SenderAccessor implements ISenderAccessor
     }
 
     @Override
-    public Sender getByEmail(String emailAddress)
+    public SenderEntity getByEmail(String emailAddress)
     {
         try (Handle handle = jdbi.open())
         {
@@ -40,7 +40,7 @@ public class SenderAccessor implements ISenderAccessor
     }
 
     @Override
-    public Sender get(int id)
+    public SenderEntity get(int id)
     {
         try (Handle handle = jdbi.open())
         {
@@ -49,7 +49,7 @@ public class SenderAccessor implements ISenderAccessor
     }
 
     @Override
-    public Sender add(SenderData data)
+    public SenderEntity add(Sender data)
     {
         try (Handle handle = jdbi.open())
         {
@@ -58,7 +58,7 @@ public class SenderAccessor implements ISenderAccessor
     }
 
     @Override
-    public void update(Sender entity)
+    public void update(SenderEntity entity)
     {
         try (Handle handle = jdbi.open())
         {
@@ -68,11 +68,11 @@ public class SenderAccessor implements ISenderAccessor
     }
 
 
-    public Sender getByEmailWith(String emailAddress, Handle handle)
+    public SenderEntity getByEmailWith(String emailAddress, Handle handle)
     {
         try
         {
-            return handle.createQuery(getByEmailQuery).bind("emailAddress", emailAddress).mapTo(Sender.class).findOnly();
+            return handle.createQuery(getByEmailQuery).bind("emailAddress", emailAddress).mapTo(SenderEntity.class).findOnly();
         } catch (UnableToExecuteStatementException exception)
         {
             exception.printStackTrace();
@@ -80,11 +80,11 @@ public class SenderAccessor implements ISenderAccessor
         }
     }
 
-    public Sender getWith(int id, Handle handle)
+    public SenderEntity getWith(int id, Handle handle)
     {
         try
         {
-            return handle.createQuery(getQuery).bind("id", id).mapTo(Sender.class).findOnly();
+            return handle.createQuery(getQuery).bind("id", id).mapTo(SenderEntity.class).findOnly();
         } catch (UnableToExecuteStatementException exception)
         {
             exception.printStackTrace();
@@ -92,19 +92,19 @@ public class SenderAccessor implements ISenderAccessor
         }
     }
 
-    public Sender addWith(SenderData data, Handle handle)
+    public SenderEntity addWith(Sender data, Handle handle)
     {
         try
         {
             handle.createUpdate(addQuery).bindBean(data).bind("id", data.getUser().getId()).execute();
-            return new Sender(data);
+            return new SenderEntity(data);
         } catch (UnableToExecuteStatementException exception)
         {
             throw exceptionHandler.Strip(exception);
         }
     }
 
-    public void updateWith(Sender entity, Handle handle)
+    public void updateWith(SenderEntity entity, Handle handle)
     {
         try
         {

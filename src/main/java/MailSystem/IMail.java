@@ -1,12 +1,12 @@
 package MailSystem;
 
-import Entities.Data.UserData;
-import Entities.Sender;
+import Entities.Data.User;
+import Entities.SenderEntity;
 
 import javax.mail.Message;
 
 public interface IMail
 {
-    Message getMessage(Sender from, UserData to);
+    Message getMessage(SenderEntity from, User to);
 
 }

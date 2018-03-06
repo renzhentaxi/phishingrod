@@ -1,9 +1,8 @@
 package Storage.base.Accessors;
 
-import Entities.Data.IEntityData;
 import Entities.IEntity;
 
-public interface IAccessor<E extends IEntity, D extends IEntityData>
+public interface IAccessor<E extends IEntity, D>
 {
     E get(int id);
 

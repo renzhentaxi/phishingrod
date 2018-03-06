@@ -1,5 +1,5 @@
-import Entities.Data.UserData;
-import Entities.User;
+import Entities.Data.User;
+import Entities.UserEntity;
 import Storage.Sqlite.DaggerSqliteStorageManager;
 import Storage.base.Accessors.Sender.SenderAccessor;
 import Storage.base.Accessors.User.UserAccessor;
@@ -15,17 +15,17 @@ public class DatabaseTest {
         UserAccessor ua2 = storageManager.getUserAccessor();
         SenderAccessor sa = storageManager.getSenderAccessor();
 
-//        UserData userData = new UserData("taxi", "boi", "245", "taxi@yahoo.com");
-        User user = ua2.getByEmail("gmail.com");
+//        User userData = new User("taxi", "boi", "245", "taxi@yahoo.com");
+        UserEntity user = ua2.getByEmail("gmail.com");
         user.setLastName("lastName");
         ua2.update(user);
 
-        UserData userData = new UserData("abc", "fda", "342", "taxi@fajs.com");
-        User user2 = ua2.add(userData);
+        User userData = new User("abc", "fda", "342", "taxi@fajs.com");
+        UserEntity user2 = ua2.add(userData);
 
-//        SenderData senderData = new SenderData(user, "password", "gmail");
+//        Sender senderData = new Sender(user, "password", "gmail");
 //
-//        Sender sender = sa.getByEmail("gmail.com");
+//        SenderEntity sender = sa.getByEmail("gmail.com");
 //        sender.setPassword("520");
 //        sender.getUser().setEmailAddress("gmail.com");
 //        sa.update(sender);
