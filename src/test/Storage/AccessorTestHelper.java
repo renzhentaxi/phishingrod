@@ -1,3 +1,5 @@
+package Storage;
+
 import Storage.Sqlite.SqliteSqlLocatorModule;
 import Storage.base.Mappers.UserMapper;
 import Storage.base.Util.AlternativeSqlLocator;
@@ -10,7 +12,7 @@ import org.jdbi.v3.core.statement.Script;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class TestHelper
+public class AccessorTestHelper
 {
     public static final String path = System.getProperty("user.dir") + "/src/scripts/sql/sqlite/";
 

@@ -2,8 +2,9 @@ package Storage.base.Accessors.User;
 
 import Entities.Users.User;
 import Entities.Users.UserEntity;
+import Storage.base.Accessors.Exceptions.EntityAlreadyExistException;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
-import Storage.base.Accessors.Exceptions.UserWithEmailAlreadyExistException;
+import Storage.base.Accessors.Exceptions.EntityUpdateException;
 import Storage.base.Util.AlternativeSqlLocator;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
@@ -17,19 +18,15 @@ import org.sqlite.SQLiteException;
  */
 public class UserAccessor implements IUserAccessor
 {
-    private static RuntimeException HandleCommonException(UnableToExecuteStatementException exception)
+    private static boolean isExceptionDueToEntityAlreadyExist(UnableToExecuteStatementException exception, String keyName)
     {
         Throwable cause = exception.getCause();
         if (cause instanceof SQLiteException)
         {
             SQLiteException sqLiteException = (SQLiteException) cause;
-            if (sqLiteException.getResultCode() == SQLiteErrorCode.SQLITE_CONSTRAINT_UNIQUE && sqLiteException.getMessage().contains("email_address"))
-            {
-                return new UserWithEmailAlreadyExistException();
-            }
+            return sqLiteException.getResultCode() == SQLiteErrorCode.SQLITE_CONSTRAINT_UNIQUE && sqLiteException.getMessage().contains(keyName);
         }
-        return new RuntimeException("Unknown exception", cause);
-
+        return false;
     }
 
     private Jdbi jdbi;
@@ -93,7 +90,8 @@ public class UserAccessor implements IUserAccessor
             return new UserEntity(id, data);
         } catch (UnableToExecuteStatementException exception)
         {
-            throw HandleCommonException(exception);
+            if (isExceptionDueToEntityAlreadyExist(exception, "email_address")) throw new EntityAlreadyExistException();
+            else throw exception;
         }
     }
 
@@ -135,7 +133,8 @@ public class UserAccessor implements IUserAccessor
             }
         } catch (UnableToExecuteStatementException exception)
         {
-            throw HandleCommonException(exception);
+            if (isExceptionDueToEntityAlreadyExist(exception, "email_address")) throw new EntityUpdateException();
+            else throw exception;
         }
     }
 }

@@ -1,38 +1,49 @@
+package Storage;
+
 import Entities.Users.User;
 import Entities.Users.UserEntity;
+import Storage.base.Accessors.Exceptions.EntityAlreadyExistException;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
-import Storage.base.Accessors.Exceptions.UserWithEmailAlreadyExistException;
+import Storage.base.Accessors.Exceptions.EntityUpdateException;
 import Storage.base.Accessors.User.UserAccessor;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-/**
- * missing tests:
- * <p>
- * check that if exception occurs, no change is done to the server
- * updateUser_userDoesNotExist_databaseIsNotModified
- * check that returned data is accurate
- * get_userExist_returnedUserIsAccurate ? maybe this belongs with user??
- */
 public class UserAccessorTest
 {
     private static UserAccessor getDefaultUserAccessor()
     {
-        return new UserAccessor(TestHelper.getSimpleJdbi(), TestHelper.getSimpleSqlLocator());
+        return new UserAccessor(AccessorTestHelper.getSimpleJdbi(), AccessorTestHelper.getSimpleSqlLocator());
+    }
+
+
+    @Test
+    void add_userExist_throwsEntityAlreadyExistException()
+    {
+        //arrange
+        UserAccessor ua = getDefaultUserAccessor();
+        User expectedUserData = new User("firstName", "lastName", "nickName", "emailAddress");
+        ua.add(expectedUserData);
+
+        //act assert
+        assertThrows(EntityAlreadyExistException.class, () -> ua.add(expectedUserData));
     }
 
     @Test
-    void get_userExist_userIsReturned()
+    void get_userExist_returnsUser()
     {
         //arrange
         UserAccessor ua = getDefaultUserAccessor();
 
         //test data
         User expectedUser = new User("firstName", "lastName", "nickName", "address");
+
+        //add user
         int userId = ua.add(expectedUser).getId();
 
+        //get user
         UserEntity actualUser = ua.get(userId);
 
         //assert
@@ -40,7 +51,7 @@ public class UserAccessorTest
     }
 
     @Test
-    void get_userDoesNotExist_exceptionIsThrown()
+    void get_userDoesNotExist_throwsEntityDoesNotExistException()
     {
         //arrange
         UserAccessor ua = getDefaultUserAccessor();
@@ -52,7 +63,7 @@ public class UserAccessorTest
     }
 
     @Test
-    void getByEmail_userExist_userIsReturned()
+    void getByEmail_userExist_returnsUser()
     {
         //arrange
         UserAccessor ua = getDefaultUserAccessor();
@@ -71,7 +82,7 @@ public class UserAccessorTest
     }
 
     @Test
-    void getByEmail_userDoesNotExist_exceptionIsThrown()
+    void getByEmail_userDoesNotExist_throwsEntityDoesNotExistException()
     {
         //arrange
         UserAccessor ua = getDefaultUserAccessor();
@@ -82,34 +93,9 @@ public class UserAccessorTest
         assertThrows(EntityDoesNotExistException.class, () -> ua.getByEmail(invalidUserEmail));
     }
 
-    @Test
-    void addUser_userWithSameEmailDoesNotExist_userIsReturned()
-    {
-        //arrange
-        UserAccessor ua = getDefaultUserAccessor();
-        User expectedUserData = new User("firstName", "lastName", "nickName", "emailAddress");
-
-        //act
-        UserEntity returnedUser = ua.add(expectedUserData);
-
-        //assert
-        assertEquals(expectedUserData, returnedUser);
-    }
 
     @Test
-    void addUser_userWithSameEmailExist_exceptionIsThrown()
-    {
-        //arrange
-        UserAccessor ua = getDefaultUserAccessor();
-        User expectedUserData = new User("firstName", "lastName", "nickName", "emailAddress");
-        ua.add(expectedUserData);
-
-        //act assert
-        assertThrows(UserWithEmailAlreadyExistException.class, () -> ua.add(expectedUserData));
-    }
-
-    @Test
-    void updateUser_userWithSameIdExist_databaseIsUpdated()
+    void updateUser_userExist_updatesUser()
     {
         //arrange
         UserAccessor ua = getDefaultUserAccessor();
@@ -127,8 +113,20 @@ public class UserAccessorTest
         assertEquals(user, actualUser);
     }
 
+
     @Test
-    void updateUser_newEmailMatchesWithAnotherUserEmail_databaseIsUpdated()
+    void updateUser_userDoesNotExist_throwsEntityDoesNotExistException()
+    {
+        //arrange
+        UserAccessor ua = getDefaultUserAccessor();
+        UserEntity fakeUser = new UserEntity(0, "l", "d", "ds", "ds");
+        assertThrows(EntityDoesNotExistException.class, () -> ua.update(fakeUser));
+
+    }
+
+
+    @Test
+    void updateUser_newEmailMatchesWithAnotherUserEmail_throwsEntityUpdateException()
     {
         //arrange
         UserAccessor ua = getDefaultUserAccessor();
@@ -146,17 +144,7 @@ public class UserAccessorTest
         user1.setEmailAddress(email2);
 
         //expect error
-        assertThrows(UserWithEmailAlreadyExistException.class, () -> ua.update(user1));
-    }
-
-    @Test
-    void updateUser_userDoesNotExist_exceptionIsThrown()
-    {
-        //arrange
-        UserAccessor ua = getDefaultUserAccessor();
-        UserEntity fakeUser = new UserEntity(0, "l", "d", "ds", "ds");
-        assertThrows(EntityDoesNotExistException.class, () -> ua.update(fakeUser));
-
+        assertThrows(EntityUpdateException.class, () -> ua.update(user1));
     }
 
 }
