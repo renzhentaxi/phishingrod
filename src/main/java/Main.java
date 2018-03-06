@@ -29,7 +29,7 @@ public class Main
         User receiver = new User("jeff", "myboi", "boi", "phishingrod123@gmail.com");
 
         //load the email
-        IMail mail = new HTMLMail(TextLoader.LoadEmail("testmail/localimageviamultipart"));
+        IMail mail = new HTMLMail(TextLoader.LoadEmail("Chase/index"));
 
         //create a MailSender which will send the email
         MailSender mailSender = new MailSender();
