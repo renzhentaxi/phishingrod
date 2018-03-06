@@ -1,3 +1,3 @@
 SELECT *
 FROM SessionType
-WHERE sessionId = :id;
+WHERE name = :name;

@@ -18,7 +18,6 @@ public class UserAccessorTest
         return new UserAccessor(AccessorTestHelper.getSimpleJdbi(), AccessorTestHelper.getSimpleSqlLocator());
     }
 
-
     @Test
     void add_userExist_throwsEntityAlreadyExistException()
     {

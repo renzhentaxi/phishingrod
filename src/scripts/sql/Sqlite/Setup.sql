@@ -31,8 +31,8 @@ CREATE TABLE IF NOT EXISTS SessionType
 CREATE TABLE IF NOT EXISTS MailTypes
 (
   templateId  INTEGER PRIMARY KEY,
-  name        TEXT NOT NULL,
-  location    TEXT NOT NULL,
-  dateUpdated DATE NOT NULL
+  name        TEXT UNIQUE NOT NULL,
+  location    TEXT        NOT NULL,
+  dateUpdated DATE        NOT NULL
 )
 
