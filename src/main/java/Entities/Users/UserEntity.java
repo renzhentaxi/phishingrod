@@ -12,7 +12,7 @@ public class UserEntity extends User implements IUserEntity
         this.id = id;
     }
 
-    public UserEntity(int id, User data)
+    public UserEntity(int id, IUser data)
     {
         this(id, data.getFirstName(), data.getLastName(), data.getNickName(), data.getEmailAddress());
     }

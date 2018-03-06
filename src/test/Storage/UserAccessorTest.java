@@ -1,5 +1,6 @@
 package Storage;
 
+import Entities.Users.IUserEntity;
 import Entities.Users.User;
 import Entities.Users.UserEntity;
 import Storage.base.Accessors.Exceptions.EntityAlreadyExistException;
@@ -43,7 +44,7 @@ public class UserAccessorTest
         int userId = ua.add(expectedUser).getId();
 
         //get user
-        UserEntity actualUser = ua.get(userId);
+        IUserEntity actualUser = ua.get(userId);
 
         //assert
         assertEquals(expectedUser, actualUser);
@@ -74,7 +75,7 @@ public class UserAccessorTest
         //act
         ua.add(expectedUser);
 
-        UserEntity actualUser = ua.getByEmail(expectedEmailAddress);
+        IUserEntity actualUser = ua.getByEmail(expectedEmailAddress);
 
         //assert
         assertEquals(expectedUser, actualUser);
@@ -100,14 +101,14 @@ public class UserAccessorTest
         UserAccessor ua = getDefaultUserAccessor();
         //create and add user to database
         User originalUserData = new User("firstName", "lastName", "nickName", "emailAddress");
-        UserEntity user = ua.add(originalUserData);
+        IUserEntity user = ua.add(originalUserData);
 
         //modify last name and update
         user.setLastName("taxi");
         ua.update(user);
 
         //retrieve updated user
-        UserEntity actualUser = ua.get(user.getId());
+        IUserEntity actualUser = ua.get(user.getId());
 
         assertEquals(user, actualUser);
     }
@@ -139,7 +140,7 @@ public class UserAccessorTest
         ua.add(originalUserData2);
 
         //get user, modify emailAddress to another user's emailAddress
-        UserEntity user1 = ua.getByEmail(email1);
+        IUserEntity user1 = ua.getByEmail(email1);
         user1.setEmailAddress(email2);
 
         //expect error

@@ -1,6 +1,7 @@
 package Storage.base.Accessors.User;
 
-import Entities.Users.User;
+import Entities.Users.IUser;
+import Entities.Users.IUserEntity;
 import Entities.Users.UserEntity;
 import Storage.base.Accessors.AccessorUtil;
 import Storage.base.Accessors.Exceptions.EntityAlreadyExistException;
@@ -16,7 +17,7 @@ import org.jdbi.v3.core.statement.UnableToExecuteStatementException;
  * the _with methods do not close the handle.
  * they are used when other accessors needs to access a user object
  */
-public class UserAccessor implements IUserAccessor, IWithHandleAccessor<UserEntity, User>
+public class UserAccessor implements IUserAccessor, IWithHandleAccessor<IUserEntity, IUser>
 {
     private Jdbi jdbi;
     private String getQuery;
@@ -35,7 +36,7 @@ public class UserAccessor implements IUserAccessor, IWithHandleAccessor<UserEnti
     }
 
     @Override
-    public UserEntity add(User data)
+    public IUserEntity add(IUser data)
     {
         try (Handle handle = jdbi.open())
         {
@@ -45,7 +46,7 @@ public class UserAccessor implements IUserAccessor, IWithHandleAccessor<UserEnti
 
 
     @Override
-    public UserEntity get(int id)
+    public IUserEntity get(int id)
     {
         try (Handle handle = jdbi.open())
         {
@@ -59,7 +60,7 @@ public class UserAccessor implements IUserAccessor, IWithHandleAccessor<UserEnti
     }
 
     @Override
-    public UserEntity getByEmail(String emailAddress)
+    public IUserEntity getByEmail(String emailAddress)
     {
         try (Handle handle = jdbi.open())
         {
@@ -73,7 +74,7 @@ public class UserAccessor implements IUserAccessor, IWithHandleAccessor<UserEnti
     }
 
     @Override
-    public void update(UserEntity user)
+    public void update(IUserEntity user)
     {
         try (Handle handle = jdbi.open())
         {
@@ -81,9 +82,8 @@ public class UserAccessor implements IUserAccessor, IWithHandleAccessor<UserEnti
         }
     }
 
-
     @Override
-    public UserEntity addWith(User data, Handle handle)
+    public IUserEntity addWith(IUser data, Handle handle)
     {
         try
         {
@@ -98,7 +98,7 @@ public class UserAccessor implements IUserAccessor, IWithHandleAccessor<UserEnti
     }
 
     @Override
-    public void updateWith(UserEntity user, Handle handle)
+    public void updateWith(IUserEntity user, Handle handle)
     {
         try
         {

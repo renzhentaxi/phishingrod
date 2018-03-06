@@ -1,11 +1,11 @@
 package Storage.base.Accessors.User;
 
-import Entities.Users.User;
-import Entities.Users.UserEntity;
+import Entities.Users.IUser;
+import Entities.Users.IUserEntity;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
 import Storage.base.Accessors.IAccessor;
 
-public interface IUserAccessor extends IAccessor<UserEntity, User>
+public interface IUserAccessor extends IAccessor<IUserEntity, IUser>
 {
 
     /**
@@ -15,5 +15,5 @@ public interface IUserAccessor extends IAccessor<UserEntity, User>
      * @return the user
      * @throws EntityDoesNotExistException when there is no user in the database with the given email.
      */
-    UserEntity getByEmail(String emailAddress);
+    IUserEntity getByEmail(String emailAddress);
 }
