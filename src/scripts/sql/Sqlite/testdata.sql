@@ -7,7 +7,7 @@ INSERT INTO User
 VALUES ('taxi@gmail.com', 'renzhentaxi', 'baerde', 'taxi');
 
 INSERT INTO Sender
-(userId, password, session_Type) VALUES (1, 'no password', 'gmail');
+(userId, password, sessionId) VALUES (1, 'no password', 0);
 
 INSERT INTO MailTypes
 (templateId, name, location, dateUpdated)

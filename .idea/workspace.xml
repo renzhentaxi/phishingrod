@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45ee3aef-8f0e-4230-840f-d919db3276a0" name="Default" comment="removed isExceptionDueTo... method since it is now in AccessorUtil">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/IWithHandleAccessor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/IWithHandleUserAccessor.java" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Data/database/test.db" afterPath="$PROJECT_DIR$/Data/database/test.db" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/IAccessor.java" afterPath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/IAccessor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/ISessionTypeAccessor.java" afterPath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/ISessionTypeAccessor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/SessionTypeAccessor.java" afterPath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/SessionTypeAccessor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/UserAccessor.java" afterPath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/UserAccessor.java" />
-      <change beforePath="$PROJECT_DIR$/src/scripts/plan" afterPath="$PROJECT_DIR$/src/scripts/plan" />
       <change beforePath="$PROJECT_DIR$/src/scripts/sql/Sqlite/testdata.sql" afterPath="$PROJECT_DIR$/src/scripts/sql/Sqlite/testdata.sql" />
-      <change beforePath="$PROJECT_DIR$/src/test/testDb.db" afterPath="$PROJECT_DIR$/src/test/testDb.db" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/SessionType/ISessionTypeAccessor.class" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/SessionType/ISessionTypeAccessor.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/SessionType/SessionTypeAccessor.class" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/SessionType/SessionTypeAccessor.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/User/UserAccessor.class" afterPath="$PROJECT_DIR$/target/classes/Storage/base/Accessors/User/UserAccessor.class" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Storage/UserAccessorTest.class" afterPath="$PROJECT_DIR$/target/test-classes/Storage/UserAccessorTest.class" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -172,8 +159,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+            <state relative-caret-position="84">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -279,7 +266,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="575" />
+    <option name="y" value="-22" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
   </component>
@@ -671,7 +659,7 @@
       <workItem from="1520311886060" duration="2982000" />
       <workItem from="1520314977278" duration="609000" />
       <workItem from="1520315615024" duration="162000" />
-      <workItem from="1520357804752" duration="1598000" />
+      <workItem from="1520357804752" duration="2050000" />
     </task>
     <task id="LOCAL-00001" summary="added new SqlLocator&#10;simplified storage system">
       <created>1519492143019</created>
@@ -841,7 +829,35 @@
       <option name="project" value="LOCAL" />
       <updated>1520315558190</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="added IWithHandleAccessor&#10;added Documentation on IAccessor + IWIthHandleAccessor&#10;removed getWith methods in UserAccessor">
+      <created>1520359526247</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1520359526247</updated>
+    </task>
+    <task id="LOCAL-00026" summary="started to work on sessionTypeAccessor">
+      <created>1520359570784</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1520359570784</updated>
+    </task>
+    <task id="LOCAL-00027" summary="untracking files from target">
+      <created>1520359831133</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1520359831133</updated>
+    </task>
+    <task id="LOCAL-00028" summary="removing random notes...">
+      <created>1520359875394</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1520359875394</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -877,7 +893,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96041000" />
+    <option name="totallyTimeSpent" value="96493000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -928,8 +944,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added new SqlLocator&#10;simplified storage system" />
-    <MESSAGE value="Deleted FilePathSqlLocator&#10;Dao classes no longer needs to be implemented by the specific db adaper&#10;Restructured the file locations" />
     <MESSAGE value="renamed parameters" />
     <MESSAGE value="added Idea runConfigurations" />
     <MESSAGE value="Refactored/restructured alot so now we can change emailAddress if needed" />
@@ -951,7 +965,11 @@
     <MESSAGE value="added scripts needed for session accessor" />
     <MESSAGE value="add file extension to addMail" />
     <MESSAGE value="removed isExceptionDueTo... method since it is now in AccessorUtil" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed isExceptionDueTo... method since it is now in AccessorUtil" />
+    <MESSAGE value="added IWithHandleAccessor&#10;added Documentation on IAccessor + IWIthHandleAccessor&#10;removed getWith methods in UserAccessor" />
+    <MESSAGE value="started to work on sessionTypeAccessor" />
+    <MESSAGE value="untracking files from target" />
+    <MESSAGE value="removing random notes..." />
+    <option name="LAST_COMMIT_MESSAGE" value="removing random notes..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1370,8 +1388,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+        <state relative-caret-position="84">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
