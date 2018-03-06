@@ -6,6 +6,7 @@ import Storage.base.Accessors.AccessorUtil;
 import Storage.base.Accessors.Exceptions.EntityAlreadyExistException;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
 import Storage.base.Accessors.Exceptions.EntityUpdateException;
+import Storage.base.Accessors.IWithHandleAccessor;
 import Storage.base.Util.AlternativeSqlLocator;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
@@ -15,7 +16,7 @@ import org.jdbi.v3.core.statement.UnableToExecuteStatementException;
  * the _with methods do not close the handle.
  * they are used when other accessors needs to access a user object
  */
-public class UserAccessor implements IUserAccessor
+public class UserAccessor implements IUserAccessor, IWithHandleAccessor<UserEntity, User>
 {
     private Jdbi jdbi;
     private String getQuery;
@@ -42,12 +43,18 @@ public class UserAccessor implements IUserAccessor
         }
     }
 
+
     @Override
     public UserEntity get(int id)
     {
         try (Handle handle = jdbi.open())
         {
-            return getWith(id, handle);
+            return handle.createQuery(getQuery).bind("id", id).mapTo(UserEntity.class).findOnly();
+        } catch (IllegalStateException exception)
+        {
+            if (exception.getMessage().equals("No element found in 'only'"))
+                throw new EntityDoesNotExistException("No user with id: " + id + " in database");
+            else throw exception;
         }
     }
 
@@ -56,7 +63,12 @@ public class UserAccessor implements IUserAccessor
     {
         try (Handle handle = jdbi.open())
         {
-            return getByEmailWith(emailAddress, handle);
+            return handle.createQuery(getByEmailQuery).bind("emailAddress", emailAddress).mapTo(UserEntity.class).findOnly();
+        } catch (IllegalStateException exception)
+        {
+            if (exception.getMessage().equals("No element found in 'only'"))
+                throw new EntityDoesNotExistException("No user with email: " + emailAddress + " in database");
+            else throw exception;
         }
     }
 
@@ -70,6 +82,7 @@ public class UserAccessor implements IUserAccessor
     }
 
 
+    @Override
     public UserEntity addWith(User data, Handle handle)
     {
         try
@@ -84,34 +97,7 @@ public class UserAccessor implements IUserAccessor
         }
     }
 
-
-    public UserEntity getWith(int id, Handle handle)
-    {
-        try
-        {
-            return handle.createQuery(getQuery).bind("id", id).mapTo(UserEntity.class).findOnly();
-        } catch (IllegalStateException exception)
-        {
-            if (exception.getMessage().equals("No element found in 'only'"))
-                throw new EntityDoesNotExistException("No user with id: " + id + " in database");
-            else throw exception;
-        }
-
-    }
-
-    public UserEntity getByEmailWith(String emailAddress, Handle handle)
-    {
-        try
-        {
-            return handle.createQuery(getByEmailQuery).bind("emailAddress", emailAddress).mapTo(UserEntity.class).findOnly();
-        } catch (IllegalStateException exception)
-        {
-            if (exception.getMessage().equals("No element found in 'only'"))
-                throw new EntityDoesNotExistException("No user with email: " + emailAddress + " in database");
-            else throw exception;
-        }
-    }
-
+    @Override
     public void updateWith(UserEntity user, Handle handle)
     {
         try
