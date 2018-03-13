@@ -60,4 +60,20 @@ public class SessionType implements ISessionType
         props.put("mail.smtp.starttls.enable", tls);
         return Session.getInstance(props);
     }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        return obj instanceof SessionType && equals((SessionType) obj);
+    }
+
+    public boolean equals(SessionType other)
+    {
+        return other.port == this.port &&
+                other.auth == this.auth &&
+                other.tls == this.tls &&
+                other.host.equals(this.host) &&
+                other.name.equals(this.name);
+
+    }
 }

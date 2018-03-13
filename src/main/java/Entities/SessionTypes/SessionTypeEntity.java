@@ -10,9 +10,9 @@ public class SessionTypeEntity extends SessionType implements ISessionTypeEntity
         this.id = id;
     }
 
-    public SessionTypeEntity(int sessionTypeId, SessionType sessionType)
+    public SessionTypeEntity(int sessionTypeId, ISessionType sessionType)
     {
-        super(sessionType.name, sessionType.host, sessionType.port, sessionType.auth, sessionType.tls);
+        super(sessionType.getName(), sessionType.getHost(), sessionType.getPort(), sessionType.getAuth(), sessionType.getTls());
         id = sessionTypeId;
     }
 
@@ -51,5 +51,14 @@ public class SessionTypeEntity extends SessionType implements ISessionTypeEntity
         this.tls = tls;
     }
 
+    @Override
+    public boolean equals(Object obj)
+    {
+        return obj instanceof SessionTypeEntity && equals((SessionTypeEntity) obj);
+    }
 
+    public boolean equals(SessionTypeEntity other)
+    {
+        return other.id == this.id && super.equals(other);
+    }
 }

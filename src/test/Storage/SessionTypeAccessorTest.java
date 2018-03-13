@@ -37,7 +37,7 @@ public class SessionTypeAccessorTest
         assertThat(throwable)
                 .withFailMessage("Should have thrown an exception but didn't")
                 .isNotNull()
-                .withFailMessage("Should have thrown an entityAlreadyExistException but % was thrown", throwable.getClass())
+                .withFailMessage("Should have thrown an entityAlreadyExistException but" + throwable.getClass().toString() + "was thrown")
                 .isInstanceOf(EntityAlreadyExistException.class);
     }
 
