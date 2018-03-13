@@ -2,9 +2,12 @@ package Storage.base.Accessors.SessionType;
 
 import Entities.SessionTypes.ISessionType;
 import Entities.SessionTypes.ISessionTypeEntity;
+import Storage.base.Accessors.IWithHandleAccessor;
+import Storage.base.Util.AlternativeSqlLocator;
+import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
 
-public class SessionTypeAccessor implements ISessionTypeAccessor
+public class SessionTypeAccessor implements ISessionTypeAccessor, IWithHandleAccessor<ISessionTypeEntity, ISessionType>
 {
     private Jdbi jdbi;
     private String getQuery;
@@ -12,6 +15,14 @@ public class SessionTypeAccessor implements ISessionTypeAccessor
     private String addQuery;
     private String updateQuery;
 
+    public SessionTypeAccessor(Jdbi jdbi, AlternativeSqlLocator alternativeSqlLocator)
+    {
+        this.jdbi = jdbi;
+        getQuery = alternativeSqlLocator.locate("getSessionType");
+        getByNameQuery = alternativeSqlLocator.locate("getSessionTypeByName");
+        addQuery = alternativeSqlLocator.locate("addSessionType");
+        updateQuery = alternativeSqlLocator.locate("updateSessionType");
+    }
 
     @Override
     public ISessionTypeEntity get(int id)
@@ -37,5 +48,15 @@ public class SessionTypeAccessor implements ISessionTypeAccessor
 
     }
 
+    @Override
+    public ISessionTypeEntity addWith(ISessionType data, Handle handle)
+    {
+        return null;
+    }
 
+    @Override
+    public void updateWith(ISessionTypeEntity entity, Handle handle)
+    {
+
+    }
 }

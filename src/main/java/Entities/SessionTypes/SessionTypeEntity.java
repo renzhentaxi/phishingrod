@@ -23,6 +23,11 @@ public class SessionTypeEntity extends SessionType implements ISessionTypeEntity
     }
 
     @Override
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+    @Override
     public void setHost(String host)
     {
         this.host = host;

@@ -4,6 +4,8 @@ import Entities.IEntity;
 
 public interface ISessionTypeEntity extends IEntity, ISessionType
 {
+    void setName(String name);
+
     void setHost(String host);
 
     void setPort(int port);
