@@ -153,4 +153,25 @@ public class SessionTypeAccessorTest
         assertThat(expectedException).isNotNull().isInstanceOf(EntityUpdateException.class);
     }
 
+    @Test
+    void exist_sessionTypeDoesNotExist_returnsFalse()
+    {
+        SessionTypeAccessor accessor = getDefaultSessionTypeAccessor();
+
+        boolean exist = accessor.exist(1);
+
+        assertThat(exist).isEqualTo(false);
+    }
+
+    @Test
+    void exist_sessionTypeExist_returnsTrue()
+    {
+        SessionTypeAccessor accessor = getDefaultSessionTypeAccessor();
+        ISessionType sessionType = new SessionType("name", "host", 0, true, true);
+        ISessionTypeEntity sessionTypeEntity = accessor.add(sessionType);
+
+        boolean exist = accessor.exist(sessionTypeEntity.getId());
+
+        assertThat(exist).isEqualTo(true);
+    }
 }

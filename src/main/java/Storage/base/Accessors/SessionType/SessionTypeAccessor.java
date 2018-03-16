@@ -20,6 +20,7 @@ public class SessionTypeAccessor implements ISessionTypeAccessor, IWithHandleAcc
     private String getByNameQuery;
     private String addQuery;
     private String updateQuery;
+    private String existQuery;
 
     public SessionTypeAccessor(Jdbi jdbi, AlternativeSqlLocator alternativeSqlLocator)
     {
@@ -28,6 +29,16 @@ public class SessionTypeAccessor implements ISessionTypeAccessor, IWithHandleAcc
         getByNameQuery = alternativeSqlLocator.locate("getSessionTypeByName");
         addQuery = alternativeSqlLocator.locate("addSessionType");
         updateQuery = alternativeSqlLocator.locate("updateSessionType");
+        existQuery = alternativeSqlLocator.locate("existSessionType");
+    }
+
+    @Override
+    public boolean exist(int id)
+    {
+        try (Handle handle = jdbi.open())
+        {
+            return handle.createQuery(existQuery).bind("id", id).mapTo(Boolean.class).findOnly();
+        }
     }
 
     @Override

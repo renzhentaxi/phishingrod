@@ -32,6 +32,7 @@ public class SqliteSqlLocatorModule
         locator.register("addSessionType", "sessionType/addSessionType");
         locator.register("getSessionTypeByName", "sessionType/getSessionTypeByName");
         locator.register("updateSessionType", "sessionType/updateSessionType");
+        locator.register("existSessionType", "sessionType/existSessionType");
 
         locator.register("addMail", "Email/addMail");
         locator.register("getPath", "Email/getPath");
