@@ -1,4 +1,4 @@
-import Entities.Users.IUserEntity;
+/*import Entities.Users.IUserEntity;
 import Entities.Users.User;
 import Storage.Sqlite.DaggerSqliteStorageManager;
 import Storage.base.Accessors.Sender.SenderAccessor;
@@ -32,3 +32,4 @@ public class DatabaseTest {
 //        System.out.println(sender.getUser().getEmailAddress());
     }
 }
+*/
