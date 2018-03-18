@@ -8,6 +8,10 @@ import Storage.base.Accessors.Exceptions.EntityAlreadyExistException;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
 import Storage.base.Accessors.Exceptions.EntityUpdateException;
 import Storage.base.Accessors.SessionType.SessionTypeAccessor;
+import Storage.base.Mappers.SessionTypeMapper;
+import org.jdbi.v3.core.Jdbi;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,11 +20,35 @@ import static org.assertj.core.api.Assertions.catchThrowable;
 
 public class SessionTypeAccessorTest
 {
-    public static SessionTypeAccessor getDefaultSessionTypeAccessor()
+    // setups
+    private static Jdbi jdbi;
+
+    private static Jdbi getJdbi()
     {
-        return new SessionTypeAccessor(AccessorTestHelper.getSimpleJdbi(), AccessorTestHelper.getSimpleSqlLocator());
+        if (jdbi == null)
+        {
+            jdbi = AccessorTestHelper.newJdbi(new SessionTypeMapper());
+        }
+        return jdbi;
     }
 
+    public static SessionTypeAccessor getDefaultSessionTypeAccessor()
+    {
+        return new SessionTypeAccessor(getJdbi(), AccessorTestHelper.getSimpleSqlLocator());
+    }
+
+    @BeforeEach
+    void setup()
+    {
+        AccessorTestHelper.setupDatabase(getJdbi());
+    }
+    @AfterEach
+    void tearDown()
+    {
+        AccessorTestHelper.clearDatabase(getJdbi());
+    }
+
+    //tests
     @Test
     void add_sessionTypeAlreadyExist_throwsEntityAlreadyExistException()
     {

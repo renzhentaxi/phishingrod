@@ -8,6 +8,10 @@ import Storage.base.Accessors.Exceptions.EntityAlreadyExistException;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
 import Storage.base.Accessors.Exceptions.EntityUpdateException;
 import Storage.base.Accessors.User.UserAccessor;
+import Storage.base.Mappers.UserMapper;
+import org.jdbi.v3.core.Jdbi;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,11 +20,36 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class UserAccessorTest
 {
-    public static UserAccessor getDefaultUserAccessor()
+    //setup
+    private static Jdbi jdbi;
+
+    private static Jdbi getJdbi()
     {
-        return new UserAccessor(AccessorTestHelper.getSimpleJdbi(), AccessorTestHelper.getSimpleSqlLocator());
+        if (jdbi == null)
+        {
+            jdbi = AccessorTestHelper.newJdbi(new UserMapper());
+        }
+        return jdbi;
     }
 
+    public static UserAccessor getDefaultUserAccessor()
+    {
+        return new UserAccessor(getJdbi(), AccessorTestHelper.getSimpleSqlLocator());
+    }
+
+    @BeforeEach
+    void setUp()
+    {
+        AccessorTestHelper.setupDatabase(getJdbi());
+    }
+
+    @AfterEach
+    void tearDown()
+    {
+        AccessorTestHelper.clearDatabase(getJdbi());
+    }
+
+    //tests
     @Test
     void add_userExist_throwsEntityAlreadyExistException()
     {
