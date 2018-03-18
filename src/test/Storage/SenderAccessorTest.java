@@ -16,6 +16,7 @@ import Storage.base.Mappers.SenderMapper;
 import Storage.base.Mappers.UserMapper;
 import org.jdbi.v3.core.Jdbi;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
@@ -82,6 +83,7 @@ public class SenderAccessorTest
     }
 
     @AfterEach
+    @BeforeAll
     void tearDown()
     {
         AccessorTestHelper.clearDatabase(jdbi);
