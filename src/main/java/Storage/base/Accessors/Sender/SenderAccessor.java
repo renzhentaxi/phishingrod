@@ -2,6 +2,7 @@ package Storage.base.Accessors.Sender;
 
 import Entities.Senders.ISender;
 import Entities.Senders.ISenderEntity;
+import Entities.Senders.SenderEntity;
 import Storage.base.Accessors.Exceptions.EntityAlreadyExistException;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
 import Storage.base.Accessors.Exceptions.EntityUpdateException;
@@ -14,47 +15,57 @@ import org.jdbi.v3.core.Jdbi;
 public class SenderAccessor implements ISenderAccessor
 {
     private Jdbi jdbi;
+    private IUserAccessor userAccessor;
+    private ISessionTypeAccessor sessionTypeAccessor;
+
     private String getQuery;
     private String getByEmailQuery;
     private String addQuery;
     private String updateQuery;
-    private IUserAccessor userAccessor;
-    private ISessionTypeAccessor sessionTypeAccessor;
+    private String existQuery;
+    private String existByEmailQuery;
+
 
     public SenderAccessor(Jdbi jdbi, AlternativeSqlLocator sqlLocator, IUserAccessor userAccessor, ISessionTypeAccessor sessionTypeAccessor)
     {
         this.jdbi = jdbi;
+        this.userAccessor = userAccessor;
+        this.sessionTypeAccessor = sessionTypeAccessor;
+
         this.getQuery = sqlLocator.locate("getSender");
         this.getByEmailQuery = sqlLocator.locate("getSenderByEmail");
         this.addQuery = sqlLocator.locate("addSender");
         this.updateQuery = sqlLocator.locate("updateSender");
-        this.userAccessor = userAccessor;
-        this.sessionTypeAccessor = sessionTypeAccessor;
-
+        this.existQuery = sqlLocator.locate("existSender");
+        this.existByEmailQuery = sqlLocator.locate("existSenderByEmail");
     }
 
     @Override
     public boolean exist(int id)
     {
-        return false;
+        return jdbi.withHandle(handle -> handle.createQuery(existQuery).bind("id", id).mapTo(Boolean.class).findOnly());
     }
 
     @Override
     public boolean exist(String emailAddress)
     {
-        return false;
+        return jdbi.withHandle(handle -> handle.createQuery(existByEmailQuery).bind("email_address", emailAddress).mapTo(Boolean.class).findOnly());
     }
 
     @Override
     public ISenderEntity get(int id)
     {
-        return null;
+        if (!exist(id)) throw new EntityDoesNotExistException("Sender", "id", id);
+        return jdbi.withHandle(handle ->
+                handle.createQuery(getQuery).bind("id", id).mapTo(SenderEntity.class).findOnly());
     }
 
     @Override
     public ISenderEntity getByEmail(String emailAddress)
     {
-        return null;
+        if (!exist(emailAddress)) throw new EntityDoesNotExistException("Sender", "email", emailAddress);
+
+        return jdbi.withHandle(handle -> handle.createQuery(getByEmailQuery).bind("emailAddress", emailAddress).mapTo(SenderEntity.class).findOnly());
     }
 
     /**
@@ -71,9 +82,7 @@ public class SenderAccessor implements ISenderAccessor
     @Override
     public ISenderEntity add(ISender data)
     {
-        if (userAccessor.exist(data.getEmailAddress()))
-            throw new EntityAlreadyExistException("sender", "email Address", data.getEmailAddress(), data);
-        return null;
+        return jdbi.withHandle(handle -> addWith(data, handle));
     }
 
     /**
@@ -89,17 +98,42 @@ public class SenderAccessor implements ISenderAccessor
     @Override
     public void update(ISenderEntity entity)
     {
+        jdbi.useHandle(handle -> updateWith(entity, handle));
     }
 
     @Override
     public ISenderEntity addWith(ISender data, Handle handle)
     {
-        return null;
+        if (userAccessor.exist(data.getEmailAddress()))
+            throw new EntityAlreadyExistException("user", "email Address", data.getEmailAddress(), data);
+        else if (exist(data.getEmailAddress()))
+            throw new EntityAlreadyExistException("sender", "email Address", data.getEmailAddress(), data);
+        else if (!sessionTypeAccessor.exist(data.getSessionTypeName()))
+            throw new EntityDoesNotExistException("sessionType", "name", data.getSessionTypeName());
+
+        return handle.inTransaction(h ->
+                {
+                    int id = userAccessor.addWith(data, handle).getId();
+                    h.createUpdate(addQuery).bindBean(data).bind("id", id).execute();
+                    return new SenderEntity(id, data);
+                }
+        );
+
     }
 
     @Override
     public void updateWith(ISenderEntity entity, Handle handle)
     {
-
+        if (!sessionTypeAccessor.exist(entity.getSessionTypeName()))
+            throw new EntityDoesNotExistException("sessionType", "name", entity.getSessionTypeName());
+        else if (!exist(entity.getId()))
+            throw new EntityDoesNotExistException("sender", "id", entity.getId());
+        handle.useTransaction(h ->
+                {
+                    userAccessor.updateWith(entity, h);
+                    int updatedCount = h.createUpdate(updateQuery).bindBean(entity).execute();
+                    System.out.println(updatedCount);
+                }
+        );
     }
 }
