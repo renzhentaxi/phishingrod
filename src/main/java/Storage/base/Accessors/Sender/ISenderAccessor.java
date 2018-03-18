@@ -1,10 +1,14 @@
 package Storage.base.Accessors.Sender;
 
-import Entities.Senders.Sender;
-import Entities.Senders.SenderEntity;
-import Storage.base.Accessors.IAccessor;
 
-public interface ISenderAccessor extends IAccessor<SenderEntity, Sender>
+import Entities.Senders.ISender;
+import Entities.Senders.ISenderEntity;
+import Storage.base.Accessors.IAccessor;
+import Storage.base.Accessors.IWithHandleAccessor;
+
+public interface ISenderAccessor extends IAccessor<ISenderEntity, ISender>, IWithHandleAccessor<ISenderEntity, ISender>
 {
-    SenderEntity getByEmail(String emailAddress);
+    ISenderEntity getByEmail(String emailAddress);
+
+    boolean exist(String emailAddress);
 }

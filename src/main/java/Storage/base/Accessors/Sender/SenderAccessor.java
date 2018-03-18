@@ -1,119 +1,105 @@
 package Storage.base.Accessors.Sender;
 
-import Entities.Senders.Sender;
-import Entities.Senders.SenderEntity;
-import Storage.base.Accessors.ExceptionHandler;
-import Storage.base.Accessors.User.UserAccessor;
+import Entities.Senders.ISender;
+import Entities.Senders.ISenderEntity;
+import Storage.base.Accessors.Exceptions.EntityAlreadyExistException;
+import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
+import Storage.base.Accessors.Exceptions.EntityUpdateException;
+import Storage.base.Accessors.SessionType.ISessionTypeAccessor;
+import Storage.base.Accessors.User.IUserAccessor;
 import Storage.base.Util.AlternativeSqlLocator;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
-import org.jdbi.v3.core.statement.UnableToExecuteStatementException;
 
 public class SenderAccessor implements ISenderAccessor
 {
     private Jdbi jdbi;
-    private ExceptionHandler exceptionHandler;
-    private UserAccessor userAccessor;
     private String getQuery;
     private String getByEmailQuery;
     private String addQuery;
     private String updateQuery;
+    private IUserAccessor userAccessor;
+    private ISessionTypeAccessor sessionTypeAccessor;
 
-    public SenderAccessor(Jdbi jdbi, ExceptionHandler exceptionHandler, AlternativeSqlLocator locator, UserAccessor userAccessor)
+    public SenderAccessor(Jdbi jdbi, AlternativeSqlLocator sqlLocator, IUserAccessor userAccessor, ISessionTypeAccessor sessionTypeAccessor)
     {
         this.jdbi = jdbi;
-        this.exceptionHandler = exceptionHandler;
+        this.getQuery = sqlLocator.locate("getSender");
+        this.getByEmailQuery = sqlLocator.locate("getSenderByEmail");
+        this.addQuery = sqlLocator.locate("addSender");
+        this.updateQuery = sqlLocator.locate("updateSender");
         this.userAccessor = userAccessor;
-        getQuery = locator.locate("getSender");
-        getByEmailQuery = locator.locate("getSenderByEmail");
-        addQuery = locator.locate("addSender");
-        updateQuery = locator.locate("updateSender");
+        this.sessionTypeAccessor = sessionTypeAccessor;
+
     }
 
     @Override
-    public SenderEntity getByEmail(String emailAddress)
+    public boolean exist(int id)
     {
-        try (Handle handle = jdbi.open())
-        {
-            return getByEmailWith(emailAddress, handle);
-        }
+        return false;
     }
 
     @Override
-    public SenderEntity get(int id)
+    public boolean exist(String emailAddress)
     {
-        try (Handle handle = jdbi.open())
-        {
-            return getWith(id, handle);
-        }
+        return false;
     }
 
     @Override
-    public SenderEntity add(Sender data)
+    public ISenderEntity get(int id)
     {
-        try (Handle handle = jdbi.open())
-        {
-            return addWith(data, handle);
-        }
+        return null;
     }
 
     @Override
-    public void update(SenderEntity entity)
+    public ISenderEntity getByEmail(String emailAddress)
     {
-        try (Handle handle = jdbi.open())
-        {
-            updateWith(entity, handle);
-        }
-
+        return null;
     }
 
-
-    public SenderEntity getByEmailWith(String emailAddress, Handle handle)
+    /**
+     * adds the sender to the database
+     * note: in the database, it will add both a new user entry as well as a new sender entry
+     *
+     * @param data the data object to be added to the database
+     * @return the sender object in entity form
+     * @throws EntityAlreadyExistException if a given user already exist in the database
+     *                                     note: it is also possible for a sessionType to exist in the database, but in order for a sessionType to exist
+     *                                     the user must also exist and therefore we dont need a separate exception.
+     * @throws EntityDoesNotExistException if there is no sessionType with the id in the database
+     */
+    @Override
+    public ISenderEntity add(ISender data)
     {
-        try
-        {
-            return handle.createQuery(getByEmailQuery).bind("emailAddress", emailAddress).mapTo(SenderEntity.class).findOnly();
-        } catch (UnableToExecuteStatementException exception)
-        {
-            exception.printStackTrace();
-            throw exception;
-        }
+        if (userAccessor.exist(data.getEmailAddress()))
+            throw new EntityAlreadyExistException("sender", "email Address", data.getEmailAddress(), data);
+        return null;
     }
 
-    public SenderEntity getWith(int id, Handle handle)
+    /**
+     * updates the sender in the database with the given entity
+     * note: it will update both the user entry as well as the sender entry in the database
+     * since a sender is an extension of a user
+     *
+     * @param entity the modified entity to be synced
+     * @throws EntityDoesNotExistException if no sessionType with the id exist
+     * @throws EntityDoesNotExistException if no sender with the id exist
+     * @throws EntityUpdateException       if an user with the same email already exist in the database
+     */
+    @Override
+    public void update(ISenderEntity entity)
     {
-        try
-        {
-            return handle.createQuery(getQuery).bind("id", id).mapTo(SenderEntity.class).findOnly();
-        } catch (UnableToExecuteStatementException exception)
-        {
-            exception.printStackTrace();
-            throw exception;
-        }
     }
 
-    public SenderEntity addWith(Sender data, Handle handle)
+    @Override
+    public ISenderEntity addWith(ISender data, Handle handle)
     {
-        try
-        {
-            handle.createUpdate(addQuery).bindBean(data).bind("id", data.getUser().getId()).execute();
-            return new SenderEntity(data);
-        } catch (UnableToExecuteStatementException exception)
-        {
-            throw exceptionHandler.Strip(exception);
-        }
+        return null;
     }
 
-    public void updateWith(SenderEntity entity, Handle handle)
+    @Override
+    public void updateWith(ISenderEntity entity, Handle handle)
     {
-        try
-        {
-            userAccessor.updateWith(entity.getUser(), handle);
-            handle.createUpdate(updateQuery).bindBean(entity).execute();
-        } catch (UnableToExecuteStatementException exception)
-        {
-            throw exceptionHandler.Strip(exception);
-        }
 
     }
 }
