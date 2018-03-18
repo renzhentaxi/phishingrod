@@ -62,11 +62,7 @@ public class SessionTypeAccessorTest
         //act
         Throwable throwable = catchThrowable(() -> accessor.add(sessionType));
 
-        assertThat(throwable)
-                .withFailMessage("Should have thrown an exception but didn't")
-                .isNotNull()
-                .withFailMessage("Should have thrown an entityAlreadyExistException but" + throwable.getClass().toString() + "was thrown")
-                .isInstanceOf(EntityAlreadyExistException.class);
+        assertThat(throwable).isInstanceOf(EntityAlreadyExistException.class);
     }
 
     @Test
@@ -95,7 +91,7 @@ public class SessionTypeAccessorTest
         Throwable expectedException = catchThrowable(() -> accessor.get(0));
         //assert
 
-        assertThat(expectedException).isNotNull().isInstanceOf(EntityDoesNotExistException.class);
+        assertThat(expectedException).isInstanceOf(EntityDoesNotExistException.class);
     }
 
     @Test
@@ -123,7 +119,7 @@ public class SessionTypeAccessorTest
         Throwable expectedException = catchThrowable(() -> accessor.getByName("blah"));
 
         //assert
-        assertThat(expectedException).isNotNull().isInstanceOf(EntityDoesNotExistException.class);
+        assertThat(expectedException).isInstanceOf(EntityDoesNotExistException.class);
 
     }
 
@@ -138,7 +134,7 @@ public class SessionTypeAccessorTest
         Throwable expectedException = catchThrowable(() -> accessor.update(imaginarySessionType));
 
         //assert
-        assertThat(expectedException).isNotNull().isInstanceOf(EntityDoesNotExistException.class);
+        assertThat(expectedException).isInstanceOf(EntityDoesNotExistException.class);
     }
 
     @Test
@@ -178,7 +174,7 @@ public class SessionTypeAccessorTest
         Throwable expectedException = catchThrowable(() -> accessor.update(sessionTypeEntity));
 
         //assert
-        assertThat(expectedException).isNotNull().isInstanceOf(EntityUpdateException.class);
+        assertThat(expectedException).isInstanceOf(EntityUpdateException.class);
     }
 
     @Test
