@@ -8,5 +8,8 @@ public class EntityAlreadyExistException extends RuntimeException {
                 "\nOffending " + entityType + " :" + object.toString());
     }
 
-
+    public EntityAlreadyExistException(String entityType, String identifierName, int identifierValue, Object object)
+    {
+        this(entityType, identifierName, Integer.toString(identifierValue), object);
+    }
 }
