@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.catchThrowable;
 
 public class SessionTypeAccessorTest
 {
-    private static SessionTypeAccessor getDefaultSessionTypeAccessor()
+    public static SessionTypeAccessor getDefaultSessionTypeAccessor()
     {
         return new SessionTypeAccessor(AccessorTestHelper.getSimpleJdbi(), AccessorTestHelper.getSimpleSqlLocator());
     }
@@ -171,6 +171,29 @@ public class SessionTypeAccessorTest
         ISessionTypeEntity sessionTypeEntity = accessor.add(sessionType);
 
         boolean exist = accessor.exist(sessionTypeEntity.getId());
+
+        assertThat(exist).isEqualTo(true);
+    }
+
+    @Test
+    void existByName_sessionTypeDoesNotExist_returnsFalse()
+    {
+        SessionTypeAccessor accessor = getDefaultSessionTypeAccessor();
+
+        boolean exist = accessor.exist("name");
+
+        assertThat(exist).isEqualTo(false);
+    }
+
+    @Test
+    void existByName_sessionTypeExist_returnsTrue()
+    {
+        SessionTypeAccessor accessor = getDefaultSessionTypeAccessor();
+
+        ISessionType sessionType = new SessionType("name", "host", 0, true, true);
+        ISessionTypeEntity sessionTypeEntity = accessor.add(sessionType);
+
+        boolean exist = accessor.exist(sessionTypeEntity.getName());
 
         assertThat(exist).isEqualTo(true);
     }

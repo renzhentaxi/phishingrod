@@ -1,5 +1,6 @@
 package Storage;
 
+import Entities.Users.IUser;
 import Entities.Users.IUserEntity;
 import Entities.Users.User;
 import Entities.Users.UserEntity;
@@ -9,12 +10,13 @@ import Storage.base.Accessors.Exceptions.EntityUpdateException;
 import Storage.base.Accessors.User.UserAccessor;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class UserAccessorTest
 {
-    private static UserAccessor getDefaultUserAccessor()
+    public static UserAccessor getDefaultUserAccessor()
     {
         return new UserAccessor(AccessorTestHelper.getSimpleJdbi(), AccessorTestHelper.getSimpleSqlLocator());
     }
@@ -147,4 +149,47 @@ public class UserAccessorTest
         assertThrows(EntityUpdateException.class, () -> ua.update(user1));
     }
 
+    @Test
+    void exist_userDoesNotExist_returnsFalse()
+    {
+        UserAccessor accessor = getDefaultUserAccessor();
+
+        boolean exist = accessor.exist(1);
+
+        assertThat(exist).isEqualTo(false);
+    }
+
+    @Test
+    void exist_userExist_returnsTrue()
+    {
+        UserAccessor accessor = getDefaultUserAccessor();
+        IUser user = new User("firstName", "lastName", "nickName", "email@email.com");
+        IUserEntity userEntity = accessor.add(user);
+
+        boolean exist = accessor.exist(userEntity.getId());
+
+        assertThat(exist).isEqualTo(true);
+    }
+
+    @Test
+    void existByName_sessionTypeDoesNotExist_returnsFalse()
+    {
+        UserAccessor accessor = getDefaultUserAccessor();
+
+        boolean exist = accessor.exist("email@email.com");
+
+        assertThat(exist).isEqualTo(false);
+    }
+
+    @Test
+    void existByName_sessionTypeExist_returnsTrue()
+    {
+        UserAccessor accessor = getDefaultUserAccessor();
+        IUser user = new User("firstName", "lastName", "nickName", "email@email.com");
+        IUserEntity userEntity = accessor.add(user);
+
+        boolean exist = accessor.exist(userEntity.getEmailAddress());
+
+        assertThat(exist).isEqualTo(true);
+    }
 }
