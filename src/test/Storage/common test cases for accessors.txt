@@ -1,6 +1,5 @@
 General test cases
 
-
 a. Entity get(int id) methods
     1. test returns entity if entity exist
     2. test that if no such entity exist in the database, EntityDoesNotExist exception should be thrown
@@ -27,11 +26,17 @@ get_entityExist_returnsEntity()
 get_entityDoesNotExist_throwsEntityDoesNotExistException()
 
 getByAlternativeKey_entityExist_returnsEntity()
-getByAlternativeKey_entityDoesNotExist_throwsEntityDoesNotExistException
+getByAlternativeKey_entityDoesNotExist_throwsEntityDoesNotExistException()
 
 update_entityDoesNotExist_throwsEntityDoesNotExistException()
 update_entityExist_updatesEntity()
 update_anotherEntityWithSameAlternativeKeyExist_throwsEntityUpdateException();
-update_newAlternativeKeyMatchesWithAnOtherAlternativeKey_throwsEntityUpdateException();
-? valid?
-add_entityDoesNotExist_returnedEntityIsValid();
+
+exist_entityExist_returnsTrue()
+exist_entityDoesNotExist_returnsFalse()
+
+existByAlternativeKey_entityExist_returnsTrue()
+existByAlternativeKey_entityDoesNotExist_returnsFalse()
+
+todo:
+validate emailAddress as well as other properties
