@@ -24,6 +24,8 @@ public class UserAccessor implements IUserAccessor, IWithHandleAccessor<IUserEnt
     private String getByEmailQuery;
     private String addQuery;
     private String updateQuery;
+    private String existQuery;
+    private String existByEmailQuery;
 
     public UserAccessor(Jdbi jdbi, AlternativeSqlLocator locator)
     {
@@ -33,10 +35,27 @@ public class UserAccessor implements IUserAccessor, IWithHandleAccessor<IUserEnt
         getByEmailQuery = locator.locate("getUserByEmail");
         addQuery = locator.locate("addUser");
         updateQuery = locator.locate("updateUser");
+        existByEmailQuery = locator.locate("existUserByEmail");
+        existQuery = locator.locate("existUser");
     }
 
+    @Override
+    public boolean exist(int id)
+    {
+        try (Handle handle = jdbi.open())
+        {
+            return handle.createQuery(existQuery).bind("id", id).mapTo(Boolean.class).findOnly();
+        }
+    }
 
-
+    @Override
+    public boolean exist(String emailAddress)
+    {
+        try (Handle handle = jdbi.open())
+        {
+            return handle.createQuery(existByEmailQuery).bind("emailAddress", emailAddress).mapTo(Boolean.class).findOnly();
+        }
+    }
 
     @Override
     public IUserEntity get(int id)

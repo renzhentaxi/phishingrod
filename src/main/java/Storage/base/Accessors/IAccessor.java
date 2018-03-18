@@ -32,5 +32,12 @@ public interface IAccessor<E, D>
      * @throws EntityUpdateException if an entity with the same alternative key already exist in the database
      */
     void update(E entity);
+
+    /**
+     * check if entity with id exist in database
+     * @param id the id of the entity
+     * @return true if it exist, false otherwise
+     */
+    boolean exist(int id);
 }
 

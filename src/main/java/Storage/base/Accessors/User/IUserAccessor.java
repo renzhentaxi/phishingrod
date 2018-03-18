@@ -16,4 +16,6 @@ public interface IUserAccessor extends IAccessor<IUserEntity, IUser>
      * @throws EntityDoesNotExistException when there is no user in the database with the given email.
      */
     IUserEntity getByEmail(String emailAddress);
+
+    boolean exist(String emailAddress);
 }
