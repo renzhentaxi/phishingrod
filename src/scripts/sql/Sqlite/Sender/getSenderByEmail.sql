@@ -1,5 +1,5 @@
 SELECT
-  User.userId,
+  User.userId AS id,
   email_address,
   first_name,
   last_name,

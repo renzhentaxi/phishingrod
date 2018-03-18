@@ -1,5 +1,5 @@
 SELECT
-  User.userId,
+  User.userId AS id,
   email_address,
   first_name,
   last_name,
@@ -8,4 +8,5 @@ SELECT
   sessionTypeName
 FROM User
   INNER JOIN Sender ON User.userId = Sender.userId
-WHERE User.userId = :id;
+WHERE id = :id;
+
