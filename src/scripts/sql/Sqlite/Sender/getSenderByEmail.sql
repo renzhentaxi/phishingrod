@@ -5,7 +5,7 @@ SELECT
   last_name,
   nick_name,
   password,
-  session_Type
+  sessionTypeName
 FROM User
   INNER JOIN Sender ON User.userId = Sender.userId
 WHERE email_address = :emailAddress;

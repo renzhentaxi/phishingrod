@@ -1,7 +1,7 @@
 UPDATE Sender
 SET
-  password     = :password,
-  session_Type = :sessionType
+  password        = :password,
+  sessionTypeName = :sessionTypeName
 WHERE
   userId = :id;
 

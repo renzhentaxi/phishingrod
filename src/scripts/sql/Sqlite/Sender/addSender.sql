@@ -1,3 +1,3 @@
 INSERT INTO Sender
-(userId, password, session_Type)
-VALUES (:id, :password, :sessionType);
+(userId, password, sessionTypeName)
+VALUES (:id, :password, :sessionTypeName);
