@@ -4,6 +4,7 @@ import Entities.Senders.ISender;
 import Entities.Senders.ISenderEntity;
 import Entities.Senders.Sender;
 import Entities.Senders.SenderEntity;
+import Entities.SessionTypes.SessionType;
 import Entities.Users.User;
 import Storage.base.Accessors.Exceptions.EntityAlreadyExistException;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
@@ -16,15 +17,11 @@ import Storage.base.Mappers.SenderMapper;
 import Storage.base.Mappers.UserMapper;
 import org.jdbi.v3.core.Jdbi;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 /**
  * although we can mock both user/sessionType accessors, I decided not to because it brings up several complexities.
@@ -42,16 +39,14 @@ public class SenderAccessorTest
 
     private static SenderAccessor getDefaultSenderAccessor()
     {
-        //a stub sessionType accessor that has an exist method that returns true if the argument is equal to the value of SESSIONTYPE_NAME and false otherwise
-        ISessionTypeAccessor stubSessionTypeAccessor = mock(ISessionTypeAccessor.class);
-        when(stubSessionTypeAccessor.exist(ArgumentMatchers.anyString())).thenReturn(false);
-        when(stubSessionTypeAccessor.exist(SESSIONTYPE_NAME)).thenReturn(true);
-
         //can't mock userAccessor because we need to actually add a user in the database due to foreign key restrictions
+        ISessionTypeAccessor sessionTypeAccessor = DefaultAccessors.getDefaultSessionTypeAccessor(jdbi);
+        sessionTypeAccessor.add(new SessionType(SESSIONTYPE_NAME, "host", 1, true, true));
+
         IUserAccessor userAccessor = DefaultAccessors.getDefaultUserAccessor(jdbi);
 
 
-        return DefaultAccessors.getDefaultSenderAccessor(jdbi, userAccessor, stubSessionTypeAccessor);
+        return DefaultAccessors.getDefaultSenderAccessor(jdbi, userAccessor, sessionTypeAccessor);
     }
 
     private static ISender newTestSender()
@@ -83,7 +78,6 @@ public class SenderAccessorTest
     }
 
     @AfterEach
-    @BeforeAll
     void tearDown()
     {
         AccessorTestHelper.clearDatabase(jdbi);
@@ -99,7 +93,7 @@ public class SenderAccessorTest
 
         Throwable expectedException = catchThrowable(() -> senderAccessor.add(sender));
 
-        assertThat(expectedException).isInstanceOf(EntityAlreadyExistException.class).hasMessageContaining("sender already exist");
+        assertThat(expectedException).isInstanceOf(EntityAlreadyExistException.class);
     }
 
     @Test
@@ -116,7 +110,7 @@ public class SenderAccessorTest
 
         Throwable expectedException = catchThrowable(() -> senderAccessor.add(sender));
 
-        assertThat(expectedException).isInstanceOf(EntityAlreadyExistException.class).hasMessageContaining("user already exist");
+        assertThat(expectedException).isInstanceOf(EntityAlreadyExistException.class);
     }
 
     @Test
@@ -127,7 +121,7 @@ public class SenderAccessorTest
 
         Throwable expectedException = catchThrowable(() -> senderAccessor.add(senderWithNonExistentSessionType));
 
-        assertThat(expectedException).isInstanceOf(EntityDoesNotExistException.class).hasMessageContaining("sessionType does not exist");
+        assertThat(expectedException).isInstanceOf(EntityDoesNotExistException.class).hasMessageContaining("No sessionType");
     }
 
     @Test
@@ -194,11 +188,11 @@ public class SenderAccessorTest
         ISender sender = newTestSender();
         ISenderEntity addedEntity = senderAccessor.add(sender);
 
-        addedEntity.setPassword("new password");
-        senderAccessor.update(addedEntity);
-        ISenderEntity actualEntity = senderAccessor.getByEmail(sender.getEmailAddress());
+        ISenderEntity modifiedEntity = new SenderEntity(addedEntity.getId(), newTestSender("modified"));
+        senderAccessor.update(modifiedEntity);
+        ISenderEntity actualEntity = senderAccessor.getByEmail(modifiedEntity.getEmailAddress());
 
-        assertThat(actualEntity).isEqualTo(addedEntity);
+        assertThat(actualEntity).isEqualTo(modifiedEntity);
     }
 
     @Test
