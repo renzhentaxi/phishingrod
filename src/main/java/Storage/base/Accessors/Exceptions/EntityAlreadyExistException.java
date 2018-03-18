@@ -1,19 +1,12 @@
 package Storage.base.Accessors.Exceptions;
 
 public class EntityAlreadyExistException extends RuntimeException {
-    public EntityAlreadyExistException()
+
+    public EntityAlreadyExistException(String entityType, String identifierName, String identifierValue, Object object)
     {
-        super();
+        super("\nA " + entityType + " with the same " + identifierName + "(" + identifierValue + ") already exist in the database." +
+                "\nOffending " + entityType + " :" + object.toString());
     }
 
-    public EntityAlreadyExistException(String message)
-    {
-        super(message);
-    }
-
-    public EntityAlreadyExistException(String message, Throwable cause)
-    {
-        super(message, cause);
-    }
 
 }

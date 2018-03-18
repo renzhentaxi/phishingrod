@@ -112,7 +112,7 @@ public class UserAccessor implements IUserAccessor, IWithHandleAccessor<IUserEnt
         } catch (UnableToExecuteStatementException exception)
         {
             if (AccessorUtil.isExceptionDueToEntityAlreadyExist(exception, "email_address"))
-                throw new EntityAlreadyExistException();
+                throw new EntityAlreadyExistException("User", "email address", data.getEmailAddress(), data);
             else throw exception;
         }
     }

@@ -108,7 +108,7 @@ public class SessionTypeAccessor implements ISessionTypeAccessor, IWithHandleAcc
         } catch (UnableToExecuteStatementException exception)
         {
             if (AccessorUtil.isExceptionDueToEntityAlreadyExist(exception, "name"))
-                throw new EntityAlreadyExistException();
+                throw new EntityAlreadyExistException("SessionType", "name", data.getName(), data);
             else throw exception;
         }
     }
