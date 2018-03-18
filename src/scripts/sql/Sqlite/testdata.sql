@@ -1,3 +1,4 @@
+BEGIN;
 INSERT INTO SessionType
 (name, host, port, auth, tls) VALUES ('gmail', 'smtp.gmail.com', 587, 1, 1);
 
@@ -7,8 +8,9 @@ INSERT INTO User
 VALUES ('taxi@gmail.com', 'renzhentaxi', 'baerde', 'taxi');
 
 INSERT INTO Sender
-(userId, password, sessionName) VALUES (1, 'no password', 'gmail');
+(userId, password, sessionTypeName) VALUES (1, 'no password', 'gmail');
 
 INSERT INTO MailTypes
 (templateId, name, location, dateUpdated)
-VALUES (1,'Chase','Data/Mails/Chase/index.html', '2018-02-28');
+VALUES (1, 'Chase', 'Data/Mails/Chase/index.html', '2018-02-28');
+COMMIT;
