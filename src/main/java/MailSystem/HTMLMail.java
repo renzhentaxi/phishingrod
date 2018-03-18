@@ -1,7 +1,7 @@
 package MailSystem;
 
+import Entities.Senders.old.SenderEntity;
 import Entities.Users.User;
-import Entities.Senders.SenderEntity;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;

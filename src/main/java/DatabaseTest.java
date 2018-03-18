@@ -1,7 +1,7 @@
 import Entities.Users.IUserEntity;
 import Entities.Users.User;
 import Storage.Sqlite.DaggerSqliteStorageManager;
-import Storage.base.Accessors.Sender.SenderAccessor;
+import Storage.base.Accessors.Sender.old.SenderAccessor;
 import Storage.base.Accessors.User.UserAccessor;
 import Storage.base.StorageManager;
 

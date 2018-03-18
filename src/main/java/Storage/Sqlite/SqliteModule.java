@@ -1,7 +1,7 @@
 package Storage.Sqlite;
 
 import Storage.base.Accessors.ExceptionHandler;
-import Storage.base.Accessors.Sender.SenderAccessor;
+import Storage.base.Accessors.Sender.old.SenderAccessor;
 import Storage.base.Accessors.User.UserAccessor;
 import Storage.base.Util.AlternativeSqlLocator;
 import Storage.base.Util.DataBaseUrl;
@@ -20,6 +20,7 @@ public abstract class SqliteModule {
     public static DataSource provideDataSource(@DataBaseUrl String databaseUrl) {
         SQLiteDataSource ds = new SQLiteDataSource();
         ds.setUrl("jdbc:sqlite:" + databaseUrl);
+        ds.setEnforceForeignKeys(true);
         return ds;
     }
 

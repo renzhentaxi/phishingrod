@@ -1,5 +1,5 @@
+import Entities.Senders.old.SenderEntity;
 import Entities.Users.User;
-import Entities.Senders.SenderEntity;
 import Entities.Users.UserEntity;
 import MailSystem.HTMLMail;
 import MailSystem.IMail;
