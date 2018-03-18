@@ -12,4 +12,6 @@ public interface ISenderEntity extends IEntity, ISender, IUserEntity
     void setPassword(String password);
 
     void setSessionTypeName(String sessionTypeName);
+
+    boolean equals(ISenderEntity other);
 }

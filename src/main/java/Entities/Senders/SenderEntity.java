@@ -57,4 +57,16 @@ public class SenderEntity extends Sender implements ISenderEntity
     {
         return id;
     }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        return obj instanceof ISenderEntity && equals((ISenderEntity) obj);
+    }
+
+    @Override
+    public boolean equals(ISenderEntity other)
+    {
+        return this.id == other.getId() && super.equals((ISender) other);
+    }
 }

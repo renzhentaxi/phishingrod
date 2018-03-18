@@ -65,4 +65,21 @@ public class Sender implements ISender
     {
         return ToStringBuilder.reflectionToString(this);
     }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        return obj instanceof ISender && equals((ISender) obj);
+    }
+
+    @Override
+    public boolean equals(ISender other)
+    {
+        return this.sessionTypeName.equals(other.getSessionTypeName()) &&
+                this.password.equals(other.getPassword()) &&
+                this.emailAddress.equals(other.getEmailAddress()) &&
+                this.firstName.equals(other.getFirstName()) &&
+                this.lastName.equals(other.getLastName()) &&
+                this.nickName.equals(other.getNickName());
+    }
 }

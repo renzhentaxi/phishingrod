@@ -7,4 +7,6 @@ public interface ISender extends IUser
     String getSessionTypeName();
 
     String getPassword();
+
+    boolean equals(ISender other);
 }
