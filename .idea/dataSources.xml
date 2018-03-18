@@ -28,6 +28,7 @@
       <jdbc-url>jdbc:sqlite:C:\Users\Renzh\IdeaProjects\phishingrod\src\test\testDb.db</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
+        <property name="foreign_keys" value="true" />
       </driver-properties>
       <libraries>
         <library>

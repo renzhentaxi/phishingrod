@@ -1,34 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45ee3aef-8f0e-4230-840f-d919db3276a0" name="Default" comment="implemented sessionTypeAccessor">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+    <list default="true" id="45ee3aef-8f0e-4230-840f-d919db3276a0" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/MailTest.iml" afterPath="$PROJECT_DIR$/MailTest.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseTest.java" afterPath="$PROJECT_DIR$/src/main/java/DatabaseTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Senders/ISender.java" afterPath="$PROJECT_DIR$/src/main/java/Entities/Senders/ISender.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Senders/ISenderEntity.java" afterPath="$PROJECT_DIR$/src/main/java/Entities/Senders/ISenderEntity.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Senders/Sender.java" afterPath="$PROJECT_DIR$/src/main/java/Entities/Senders/Sender.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entities/Senders/SenderEntity.java" afterPath="$PROJECT_DIR$/src/main/java/Entities/Senders/SenderEntity.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MailSystem/HTMLMail.java" afterPath="$PROJECT_DIR$/src/main/java/MailSystem/HTMLMail.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MailSystem/IMail.java" afterPath="$PROJECT_DIR$/src/main/java/MailSystem/IMail.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MailSystem/IMailSender.java" afterPath="$PROJECT_DIR$/src/main/java/MailSystem/IMailSender.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MailSystem/MailSender.java" afterPath="$PROJECT_DIR$/src/main/java/MailSystem/MailSender.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Storage/Sqlite/SqliteModule.java" afterPath="$PROJECT_DIR$/src/main/java/Storage/Sqlite/SqliteModule.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/ISenderAccessor.java" afterPath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/ISenderAccessor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/SenderAccessor.java" afterPath="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/SenderAccessor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Storage/base/Mappers/SenderMapper.java" afterPath="$PROJECT_DIR$/src/main/java/Storage/base/Mappers/SenderMapper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Storage/base/StorageManager.java" afterPath="$PROJECT_DIR$/src/main/java/Storage/base/StorageManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/scripts/plan" afterPath="$PROJECT_DIR$/src/scripts/plan" />
-      <change beforePath="$PROJECT_DIR$/src/test/SenderDaoTest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/test/Storage/AccessorTestHelper.java" afterPath="$PROJECT_DIR$/src/test/Storage/AccessorTestHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/Storage/SessionTypeAccessorTest.java" afterPath="$PROJECT_DIR$/src/test/Storage/SessionTypeAccessorTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/Storage/UserAccessorTest.java" afterPath="$PROJECT_DIR$/src/test/Storage/UserAccessorTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/Storage/common test cases for accessors.txt" afterPath="$PROJECT_DIR$/src/test/Storage/common test cases for accessors.txt" />
-      <change beforePath="$PROJECT_DIR$/src/test/testDb.db" afterPath="$PROJECT_DIR$/src/test/testDb.db" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,29 +33,7 @@
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="test.db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="test.db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="testDb" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="testDb" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="testDb" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
       </path>
     </expand>
     <select />
@@ -90,96 +43,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="SessionTypeAccessorTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/Storage/SessionTypeAccessorTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="155" column="0" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="198" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SenderAccessorTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/Storage/SenderAccessorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="36" column="31" lean-forward="false" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SqliteModule_ProvideDataSourceFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/target/generated/Storage/Sqlite/SqliteModule_ProvideDataSourceFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="34" lean-forward="false" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="71" column="36" lean-forward="false" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SessionTypeAccessor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/SessionTypeAccessor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="42" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SqliteModule_ProvideUserAccessorFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/target/generated/Storage/Sqlite/SqliteModule_ProvideUserAccessorFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+            <state relative-caret-position="189">
+              <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#SenderAccessorTest#0" expanded="false" />
+                <element signature="method#newTestSenderWithNoPrefix#0;class#SenderAccessorTest#0" expanded="false" />
+                <element signature="method#newTestSender#2;class#SenderAccessorTest#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserAccessor.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/UserAccessor.java">
+      <file leaf-file-name="common test cases for accessors.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Storage/common test cases for accessors.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+            <state relative-caret-position="193">
+              <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="making new scripts.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/scripts/making new scripts.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="189">
+                <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SessionTypeAccessorTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/Storage/SessionTypeAccessorTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
-                <element signature="method#get#0;class#UserAccessor#0" expanded="false" />
+                <element signature="method#getJdbi#0;class#SessionTypeAccessorTest#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IUserAccessor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/IUserAccessor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DatabaseTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -187,9 +95,75 @@
       <file leaf-file-name="UserAccessorTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/Storage/UserAccessorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
+            <state relative-caret-position="315">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding>
+                <element signature="method#getJdbi#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#add_userExist_throwsEntityAlreadyExistException#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#get_userExist_returnsUser#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#get_userDoesNotExist_throwsEntityDoesNotExistException#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#getByEmail_userExist_returnsUser#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#getByEmail_userDoesNotExist_throwsEntityDoesNotExistException#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#updateUser_userExist_updatesUser#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#updateUser_userDoesNotExist_throwsEntityDoesNotExistException#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#updateUser_newEmailMatchesWithAnotherUserEmail_throwsEntityUpdateException#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#exist_userDoesNotExist_returnsFalse#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#exist_userExist_returnsTrue#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#existByName_sessionTypeDoesNotExist_returnsFalse#0;class#UserAccessorTest#0" expanded="false" />
+                <element signature="method#existByName_sessionTypeExist_returnsTrue#0;class#UserAccessorTest#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IUserEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Users/IUserEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ISenderEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/ISenderEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SenderEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/SenderEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="903">
+              <caret line="69" column="65" lean-forward="false" selection-start-line="69" selection-start-column="65" selection-end-line="69" selection-end-column="65" />
+              <folding>
+                <element signature="e#1423#1424#0" expanded="true" />
+                <element signature="e#1505#1506#0" expanded="true" />
+                <element signature="e#1573#1574#0" expanded="true" />
+                <element signature="e#1653#1654#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SenderAccessor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/SenderAccessor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2163">
+              <caret line="132" column="55" lean-forward="false" selection-start-line="132" selection-start-column="55" selection-end-line="132" selection-end-column="55" />
+              <folding>
+                <element signature="docComment;method#add#0;class#SenderAccessor#0" expanded="false" />
+                <element signature="e#3425#3426#0" expanded="true" />
+                <element signature="e#3496#3497#0" expanded="true" />
+                <element signature="docComment;method#update#0;class#SenderAccessor#0" expanded="false" />
+                <element signature="e#4100#4101#0" expanded="true" />
+                <element signature="e#4168#4169#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -209,6 +183,13 @@
       <find>cause</find>
       <find>jdk</find>
       <find>jd</find>
+      <find>alreadyexist</find>
+      <find>EntityAlreadyExist</find>
+      <find>EntityDoesNotExist</find>
+      <find>isnotnul</find>
+      <find>isNotNull().</find>
+      <find>sessiontypeid</find>
+      <find>trans</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Renzh\IdeaProjects\phishingrod</dir>
@@ -227,22 +208,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/Sender/Session/updateSession.sql" />
-        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/testdata.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/IWithHandleAccessor.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/IWithHandleUserAccessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Entities/Users/UserEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Entities/SessionTypes/ISessionTypeEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Mappers/SessionPropertiesMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Mappers/SessionTypeMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Entities/SessionTypes/SessionType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Entities/SessionTypes/SessionTypeEntity.java" />
-        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/User/updateUser.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/Entities/Senders/old/SenderEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/Entities/Senders/old/ISenderEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/old/ISenderAccessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/ISenderAccessor.java" />
         <option value="$PROJECT_DIR$/src/test/Storage/SenderAccessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/test.java" />
         <option value="$PROJECT_DIR$/src/test/Storage/SenderProcess" />
@@ -252,32 +219,46 @@
         <option value="$PROJECT_DIR$/src/scripts/plan" />
         <option value="$PROJECT_DIR$/src/main/java/Entities/SenderProcess" />
         <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/SessionTypeDoesNotExistException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/EntityAlreadyExistException.java" />
         <option value="$PROJECT_DIR$/src/main/java/Storage/Sqlite/SqliteModule.java" />
-        <option value="$PROJECT_DIR$/src/test/Storage/AccessorTestHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/Storage/base/StorageManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/DatabaseTest.java" />
         <option value="$PROJECT_DIR$/src/test/Storage/mocks/MockSessionTypeAccessor.java" />
-        <option value="$PROJECT_DIR$/src/test/Storage/common test cases for accessors.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/Entities/Senders/ISender.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Entities/Senders/ISenderEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Entities/Senders/Sender.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Entities/Senders/SenderEntity.java" />
         <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/SessionType/existSessionTypeByName.sql" />
         <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/User/existUser.sql" />
         <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/User/existUserByEmail.sql" />
         <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/IAccessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/SenderAccessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Storage/Sqlite/SqliteSqlLocatorModule.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/SessionTypeAccessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/ISessionTypeAccessor.java" />
-        <option value="$PROJECT_DIR$/src/test/Storage/SessionTypeAccessorTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/old/SenderAccessor.java" />
-        <option value="$PROJECT_DIR$/src/test/Storage/SenderAccessorTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/IUserAccessor.java" />
-        <option value="$PROJECT_DIR$/src/test/Storage/UserAccessorTest.java" />
+        <option value="$PROJECT_DIR$/src/test/Storage/AccessorTestHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/ISenderAccessor.java" />
+        <option value="$PROJECT_DIR$/src/test/Storage/DefaultAccessors.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/SessionTypes/SessionType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/EntityAlreadyExistException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/SessionTypeAccessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/UserAccessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/EntityDoesNotExistException.java" />
+        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/Setup.sql" />
+        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/Sender/existSender.sql" />
+        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/testdata.sql" />
+        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/Sender/existSenderByEmail.sql" />
+        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/Sender/updateSender.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/IUserAccessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/Sqlite/SqliteSqlLocatorModule.java" />
+        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/Sender/addSender.sql" />
+        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/Sender/getSenderByEmail.sql" />
+        <option value="$PROJECT_DIR$/src/scripts/sql/Sqlite/Sender/getSender.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Mappers/SenderMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/Senders/ISender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/Senders/Sender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/Senders/ISenderEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Entities/Senders/SenderEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/SenderAccessor.java" />
+        <option value="$PROJECT_DIR$/src/test/Storage/SenderAccessorTest.java" />
+        <option value="$PROJECT_DIR$/src/test/Storage/SessionTypeAccessorTest.java" />
+        <option value="$PROJECT_DIR$/src/test/Storage/UserAccessorTest.java" />
+        <option value="$PROJECT_DIR$/src/test/Storage/common test cases for accessors.txt" />
+        <option value="$PROJECT_DIR$/src/scripts/plan.md" />
       </list>
     </option>
   </component>
@@ -295,7 +276,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="560" />
+    <option name="y" value="152" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
   </component>
@@ -314,6 +296,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -329,12 +314,6 @@
             <path>
               <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
               <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
-              <item name="Data" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
-              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -356,48 +335,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Storage" type="462c0819:PsiDirectoryNode" />
+              <item name="Entities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
               <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Storage" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
-              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Storage" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="Accessors" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
-              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Storage" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="Accessors" type="462c0819:PsiDirectoryNode" />
-              <item name="SessionType" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
-              <item name="phishingrod" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Storage" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="Accessors" type="462c0819:PsiDirectoryNode" />
-              <item name="User" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="phishingrod" type="b2602c69:ProjectViewProjectNode" />
@@ -416,9 +360,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -443,19 +384,20 @@
       <recent name="Storage" />
       <recent name="Storage.base" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\scripts\sql\Sqlite\SessionType" />
-      <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\scripts\sql\Sqlite\Sender\Session" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\main\java\Entities" />
+      <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\main\java\Entities\Senders" />
+      <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\scripts\sql\Sqlite" />
       <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\scripts\sql\Sqlite\User" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Storage.base.Accessors.Exceptions" />
       <recent name="Storage.base.Daos" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\main\java\Entities" />
-      <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\main\java\Entities\Senders" />
-      <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\scripts\sql\Sqlite" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\scripts\sql\Sqlite\Sender" />
+      <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\scripts\sql\Sqlite\SessionType" />
+      <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\scripts\sql\Sqlite\Sender\Session" />
       <recent name="C:\Users\Renzh\IdeaProjects\phishingrod\src\scripts\sql\Sqlite\User" />
     </key>
   </component>
@@ -471,7 +413,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserAccessorTest">
+  <component name="RunManager" selected="JUnit.All in MailTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -493,20 +435,15 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration name="SessionTypeAccessorTest.existByName_sessionTypeDoesNotExist_returnsFalse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="Storage.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="All in MailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="MailTest" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="Storage" />
-      <option name="MAIN_CLASS_NAME" value="Storage.SessionTypeAccessorTest" />
-      <option name="METHOD_NAME" value="existByName_sessionTypeDoesNotExist_returnsFalse" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -518,7 +455,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="SessionTypeAccessorTest.existByName_sessionTypeExist_returnsTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SenderAccessorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="Storage.*" />
@@ -529,84 +466,84 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="Storage" />
-      <option name="MAIN_CLASS_NAME" value="Storage.SessionTypeAccessorTest" />
-      <option name="METHOD_NAME" value="existByName_sessionTypeExist_returnsTrue" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="SessionTypeAccessorTest.exist_sessionTypeDoesNotExist_returnsFalse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="Storage.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="MailTest" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="Storage" />
-      <option name="MAIN_CLASS_NAME" value="Storage.SessionTypeAccessorTest" />
-      <option name="METHOD_NAME" value="exist_sessionTypeDoesNotExist_returnsFalse" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="SessionTypeAccessorTest.exist_sessionTypeExist_returnsTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="Storage.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="MailTest" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="Storage" />
-      <option name="MAIN_CLASS_NAME" value="Storage.SessionTypeAccessorTest" />
-      <option name="METHOD_NAME" value="exist_sessionTypeExist_returnsTrue" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="UserAccessorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="Storage.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="MailTest" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="Storage" />
-      <option name="MAIN_CLASS_NAME" value="Storage.UserAccessorTest" />
+      <option name="MAIN_CLASS_NAME" value="Storage.SenderAccessorTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="SenderAccessorTest.get_senderExist_returnsSender" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Storage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="MailTest" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="Storage" />
+      <option name="MAIN_CLASS_NAME" value="Storage.SenderAccessorTest" />
+      <option name="METHOD_NAME" value="get_senderExist_returnsSender" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="SenderAccessorTest.update_anotherSenderWithSameEmailExist_throwsEntityUpdateException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Storage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="MailTest" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="Storage" />
+      <option name="MAIN_CLASS_NAME" value="Storage.SenderAccessorTest" />
+      <option name="METHOD_NAME" value="update_anotherSenderWithSameEmailExist_throwsEntityUpdateException" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="Storage in MailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Storage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="MailTest" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="Storage" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -731,19 +668,19 @@
       <item index="2" class="java.lang.String" itemvalue="Maven.clean compile" />
       <item index="3" class="java.lang.String" itemvalue="Maven.compile" />
       <item index="4" class="java.lang.String" itemvalue="Maven.clean" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.SessionTypeAccessorTest.exist_sessionTypeDoesNotExist_returnsFalse" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.SessionTypeAccessorTest.exist_sessionTypeExist_returnsTrue" />
-      <item index="7" class="java.lang.String" itemvalue="JUnit.SessionTypeAccessorTest.existByName_sessionTypeDoesNotExist_returnsFalse" />
-      <item index="8" class="java.lang.String" itemvalue="JUnit.SessionTypeAccessorTest.existByName_sessionTypeExist_returnsTrue" />
-      <item index="9" class="java.lang.String" itemvalue="JUnit.UserAccessorTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.SenderAccessorTest" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.SenderAccessorTest.get_senderExist_returnsSender" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.SenderAccessorTest.update_anotherSenderWithSameEmailExist_throwsEntityUpdateException" />
+      <item index="8" class="java.lang.String" itemvalue="JUnit.Storage in MailTest" />
+      <item index="9" class="java.lang.String" itemvalue="JUnit.All in MailTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.UserAccessorTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.SessionTypeAccessorTest.existByName_sessionTypeExist_returnsTrue" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.SessionTypeAccessorTest.existByName_sessionTypeDoesNotExist_returnsFalse" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.SessionTypeAccessorTest.exist_sessionTypeExist_returnsTrue" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.SessionTypeAccessorTest.exist_sessionTypeDoesNotExist_returnsFalse" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.All in MailTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Storage in MailTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.SenderAccessorTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.SenderAccessorTest.update_anotherSenderWithSameEmailExist_throwsEntityUpdateException" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.SenderAccessorTest.get_senderExist_returnsSender" />
       </list>
     </recent_temporary>
   </component>
@@ -797,196 +734,10 @@
       <workItem from="1521166422180" duration="5857000" />
       <workItem from="1521218320184" duration="9906000" />
       <workItem from="1521304951078" duration="6338000" />
-      <workItem from="1521348386373" duration="542000" />
-    </task>
-    <task id="LOCAL-00001" summary="added new SqlLocator&#10;simplified storage system">
-      <created>1519492143019</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1519492143019</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Deleted FilePathSqlLocator&#10;Dao classes no longer needs to be implemented by the specific db adaper&#10;Restructured the file locations">
-      <created>1519495954496</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1519495954496</updated>
-    </task>
-    <task id="LOCAL-00003" summary="renamed parameters">
-      <created>1519496220721</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1519496220721</updated>
-    </task>
-    <task id="LOCAL-00004" summary="added Idea runConfigurations">
-      <created>1519496301278</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1519496301278</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Refactored/restructured alot so now we can change emailAddress if needed">
-      <created>1519756147908</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1519756147908</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Renamed package: Account.Entities to Entites">
-      <created>1519757531687</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1519757531687</updated>
-    </task>
-    <task id="LOCAL-00007" summary="removed a line of space...">
-      <created>1519966793684</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1519966793684</updated>
-    </task>
-    <task id="LOCAL-00008" summary="extracted the sql locating logic into a static method">
-      <created>1519966840023</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1519966840023</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Initial testing(not complete)">
-      <created>1519966870582</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1519966870582</updated>
-    </task>
-    <task id="LOCAL-00010" summary="added toString">
-      <created>1520204286337</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1520204286337</updated>
-    </task>
-    <task id="LOCAL-00011" summary="added testing for userAccessor">
-      <created>1520222180954</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1520222180954</updated>
-    </task>
-    <task id="LOCAL-00012" summary="renamed somethingData objects to something &#10;and something objects to somethingEntity&#10;&#10;e.g. userData is now user and user is now userEntity">
-      <created>1520303045651</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1520303045651</updated>
-    </task>
-    <task id="LOCAL-00013" summary="relocated senders, users and their related classes into their own package">
-      <created>1520303160778</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1520303160778</updated>
-    </task>
-    <task id="LOCAL-00014" summary="created sessionType-related classes">
-      <created>1520304560100</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1520304560100</updated>
-    </task>
-    <task id="LOCAL-00015" summary="added a hardClean script which will drop all the tables.&#10;useful when changing table schema during dev">
-      <created>1520304653865</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1520304653865</updated>
-    </task>
-    <task id="LOCAL-00016" summary="ignore .idea/dataSources/">
-      <created>1520304681399</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1520304681399</updated>
-    </task>
-    <task id="LOCAL-00017" summary="empty database for testing only">
-      <created>1520304702695</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1520304702695</updated>
-    </task>
-    <task id="LOCAL-00018" summary="moved test classes around &#10;using a new naming scheme for tests&#10;added common test cases for accessors.txt -&gt; guideline on how to write tests for other accessors">
-      <created>1520313971204</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1520313971204</updated>
-    </task>
-    <task id="LOCAL-00019" summary="messed up with git">
-      <created>1520314733310</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1520314733310</updated>
-    </task>
-    <task id="LOCAL-00020" summary="messed up with git">
-      <created>1520314851108</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1520314851108</updated>
-    </task>
-    <task id="LOCAL-00021" summary="messed up with git 3">
-      <created>1520314868726</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1520314868726</updated>
-    </task>
-    <task id="LOCAL-00022" summary="added scripts needed for session accessor">
-      <created>1520315456550</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1520315456550</updated>
-    </task>
-    <task id="LOCAL-00023" summary="add file extension to addMail">
-      <created>1520315474881</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1520315474881</updated>
-    </task>
-    <task id="LOCAL-00024" summary="removed isExceptionDueTo... method since it is now in AccessorUtil">
-      <created>1520315558190</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1520315558190</updated>
-    </task>
-    <task id="LOCAL-00025" summary="added IWithHandleAccessor&#10;added Documentation on IAccessor + IWIthHandleAccessor&#10;removed getWith methods in UserAccessor">
-      <created>1520359526247</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1520359526247</updated>
-    </task>
-    <task id="LOCAL-00026" summary="started to work on sessionTypeAccessor">
-      <created>1520359570784</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1520359570784</updated>
-    </task>
-    <task id="LOCAL-00027" summary="untracking files from target">
-      <created>1520359831133</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1520359831133</updated>
+      <workItem from="1521348386373" duration="776000" />
+      <workItem from="1521386293599" duration="19508000" />
+      <workItem from="1521411155332" duration="712000" />
+      <workItem from="1521411910059" duration="2026000" />
     </task>
     <task id="LOCAL-00028" summary="removing random notes...">
       <created>1520359875394</created>
@@ -1086,47 +837,291 @@
       <option name="project" value="LOCAL" />
       <updated>1521348927551</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="added test for exist methods">
+      <created>1521348953509</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1521348953509</updated>
+    </task>
+    <task id="LOCAL-00043" summary="enforcing foreign key">
+      <created>1521348975413</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1521348975413</updated>
+    </task>
+    <task id="LOCAL-00044" summary="removing the annotation dependency from pom because it is not needed">
+      <created>1521349109045</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1521349109045</updated>
+    </task>
+    <task id="LOCAL-00045" summary="using beforeEach/tearDown methods to setup the database instead of doing it all in accessorTestHelper... this also allows more control over when a database reset should occur">
+      <created>1521391360168</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1521391360168</updated>
+    </task>
+    <task id="LOCAL-00046" summary="move default accessor method to a single class">
+      <created>1521392712780</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1521392712780</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Improved the exception message for EntityAlreadyExistException">
+      <created>1521395351628</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1521395351628</updated>
+    </task>
+    <task id="LOCAL-00048" summary="added an &quot;int&quot; constructor for the exception">
+      <created>1521395804777</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1521395804777</updated>
+    </task>
+    <task id="LOCAL-00049" summary="depreciating senderAccessor/sender/senderEntity">
+      <created>1521397997383</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1521397997383</updated>
+    </task>
+    <task id="LOCAL-00050" summary="new version of Sender/SenderEntity">
+      <created>1521398042961</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1521398042961</updated>
+    </task>
+    <task id="LOCAL-00051" summary="depreciating senderAccessor/sender/senderEntity">
+      <created>1521398300301</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1521398300301</updated>
+    </task>
+    <task id="LOCAL-00052" summary="added toString method">
+      <created>1521398342698</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1521398342698</updated>
+    </task>
+    <task id="LOCAL-00053" summary="added new version of Sender and SenderEntity">
+      <created>1521398372572</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1521398372572</updated>
+    </task>
+    <task id="LOCAL-00054" summary="dummy senderAccessor">
+      <created>1521398393113</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1521398393113</updated>
+    </task>
+    <task id="LOCAL-00055" summary="tiny modification to the exception message">
+      <created>1521399583290</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1521399583290</updated>
+    </task>
+    <task id="LOCAL-00056" summary="improved the exception message of EntityDoesNotExistException">
+      <created>1521399612406</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1521399612406</updated>
+    </task>
+    <task id="LOCAL-00057" summary="removed redundant isNotNull check in assertions">
+      <created>1521399834712</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1521399834712</updated>
+    </task>
+    <task id="LOCAL-00058" summary="added tests for senderAccesssor">
+      <created>1521404617972</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1521404617972</updated>
+    </task>
+    <task id="LOCAL-00059" summary="updated schema to reflect changes in the structure of senderEntity">
+      <created>1521404957196</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1521404957196</updated>
+    </task>
+    <task id="LOCAL-00060" summary="clears database once before running the &quot;testSuit&quot;">
+      <created>1521405071172</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1521405071172</updated>
+    </task>
+    <task id="LOCAL-00061" summary="renames sessionName to sessionTypeName">
+      <created>1521405182931</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1521405182931</updated>
+    </task>
+    <task id="LOCAL-00062" summary="made the testData execute as a single transaction.. so that if one fails everything fails">
+      <created>1521406152198</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1521406152198</updated>
+    </task>
+    <task id="LOCAL-00063" summary="added existSender and existSenderByEmail scripts&#10;modified existing sender scripts to reflect the new sender structure">
+      <created>1521406372728</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1521406372728</updated>
+    </task>
+    <task id="LOCAL-00064" summary="change column from User.userId to id">
+      <created>1521412049285</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1521412049285</updated>
+    </task>
+    <task id="LOCAL-00065" summary="made IUserAccessor extend IWithAccessor as well">
+      <created>1521412101351</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1521412101351</updated>
+    </task>
+    <task id="LOCAL-00066" summary="added equals methods">
+      <created>1521412271997</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1521412271997</updated>
+    </task>
+    <task id="LOCAL-00067" summary="registered existSender and existSenderByEmail scripts">
+      <created>1521412331528</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1521412331528</updated>
+    </task>
+    <task id="LOCAL-00068" summary="removed the @beforeall annotation... to much restriction">
+      <created>1521412377682</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1521412377682</updated>
+    </task>
+    <task id="LOCAL-00069" summary="remove the @beforeAll annotation because it was too restrictive... and unnecessary">
+      <created>1521412446300</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1521412446300</updated>
+    </task>
+    <task id="LOCAL-00070" summary="reworked to reflect the new sender class">
+      <created>1521412471810</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1521412471810</updated>
+    </task>
+    <task id="LOCAL-00071" summary="remove the beforeall annotation as well as fixed several mistakes">
+      <created>1521412557549</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1521412557549</updated>
+    </task>
+    <task id="LOCAL-00072" summary="fully implemented it... passed all tests">
+      <created>1521412594305</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1521412594305</updated>
+    </task>
+    <task id="LOCAL-00073" summary="updated guidelines due to new exist methods">
+      <created>1521413236528</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1521413236528</updated>
+    </task>
+    <task id="LOCAL-00074" summary="added">
+      <created>1521413260541</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1521413260541</updated>
+    </task>
+    <task id="LOCAL-00075" summary="guideline on the steps needed to make add new scripts">
+      <created>1521413797801</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1521413797801</updated>
+    </task>
+    <task id="LOCAL-00076" summary="latest project setting files">
+      <created>1521413951028</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1521413951028</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SessionTypeAccessorTest - 2018.03.13 at 16h 18m 41s.xml">
-      <configuration name="SessionTypeAccessorTest" configurationId="JUnit" />
+    <history-entry file="All_in_MailTest - 2018.03.18 at 18h 37m 34s.xml">
+      <configuration name="All in MailTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SessionTypeAccessorTest - 2018.03.13 at 16h 19m 49s.xml">
-      <configuration name="SessionTypeAccessorTest" configurationId="JUnit" />
+    <history-entry file="SenderAccessorTest_update_anotherSenderWithSameEmailExist_throwsEntityUpdateException - 2018.03.18 at 18h 14m 55s.xml">
+      <configuration name="SenderAccessorTest.update_anotherSenderWithSameEmailExist_throwsEntityUpdateException" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SessionTypeAccessorTest - 2018.03.13 at 16h 20m 21s.xml">
-      <configuration name="SessionTypeAccessorTest" configurationId="JUnit" />
+    <history-entry file="SenderAccessorTest_update_anotherSenderWithSameEmailExist_throwsEntityUpdateException - 2018.03.18 at 18h 16m 54s.xml">
+      <configuration name="SenderAccessorTest.update_anotherSenderWithSameEmailExist_throwsEntityUpdateException" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SessionTypeAccessorTest_existByName_sessionTypeDoesNotExist_returnsFalse - 2018.03.18 at 00h 48m 30s.xml">
-      <configuration name="SessionTypeAccessorTest.existByName_sessionTypeDoesNotExist_returnsFalse" configurationId="JUnit" />
+    <history-entry file="SenderAccessorTest_update_anotherSenderWithSameEmailExist_throwsEntityUpdateException - 2018.03.18 at 18h 18m 29s.xml">
+      <configuration name="SenderAccessorTest.update_anotherSenderWithSameEmailExist_throwsEntityUpdateException" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SessionTypeAccessorTest_existByName_sessionTypeExist_returnsTrue - 2018.03.18 at 00h 48m 41s.xml">
-      <configuration name="SessionTypeAccessorTest.existByName_sessionTypeExist_returnsTrue" configurationId="JUnit" />
+    <history-entry file="SenderAccessorTest_update_anotherSenderWithSameEmailExist_throwsEntityUpdateException - 2018.03.18 at 18h 19m 32s.xml">
+      <configuration name="SenderAccessorTest.update_anotherSenderWithSameEmailExist_throwsEntityUpdateException" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SessionTypeAccessorTest_exist_sessionTypeDoesNotExist_returnsFalse - 2018.03.16 at 13h 32m 11s.xml">
-      <configuration name="SessionTypeAccessorTest.exist_sessionTypeDoesNotExist_returnsFalse" configurationId="JUnit" />
+    <history-entry file="SenderAccessorTest_update_anotherSenderWithSameEmailExist_throwsEntityUpdateException - 2018.03.18 at 18h 20m 20s.xml">
+      <configuration name="SenderAccessorTest.update_anotherSenderWithSameEmailExist_throwsEntityUpdateException" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SessionTypeAccessorTest_exist_sessionTypeExist_returnsTrue - 2018.03.16 at 13h 32m 16s.xml">
-      <configuration name="SessionTypeAccessorTest.exist_sessionTypeExist_returnsTrue" configurationId="JUnit" />
+    <history-entry file="SenderAccessorTest_update_anotherSenderWithSameEmailExist_throwsEntityUpdateException - 2018.03.18 at 18h 21m 14s.xml">
+      <configuration name="SenderAccessorTest.update_anotherSenderWithSameEmailExist_throwsEntityUpdateException" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SessionTypeAccessorTest_exist_sessionTypeExist_returnsTrue - 2018.03.16 at 13h 32m 37s.xml">
-      <configuration name="SessionTypeAccessorTest.exist_sessionTypeExist_returnsTrue" configurationId="JUnit" />
+    <history-entry file="SenderAccessorTest_update_anotherSenderWithSameEmailExist_throwsEntityUpdateException - 2018.03.18 at 18h 21m 47s.xml">
+      <configuration name="SenderAccessorTest.update_anotherSenderWithSameEmailExist_throwsEntityUpdateException" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserAccessorTest - 2018.03.18 at 00h 52m 12s.xml">
-      <configuration name="UserAccessorTest" configurationId="JUnit" />
+    <history-entry file="SenderAccessorTest_update_anotherSenderWithSameEmailExist_throwsEntityUpdateException - 2018.03.18 at 18h 22m 20s.xml">
+      <configuration name="SenderAccessorTest.update_anotherSenderWithSameEmailExist_throwsEntityUpdateException" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserAccessorTest - 2018.03.18 at 00h 53m 15s.xml">
-      <configuration name="UserAccessorTest" configurationId="JUnit" />
+    <history-entry file="Storage_in_MailTest - 2018.03.18 at 18h 25m 56s.xml">
+      <configuration name="Storage in MailTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140483000" />
+    <option name="totallyTimeSpent" value="162963000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1134,21 +1129,22 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34906697" sideWeight="0.60833335" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22173436" sideWeight="0.14427084" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34906697" sideWeight="0.39166668" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22173436" sideWeight="0.85572916" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.49615806" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.49615806" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14114584" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.74114585" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22447917" sideWeight="0.50384194" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39956093" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28210756" sideWeight="0.60052085" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1162,8 +1158,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.49791667" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.4234375" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.6109375" order="8" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1173,248 +1168,157 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="empty database for testing only" />
-    <MESSAGE value="moved test classes around &#10;using a new naming scheme for tests&#10;added common test cases for accessors.txt -&gt; guideline on how to write tests for other accessors" />
-    <MESSAGE value="messed up with git" />
-    <MESSAGE value="messed up with git 3" />
-    <MESSAGE value="added scripts needed for session accessor" />
-    <MESSAGE value="add file extension to addMail" />
-    <MESSAGE value="removed isExceptionDueTo... method since it is now in AccessorUtil" />
-    <MESSAGE value="added IWithHandleAccessor&#10;added Documentation on IAccessor + IWIthHandleAccessor&#10;removed getWith methods in UserAccessor" />
-    <MESSAGE value="started to work on sessionTypeAccessor" />
-    <MESSAGE value="untracking files from target" />
-    <MESSAGE value="removing random notes..." />
-    <MESSAGE value="session_Type to sessionId" />
-    <MESSAGE value="stop tracking compiled classes" />
-    <MESSAGE value="referencing IUserEntity instead of UserEntity directly&#10;same with User -&gt; IUser" />
-    <MESSAGE value="registered sessionType sql scripts to the default Sql Locator" />
-    <MESSAGE value="added some more empty/dummy methods to SessionTypeAccessor" />
-    <MESSAGE value="renamed and moved sessionType related scripts to new locations" />
-    <MESSAGE value="test for sessionTypeAccessors" />
-    <MESSAGE value="implemented sessionTypeAccessor" />
-    <MESSAGE value="added an exist method on sessionTypeAccessor&#10;as well as tests for the exist method" />
-    <MESSAGE value="added afew more existScripts and registered them in sqliteLocatorModule" />
-    <MESSAGE value="untracked a few unnecessary files" />
-    <MESSAGE value="trying to untrack again.... didnt work first time" />
-    <MESSAGE value="untracking again.. the previous attempt didnt work as expected" />
-    <MESSAGE value="added exist(int) and exist(string) methods to most accessors(except for senderAccessor because it is being reworked)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added exist(int) and exist(string) methods to most accessors(except for senderAccessor because it is being reworked)" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="added toString method" />
+    <MESSAGE value="added new version of Sender and SenderEntity" />
+    <MESSAGE value="dummy senderAccessor" />
+    <MESSAGE value="tiny modification to the exception message" />
+    <MESSAGE value="improved the exception message of EntityDoesNotExistException" />
+    <MESSAGE value="removed redundant isNotNull check in assertions" />
+    <MESSAGE value="added tests for senderAccesssor" />
+    <MESSAGE value="updated schema to reflect changes in the structure of senderEntity" />
+    <MESSAGE value="clears database once before running the &quot;testSuit&quot;" />
+    <MESSAGE value="renames sessionName to sessionTypeName" />
+    <MESSAGE value="made the testData execute as a single transaction.. so that if one fails everything fails" />
+    <MESSAGE value="added existSender and existSenderByEmail scripts&#10;modified existing sender scripts to reflect the new sender structure" />
+    <MESSAGE value="change column from User.userId to id" />
+    <MESSAGE value="made IUserAccessor extend IWithAccessor as well" />
+    <MESSAGE value="added equals methods" />
+    <MESSAGE value="registered existSender and existSenderByEmail scripts" />
+    <MESSAGE value="removed the @beforeall annotation... to much restriction" />
+    <MESSAGE value="remove the @beforeAll annotation because it was too restrictive... and unnecessary" />
+    <MESSAGE value="reworked to reflect the new sender class" />
+    <MESSAGE value="remove the beforeall annotation as well as fixed several mistakes" />
+    <MESSAGE value="fully implemented it... passed all tests" />
+    <MESSAGE value="updated guidelines due to new exist methods" />
+    <MESSAGE value="added" />
+    <MESSAGE value="guideline on the steps needed to make add new scripts" />
+    <MESSAGE value="latest project setting files" />
+    <option name="LAST_COMMIT_MESSAGE" value="latest project setting files" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="19" />
+      <option name="time" value="25" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/test.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="20" column="19" lean-forward="false" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        <state relative-caret-position="1407">
+          <caret line="67" column="36" lean-forward="false" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MailSystem/MailSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MailSystem/HTMLMail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MailSystem/Sessions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/4abc076c/84d66fd6-cd7b-444a-a39c-c3cb77d93917/main.MailTypes">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/4abc076c/84d66fd6-cd7b-444a-a39c-c3cb77d93917/main.SessionType">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" text=" exists(select * from sessionType)">
-            <filter text="exists(select * from sessionType)" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/4abc076c/01243528-66cc-4943-9e94-68e358da945d/main.SessionType">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/84d66fd6-cd7b-444a-a39c-c3cb77d93917/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/01243528-66cc-4943-9e94-68e358da945d/console.sql">
+    <entry file="file://$PROJECT_DIR$/src/test/Storage/AccessorTestHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
-          <caret line="2" column="78" lean-forward="false" selection-start-line="2" selection-start-column="78" selection-end-line="2" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/scripts/plan">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <caret line="21" column="36" lean-forward="false" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/ISenderAccessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="118" lean-forward="false" selection-start-line="8" selection-start-column="118" selection-end-line="8" selection-end-column="118" />
-          <folding />
+        <state relative-caret-position="189">
+          <caret line="12" column="39" lean-forward="false" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/EntityDoesNotExistException.java">
+    <entry file="file://$PROJECT_DIR$/src/test/Storage/DefaultAccessors.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/SessionTypeDoesNotExistException.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/EntityAlreadyExistException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/SenderProcess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="29" column="37" lean-forward="false" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/SenderDaoTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/DatabaseModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="24" column="44" lean-forward="false" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/Sqlite/SqliteStorageManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        <state relative-caret-position="150">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Storage/AccessorTestHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/EntityUpdateException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="42">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar!/org/apache/commons/lang3/builder/ToStringBuilder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="25" column="25" lean-forward="false" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Users/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-732">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/SessionTypes/SessionType.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/old/SenderEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
+        <state relative-caret-position="3">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/old/Sender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-270">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Users/UserEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-378">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Entities/SessionTypes/SessionTypeEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
+        <state relative-caret-position="213">
           <caret line="59" column="50" lean-forward="false" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Storage/mocks/MockSessionTypeAccessor.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/Storage/common test cases for accessors.txt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/SessionTypes/SessionType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="819">
-          <caret line="39" column="49" lean-forward="false" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/ISender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/ISenderEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/Sender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+        <state relative-caret-position="297">
+          <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
           <folding>
-            <element signature="e#745#746#0" expanded="false" />
-            <element signature="e#783#784#0" expanded="false" />
-            <element signature="e#836#837#0" expanded="false" />
-            <element signature="e#867#868#0" expanded="false" />
-            <element signature="e#921#922#0" expanded="false" />
-            <element signature="e#953#954#0" expanded="false" />
-            <element signature="e#1006#1007#0" expanded="false" />
-            <element signature="e#1037#1038#0" expanded="false" />
-            <element signature="e#1090#1091#0" expanded="false" />
-            <element signature="e#1121#1122#0" expanded="false" />
-            <element signature="e#1178#1179#0" expanded="false" />
-            <element signature="e#1213#1214#0" expanded="false" />
+            <element signature="e#1798#1799#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/SenderEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/EntityAlreadyExistException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="161" lean-forward="false" selection-start-line="15" selection-start-column="161" selection-end-line="15" selection-end-column="161" />
+        <state relative-caret-position="126">
+          <caret line="6" column="69" lean-forward="true" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/SessionType/existSessionType.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Exceptions/EntityDoesNotExistException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="2" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+        <state relative-caret-position="63">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/SessionType/existSessionTypeByName.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/SessionTypeAccessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="2" />
+        <state relative-caret-position="294">
+          <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1425,186 +1329,307 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/User/existUserByEmail.sql">
+    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/Sender/existSender.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+        <state relative-caret-position="147">
+          <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/User/getUserByEmail.sql">
+    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/testdata.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/IAccessor.java">
+    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/Sender/existSenderByEmail.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="40" column="10" lean-forward="true" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="252">
+          <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/SenderAccessor.java">
+    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/Sender/updateSender.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="21" />
-          <folding>
-            <element signature="method#SenderAccessor#0;class#SenderAccessor#0" expanded="false" />
-            <element signature="e#1416#1417#0" expanded="false" />
-            <element signature="e#1444#1445#0" expanded="false" />
-            <element signature="docComment;method#add#0;class#SenderAccessor#0" expanded="false" />
-            <element signature="method#add#0;class#SenderAccessor#0" expanded="false" />
-            <element signature="docComment;method#update#0;class#SenderAccessor#0" expanded="false" />
-            <element signature="method#update#0;class#SenderAccessor#0" expanded="false" />
-            <element signature="method#updateWith#0;class#SenderAccessor#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/StorageManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/Sqlite/SqliteExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/Sqlite/SqliteModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/ISessionTypeAccessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/Sqlite/SqliteSqlLocatorModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="23" column="29" lean-forward="false" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="147">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/old/SenderAccessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1323">
-          <caret line="72" column="8" lean-forward="false" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="21" />
-          <folding>
-            <element signature="e#1929#1930#0" expanded="true" />
-            <element signature="e#1957#1958#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/generated/Storage/base/DatabaseModule_ProvideJdbiFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DatabaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Storage/SenderAccessorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="36" column="31" lean-forward="false" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/generated/Storage/Sqlite/SqliteModule_ProvideDataSourceFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="34" lean-forward="false" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/generated/Storage/Sqlite/SqliteModule_ProvideUserAccessorFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="71" column="36" lean-forward="false" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Storage/SessionTypeAccessorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="155" column="0" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="198" selection-end-column="5" />
+        <state relative-caret-position="-358">
+          <caret line="83" column="35" lean-forward="false" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/IUserAccessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        <state relative-caret-position="84">
+          <caret line="8" column="108" lean-forward="false" selection-start-line="8" selection-start-column="108" selection-end-line="8" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/Sqlite/SqliteSqlLocatorModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="41" column="44" lean-forward="false" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/Storage/UserAccessorTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Util/StoredSqlLocator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="203">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/SessionType/SessionTypeAccessor.java">
+    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/Sender/addSender.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="42" selection-end-column="9" />
+        <state relative-caret-position="42">
+          <caret line="2" column="11" lean-forward="true" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4abc076c/84d66fd6-cd7b-444a-a39c-c3cb77d93917/main.MailTypes">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/Setup.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="30" column="36" lean-forward="true" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/SoftClean.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/Sender/getSender.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="2" lean-forward="false" selection-start-line="1" selection-start-column="2" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scripts/sql/Sqlite/Sender/getSenderByEmail.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/User/UserAccessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+        <state relative-caret-position="2436">
+          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Mappers/SenderMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
-            <element signature="method#get#0;class#UserAccessor#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/ISender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/assertj/assertj-core/3.9.1/assertj-core-3.9.1.jar!/org/assertj/core/api/ThrowableAssert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="52" column="13" lean-forward="false" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/Sender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <element signature="e#1271#1272#0" expanded="true" />
+            <element signature="e#1443#1444#0" expanded="true" />
+            <element signature="e#1513#1514#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4abc076c/84d66fd6-cd7b-444a-a39c-c3cb77d93917/main.sqlite_master">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4abc076c/84d66fd6-cd7b-444a-a39c-c3cb77d93917/main.SessionType">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4abc076c/84d66fd6-cd7b-444a-a39c-c3cb77d93917/main.Sender">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.1.0/junit-platform-commons-1.1.0.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/4abc076c/84d66fd6-cd7b-444a-a39c-c3cb77d93917/main.User">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Users/IUserEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/ISenderEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/Senders/SenderEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="903">
+          <caret line="69" column="65" lean-forward="false" selection-start-line="69" selection-start-column="65" selection-end-line="69" selection-end-column="65" />
+          <folding>
+            <element signature="e#1423#1424#0" expanded="true" />
+            <element signature="e#1505#1506#0" expanded="true" />
+            <element signature="e#1573#1574#0" expanded="true" />
+            <element signature="e#1653#1654#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Storage/base/Accessors/Sender/SenderAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2163">
+          <caret line="132" column="55" lean-forward="false" selection-start-line="132" selection-start-column="55" selection-end-line="132" selection-end-column="55" />
+          <folding>
+            <element signature="docComment;method#add#0;class#SenderAccessor#0" expanded="false" />
+            <element signature="e#3425#3426#0" expanded="true" />
+            <element signature="e#3496#3497#0" expanded="true" />
+            <element signature="docComment;method#update#0;class#SenderAccessor#0" expanded="false" />
+            <element signature="e#4100#4101#0" expanded="true" />
+            <element signature="e#4168#4169#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Storage/SessionTypeAccessorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="method#getJdbi#0;class#SessionTypeAccessorTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Storage/UserAccessorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="method#getJdbi#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#add_userExist_throwsEntityAlreadyExistException#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#get_userExist_returnsUser#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#get_userDoesNotExist_throwsEntityDoesNotExistException#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#getByEmail_userExist_returnsUser#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#getByEmail_userDoesNotExist_throwsEntityDoesNotExistException#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#updateUser_userExist_updatesUser#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#updateUser_userDoesNotExist_throwsEntityDoesNotExistException#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#updateUser_newEmailMatchesWithAnotherUserEmail_throwsEntityUpdateException#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#exist_userDoesNotExist_returnsFalse#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#exist_userExist_returnsTrue#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#existByName_sessionTypeDoesNotExist_returnsFalse#0;class#UserAccessorTest#0" expanded="false" />
+            <element signature="method#existByName_sessionTypeExist_returnsTrue#0;class#UserAccessorTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Storage/SenderAccessorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#SenderAccessorTest#0" expanded="false" />
+            <element signature="method#newTestSenderWithNoPrefix#0;class#SenderAccessorTest#0" expanded="false" />
+            <element signature="method#newTestSender#2;class#SenderAccessorTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/Storage/common test cases for accessors.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scripts/making new scripts.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="189">
+            <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Entities/SenderProcess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-143">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
