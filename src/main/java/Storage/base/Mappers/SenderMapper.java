@@ -1,7 +1,6 @@
 package Storage.base.Mappers;
 
-import Entities.Senders.old.SenderEntity;
-import Entities.Users.UserEntity;
+import Entities.Senders.SenderEntity;
 import org.jdbi.v3.core.mapper.RowMapper;
 import org.jdbi.v3.core.statement.StatementContext;
 
@@ -15,10 +14,14 @@ public class SenderMapper implements RowMapper<SenderEntity>
     @Override
     public SenderEntity map(ResultSet rs, StatementContext ctx) throws SQLException
     {
-
-        RowMapper<UserEntity> userMapper = ctx.findRowMapperFor(UserEntity.class).orElseThrow(() -> new RuntimeException("No mapper for user"));
-        UserEntity user = userMapper.map(rs, ctx);
-        return new SenderEntity(user, rs.getString("password"), rs.getString("session_Type"));
+        int id = rs.getInt("id");
+        String sessionTypeName = rs.getString("sessionTypeName");
+        String password = rs.getString("password");
+        String emailAddress = rs.getString("email_address");
+        String firstName = rs.getString("first_name");
+        String lastName = rs.getString("last_name");
+        String nickName = rs.getString("nick_name");
+        return new SenderEntity(id, sessionTypeName, password, firstName, lastName, nickName, emailAddress);
     }
 
 }
