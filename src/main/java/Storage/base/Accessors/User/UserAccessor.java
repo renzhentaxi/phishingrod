@@ -66,7 +66,7 @@ public class UserAccessor implements IUserAccessor, IWithHandleAccessor<IUserEnt
         } catch (IllegalStateException exception)
         {
             if (exception.getMessage().equals("No element found in 'only'"))
-                throw new EntityDoesNotExistException("No user with id: " + id + " in database");
+                throw new EntityDoesNotExistException("user", "id", id);
             else throw exception;
         }
     }
@@ -80,7 +80,7 @@ public class UserAccessor implements IUserAccessor, IWithHandleAccessor<IUserEnt
         } catch (IllegalStateException exception)
         {
             if (exception.getMessage().equals("No element found in 'only'"))
-                throw new EntityDoesNotExistException("No user with email: " + emailAddress + " in database");
+                throw new EntityDoesNotExistException("user", "email address", emailAddress);
             else throw exception;
         }
     }
@@ -124,7 +124,7 @@ public class UserAccessor implements IUserAccessor, IWithHandleAccessor<IUserEnt
         {
             if (handle.createUpdate(updateQuery).bindBean(user).execute() != 1)
             {
-                throw new EntityDoesNotExistException("Can not find user: " + user.toString() + " in database");
+                throw new EntityDoesNotExistException("user", "email address", user.getEmailAddress());
             }
         } catch (UnableToExecuteStatementException exception)
         {

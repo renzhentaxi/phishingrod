@@ -1,18 +1,14 @@
 package Storage.base.Accessors.Exceptions;
 
 public class EntityDoesNotExistException extends RuntimeException {
-    public EntityDoesNotExistException()
+
+    public EntityDoesNotExistException(String entityType, String identifierName, String identifierValue)
     {
-        super();
+        super("\nNo " + entityType + " with the " + identifierName + " " + identifierValue + " exist in the database.");
     }
 
-    public EntityDoesNotExistException(String message)
+    public EntityDoesNotExistException(String entityType, String identifierName, int identifierValue)
     {
-        super(message);
-    }
-
-    public EntityDoesNotExistException(String message, Throwable cause)
-    {
-        super(message, cause);
+        this(entityType, identifierName, Integer.toString(identifierValue));
     }
 }

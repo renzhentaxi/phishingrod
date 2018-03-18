@@ -61,7 +61,7 @@ public class SessionTypeAccessor implements ISessionTypeAccessor, IWithHandleAcc
         } catch (IllegalStateException exception)
         {
             if (exception.getMessage().equals("No element found in 'only'"))
-                throw new EntityDoesNotExistException("No sessionType with id: " + id + " in database");
+                throw new EntityDoesNotExistException("sessionType", "id", id);
             else throw exception;
         }
     }
@@ -75,7 +75,7 @@ public class SessionTypeAccessor implements ISessionTypeAccessor, IWithHandleAcc
         } catch (IllegalStateException exception)
         {
             if (exception.getMessage().equals("No element found in 'only'"))
-                throw new EntityDoesNotExistException("No SessionType with name: " + name + " in database");
+                throw new EntityDoesNotExistException("sessionType", "name", name);
             else throw exception;
         }
     }
@@ -120,7 +120,7 @@ public class SessionTypeAccessor implements ISessionTypeAccessor, IWithHandleAcc
         {
             if (handle.createUpdate(updateQuery).bindBean(entity).execute() != 1)
             {
-                throw new EntityDoesNotExistException("Can not find sessionType: " + entity.toString() + " in database");
+                throw new EntityDoesNotExistException("sessionType", "name", entity.getName());
             }
         } catch (UnableToExecuteStatementException exception)
         {
