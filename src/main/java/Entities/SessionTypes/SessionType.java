@@ -1,5 +1,7 @@
 package Entities.SessionTypes;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import javax.mail.Session;
 import java.util.Properties;
 
@@ -74,6 +76,11 @@ public class SessionType implements ISessionType
                 other.tls == this.tls &&
                 other.host.equals(this.host) &&
                 other.name.equals(this.name);
+    }
 
+    @Override
+    public String toString()
+    {
+        return ToStringBuilder.reflectionToString(this);
     }
 }
