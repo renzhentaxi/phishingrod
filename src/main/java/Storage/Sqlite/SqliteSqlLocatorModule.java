@@ -38,6 +38,8 @@ public class SqliteSqlLocatorModule
         locator.register("updateSender", "sender/updateSender");
         locator.register("getSender", "sender/getSender");
         locator.register("getSenderByEmail", "sender/getSenderByEmail");
+        locator.register("existSender","sender/existSender");
+        locator.register("existSenderByEmail","sender/existSenderByEmail");
 
         locator.register("addMail", "Email/addMail");
         locator.register("getPath", "Email/getPath");
