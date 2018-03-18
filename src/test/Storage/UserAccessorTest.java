@@ -32,9 +32,9 @@ public class UserAccessorTest
         return jdbi;
     }
 
-    public static UserAccessor getDefaultUserAccessor()
+    private static UserAccessor getDefaultUserAccessor()
     {
-        return new UserAccessor(getJdbi(), AccessorTestHelper.getSimpleSqlLocator());
+        return DefaultAccessors.getDefaultUserAccessor(getJdbi());
     }
 
     @BeforeEach

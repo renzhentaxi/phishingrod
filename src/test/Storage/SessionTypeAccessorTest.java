@@ -32,9 +32,9 @@ public class SessionTypeAccessorTest
         return jdbi;
     }
 
-    public static SessionTypeAccessor getDefaultSessionTypeAccessor()
+    private static SessionTypeAccessor getDefaultSessionTypeAccessor()
     {
-        return new SessionTypeAccessor(getJdbi(), AccessorTestHelper.getSimpleSqlLocator());
+        return DefaultAccessors.getDefaultSessionTypeAccessor(getJdbi());
     }
 
     @BeforeEach
