@@ -11,7 +11,6 @@ import Storage.base.Accessors.User.UserAccessor;
 import Storage.base.Mappers.UserMapper;
 import org.jdbi.v3.core.Jdbi;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -39,7 +38,6 @@ public class UserAccessorTest
     }
 
     @BeforeEach
-    @BeforeAll
     void setUp()
     {
         AccessorTestHelper.setupDatabase(getJdbi());
