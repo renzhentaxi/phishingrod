@@ -9,6 +9,7 @@ import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.core.mapper.RowMapper;
 import org.jdbi.v3.core.statement.Script;
+import org.sqlite.SQLiteDataSource;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -19,7 +20,11 @@ public class AccessorTestHelper
 
     public static Jdbi getJdbi(RowMapper... mappers)
     {
-        Jdbi jdbi = Jdbi.create("jdbc:sqlite:" + System.getProperty("user.dir") + "/src/test/testDb.db");
+        SQLiteDataSource ds = new SQLiteDataSource();
+        ds.setUrl("jdbc:sqlite:" + System.getProperty("user.dir") + "/src/test/testDb.db");
+        ds.setEnforceForeignKeys(true);
+
+        Jdbi jdbi = Jdbi.create(ds);
         try (Handle handle = jdbi.open())
         {
             Script hardClean = handle.createScript(StoredSqlLocator.getScriptAt(path + "HardClean.sql"));
