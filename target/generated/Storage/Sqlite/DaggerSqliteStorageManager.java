@@ -1,7 +1,7 @@
 package Storage.Sqlite;
 
 import Storage.base.Accessors.ExceptionHandler;
-import Storage.base.Accessors.Sender.SenderAccessor;
+import Storage.base.Accessors.Sender.old.SenderAccessor;
 import Storage.base.Accessors.User.UserAccessor;
 import Storage.base.DatabaseModule_ProvideJdbiFactory;
 import Storage.base.Util.AlternativeSqlLocator;
@@ -26,9 +26,9 @@ public final class DaggerSqliteStorageManager implements SqliteStorageManager {
 
   private Provider<Jdbi> provideJdbiProvider;
 
-  private Provider<ExceptionHandler> provideExceptionHandlerProvider;
-
   private Provider<UserAccessor> provideUserAccessorProvider;
+
+  private Provider<ExceptionHandler> provideExceptionHandlerProvider;
 
   private Provider<SenderAccessor> provideSenderAccessorProvider;
 
@@ -51,14 +51,12 @@ public final class DaggerSqliteStorageManager implements SqliteStorageManager {
         DoubleCheck.provider(
             DatabaseModule_ProvideJdbiFactory.create(
                 provideDataSourceProvider, provideAlternativeSqlLocatorProvider));
-    this.provideExceptionHandlerProvider =
-        DoubleCheck.provider(SqliteModule_ProvideExceptionHandlerFactory.create());
     this.provideUserAccessorProvider =
         DoubleCheck.provider(
             SqliteModule_ProvideUserAccessorFactory.create(
-                provideJdbiProvider,
-                provideExceptionHandlerProvider,
-                provideAlternativeSqlLocatorProvider));
+                provideJdbiProvider, provideAlternativeSqlLocatorProvider));
+    this.provideExceptionHandlerProvider =
+        DoubleCheck.provider(SqliteModule_ProvideExceptionHandlerFactory.create());
     this.provideSenderAccessorProvider =
         DoubleCheck.provider(
             SqliteModule_ProvideSenderAccessorFactory.create(

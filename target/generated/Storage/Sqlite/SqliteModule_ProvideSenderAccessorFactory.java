@@ -1,7 +1,7 @@
 package Storage.Sqlite;
 
 import Storage.base.Accessors.ExceptionHandler;
-import Storage.base.Accessors.Sender.SenderAccessor;
+import Storage.base.Accessors.Sender.old.SenderAccessor;
 import Storage.base.Accessors.User.UserAccessor;
 import Storage.base.Util.AlternativeSqlLocator;
 import dagger.internal.Factory;
