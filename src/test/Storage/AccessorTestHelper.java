@@ -1,6 +1,7 @@
 package Storage;
 
 import Storage.Sqlite.SqliteSqlLocatorModule;
+import Storage.base.Mappers.SessionTypeMapper;
 import Storage.base.Mappers.UserMapper;
 import Storage.base.Util.AlternativeSqlLocator;
 import Storage.base.Util.StoredSqlLocator;
@@ -50,7 +51,7 @@ public class AccessorTestHelper
 
     public static Jdbi getSimpleJdbi()
     {
-        return getJdbi(new UserMapper());
+        return getJdbi(new UserMapper(), new SessionTypeMapper());
     }
 
     public static AlternativeSqlLocator getSimpleSqlLocator()

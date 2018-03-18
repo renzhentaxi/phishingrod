@@ -35,14 +35,7 @@ public class UserAccessor implements IUserAccessor, IWithHandleAccessor<IUserEnt
         updateQuery = locator.locate("updateUser");
     }
 
-    @Override
-    public IUserEntity add(IUser data)
-    {
-        try (Handle handle = jdbi.open())
-        {
-            return addWith(data, handle);
-        }
-    }
+
 
 
     @Override
@@ -73,6 +66,14 @@ public class UserAccessor implements IUserAccessor, IWithHandleAccessor<IUserEnt
         }
     }
 
+    @Override
+    public IUserEntity add(IUser data)
+    {
+        try (Handle handle = jdbi.open())
+        {
+            return addWith(data, handle);
+        }
+    }
     @Override
     public void update(IUserEntity user)
     {

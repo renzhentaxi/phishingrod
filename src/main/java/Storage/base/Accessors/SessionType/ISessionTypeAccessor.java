@@ -15,4 +15,11 @@ public interface ISessionTypeAccessor extends IAccessor<ISessionTypeEntity, ISes
      * @throws EntityDoesNotExistException if there are not sessionType with the given name.
      */
     ISessionTypeEntity getByName(String name);
+
+    /**
+     * check whether a sessionType with the given id exist in database
+     * @param id the id of the sessionType to check
+     * @return true if the sessionType exist, false otherwise
+     */
+    boolean exist(int id);
 }
