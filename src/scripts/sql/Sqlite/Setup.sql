@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS Sender
 (
   userId      INTEGER PRIMARY KEY REFERENCES User (userid),
   password    TEXT NOT NULL,
-  sessionName TEXT REFERENCES SessionType (name)
+  sessionTypeName TEXT REFERENCES SessionType (name)
 );
 
 CREATE TABLE IF NOT EXISTS SessionType
