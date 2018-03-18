@@ -4,18 +4,18 @@ CREATE TABLE IF NOT EXISTS User
 (
   userId        INTEGER PRIMARY KEY             NOT NULL,
   email_address TEXT UNIQUE                     NOT NULL,
-  first_name    TEXT                            NOT NULL,
-  last_name     TEXT                            NOT NULL,
-  nick_name     TEXT
+  first_name    TEXT,
+  last_name     TEXT,
+  nick_name     TEXT                            NOT NULL
 
 );
 
 
 CREATE TABLE IF NOT EXISTS Sender
 (
-  userId    INTEGER PRIMARY KEY REFERENCES User (userid),
-  password  TEXT NOT NULL,
-  sessionId INTEGER REFERENCES SessionType (sessionId)
+  userId      INTEGER PRIMARY KEY REFERENCES User (userid),
+  password    TEXT NOT NULL,
+  sessionName TEXT REFERENCES SessionType (name)
 );
 
 CREATE TABLE IF NOT EXISTS SessionType
