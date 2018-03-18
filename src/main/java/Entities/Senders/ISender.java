@@ -1,13 +1,10 @@
 package Entities.Senders;
 
-import Entities.Users.UserEntity;
+import Entities.Users.IUser;
 
-public interface ISender
+public interface ISender extends IUser
 {
-    UserEntity getUser();
+    String getSessionTypeName();
 
     String getPassword();
-
-    String getSessionType();
-
 }

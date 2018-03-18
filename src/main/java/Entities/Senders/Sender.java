@@ -1,25 +1,33 @@
 package Entities.Senders;
 
-import Entities.Users.UserEntity;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Sender implements ISender
 {
-    private final UserEntity user;
+    //sender properties
+    protected String sessionTypeName;
     protected String password;
-    protected String sessionType;
 
-    public Sender(UserEntity user, String password, String sessionType)
+    // User properties
+    protected String firstName;
+    protected String lastName;
+    protected String nickName;
+    protected String emailAddress;
+
+    public Sender(String sessionTypeName, String password, String firstName, String lastName, String nickName, String emailAddress)
     {
-        this.user = user;
+        this.sessionTypeName = sessionTypeName;
         this.password = password;
-        this.sessionType = sessionType;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.nickName = nickName;
+        this.emailAddress = emailAddress;
     }
 
-
     @Override
-    public UserEntity getUser()
+    public String getSessionTypeName()
     {
-        return user;
+        return sessionTypeName;
     }
 
     @Override
@@ -28,11 +36,33 @@ public class Sender implements ISender
         return password;
     }
 
-
     @Override
-    public String getSessionType()
+    public String getFirstName()
     {
-        return sessionType;
+        return firstName;
     }
 
+    @Override
+    public String getLastName()
+    {
+        return lastName;
+    }
+
+    @Override
+    public String getNickName()
+    {
+        return nickName;
+    }
+
+    @Override
+    public String getEmailAddress()
+    {
+        return emailAddress;
+    }
+
+    @Override
+    public String toString()
+    {
+        return ToStringBuilder.reflectionToString(this);
+    }
 }

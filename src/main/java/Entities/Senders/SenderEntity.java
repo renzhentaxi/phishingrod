@@ -1,27 +1,19 @@
 package Entities.Senders;
 
-
-import Entities.Users.UserEntity;
-
 public class SenderEntity extends Sender implements ISenderEntity
 {
+
     private final int id;
 
-    public SenderEntity(Sender data)
+    public SenderEntity(int id, String sessionTypeName, String password, String firstName, String lastName, String nickName, String emailAddress)
     {
-        this(data.getUser(), data.getPassword(), data.getSessionType());
+        super(sessionTypeName, password, firstName, lastName, nickName, emailAddress);
+        this.id = id;
     }
 
-    public SenderEntity(UserEntity user, String password, String sessionType)
+    public SenderEntity(int id, ISender sender)
     {
-        super(user, password, sessionType);
-        id = user.getId();
-    }
-
-    @Override
-    public int getId()
-    {
-        return id;
+        this(id, sender.getSessionTypeName(), sender.getPassword(), sender.getFirstName(), sender.getLastName(), sender.getNickName(), sender.getEmailAddress());
     }
 
     @Override
@@ -31,8 +23,38 @@ public class SenderEntity extends Sender implements ISenderEntity
     }
 
     @Override
-    public void setSessionType(String sessionType)
+    public void setSessionTypeName(String sessionTypeName)
     {
-        this.sessionType = sessionType;
+        this.sessionTypeName = sessionTypeName;
+    }
+
+    @Override
+    public void setFirstName(String firstName)
+    {
+        this.firstName = firstName;
+    }
+
+    @Override
+    public void setLastName(String lastName)
+    {
+        this.lastName = lastName;
+    }
+
+    @Override
+    public void setNickName(String nickName)
+    {
+        this.nickName = nickName;
+    }
+
+    @Override
+    public void setEmailAddress(String emailAddress)
+    {
+        this.emailAddress = emailAddress;
+    }
+
+    @Override
+    public int getId()
+    {
+        return id;
     }
 }
