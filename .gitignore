@@ -1,5 +1,5 @@
-/Data/database/dev.db
 **/Secret/
 /.idea/dataSources/**
 /.idea/misc.xml
 /target/**
+*.db
