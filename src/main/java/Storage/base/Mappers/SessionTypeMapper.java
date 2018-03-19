@@ -1,6 +1,5 @@
 package Storage.base.Mappers;
 
-import Entities.SessionTypes.ISessionTypeEntity;
 import Entities.SessionTypes.SessionTypeEntity;
 import org.jdbi.v3.core.mapper.RowMapper;
 import org.jdbi.v3.core.statement.StatementContext;
