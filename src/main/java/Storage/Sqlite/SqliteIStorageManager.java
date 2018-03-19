@@ -1,7 +1,7 @@
 package Storage.Sqlite;
 
 import Storage.base.DatabaseModule;
-import Storage.base.StorageManager;
+import Storage.base.IStorageManager;
 import Storage.base.Util.DataBaseUrl;
 import dagger.BindsInstance;
 import dagger.Component;
@@ -10,7 +10,7 @@ import javax.inject.Singleton;
 
 @Singleton
 @Component(modules = {DatabaseModule.class, SqliteModule.class, SqliteSqlLocatorModule.class})
-public interface SqliteStorageManager extends StorageManager
+public interface SqliteIStorageManager extends IStorageManager
 {
     @Component.Builder
     interface Builder
@@ -18,7 +18,7 @@ public interface SqliteStorageManager extends StorageManager
         @BindsInstance
         Builder databaseUrl(@DataBaseUrl String url);
 
-        StorageManager build();
+        IStorageManager build();
     }
 
 

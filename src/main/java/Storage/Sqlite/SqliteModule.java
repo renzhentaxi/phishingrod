@@ -1,7 +1,11 @@
 package Storage.Sqlite;
 
 import Storage.base.Accessors.ExceptionHandler;
-import Storage.base.Accessors.Sender.old.SenderAccessor;
+import Storage.base.Accessors.Sender.ISenderAccessor;
+import Storage.base.Accessors.Sender.SenderAccessor;
+import Storage.base.Accessors.SessionType.ISessionTypeAccessor;
+import Storage.base.Accessors.SessionType.SessionTypeAccessor;
+import Storage.base.Accessors.User.IUserAccessor;
 import Storage.base.Accessors.User.UserAccessor;
 import Storage.base.Util.AlternativeSqlLocator;
 import Storage.base.Util.DataBaseUrl;
@@ -26,16 +30,23 @@ public abstract class SqliteModule {
 
     @Provides
     @Singleton
-    public static UserAccessor provideUserAccessor(Jdbi jdbi, AlternativeSqlLocator locator)
+    public static IUserAccessor provideUserAccessor(Jdbi jdbi, AlternativeSqlLocator locator)
     {
         return new UserAccessor(jdbi, locator);
     }
 
     @Provides
     @Singleton
-    public static SenderAccessor provideSenderAccessor(Jdbi jdbi, AlternativeSqlLocator locator, ExceptionHandler exceptionHandler, UserAccessor userAccessor)
+    public static ISessionTypeAccessor provideSessionTypeAccessor(Jdbi jdbi, AlternativeSqlLocator locator)
     {
-        return new SenderAccessor(jdbi, exceptionHandler, locator, userAccessor);
+        return new SessionTypeAccessor(jdbi, locator);
+    }
+
+    @Provides
+    @Singleton
+    public static ISenderAccessor provideSenderAccessor(Jdbi jdbi, AlternativeSqlLocator locator, IUserAccessor userAccessor, ISessionTypeAccessor sessionTypeAccessor)
+    {
+        return new SenderAccessor(jdbi, locator, userAccessor, sessionTypeAccessor);
     }
 
     @Provides

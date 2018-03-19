@@ -1,9 +1,9 @@
 package MailSystem;
 
-import Entities.Senders.old.SenderEntity;
-import Entities.Users.User;
+import Entities.Senders.ISender;
+import Entities.Users.IUser;
 
 public interface IMailSender
 {
-    void Send(IMail mail, SenderEntity from, User to);
+    void Send(IMail mail, ISender from, IUser to);
 }

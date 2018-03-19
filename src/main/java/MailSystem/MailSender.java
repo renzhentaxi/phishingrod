@@ -1,7 +1,7 @@
 package MailSystem;
 
-import Entities.Senders.old.SenderEntity;
-import Entities.Users.User;
+import Entities.Senders.ISender;
+import Entities.Users.IUser;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -10,7 +10,7 @@ public class MailSender implements IMailSender
 {
 
     @Override
-    public void Send(IMail mail, SenderEntity from, User to)
+    public void Send(IMail mail, ISender from, IUser to)
     {
         Message message = mail.getMessage(from, to);
         Session session = message.getSession();
@@ -28,11 +28,11 @@ public class MailSender implements IMailSender
 
     }
 
-    private void Send(Message message, SenderEntity sender, User to, Transport transport)
+    private void Send(Message message, ISender sender, IUser to, Transport transport)
     {
         try
         {
-            transport.connect(sender.getUser().getEmailAddress(), sender.getPassword());
+            transport.connect(sender.getEmailAddress(), sender.getPassword());
             transport.sendMessage(message, new Address[]{new InternetAddress(to.getEmailAddress())});
         } catch (MessagingException exception)
         {
