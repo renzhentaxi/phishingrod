@@ -3,9 +3,9 @@ package Storage.base.Accessors.SessionType;
 import Entities.SessionTypes.ISessionType;
 import Entities.SessionTypes.ISessionTypeEntity;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
-import Storage.base.Accessors.IAccessor;
+import Storage.base.Accessors.IWithHandleAccessor;
 
-public interface ISessionTypeAccessor extends IAccessor<ISessionTypeEntity, ISessionType>
+public interface ISessionTypeAccessor extends IWithHandleAccessor<ISessionTypeEntity, ISessionType>
 {
     /**
      * retrieve the sessionType with the given name

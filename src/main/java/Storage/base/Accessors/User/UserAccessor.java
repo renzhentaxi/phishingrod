@@ -7,7 +7,6 @@ import Storage.base.Accessors.AccessorUtil;
 import Storage.base.Accessors.Exceptions.EntityAlreadyExistException;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
 import Storage.base.Accessors.Exceptions.EntityUpdateException;
-import Storage.base.Accessors.IWithHandleAccessor;
 import Storage.base.Util.AlternativeSqlLocator;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
@@ -17,7 +16,7 @@ import org.jdbi.v3.core.statement.UnableToExecuteStatementException;
  * the _with methods do not close the handle.
  * they are used when other accessors needs to access a user object
  */
-public class UserAccessor implements IUserAccessor, IWithHandleAccessor<IUserEntity, IUser>
+public class UserAccessor implements IUserAccessor
 {
     private Jdbi jdbi;
     private String getQuery;

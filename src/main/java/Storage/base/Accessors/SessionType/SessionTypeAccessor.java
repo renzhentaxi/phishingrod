@@ -7,13 +7,12 @@ import Storage.base.Accessors.AccessorUtil;
 import Storage.base.Accessors.Exceptions.EntityAlreadyExistException;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
 import Storage.base.Accessors.Exceptions.EntityUpdateException;
-import Storage.base.Accessors.IWithHandleAccessor;
 import Storage.base.Util.AlternativeSqlLocator;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.core.statement.UnableToExecuteStatementException;
 
-public class SessionTypeAccessor implements ISessionTypeAccessor, IWithHandleAccessor<ISessionTypeEntity, ISessionType>
+public class SessionTypeAccessor implements ISessionTypeAccessor
 {
     private Jdbi jdbi;
     private String getQuery;

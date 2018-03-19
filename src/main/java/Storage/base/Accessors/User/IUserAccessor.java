@@ -3,10 +3,9 @@ package Storage.base.Accessors.User;
 import Entities.Users.IUser;
 import Entities.Users.IUserEntity;
 import Storage.base.Accessors.Exceptions.EntityDoesNotExistException;
-import Storage.base.Accessors.IAccessor;
 import Storage.base.Accessors.IWithHandleAccessor;
 
-public interface IUserAccessor extends IAccessor<IUserEntity, IUser>, IWithHandleAccessor<IUserEntity, IUser>
+public interface IUserAccessor extends IWithHandleAccessor<IUserEntity, IUser>
 {
 
     /**

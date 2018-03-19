@@ -11,7 +11,7 @@ import org.jdbi.v3.core.Handle;
  * using the same connection/handle for transaction control
  * e.g: if adding user succeeded but adding sender failed. we would want to rollback the user we added.
  */
-public interface IWithHandleAccessor<E, D>
+public interface IWithHandleAccessor<E, D> extends IAccessor<E, D>
 {
     /**
      * adds the data object to database using the handle.
