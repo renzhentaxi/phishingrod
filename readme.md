@@ -2,25 +2,17 @@ Just in case if someone sees this,
 we are not trying to actually phish people.
 The purpose of this program is to increase the awareness of the phishing
 
--For sernior project by Renzhentaxi and Hankyol
+-For senior project by Renzhentaxi and Hankyol
 
 
-Make a File inside Data folder called "Login.txt" 
+I have moved classes that contains sensitive information to a secret folder 
+so from now on the project wont compile successfully anymore.
 
-The format is: **preferred_Name email password**
+I have uploaded the secret folder to our google drive so just copy it in to this folder 
+and everything will compile again.
 
-e.g
+The location of the secret folder should be
 
-`Taxi taxi@gmail.com 12345678`
+phishingrod/Secret
 
-
-Download Database.db from our cloud drive and place it in
-Data/
-
-
-Mail Sending System Workflow:
-
-1. load/create users (senders + receiver)
-2. create mail by specifying content
-3. create MailSender
-4. send the email via MailSender
+If the project still dont compile, mark the Secret directory as source.
