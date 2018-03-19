@@ -1,12 +1,12 @@
 package Storage.Sqlite;
 
-import Storage.base.Accessors.ExceptionHandler;
 import Storage.base.Accessors.Sender.ISenderAccessor;
 import Storage.base.Accessors.Sender.SenderAccessor;
 import Storage.base.Accessors.SessionType.ISessionTypeAccessor;
 import Storage.base.Accessors.SessionType.SessionTypeAccessor;
 import Storage.base.Accessors.User.IUserAccessor;
 import Storage.base.Accessors.User.UserAccessor;
+import Storage.base.InvalidPathToDatabaseException;
 import Storage.base.Util.AlternativeSqlLocator;
 import Storage.base.Util.DataBaseUrl;
 import dagger.Module;
@@ -16,6 +16,8 @@ import org.sqlite.SQLiteDataSource;
 
 import javax.inject.Singleton;
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 @Module
 public abstract class SqliteModule {
@@ -25,6 +27,15 @@ public abstract class SqliteModule {
         SQLiteDataSource ds = new SQLiteDataSource();
         ds.setUrl("jdbc:sqlite:" + databaseUrl);
         ds.setEnforceForeignKeys(true);
+
+        try (Connection conn = ds.getConnection())
+        {
+        } catch (SQLException exception)
+        {
+            String message = exception.getMessage();
+            if (message.matches("path to .+ does not exist"))
+                throw new InvalidPathToDatabaseException();
+        }
         return ds;
     }
 
@@ -49,10 +60,4 @@ public abstract class SqliteModule {
         return new SenderAccessor(jdbi, locator, userAccessor, sessionTypeAccessor);
     }
 
-    @Provides
-    @Singleton
-    public static ExceptionHandler provideExceptionHandler()
-    {
-        return new SqliteExceptionHandler();
-    }
 }
