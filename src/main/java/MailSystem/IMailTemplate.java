@@ -5,8 +5,8 @@ import Entities.Users.IUser;
 
 import javax.mail.Message;
 
-public interface IMail
+public interface IMailTemplate
 {
-    Message getMessage(ISender from, IUser to);
+    Message generateMail(ISender from, IUser to);
 
 }

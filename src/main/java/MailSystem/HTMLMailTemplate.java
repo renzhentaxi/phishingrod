@@ -8,17 +8,17 @@ import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 
-public class HTMLMail implements IMail
+public class HTMLMailTemplate implements IMailTemplate
 {
     private String _data;
 
-    public HTMLMail(String data)
+    public HTMLMailTemplate(String data)
     {
         _data = data;
     }
 
     @Override
-    public Message getMessage(ISender from, IUser to)
+    public Message generateMail(ISender from, IUser to)
     {
         Session session = Sessions.GetSession(from.getSessionTypeName());
         Message message = new MimeMessage(session);

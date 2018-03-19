@@ -10,9 +10,9 @@ public class MailSender implements IMailSender
 {
 
     @Override
-    public void Send(IMail mail, ISender from, IUser to)
+    public void Send(IMailTemplate mail, ISender from, IUser to)
     {
-        Message message = mail.getMessage(from, to);
+        Message message = mail.generateMail(from, to);
         Session session = message.getSession();
 
         Transport transport;
