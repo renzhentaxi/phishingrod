@@ -1,4 +1,5 @@
-/Data/Login*.txt
+/Data/database/dev.db
+**/Secret/
 /.idea/dataSources/**
 /.idea/misc.xml
 /target/**
