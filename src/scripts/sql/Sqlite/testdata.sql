@@ -5,7 +5,9 @@ INSERT INTO SessionType
 
 INSERT INTO User
 (email_address, first_name, last_name, nick_name)
-VALUES ('taxi@gmail.com', 'renzhentaxi', 'baerde', 'taxi');
+VALUES
+  ('taxi@gmail.com', 'renzhentaxi', 'baerde', 'taxi'),
+  ('han@gmail.com', 'han', 'cho', 'han');
 
 INSERT INTO Sender
 (userId, password, sessionTypeName) VALUES (1, 'no password', 'gmail');
