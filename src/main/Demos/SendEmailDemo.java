@@ -11,6 +11,7 @@ import Storage.base.Accessors.Sender.ISenderAccessor;
 import Storage.base.Accessors.SessionType.ISessionTypeAccessor;
 import Storage.base.Accessors.User.IUserAccessor;
 import Storage.base.IStorageManager;
+import Util.TextLoader;
 
 public class SendEmailDemo
 {
