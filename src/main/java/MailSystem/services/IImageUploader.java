@@ -1,4 +1,4 @@
-package MailSystem.imageUploaders;
+package MailSystem.services;
 
 public interface IImageUploader
 {

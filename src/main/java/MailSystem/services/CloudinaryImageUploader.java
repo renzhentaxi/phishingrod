@@ -1,4 +1,4 @@
-package MailSystem.imageUploaders;
+package MailSystem.services;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
