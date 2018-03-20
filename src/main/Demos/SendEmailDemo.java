@@ -11,7 +11,7 @@ import Storage.base.Accessors.Sender.ISenderAccessor;
 import Storage.base.Accessors.SessionType.ISessionTypeAccessor;
 import Storage.base.Accessors.User.IUserAccessor;
 import Storage.base.IStorageManager;
-import Util.TextLoader;
+import Util.IOUtil;
 
 import static Database.DatabaseLocation.databaseLocation;
 
@@ -40,7 +40,7 @@ public class SendEmailDemo
         IUser demoReciever = new User("jeff", "myboi", "boi", "phishingrod123@gmail.com");
 
         //load the email
-        IMailTemplate mail = new HTMLMailTemplate(TextLoader.LoadEmail("Chase/index"));
+        IMailTemplate mail = new HTMLMailTemplate(IOUtil.LoadEmail("Chase/index"));
 
         //create a MailSender which will send the email
         MailSender mailSender = new MailSender();

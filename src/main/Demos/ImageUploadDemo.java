@@ -1,5 +1,5 @@
-import MailSystem.imageUploaders.CloudinaryImageUploader;
-import MailSystem.imageUploaders.IImageUploader;
+import MailSystem.services.CloudinaryImageUploader;
+import MailSystem.services.IImageUploader;
 
 import java.util.Map;
 
