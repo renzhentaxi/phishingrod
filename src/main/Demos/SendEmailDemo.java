@@ -13,6 +13,8 @@ import Storage.base.Accessors.User.IUserAccessor;
 import Storage.base.IStorageManager;
 import Util.TextLoader;
 
+import static Database.DatabaseLocation.databaseLocation;
+
 public class SendEmailDemo
 {
     public ISessionTypeAccessor sessionTypeAccessor;
@@ -50,7 +52,6 @@ public class SendEmailDemo
 
     public static void main(String[] args)
     {
-        String databaseLocation = System.getProperty("user.dir") + "/Secret/database/dev.db";
         SendEmailDemo demo = new SendEmailDemo(databaseLocation);
         demo.run();
     }

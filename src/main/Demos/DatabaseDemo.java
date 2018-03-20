@@ -7,11 +7,11 @@ import Storage.base.Accessors.SessionType.ISessionTypeAccessor;
 import Storage.base.Accessors.User.IUserAccessor;
 import Storage.base.IStorageManager;
 
+import static Database.DatabaseLocation.databaseLocation;
+
 public class DatabaseDemo
 {
     public static void main(String[] args) {
-        String databaseLocation = System.getProperty("user.dir") + "/data/database/dev.db";
-
         IStorageManager storageManager = StorageManager.newInstance(databaseLocation);
 
         IUserAccessor userAccessor = storageManager.getUserAccessor();
