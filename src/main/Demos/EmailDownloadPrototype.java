@@ -42,7 +42,7 @@ public class EmailDownloadPrototype
                         BodyPart bodyPart = part.getBodyPart(i);
                         System.out.println(bodyPart.getContentType());
                         System.out.println(bodyPart.getContent());
-                        IOUtil.SaveEmail("inbox/" +message.hashCode() + "_" + i, bodyPart.getContent().toString());
+                        IOUtil.SaveEmail("inbox/" + message.hashCode() + "_" + i, bodyPart.getContent().toString());
                     }
                 }
             }
