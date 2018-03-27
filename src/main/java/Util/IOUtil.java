@@ -6,6 +6,7 @@ public class IOUtil
 {
     private static final String DEFAULT_DATA_PATH = "./data/";
     private static final String DEFAULT_MAILS_PATH = "Mails/";
+    private static final String DEFAULT_WEBSITE_PATH = "Websites/";
 
     //prevent initialization
     private IOUtil()
@@ -50,6 +51,8 @@ public class IOUtil
     {
         Save(DEFAULT_MAILS_PATH + mailName + ".html", data);
     }
+
+    public static void SaveWebsite(String websiteName, String data){Save(DEFAULT_WEBSITE_PATH+websiteName+".html",data);}
 
     public static String LoadFile(String filePath)
     {

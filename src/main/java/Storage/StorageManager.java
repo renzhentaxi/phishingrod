@@ -1,5 +1,4 @@
 package Storage;
-
 import Storage.Sqlite.DaggerSqliteIStorageManager;
 import Storage.base.IStorageManager;
 
