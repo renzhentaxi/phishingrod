@@ -1,0 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+
+.html-source {
+    width: 50%;
+    height: 1000px;
+}
+
+.fakeLink {
+    text-decoration: underline;
+    color: rebeccapurple;
+}
+
+#param-input {
+    display: none;
+}
+
+.context-menu {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    padding: 12px 0;
+    width: 240px;
+    background-color: #fff;
+    border: solid 1px #dfdfdf;
+    box-shadow: 1px 1px 2px #cfcfcf;
+}
+
+.context-menu--active {
+    display: block;
+}

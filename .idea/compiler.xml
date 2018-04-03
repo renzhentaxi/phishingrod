@@ -3,15 +3,10 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for main" enabled="true">
-        <sourceOutputDir name="target/generated" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="MailTest" />
-      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="MailTest" target="1.8" />
+      <module name="core_main" target="1.8" />
+      <module name="core_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

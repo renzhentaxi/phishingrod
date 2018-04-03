@@ -1,0 +1,14 @@
+.pr-node:hover {
+    background-color: lightskyblue;
+    border-style: solid;
+    border-width: 1px;
+
+}
+
+.pr-node .pr-param {
+    display: inline;
+}
+
+.pr-param-input {
+    display: inline;
+}
