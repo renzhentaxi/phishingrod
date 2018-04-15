@@ -16,9 +16,9 @@ public class EmailTemplateService
         this.emailTemplateRepository = emailTemplateRepository;
     }
 
-    public void saveTemplate(EmailTemplate template)
+    public EmailTemplate saveTemplate(EmailTemplate template)
     {
-        emailTemplateRepository.save(template);
+        return emailTemplateRepository.save(template);
     }
 
     public EmailTemplate getTemplate(long id)

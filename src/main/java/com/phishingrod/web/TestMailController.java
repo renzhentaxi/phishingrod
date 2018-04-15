@@ -1,15 +1,31 @@
 package com.phishingrod.web;
 
+import com.phishingrod.domain.EmailTemplate;
+import com.phishingrod.services.EmailTemplateService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class TestMailController
 {
-    @GetMapping("/testHtml")
-    public String templateGenerator()
+    private EmailTemplateService service;
+
+    @Autowired
+    public TestMailController(EmailTemplateService service)
     {
-        return "testHtml";
+        this.service = service;
+    }
+
+    @GetMapping("/testHtml")
+    @ResponseBody
+    public String templateGenerator(@RequestParam("id") long id)
+    {
+        EmailTemplate t = service.getTemplate(id);
+        if(t == null) return "no template";
+        return t.getSourceHtml();
     }
 
 }
