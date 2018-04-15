@@ -1,0 +1,25 @@
+.pr-param-node, .pr-param-control-nameLabel, .pr-param-control-delete {
+    display: inline-block;
+}
+
+.pr-param-node[active] {
+    background: greenyellow;
+    outline: lightgreen solid;
+}
+
+.pr-param-control {
+    outline: lightcoral;
+    list-style: none;
+}
+
+.pr-param-control-nameLabel {
+    min-width: 150px;
+    text-align: center;
+    margin: 10px;
+    background-color: lightgreen;
+    outline: solid black;
+}
+
+.pr-param-control-delete:hover {
+    color: red;
+}

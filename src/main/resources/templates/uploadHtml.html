@@ -5,6 +5,18 @@
     <title>htmlUpload</title>
 </head>
 <body>
-
+<form action="/mail/upload" method="post">
+    <div>
+        <label for="name">Template Name</label>
+        <input name="name" id="name"/>
+    </div>
+    <div>
+        <label for="email">Email Template</label>
+        <textarea name="email" id="email"></textarea>
+    </div>
+    <div>
+        <button>send my message</button>
+    </div>
+</form>
 </body>
 </html>

@@ -1,0 +1,17 @@
+.context-menu {
+    display: none;
+    position: absolute;
+    background-color: lightgray;
+    list-style: none;
+    padding: 5px;
+    border: grey solid;
+}
+
+.context-menu[active] {
+    display: block;
+}
+
+.context-menu-option-title {
+    font-weight: bold;
+    display: inline;
+}
