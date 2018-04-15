@@ -1,3 +1,6 @@
+= API
+
+
 post /mail/upload
 
 adds the mail to the database as a template
