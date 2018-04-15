@@ -17,10 +17,10 @@ import java.util.List;
 @NoArgsConstructor
 public class EmailTemplate extends NamedEntity
 {
-    @Column(nullable = false, length = 10000)
+    @Column(nullable = false, length = 1000000)
     private String sourceHtml;
 
-    @Column(nullable = false, length = 10000)
+    @Column(nullable = false, length = 1000000)
     private String originalHtml;
 
 
