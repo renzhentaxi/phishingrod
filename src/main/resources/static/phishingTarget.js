@@ -25,7 +25,7 @@ function deleteRow(element) {
 function addTarget() {
     const email = document.querySelector("#emailInput").value;
     const table = document.querySelector("#phishingTargetTable");
-    post("api/phishingTarget/add",`emailAddress=${email}`, (data)=> {
+    post("/api/phishingTarget/add",`emailAddress=${email}`, (data)=> {
         const newRow = Elements.row(data.emailAddress,data.lastModified,data.createdAt);
         table.appendChild(newRow);
     });
