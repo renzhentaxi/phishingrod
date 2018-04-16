@@ -1,8 +1,8 @@
 package com.phishingrod.repositories;
 
 import com.phishingrod.domain.PhishingTarget;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface PhishingTargetRepository extends CrudRepository<PhishingTarget, Long>
+public interface PhishingTargetRepository extends PagingAndSortingRepository<PhishingTarget, Long>
 {
 }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mails</title>
+    <script src="/Script.js" defer></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Email Address</th>
+            <th>Last Modified</th>
+            <th>Created At</th>
+        </tr>
+        <tr>
+            <td colspan="3">
+                Email:
+                <input id="emailInput" type="text" label="Email Address"/>
+            </td>
+            <td>
+                <input type="button" value="add" onclick="addTarget()"/>
+            </td>
+        </tr>
+        <tr th:each="target : ${targets}" th:attr="data-pt-id=${target.id}">
+                <td th:text="${target.emailAddress}">Name1</td>
+                <td th:text="${target.lastModified}">Name1</td>
+                <td th:text="${target.createdAt}">Name1</td>
+            <td><input type="button" value="Delete" onclick="deleteRow(this)"/></td>
+        </tr>
+    </table>
+</body>
+</html>

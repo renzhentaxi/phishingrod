@@ -21,7 +21,7 @@ public class PhishingRodEntity
     private long id;
 
     @Column(nullable = false)
-    private Date timeAdded;
+    private Date createdAt;
 
     @Column(nullable = false)
     private Date lastModified;

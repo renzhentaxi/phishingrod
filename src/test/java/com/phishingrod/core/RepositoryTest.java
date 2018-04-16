@@ -1,6 +1,7 @@
 package com.phishingrod.core;
 
 import com.phishingrod.domain.EmailTemplate;
+import com.phishingrod.domain.PhishingTarget;
 import com.phishingrod.services.EmailTemplateService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,9 +25,11 @@ public class RepositoryTest
     @Test
     public void test()
     {
-        EmailTemplate template = new EmailTemplate("hi", "boi", "wut", new Date());
-
-        service.saveTemplate(template);
+//        EmailTemplate template = new EmailTemplate("hi", "boi", "wut", new Date());
+//
+//        service.saveTemplate(template);
+        PhishingTarget target = new PhishingTarget("taxi@gmail.com");
+        System.out.println(target.getId());
         System.out.println(service.getTemplate(1));
     }
 }
