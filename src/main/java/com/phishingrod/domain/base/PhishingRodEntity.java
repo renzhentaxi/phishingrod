@@ -16,6 +16,7 @@ import java.util.Date;
 public class PhishingRodEntity
 {
     private static EntityToStringStyle style = new EntityToStringStyle();
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
