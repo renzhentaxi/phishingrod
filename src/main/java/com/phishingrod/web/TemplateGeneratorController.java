@@ -14,5 +14,4 @@ public class TemplateGeneratorController
         model.addAttribute("id", id);
         return "template-generator";
     }
-
 }

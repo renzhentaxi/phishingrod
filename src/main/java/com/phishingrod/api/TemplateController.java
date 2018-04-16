@@ -1,29 +1,27 @@
-package com.phishingrod.web;
+package com.phishingrod.api;
 
 import com.phishingrod.domain.EmailTemplate;
 import com.phishingrod.services.EmailTemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
-@Controller
+@RestController
 @RequestMapping("/mail/upload")
 
-public class MailController
+public class TemplateController
 {
     private EmailTemplateService emailService;
 
     @Autowired
-    public MailController(EmailTemplateService emailService)
+    public TemplateController(EmailTemplateService emailService)
     {
         this.emailService = emailService;
     }
 
 
     @PostMapping()
-    @ResponseBody
     public long upload(@RequestParam("name") String name, @RequestParam("email") String email)
     {
         EmailTemplate template = new EmailTemplate(name, email, email, new Date());
@@ -32,16 +30,9 @@ public class MailController
     }
 
     @GetMapping(params = {"id"})
-    @ResponseBody
-    public String upload(@RequestParam("id") long id)
+    public String get(@RequestParam("id") long id)
     {
         EmailTemplate template = emailService.getTemplate(id);
-        return template.toString();
-    }
-
-    @GetMapping()
-    public String uploader()
-    {
-        return "uploadHtml";
+        return template.getSourceHtml();
     }
 }
