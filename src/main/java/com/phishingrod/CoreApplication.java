@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EntityScan(basePackages = "com.phishingrod.domain")
-@ComponentScan(basePackages= {"com.phishingrod.tools", "com.phishingrod.services","com.phishingrod.web"})
+@ComponentScan(basePackages= {"com.phishingrod.tools", "com.phishingrod.services","com.phishingrod.web","com.phishingrod.api"})
 public class CoreApplication
 {
     public static void main(String[] args)
