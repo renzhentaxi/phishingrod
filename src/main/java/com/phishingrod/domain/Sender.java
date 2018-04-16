@@ -28,9 +28,8 @@ public class Sender extends PhishingRodEntity
     @Column(nullable = false)
     private String password;
 
-    public Sender(SenderServer server, String loginName, String password, Date dateAdded)
+    public Sender(SenderServer server, String loginName, String password)
     {
-        super(dateAdded);
         this.server = server;
         this.loginName = loginName;
         this.password = password;

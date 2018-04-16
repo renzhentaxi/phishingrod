@@ -20,9 +20,9 @@ public class SpoofTarget extends EmailedEntity
     @ManyToMany(mappedBy = "spoofTargets")
     private List<EmailTemplate> templates = new ArrayList<>();
 
-    public SpoofTarget(String emailAddress, Date dateAdded)
+    public SpoofTarget(String emailAddress)
     {
-        super(emailAddress, dateAdded);
+        super(emailAddress);
     }
 
 }

@@ -33,7 +33,7 @@ public class EmailTemplate extends NamedEntity
 
     public EmailTemplate(String name, String sourceHtml, String originalHtml, Date timeAdded)
     {
-        super(timeAdded, name);
+        super(name);
         this.sourceHtml = sourceHtml;
         this.originalHtml = originalHtml;
     }

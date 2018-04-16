@@ -17,9 +17,8 @@ public class NamedEntity extends PhishingRodEntity
     @Column(unique = true, nullable = false)
     private String name;
 
-    public NamedEntity(Date timeAdded, String name)
+    public NamedEntity(String name)
     {
-        super(timeAdded);
         this.name = name;
     }
 }

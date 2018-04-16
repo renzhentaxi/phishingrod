@@ -28,9 +28,8 @@ public class EmailedEntity extends PhishingRodEntity
     private String EmailAddress;
 
 
-    public EmailedEntity(String emailAddress, Date dateAdded)
+    public EmailedEntity(String emailAddress)
     {
-        super(dateAdded);
         EmailAddress = emailAddress;
     }
 }

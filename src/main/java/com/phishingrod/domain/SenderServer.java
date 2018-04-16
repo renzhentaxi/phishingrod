@@ -28,9 +28,9 @@ public class SenderServer extends NamedEntity
     @Column(nullable = false)
     private int port;
 
-    public SenderServer(String name, String host, boolean useTls, int port, Date timeAdded)
+    public SenderServer(String name, String host, boolean useTls, int port)
     {
-        super(timeAdded, name);
+        super(name);
         this.host = host;
         this.tls = useTls;
         this.port = port;

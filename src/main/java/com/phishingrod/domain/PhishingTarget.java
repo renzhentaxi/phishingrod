@@ -11,8 +11,8 @@ import java.util.Date;
 @NoArgsConstructor
 public class PhishingTarget extends EmailedEntity
 {
-    public PhishingTarget(String emailAddress, Date dateAdded)
+    public PhishingTarget(String emailAddress)
     {
-        super(emailAddress, dateAdded);
+        super(emailAddress);
     }
 }

@@ -27,11 +27,11 @@ public class SendMailDemo
     @Test
     public void demo()
     {
-        SpoofTarget from = new SpoofTarget("renzhentaxibaerde@gmail.com", new Date());
-        PhishingTarget to = new PhishingTarget("phishingrod123@gmail.com", new Date());
+        SpoofTarget from = new SpoofTarget("renzhentaxibaerde@gmail.com");
+        PhishingTarget to = new PhishingTarget("phishingrod123@gmail.com");
 
-        SenderServer server = new SenderServer("gmail", "smtp.gmail.com", true, 587, new Date());
-        Sender sender = new Sender(server, "phishingrod123@gmail.com", "2132018fish", new Date());
+        SenderServer server = new SenderServer("gmail", "smtp.gmail.com", true, 587);
+        Sender sender = new Sender(server, "phishingrod123@gmail.com", "2132018fish");
         service.send("hi", from, to, sender);
     }
 }

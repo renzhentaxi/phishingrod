@@ -23,10 +23,8 @@ public class PhishingRodEntity
     @Column(nullable = false)
     private Date timeAdded;
 
-    public PhishingRodEntity(Date timeAdded)
-    {
-        this.timeAdded = timeAdded;
-    }
+    @Column(nullable = false)
+    private Date lastModified;
 
     @Override
     public String toString()
