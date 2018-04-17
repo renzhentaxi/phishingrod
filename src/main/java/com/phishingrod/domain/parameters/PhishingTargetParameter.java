@@ -11,6 +11,9 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(
+        uniqueConstraints = @UniqueConstraint(name = "uk_targetParameter", columnNames = {"phishingTarget", "parameter"})
+)
 public class PhishingTargetParameter
 {
     @Id
@@ -18,9 +21,11 @@ public class PhishingTargetParameter
     private long id;
 
     @ManyToOne
+    @JoinColumn(name="phishingTarget")
     private PhishingTarget phishingTarget;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="parameter")
     private Parameter parameter;
 
     private String value;

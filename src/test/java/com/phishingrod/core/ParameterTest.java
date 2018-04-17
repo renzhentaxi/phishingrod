@@ -1,6 +1,8 @@
 package com.phishingrod.core;
 
 import com.phishingrod.domain.PhishingTarget;
+import com.phishingrod.domain.parameters.Parameter;
+import com.phishingrod.domain.parameters.ParameterSourceType;
 import com.phishingrod.services.PhishingTargetService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,12 +17,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 @DataJpaTest
 public class ParameterTest
 {
-    @TestConfiguration
-    @EntityScan(basePackages = {"com.phishingrod.domain"})
-    @ComponentScan(basePackages = {"com.phishingrod.repositories"})
-    static class config
-    {
-    }
 
     @Autowired
     private PhishingTargetService phishingTargetService;
@@ -30,6 +26,7 @@ public class ParameterTest
     {
 
         PhishingTarget target = new PhishingTarget("taxi@gmail.com");
+        target.addParameter(new Parameter(ParameterSourceType.phishingTarget, "userName"), "taxi");
         phishingTargetService.add(target);
 //        target.addParameter("userName","renzhentaxi");
         for (PhishingTarget pt : phishingTargetService.getAll())

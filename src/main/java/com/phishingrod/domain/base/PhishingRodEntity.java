@@ -21,10 +21,10 @@ public class PhishingRodEntity
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @Column(name = "created_at", nullable = false)
     private Date createdAt;
 
-    @Column(nullable = false)
+    @Column(name = "last_Modified", nullable = false)
     private Date lastModified;
 
     @Override

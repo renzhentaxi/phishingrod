@@ -2,6 +2,7 @@ package com.phishingrod.domain;
 
 
 import com.phishingrod.domain.base.EmailedEntity;
+import com.phishingrod.domain.parameters.Parameter;
 import com.phishingrod.domain.parameters.PhishingTargetParameter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,12 @@ public class PhishingTarget extends EmailedEntity
     public PhishingTarget(String emailAddress)
     {
         super(emailAddress);
+    }
+
+    public void addParameter(Parameter parameter, String value)
+    {
+        PhishingTargetParameter p = new PhishingTargetParameter(this, parameter, value);
+        parameters.add(p);
     }
 
 }

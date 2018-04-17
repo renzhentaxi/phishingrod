@@ -15,8 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class NamedEntity extends PhishingRodEntity
 {
-    @Column(unique = true, nullable = false)
-    @NaturalId
+    @Column(name = "name", unique = true, nullable = false)
     private String name;
 
     public NamedEntity(String name)

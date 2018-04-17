@@ -23,4 +23,10 @@ public class Parameter
 
     @Enumerated(EnumType.STRING)
     private ParameterSourceType sourceType;
+
+    public Parameter(ParameterSourceType type, String name)
+    {
+        this.sourceType = type;
+        this.name = name;
+    }
 }

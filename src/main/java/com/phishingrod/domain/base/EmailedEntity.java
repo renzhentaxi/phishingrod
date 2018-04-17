@@ -24,8 +24,7 @@ public class EmailedEntity extends PhishingRodEntity
      * the email address of the entity
      * It must be unique within the table and not null.
      */
-    @Column(unique = true, nullable = false)
-    @NaturalId
+    @Column(name = "email_address", unique = true, nullable = false)
     private String emailAddress;
 
 
