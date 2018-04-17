@@ -7,7 +7,6 @@ import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
-import java.util.Date;
 
 
 /**
@@ -27,11 +26,11 @@ public class EmailedEntity extends PhishingRodEntity
      */
     @Column(unique = true, nullable = false)
     @NaturalId
-    private String EmailAddress;
+    private String emailAddress;
 
 
     public EmailedEntity(String emailAddress)
     {
-        EmailAddress = emailAddress;
+        this.emailAddress = emailAddress;
     }
 }
