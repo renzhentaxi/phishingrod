@@ -24,4 +24,12 @@ public class PhishingTargetParameter
     private Parameter parameter;
 
     private String value;
+
+    public PhishingTargetParameter(PhishingTarget phishingTarget, Parameter parameter, String value)
+    {
+
+        this.phishingTarget = phishingTarget;
+        this.parameter = parameter;
+        this.value = value;
+    }
 }
