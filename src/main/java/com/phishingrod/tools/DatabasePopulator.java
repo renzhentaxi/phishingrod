@@ -1,6 +1,8 @@
 package com.phishingrod.tools;
 
 import com.phishingrod.domain.PhishingTarget;
+import com.phishingrod.domain.parameters.Parameter;
+import com.phishingrod.domain.parameters.ParameterSourceType;
 import com.phishingrod.services.PhishingTargetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,6 +24,10 @@ public class DatabasePopulator implements CommandLineRunner {
         {
             service.add(new PhishingTarget("txi@gamil.com" + i));
         }
+
+        PhishingTarget target = service.get(1).get();
+        target.addParameter(new Parameter(ParameterSourceType.phishingTarget, "hi"), "hi");
+        service.save(target);
         System.out.println("I am runnning");
     }
 

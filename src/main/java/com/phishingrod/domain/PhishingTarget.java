@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 public class PhishingTarget extends EmailedEntity
 {
-    @OneToMany(mappedBy = "phishingTarget", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "phishingTarget", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
     private List<PhishingTargetParameter> parameters = new ArrayList<>();
 
     public PhishingTarget(String emailAddress)
@@ -34,4 +35,7 @@ public class PhishingTarget extends EmailedEntity
         parameters.add(p);
     }
 
+    public void removeParameter(String userName)
+    {
+    }
 }
