@@ -3,10 +3,10 @@ package com.phishingrod.domain.base;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
-import java.util.Date;
 
 
 /**
@@ -25,11 +25,12 @@ public class EmailedEntity extends PhishingRodEntity
      * It must be unique within the table and not null.
      */
     @Column(unique = true, nullable = false)
-    private String EmailAddress;
+    @NaturalId
+    private String emailAddress;
 
 
     public EmailedEntity(String emailAddress)
     {
-        EmailAddress = emailAddress;
+        this.emailAddress = emailAddress;
     }
 }
