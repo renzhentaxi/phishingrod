@@ -2,9 +2,9 @@ package com.phishingrod.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.phishingrod.domain.PhishingTarget;
+import com.phishingrod.services.JsonService;
 import com.phishingrod.services.PhishingTargetService;
 import com.phishingrod.util.JsonHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,29 +12,23 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Optional;
+
+import static com.phishingrod.api.responses.PhishingTargetResponseProvider.*;
 
 @RestController
 @RequestMapping("/api/phishingTarget")
 public class PhishingTargetRestController
 {
     private PhishingTargetService service;
-    private final static JsonNodeFactory factory = JsonNodeFactory.instance;
-    private final static PhishingTargetResponseProvider responseProvider = new PhishingTargetResponseProvider();
-
-    private static ResponseEntity<JsonNode> MISSING_EMAIL_ERROR_RESPONSE;
-    private static ResponseEntity<JsonNode> CONFLICTING_EMAIL_ERROR_RESPONSE;
-    private static ResponseEntity<JsonNode> INVALID_ID_ERROR_RESPONSE;
-
+    private JsonService jsonService;
+    
     @Autowired
-    public PhishingTargetRestController(PhishingTargetService service)
+    public PhishingTargetRestController(PhishingTargetService service, JsonService jsonService)
     {
         this.service = service;
-        MISSING_EMAIL_ERROR_RESPONSE = responseProvider.generateErrorResponse(HttpStatus.BAD_REQUEST, "Missing required emailAddress field in the json");
-        CONFLICTING_EMAIL_ERROR_RESPONSE = responseProvider.generateErrorResponse(HttpStatus.BAD_REQUEST, "A phishing Target with the same email address already exists on the server");
-        INVALID_ID_ERROR_RESPONSE = responseProvider.generateErrorResponse(HttpStatus.NOT_FOUND, "No phishing target with the id exists on the database");
+        this.jsonService = jsonService;
     }
 
     @PostMapping("add")
@@ -50,18 +44,14 @@ public class PhishingTargetRestController
 
         if (targetJson.has("parameters"))
         {
-            JsonNode parameterMap = targetJson.get("parameters");
+            JsonNode jsonParameterMap = targetJson.get("parameters");
+            Map<String, String> parameterMap = target.getParameterMap();
 
-            Iterator<Map.Entry<String, JsonNode>> iterator = parameterMap.fields();
-            while (iterator.hasNext())
-            {
-                Map.Entry<String, JsonNode> field = iterator.next();
-                target.addParameter(field.getKey(), field.getValue().textValue());
-            }
+            jsonService.populateMapUsingJson(parameterMap, jsonParameterMap);
         }
         service.add(target);
 
-        return responseProvider.generateResponseForAdd(target);
+        return generateAddResponse(target);
     }
 
     @PostMapping("del")

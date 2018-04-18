@@ -1,5 +1,6 @@
 package com.phishingrod.services;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.phishingrod.domain.PhishingTarget;
 import com.phishingrod.domain.parameters.*;
 import com.phishingrod.repositories.parameters.ParameterRepository;
@@ -7,6 +8,7 @@ import com.phishingrod.repositories.parameters.PhishingTargetParameterRepository
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -84,5 +86,4 @@ public class ParameterResolverService
             return phishingTargetParameterRepository.findDistinctByPhishingTargetAndParameter(target, parameter).orElse(new PhishingTargetParameter(target, parameter));
         }
     }
-
 }
