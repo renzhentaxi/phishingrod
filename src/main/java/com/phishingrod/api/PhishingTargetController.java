@@ -1,6 +1,8 @@
 package com.phishingrod.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.phishingrod.domain.PhishingTarget;
 import com.phishingrod.services.PhishingTargetService;
 import com.phishingrod.util.JsonHelper;
@@ -53,10 +55,10 @@ public class PhishingTargetController
     }
 
     @GetMapping("get")
-    public ResponseEntity<PhishingTarget> get(@RequestParam("id") long id)
+    public ResponseEntity<JsonNode> get(@RequestParam("id") long id)
     {
         Optional<PhishingTarget> target = service.get(id);
-        return target.map(phishingTarget -> new ResponseEntity<>(phishingTarget, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        return target.map(phishingTarget -> new ResponseEntity<>(toNode(phishingTarget), HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @GetMapping("all")
@@ -65,4 +67,23 @@ public class PhishingTargetController
         return service.getAll();
     }
 
+    public JsonNode toNode(PhishingTarget target)
+    {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode node = mapper.createObjectNode();
+        node.put("id", target.getId());
+        node.put("emailAddress", target.getEmailAddress());
+        node.put("lastModified", target.getLastModified().toString());
+        node.put("createdAt", target.getCreatedAt().toString());
+
+        ObjectNode parameters = mapper.createObjectNode();
+
+        for (Map.Entry<String,String> entry: target.getParameterMap().entrySet())
+        {
+            parameters.put(entry.getKey(), entry.getValue());
+        }
+
+        node.set("parameters", parameters);
+        return node;
+    }
 }

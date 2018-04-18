@@ -14,27 +14,23 @@ import javax.persistence.*;
 @Table(
         uniqueConstraints = @UniqueConstraint(name = "uk_targetParameter", columnNames = {"phishingTarget", "parameter"})
 )
-public class PhishingTargetParameter
+public class PhishingTargetParameter extends EntityParameter
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
 
     @ManyToOne
-    @JoinColumn(name="phishingTarget")
+    @JoinColumn(name = "phishingTarget")
     private PhishingTarget phishingTarget;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="parameter")
-    private Parameter parameter;
 
-    private String value;
+    public PhishingTargetParameter(PhishingTarget phishingTarget, Parameter parameter)
+    {
+        super(parameter);
+        this.phishingTarget = phishingTarget;
+    }
 
     public PhishingTargetParameter(PhishingTarget phishingTarget, Parameter parameter, String value)
     {
-
+        super(parameter, value);
         this.phishingTarget = phishingTarget;
-        this.parameter = parameter;
-        this.value = value;
     }
 }

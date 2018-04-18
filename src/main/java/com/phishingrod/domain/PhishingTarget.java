@@ -8,12 +8,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 @Getter
@@ -21,21 +20,32 @@ import java.util.List;
 @NoArgsConstructor
 public class PhishingTarget extends EmailedEntity
 {
-    @OneToMany(mappedBy = "phishingTarget", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "phishingTarget", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<PhishingTargetParameter> parameters = new ArrayList<>();
+
+    @Transient
+    private Map<String, String> parameterMap = new HashMap<>();
 
     public PhishingTarget(String emailAddress)
     {
         super(emailAddress);
     }
 
-    public void addParameter(Parameter parameter, String value)
+    public void addParameterOld(Parameter parameter, String value)
     {
         PhishingTargetParameter p = new PhishingTargetParameter(this, parameter, value);
         parameters.add(p);
     }
 
+    public void addParameter(String name, String value)
+    {
+        System.out.println("added");
+        parameterMap.put(name, value);
+        System.out.println(name + " " + value);
+    }
+
     public void removeParameter(String userName)
     {
+        parameterMap.remove(userName);
     }
 }

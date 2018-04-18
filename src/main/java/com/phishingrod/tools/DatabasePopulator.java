@@ -26,8 +26,10 @@ public class DatabasePopulator implements CommandLineRunner {
         }
 
         PhishingTarget target = service.get(1).get();
-        target.addParameter(new Parameter(ParameterSourceType.phishingTarget, "hi"), "hi");
+        target.addParameter("taxi", "boi");
         service.save(target);
+//        target.addParameterOld(new Parameter(ParameterSourceType.phishingTarget, "hi"), "hi");
+//        service.save(target);
         System.out.println("I am runnning");
     }
 
