@@ -102,23 +102,20 @@ parameters:{
 |POST
 
 |Url
-|/api/phishingTarget/add?targetDetail=*targetJson*
+|/api/phishingTarget/add
+
 
 |Description
-|adds the phishing target specified by *targetJson* to the database.
-Returns the id of the phishingTarget if successful
+|adds the phishing target specified by the json in the request body to the database.
 |====
 
-.Response Code
-[cols="2*"]
-|====
-|BAD 400
-|When the *targetJson* contains an emailAddress that already exists in the database.
-|OK 200
-|When the request is valid and executed successfully.
-|====
+=== Request
 
-.TargetJson Format
+|===
+|Content Type |application/json
+|===
+
+.Request body Format
 [source]
 ----
 {
@@ -131,6 +128,17 @@ Returns the id of the phishingTarget if successful
 }
 ----
 Note: Id, createdAt, lastModified are not required and will be ignored if included.
+
+=== Response
+
+.Response Code
+[cols="2*"]
+|====
+|BAD 400
+|When the *targetJson* contains an emailAddress that already exists in the database.
+|OK 200
+|When the request is valid and executed successfully.
+|====
 
 .Response Json
 [source]
