@@ -1,0 +1,41 @@
+:table-caption!:
+
+== get
+
+.Info
+[cols="2*"]
+|====
+
+|Type
+|GET
+
+|Url
+|/api/phishingTarget/get?id=*targetId*
+
+|Description
+|Returns the phishing target specified by *targetId*.
+|====
+
+.Response Code
+[cols="2*"]
+|====
+|404 NOT FOUND
+|When phishing Target with id does not exist.
+|200 OK
+|When the request is valid and has been executed successfully.
+|====
+
+[#PhishingTargetJson]
+.Phishing Target Json Representation
+[source]
+----
+
+id : number,
+lastModified :time,
+createdAt: time,
+parameters:{
+        parameterName: parameterValue,
+        ....
+}
+
+----

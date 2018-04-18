@@ -1,0 +1,108 @@
+:table-caption!:
+
+== add
+
+=== Info
+[cols="2*"]
+|====
+
+|Type
+|POST
+
+|Url
+|/api/phishingTarget/add
+
+
+|Description
+|adds the phishing target specified by the json in the request body to the database.
+|====
+
+=== Request
+
+[cols="3*"]
+|===
+
+|Content Type
+2+|application/json
+
+|Request format
+2+a|[source]
+{
+    emailAddress: {emailAddress},
+    parameters:
+    {
+        parameterName: parameterValue,
+        ...
+    }
+}
+
+|Note
+2+|
+Note: Id, createdAt, lastModified are not required and will be ignored if included.
+
+|===
+
+
+=== Response
+
+.Missing Email Address Response
+[cols="3*"]
+|====
+
+|Condition
+2+|When the request body json does not contain an emailAddress field.
+
+|Code
+2+|400 BAD REQUEST
+
+|Response
+2+a|
+[source]
+{
+    error:
+    "Missing required emailAddress field in the json"
+}
+|====
+
+.Email Already Exist Response
+[cols="3*"]
+|====
+|Condition
+2+|when a phishing Target with the same email address already exist on the server.
+
+|Code
+2+|BAD 400
+
+|Response
+2+a|
+[source]
+{
+    error:
+    "A phishing Target with the same email address already exists on the server"
+}
+|====
+
+.Successful Response
+[cols="3*"]
+|====
+|Condition
+2+| When the request is valid and executed successfully
+
+|code
+2+|OK 200
+
+|Description
+2+|
+Returns the following fields: id, lastModified, and createdAt
+
+|Response
+2+a|
+[source]
+{
+    id:number,
+    lastModified: time,
+    createdAt: time
+}
+
+
+|====

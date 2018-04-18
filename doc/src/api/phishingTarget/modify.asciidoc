@@ -1,0 +1,37 @@
+== modify
+
+.Info
+[cols="2*"]
+|====
+
+|Type
+|POST
+
+|Url
+|/api/phishingTarget/mod?id=*targetId*&modification=*modDetail*
+
+|Description
+|modifies the phishingTarget specified with *targetId* with the json provided by *modDetail*
+|====
+
+.Response Code
+[cols="2*"]
+|====
+|Error 404
+|When the phishingTarget with id does not exist.
+|OK 200
+|When the request is valid and executed successfully.
+|====
+
+.ModDetail Json Format
+[source]
+----
+{
+    [emailAddress: newEmailAddress],<1>
+    [parameters: newParameters]     <1>
+                                    <2>
+}
+----
+<1> They are optional and order doesn't matter.
+<2> lastModified and createdAt are not required since they are controlled by the server automatically.
+If they are ignored if they are included.

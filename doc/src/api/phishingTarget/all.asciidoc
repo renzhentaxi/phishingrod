@@ -1,0 +1,24 @@
+== all
+
+[cols="2*"]
+|====
+
+|Type
+|GET
+
+|Url
+|/api/phishingTarget/all
+
+|Description
+|Returns all phishingTargets on the server as an array
+|====
+
+.Json Response Format
+[source]
+----
+[
+    PhishingTargetJson, <1>
+    ...
+]
+----
+<1> refer to <<PhishingTargetJson,Phishing Target Json Representation>>
