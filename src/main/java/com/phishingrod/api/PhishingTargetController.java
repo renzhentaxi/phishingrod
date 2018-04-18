@@ -48,7 +48,7 @@ public class PhishingTargetController
             Map<String, String> paramMap = JsonHelper.parse(parameters);
             paramMap.forEach((key, value) -> System.out.printf("%s : %s\n", key, value));
             //todo not finished yet
-            service.save(t);
+            service.modify(t);
             return new ResponseEntity<>(t, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);

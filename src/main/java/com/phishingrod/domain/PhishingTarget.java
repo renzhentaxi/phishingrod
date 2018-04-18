@@ -3,6 +3,7 @@ package com.phishingrod.domain;
 
 import com.phishingrod.domain.base.EmailedEntity;
 import com.phishingrod.domain.parameters.Parameter;
+import com.phishingrod.domain.parameters.ParameterContainer;
 import com.phishingrod.domain.parameters.PhishingTargetParameter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,7 @@ import java.util.Map;
 @Getter
 @Setter
 @NoArgsConstructor
-public class PhishingTarget extends EmailedEntity
+public class PhishingTarget extends EmailedEntity implements ParameterContainer<PhishingTargetParameter>
 {
     @OneToMany(mappedBy = "phishingTarget", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<PhishingTargetParameter> parameters = new ArrayList<>();
@@ -39,9 +40,7 @@ public class PhishingTarget extends EmailedEntity
 
     public void addParameter(String name, String value)
     {
-        System.out.println("added");
         parameterMap.put(name, value);
-        System.out.println(name + " " + value);
     }
 
     public void removeParameter(String userName)
