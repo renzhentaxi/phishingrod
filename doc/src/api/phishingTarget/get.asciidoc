@@ -2,7 +2,7 @@
 
 == get
 
-.Info
+=== Info
 [cols="2*"]
 |====
 
@@ -16,20 +16,43 @@
 |Returns the phishing target specified by *targetId*.
 |====
 
-.Response Code
-[cols="2*"]
-|====
-|404 NOT FOUND
-|When phishing Target with id does not exist.
-|200 OK
-|When the request is valid and has been executed successfully.
+=== Response
+
+
+
+.Invalid Id Response
+[cols="3*"]
 |====
 
-[#PhishingTargetJson]
-.Phishing Target Json Representation
-[source]
-----
+|Condition
+2+|
+When phishing target with the id does not exist on the server.
 
+|Code
+2+| 404 NOT FOUND
+
+|Response
+2+a|[source]
+{
+    error:
+    "No phishing target with the id exists on the database"
+}
+|====
+
+
+.Successful Response
+[cols="3*"]
+|====
+
+|Condition
+2+|
+When the request is valid and has been executed successfully.
+
+|Code
+2+|
+200 OK
+|Response
+2+a|[source]
 id : number,
 lastModified :time,
 createdAt: time,
@@ -37,5 +60,4 @@ parameters:{
         parameterName: parameterValue,
         ....
 }
-
-----
+|====
