@@ -3,8 +3,9 @@ package com.phishingrod.api;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.phishingrod.api.responses.PhishingTargetResponseProvider;
 import com.phishingrod.domain.PhishingTarget;
-import com.phishingrod.services.JsonService;
+import com.phishingrod.services.JsonUtil;
 import com.phishingrod.services.PhishingTargetService;
 import com.phishingrod.util.JsonHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,19 +17,18 @@ import java.util.Map;
 import java.util.Optional;
 
 import static com.phishingrod.api.responses.PhishingTargetResponseProvider.*;
+import static com.phishingrod.services.JsonUtil.populateMapUsingJson;
 
 @RestController
 @RequestMapping("/api/phishingTarget")
 public class PhishingTargetRestController
 {
     private PhishingTargetService service;
-    private JsonService jsonService;
-    
+
     @Autowired
-    public PhishingTargetRestController(PhishingTargetService service, JsonService jsonService)
+    public PhishingTargetRestController(PhishingTargetService service)
     {
         this.service = service;
-        this.jsonService = jsonService;
     }
 
     @PostMapping("add")
@@ -46,12 +46,11 @@ public class PhishingTargetRestController
         {
             JsonNode jsonParameterMap = targetJson.get("parameters");
             Map<String, String> parameterMap = target.getParameterMap();
-
-            jsonService.populateMapUsingJson(parameterMap, jsonParameterMap);
+            populateMapUsingJson(parameterMap, jsonParameterMap);
         }
         service.add(target);
 
-        return generateAddResponse(target);
+        return addResponse(target);
     }
 
     @PostMapping("del")
@@ -80,7 +79,7 @@ public class PhishingTargetRestController
     public ResponseEntity<JsonNode> get(@RequestParam("id") long id)
     {
         Optional<PhishingTarget> target = service.get(id);
-        return target.map(phishingTarget -> new ResponseEntity<>(toNode(phishingTarget), HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        return target.map(PhishingTargetResponseProvider::getResponse).orElse(INVALID_ID_ERROR_RESPONSE);
     }
 
     @GetMapping("all")

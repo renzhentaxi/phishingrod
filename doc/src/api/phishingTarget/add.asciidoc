@@ -25,8 +25,12 @@
 |Content Type
 2+|application/json
 
-|Request format
-2+a|[source]
+|Note
+2+|
+Id, createdAt, lastModified are not required and will be ignored if included.
+|===
+.Request json
+[source]
 {
     emailAddress: {emailAddress},
     parameters:
@@ -36,16 +40,12 @@
     }
 }
 
-|Note
-2+|
-Note: Id, createdAt, lastModified are not required and will be ignored if included.
-
-|===
 
 
 === Response
 
-.Missing Email Address Response
+==== Missing Email Address Response
+.Info
 [cols="3*"]
 |====
 
@@ -54,17 +54,15 @@ Note: Id, createdAt, lastModified are not required and will be ignored if includ
 
 |Code
 2+|400 BAD REQUEST
-
-|Response
-2+a|
+|====
+.Response Json
 [source]
 {
-    error:
-    "Missing required emailAddress field in the json"
+    error: "Missing required emailAddress field in the json"
 }
-|====
 
-.Email Already Exist Response
+==== Email Already Exist Response
+.Info
 [cols="3*"]
 |====
 |Condition
@@ -72,17 +70,16 @@ Note: Id, createdAt, lastModified are not required and will be ignored if includ
 
 |Code
 2+|BAD 400
-
-|Response
-2+a|
-[source]
-{
-    error:
-    "A phishing Target with the same email address already exists on the server"
-}
 |====
 
-.Successful Response
+.Response Json
+[source]
+{
+    error: "A phishing Target with the same email address already exists on the server"
+}
+
+==== Successful Response
+.Info
 [cols="3*"]
 |====
 |Condition
@@ -94,15 +91,13 @@ Note: Id, createdAt, lastModified are not required and will be ignored if includ
 |Description
 2+|
 Returns the following fields: id, lastModified, and createdAt
+|====
 
-|Response
-2+a|
+
+.Response Json
 [source]
 {
     id:number,
     lastModified: time,
     createdAt: time
 }
-
-
-|====
