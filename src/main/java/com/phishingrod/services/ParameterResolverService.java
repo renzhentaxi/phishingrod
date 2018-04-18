@@ -23,29 +23,6 @@ public class ParameterResolverService
         this.phishingTargetParameterRepository = phishingTargetParameterRepository;
     }
 
-    private Parameter valueOf(ParameterSourceType type, String name)
-    {
-        return parameterRepository.findDistinctBySourceTypeAndName(type, name).orElse(parameterRepository.save(new Parameter(type, name)));
-    }
-
-    PhishingTargetParameter valueOf(PhishingTarget target, String name)
-    {
-        Parameter parameter = valueOf(ParameterSourceType.phishingTarget, name);
-        return phishingTargetParameterRepository.findDistinctByPhishingTargetAndParameter(target, parameter).orElse(new PhishingTargetParameter(target, parameter));
-    }
-
-    @SuppressWarnings("unchecked")
-    private <P extends EntityParameter, E extends ParameterContainer<P>> P valueOf(E entity, ParameterSourceType sourceType, String parameterName)
-    {
-        switch (sourceType)
-        {
-            case phishingTarget:
-                return (P) valueOf((PhishingTarget) entity, parameterName);
-            default:
-                throw new RuntimeException("Cant not find parameter of type!!");
-        }
-    }
-
     public <p extends EntityParameter, E extends ParameterContainer<p>> E syncToDatabase(E entity, ParameterSourceType sourceType)
     {
         List<p> parameters = entity.getParameters();
@@ -55,7 +32,7 @@ public class ParameterResolverService
         {
             String paramName = entry.getKey();
             String paramValue = entry.getValue();
-            p parameter = valueOf(entity, sourceType, paramName);
+            p parameter = resolveEntityParameter(entity, sourceType, paramName);
             parameter.setValue(paramValue);
             parameters.add(parameter);
         }
@@ -72,5 +49,39 @@ public class ParameterResolverService
         }
         return entity;
 
+    }
+
+    private Parameter resolveParameter(ParameterSourceType type, String name)
+    {
+        return parameterRepository.findDistinctBySourceTypeAndName(type, name).orElse(parameterRepository.save(new Parameter(type, name)));
+    }
+
+    @SuppressWarnings("unchecked")
+    private <P extends EntityParameter, E extends ParameterContainer<P>> P resolveEntityParameter(E entity, ParameterSourceType sourceType, String parameterName)
+    {
+        switch (sourceType)
+        {
+            case phishingTarget:
+            {
+                PhishingTarget target = (PhishingTarget) entity;
+                PhishingTargetParameter parameter = resolvePhishingTargetParameter(target, parameterName);
+                return (P) parameter;
+            }
+            default:
+                throw new RuntimeException("Cant not find parameter of type!!");
+        }
+    }
+
+    private PhishingTargetParameter resolvePhishingTargetParameter(PhishingTarget target, String parameterName)
+    {
+        Parameter parameter = resolveParameter(ParameterSourceType.phishingTarget, parameterName);
+
+        if (target.isNew())//if the target is transient/ not in database yet
+        {
+            return new PhishingTargetParameter(target, parameter);
+        } else
+        {
+            return phishingTargetParameterRepository.findDistinctByPhishingTargetAndParameter(target, parameter).orElse(new PhishingTargetParameter(target, parameter));
+        }
     }
 }

@@ -5,6 +5,14 @@ import java.util.Map;
 
 public interface ParameterContainer<p extends EntityParameter>
 {
+    long getId();
+
     List<p> getParameters();
-    Map<String,String>  getParameterMap();
+
+    Map<String, String> getParameterMap();
+
+    default boolean isNew()
+    {
+        return getId() == 0;
+    }
 }
