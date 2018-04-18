@@ -23,7 +23,7 @@ public class ParameterResolverService
         this.phishingTargetParameterRepository = phishingTargetParameterRepository;
     }
 
-    public <p extends EntityParameter, E extends ParameterContainer<p>> E syncToDatabase(E entity, ParameterSourceType sourceType)
+    public <p extends EntityParameter, E extends ParameterContainer<p>> E toRelational(E entity, ParameterSourceType sourceType)
     {
         List<p> parameters = entity.getParameters();
         parameters.clear();
@@ -39,7 +39,7 @@ public class ParameterResolverService
         return entity;
     }
 
-    public <P extends EntityParameter, E extends ParameterContainer<P>> E syncFromDatabase(E entity)
+    public <P extends EntityParameter, E extends ParameterContainer<P>> E toDomain(E entity)
     {
         Map<String, String> parameterMap = entity.getParameterMap();
         parameterMap.clear();
@@ -84,4 +84,5 @@ public class ParameterResolverService
             return phishingTargetParameterRepository.findDistinctByPhishingTargetAndParameter(target, parameter).orElse(new PhishingTargetParameter(target, parameter));
         }
     }
+
 }

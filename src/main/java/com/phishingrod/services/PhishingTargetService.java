@@ -28,7 +28,7 @@ public class PhishingTargetService
         Date current = new Date();
         target.setCreatedAt(current);
         target.setLastModified(current);
-        target = parameterResolverService.syncToDatabase(target, ParameterSourceType.phishingTarget);
+        target = parameterResolverService.toRelational(target, ParameterSourceType.phishingTarget);
         repository.save(target);
         return true;
     }
@@ -37,7 +37,7 @@ public class PhishingTargetService
     {
         Date current = new Date();
         target.setLastModified(current);
-        target = parameterResolverService.syncToDatabase(target, ParameterSourceType.phishingTarget);
+        target = parameterResolverService.toRelational(target, ParameterSourceType.phishingTarget);
         repository.save(target);
     }
 

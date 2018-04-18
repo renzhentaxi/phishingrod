@@ -18,57 +18,50 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/phishingTarget")
-public class PhishingTargetController
+public class PhishingTargetRestController
 {
     private PhishingTargetService service;
     private final static JsonNodeFactory factory = JsonNodeFactory.instance;
-    private final static JsonNode ADD_EMAIL_CONFLICT_RESPONSE = factory.objectNode().put("error", "A Phishing Target with the same email address already exists on the server");
-    private final static JsonNode ADD_EMAIL_REQUIRED_RESPONSE = factory.objectNode().put("error", "Missing required emailAddress field in the json.");
-    private final static JsonNode PHISHINGTARGET_NOT_FOUND_RESPONSE = factory.objectNode().put("error", "No phishing target with the id exists on the database");
+    private final static PhishingTargetResponseProvider responseProvider = new PhishingTargetResponseProvider();
+
+    private static ResponseEntity<JsonNode> MISSING_EMAIL_ERROR_RESPONSE;
+    private static ResponseEntity<JsonNode> CONFLICTING_EMAIL_ERROR_RESPONSE;
+    private static ResponseEntity<JsonNode> INVALID_ID_ERROR_RESPONSE;
 
     @Autowired
-    public PhishingTargetController(PhishingTargetService service)
+    public PhishingTargetRestController(PhishingTargetService service)
     {
         this.service = service;
+        MISSING_EMAIL_ERROR_RESPONSE = responseProvider.generateErrorResponse(HttpStatus.BAD_REQUEST, "Missing required emailAddress field in the json");
+        CONFLICTING_EMAIL_ERROR_RESPONSE = responseProvider.generateErrorResponse(HttpStatus.BAD_REQUEST, "A phishing Target with the same email address already exists on the server");
+        INVALID_ID_ERROR_RESPONSE = responseProvider.generateErrorResponse(HttpStatus.NOT_FOUND, "No phishing target with the id exists on the database");
     }
 
     @PostMapping("add")
     public ResponseEntity<JsonNode> add(@RequestBody JsonNode targetJson)
     {
-        if (targetJson.has("emailAddress"))
+
+        if (!targetJson.has("emailAddress")) return MISSING_EMAIL_ERROR_RESPONSE;
+        String emailAddress = targetJson.get("emailAddress").asText();
+        if (service.get(emailAddress).isPresent()) return CONFLICTING_EMAIL_ERROR_RESPONSE;
+
+
+        PhishingTarget target = new PhishingTarget(emailAddress);
+
+        if (targetJson.has("parameters"))
         {
-            String emailAddress = targetJson.get("emailAddress").asText();
-            if (service.get(emailAddress).isPresent())
+            JsonNode parameterMap = targetJson.get("parameters");
+
+            Iterator<Map.Entry<String, JsonNode>> iterator = parameterMap.fields();
+            while (iterator.hasNext())
             {
-                return new ResponseEntity<>(ADD_EMAIL_CONFLICT_RESPONSE, HttpStatus.BAD_REQUEST);
-            } else
-            {
-                PhishingTarget target = new PhishingTarget(emailAddress);
-                if (targetJson.has("parameters"))
-                {
-                    JsonNode parameterMap = targetJson.get("parameters");
-
-                    Iterator<Map.Entry<String, JsonNode>> iterator = parameterMap.fields();
-                    while (iterator.hasNext())
-                    {
-                        Map.Entry<String, JsonNode> field = iterator.next();
-                        target.addParameter(field.getKey(), field.getValue().textValue());
-                    }
-                }
-                service.add(target);
-
-                ObjectNode response = factory.objectNode();
-                response.put("lastModified", target.getLastModified().toString());
-                response.put("createdAt", target.getCreatedAt().toString());
-                response.put("id", target.getId());
-
-                return new ResponseEntity<>(response, HttpStatus.OK);
+                Map.Entry<String, JsonNode> field = iterator.next();
+                target.addParameter(field.getKey(), field.getValue().textValue());
             }
-        } else
-        {
-            return new ResponseEntity<>(ADD_EMAIL_REQUIRED_RESPONSE, HttpStatus.BAD_REQUEST);
         }
+        service.add(target);
 
+        return responseProvider.generateResponseForAdd(target);
     }
 
     @PostMapping("del")
