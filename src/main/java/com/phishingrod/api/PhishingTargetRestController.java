@@ -3,9 +3,7 @@ package com.phishingrod.api;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.phishingrod.api.responses.PhishingTargetResponseProvider;
 import com.phishingrod.domain.PhishingTarget;
-import com.phishingrod.services.JsonUtil;
 import com.phishingrod.services.PhishingTargetService;
 import com.phishingrod.util.JsonHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
-import java.util.Optional;
 
 import static com.phishingrod.api.responses.PhishingTargetResponseProvider.*;
 import static com.phishingrod.services.JsonUtil.populateMapUsingJson;
@@ -62,15 +59,14 @@ public class PhishingTargetRestController
     @PostMapping("mod")
     public ResponseEntity<PhishingTarget> modify(@RequestParam("id") long id, @RequestParam("parameters") String parameters)
     {
-        Optional<PhishingTarget> target = service.get(id);
-        if (target.isPresent())
+        PhishingTarget target = service.get(id);
+        if (target != null)
         {
-            PhishingTarget t = target.get();
             Map<String, String> paramMap = JsonHelper.parse(parameters);
             paramMap.forEach((key, value) -> System.out.printf("%s : %s\n", key, value));
             //todo not finished yet
-            service.modify(t);
-            return new ResponseEntity<>(t, HttpStatus.OK);
+            service.modify(target);
+            return new ResponseEntity<>(target, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
@@ -78,8 +74,8 @@ public class PhishingTargetRestController
     @GetMapping("get")
     public ResponseEntity<JsonNode> get(@RequestParam("id") long id)
     {
-        Optional<PhishingTarget> target = service.get(id);
-        return target.map(PhishingTargetResponseProvider::getResponse).orElse(INVALID_ID_ERROR_RESPONSE);
+        PhishingTarget target = service.get(id);
+        return target != null ? getResponse(target) : INVALID_ID_ERROR_RESPONSE;
     }
 
     @GetMapping("all")

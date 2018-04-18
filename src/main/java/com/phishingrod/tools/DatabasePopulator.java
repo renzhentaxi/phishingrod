@@ -25,7 +25,7 @@ public class DatabasePopulator implements CommandLineRunner
             service.add(new PhishingTarget("txi@gamil.com" + i));
         }
 
-        PhishingTarget target = service.get(1).get();
+        PhishingTarget target = service.get(1);
         target.addParameter("taxi", "boi");
         service.modify(target);
     }

@@ -24,26 +24,37 @@ public class PhishingTargetService
 
     public boolean add(PhishingTarget target)
     {
+        //basic validation
         if (target.getEmailAddress().trim().isEmpty()) return false;
+
+        //set dates
         Date current = new Date();
         target.setCreatedAt(current);
         target.setLastModified(current);
+        //sync parameters
         target = parameterResolverService.toRelational(target, ParameterSourceType.phishingTarget);
+
+        //persist
         repository.save(target);
         return true;
     }
 
     public void modify(PhishingTarget target)
     {
+        //set date
         Date current = new Date();
         target.setLastModified(current);
+
+        //sync parameters
         target = parameterResolverService.toRelational(target, ParameterSourceType.phishingTarget);
+
+        //persist
         repository.save(target);
     }
 
-    public Optional<PhishingTarget> get(long id)
+    public PhishingTarget get(long id)
     {
-        return repository.findById(id);
+        return repository.findById(id).map(parameterResolverService::toDomain).orElse(null);
     }
 
     public Optional<PhishingTarget> get(String emailAddress)
