@@ -75,7 +75,7 @@ parameters:{
 |POST
 
 |Url
-|/api/phishingTarget/delete/?id=*targetId*
+|/api/phishingTarget/delete?id=*targetId*
 
 |Description
 |deletes the phishingTarget with the id specified by *targetId*
@@ -92,6 +92,55 @@ parameters:{
 |When the request is valid and has been executed successfully.
 |====
 
+== add
+
+.Info
+[cols="2*"]
+|====
+
+|Type
+|POST
+
+|Url
+|/api/phishingTarget/add?targetDetail=*targetJson*
+
+|Description
+|adds the phishing target specified by *targetJson* to the database.
+Returns the id of the phishingTarget if successful
+|====
+
+.Response Code
+[cols="2*"]
+|====
+|BAD 400
+|When the *targetJson* contains an emailAddress that already exists in the database.
+|OK 200
+|When the request is valid and executed successfully.
+|====
+
+.TargetJson Format
+[source]
+----
+{
+    emailAddress: newEmailAddress,
+    parameters:
+    {
+        parameterName: parameterValue,
+        ...
+    }
+}
+----
+Note: Id, createdAt, lastModified are not required and will be ignored if included.
+
+.Response Json
+[source]
+{
+    id:number,
+    lastModified: time,
+    createdAt: time
+}
+
+
 == modify
 
 .Info
@@ -102,13 +151,13 @@ parameters:{
 |POST
 
 |Url
-|/api/phishingTarget/mod/?id=*targetId*&modification=*modDetail*
+|/api/phishingTarget/mod?id=*targetId*&modification=*modDetail*
 
 |Description
 |modifies the phishingTarget specified with *targetId* with the json provided by *modDetail*
 |====
 
-.Response
+.Response Code
 [cols="2*"]
 |====
 |Error 404
