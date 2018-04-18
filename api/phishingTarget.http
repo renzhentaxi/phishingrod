@@ -1,0 +1,16 @@
+POST http://localhost:8080/api/phishingTarget/add
+Host: localhost:8080
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Content-Type:application/json
+
+{
+   "emailAddress": "renzhentaxi@gmail.com",
+   "parameters":
+   {
+        "firstName": "renzhentaxi",
+        "lastName": "baerde"
+   }
+}
+###
