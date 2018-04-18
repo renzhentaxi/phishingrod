@@ -1,4 +1,4 @@
-package com.phishingrod.services;
+package com.phishingrod.util;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;

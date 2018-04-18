@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.Map;
 
 import static com.phishingrod.api.responses.SimpleErrorResponse.generateErrorResponse;
-import static com.phishingrod.services.JsonUtil.populateJsonUsingMap;
+import static com.phishingrod.util.JsonUtil.populateJsonUsingMap;
 
 public class PhishingTargetResponseProvider
 {

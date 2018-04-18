@@ -1,8 +1,6 @@
 package com.phishingrod.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.phishingrod.domain.PhishingTarget;
 import com.phishingrod.services.PhishingTargetService;
 import com.phishingrod.util.JsonHelper;
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 import static com.phishingrod.api.responses.PhishingTargetResponseProvider.*;
-import static com.phishingrod.services.JsonUtil.populateMapUsingJson;
+import static com.phishingrod.util.JsonUtil.populateMapUsingJson;
 
 @RestController
 @RequestMapping("/api/phishingTarget")
@@ -84,23 +82,4 @@ public class PhishingTargetRestController
         return service.getAll();
     }
 
-    public JsonNode toNode(PhishingTarget target)
-    {
-        ObjectMapper mapper = new ObjectMapper();
-        ObjectNode node = mapper.createObjectNode();
-        node.put("id", target.getId());
-        node.put("emailAddress", target.getEmailAddress());
-        node.put("lastModified", target.getLastModified().toString());
-        node.put("createdAt", target.getCreatedAt().toString());
-
-        ObjectNode parameters = mapper.createObjectNode();
-
-        for (Map.Entry<String, String> entry : target.getParameterMap().entrySet())
-        {
-            parameters.put(entry.getKey(), entry.getValue());
-        }
-
-        node.set("parameters", parameters);
-        return node;
-    }
 }
