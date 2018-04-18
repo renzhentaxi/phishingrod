@@ -1,24 +1,25 @@
 package com.phishingrod.services;
 
 import com.phishingrod.domain.PhishingTarget;
+import com.phishingrod.domain.parameters.ParameterSourceType;
 import com.phishingrod.repositories.PhishingTargetRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 @Service
 public class PhishingTargetService
 {
     private PhishingTargetRepository repository;
+    private ParameterResolverService parameterResolverService;
 
     @Autowired
-    public PhishingTargetService(PhishingTargetRepository repository)
+    public PhishingTargetService(PhishingTargetRepository repository, ParameterResolverService parameterResolverService)
     {
         this.repository = repository;
+        this.parameterResolverService = parameterResolverService;
     }
 
     public boolean add(PhishingTarget target)
@@ -27,23 +28,17 @@ public class PhishingTargetService
         Date current = new Date();
         target.setCreatedAt(current);
         target.setLastModified(current);
+        target = parameterResolverService.syncToDatabase(target, ParameterSourceType.phishingTarget);
         repository.save(target);
         return true;
     }
 
-    public void save(PhishingTarget target)
+    public void modify(PhishingTarget target)
     {
         Date current = new Date();
         target.setLastModified(current);
+        target = parameterResolverService.syncToDatabase(target, ParameterSourceType.phishingTarget);
         repository.save(target);
-    }
-
-    public void addAll(List<PhishingTarget> targets)
-    {
-        for (PhishingTarget target : targets)
-        {
-            add(target);
-        }
     }
 
     public Optional<PhishingTarget> get(long id)
@@ -69,4 +64,6 @@ public class PhishingTargetService
             return true;
         } else return false;
     }
+
+
 }
