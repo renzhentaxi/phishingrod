@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/doc/doc.iml" filepath="$PROJECT_DIR$/doc/doc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/phishing_rod.iml" filepath="$PROJECT_DIR$/.idea/modules/phishing_rod.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/phishing_rod_main.iml" filepath="$PROJECT_DIR$/.idea/modules/phishing_rod_main.iml" group="phishing_rod" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/phishing_rod_test.iml" filepath="$PROJECT_DIR$/.idea/modules/phishing_rod_test.iml" group="phishing_rod" />
     </modules>
   </component>
 </project>
