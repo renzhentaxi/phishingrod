@@ -1,3 +1,5 @@
+:table-caption!:
+
 == delete
 
 .Info
@@ -8,7 +10,7 @@
 |POST
 
 |Url
-|/api/phishingTarget/delete?id=*targetId*
+|/api/phishingTarget/del?id=*targetId*
 
 |Description
 |deletes the phishingTarget with the id specified by *targetId*
@@ -24,3 +26,31 @@
 |OK 200
 |When the request is valid and has been executed successfully.
 |====
+
+=== Response
+==== Invalid Id Response
+.Info
+[cols="3*"]
+|====
+
+|Condition
+2+|
+When phishing target with the id does not exist on the server.
+
+|Code
+2+| 404 NOT FOUND
+|====
+
+==== Successful Response
+.Info
+[cols="3*"]
+|====
+
+|Condition
+2+| When the request is valid and executed successfully
+
+
+|Code
+2+| 200 OK
+|====
+

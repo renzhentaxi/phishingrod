@@ -30,13 +30,6 @@ When phishing target with the id does not exist on the server.
 2+| 404 NOT FOUND
 |====
 
-.Response Json
-[source]
-{
-    error:
-    "No phishing target with the id exists on the database"
-}
-
 ==== Successful Response
 
 .Info
