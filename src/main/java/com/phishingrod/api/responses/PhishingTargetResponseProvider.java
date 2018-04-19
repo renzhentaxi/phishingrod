@@ -18,7 +18,7 @@ public class PhishingTargetResponseProvider
     public static final ResponseEntity<JsonNode> MISSING_EMAIL_ERROR_RESPONSE = generateErrorResponse(HttpStatus.BAD_REQUEST, "Missing required emailAddress field in the json");
     public static final ResponseEntity<JsonNode> CONFLICTING_EMAIL_ERROR_RESPONSE = generateErrorResponse(HttpStatus.BAD_REQUEST, "A phishing Target with the same email address already exists on the server");
     public static final ResponseEntity<JsonNode> INVALID_ID_ERROR_RESPONSE = generateErrorResponse(HttpStatus.NOT_FOUND, "No phishing target with the id exists on the database");
-
+    public static final ResponseEntity<JsonNode> EMPTY_MOD_DETAIL_ERROR_RESPONSE = generateErrorResponse(HttpStatus.BAD_REQUEST, "Empty modification detail");
     private static final JsonNodeFactory jsonFactory = JsonNodeFactory.instance;
 
     private static final String ID = "id";
@@ -26,7 +26,7 @@ public class PhishingTargetResponseProvider
     private static final String CREATED_AT = "createdAt";
     private static final String EMAIL_ADDRESS = "emailAddress";
 
-    public static ResponseEntity<JsonNode> addResponse(PhishingTarget target)
+    public static ResponseEntity<JsonNode> responseForAdd(PhishingTarget target)
     {
         ObjectNode response = jsonFactory.objectNode();
         response.put(ID, target.getId());
@@ -36,7 +36,7 @@ public class PhishingTargetResponseProvider
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    public static ResponseEntity<JsonNode> getResponse(PhishingTarget target)
+    public static ResponseEntity<JsonNode> responseForGet(PhishingTarget target)
     {
 
         ObjectNode response = jsonFactory.objectNode();
@@ -51,5 +51,13 @@ public class PhishingTargetResponseProvider
 
         response.set("parameters", parameters);
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    public static ResponseEntity<JsonNode> responseForModify(PhishingTarget target)
+    {
+        ObjectNode response = jsonFactory.objectNode();
+        response.put(LAST_MODIFIED, target.getLastModified().toString());
+        return new ResponseEntity<>(response, HttpStatus.OK);
+
     }
 }

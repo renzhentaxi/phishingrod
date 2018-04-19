@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -16,8 +17,17 @@ public class JsonUtil
         while (iterator.hasNext())
         {
             Map.Entry<String, JsonNode> field = iterator.next();
-            mapToPopulate.put(field.getKey(), field.getValue().textValue());
+            String name = field.getKey();
+            String value = field.getValue().asText();
+            mapToPopulate.put(name, value);
         }
+    }
+
+    public static Map<String, String> mapFromJson(JsonNode json)
+    {
+        Map<String, String> map = new HashMap<>();
+        populateMapUsingJson(map, json);
+        return map;
     }
 
     public static void populateJsonUsingMap(ObjectNode jsonToPopulate, Map<String, String> map)
