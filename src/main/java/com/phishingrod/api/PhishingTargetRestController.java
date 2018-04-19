@@ -73,7 +73,7 @@ public class PhishingTargetRestController
     public ResponseEntity<JsonNode> get(@RequestParam("id") long id)
     {
         PhishingTarget target = service.get(id);
-        return target != null ? getResponse(target) : INVALID_ID_ERROR_RESPONSE;
+        return target != null ? getResponse(target) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("all")

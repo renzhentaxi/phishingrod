@@ -1,3 +1,6 @@
+:table-caption!:
+
+
 == modify
 
 .Info
@@ -8,30 +11,100 @@
 |POST
 
 |Url
-|/api/phishingTarget/mod?id=*targetId*&modification=*modDetail*
+|/api/phishingTarget/mod?id=*targetId*
 
 |Description
-|modifies the phishingTarget specified with *targetId* with the json provided by *modDetail*
+|modifies the phishingTarget specified with *targetId* with the json provided in the request body.
 |====
 
-.Response Code
-[cols="2*"]
-|====
-|Error 404
-|When the phishingTarget with id does not exist.
-|OK 200
-|When the request is valid and executed successfully.
-|====
+=== Request
 
-.ModDetail Json Format
+[cols="3*"]
+|===
+
+|Content Type
+2+|application/json
+
+|emailAddress
+2+|
+It is optional, meaning that you don't need to include it in the request json if the emailAddress is not changed.
+
+|Parameters
+2+a|
+if parameters is included, then its content will replace the parameters of the phishingTarget on the server.
+|===
+
+.Change email address and set parameters
 [source]
-----
 {
-    [emailAddress: newEmailAddress],<1>
-    [parameters: newParameters]     <1>
-                                    <2>
+    emailAddress: emailAddress,
+    parameters:
+    {
+        parameterName: parameterValue,
+        ...
+    }
 }
-----
-<1> They are optional and order doesn't matter.
-<2> lastModified and createdAt are not required since they are controlled by the server automatically.
-If they are ignored if they are included.
+
+.Remove all parameters
+[source]
+{
+    parameters:{}
+}
+
+.Do nothing [todo: should this be considered invalid?]
+[source]
+{
+}
+
+.Change Email only
+[source]
+{
+    emailAddress: newEmailAddress,
+}
+
+.Set parameters only
+[source]
+{
+    parameters:
+    {
+        parameterName1 : parameterValue1,
+        parameterName2 : parameterValue2,
+        ...
+     }
+}
+
+=== Response
+==== Successful Response
+.Info
+[cols="3*"]
+|====
+|Condition
+2+| When the request is valid and executed successfully
+
+|code
+2+|OK 200
+
+|Description
+2+|
+Returns the following fields: lastModified
+|====
+
+
+.Response Json
+[source]
+{
+    lastModified: time,
+}
+
+==== Invalid Id Response
+.Info
+[cols="3*"]
+|====
+
+|Condition
+2+|
+When phishing target with the id does not exist on the server.
+
+|Code
+2+| 404 NOT FOUND
+|====

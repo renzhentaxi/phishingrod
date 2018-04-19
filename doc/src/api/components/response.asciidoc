@@ -1,0 +1,43 @@
+== REST_METHOD_NAME
+
+=== Info
+[cols="2*"]
+|====
+
+|Type
+|TYPE
+
+|Url
+|URL
+
+
+|Description
+| DESCRIPTION
+|====
+
+
+
+=== Request
+
+[cols="3*"]
+|===
+
+|Content Type
+2+|application/json
+
+|Note
+2+|
+Id, createdAt, lastModified are not required and will be ignored if included.
+|===
+.Request json
+[source]
+{
+    emailAddress: {emailAddress},
+    parameters:
+    {
+        parameterName: parameterValue,
+        ...
+    }
+}
+
+=== Response
