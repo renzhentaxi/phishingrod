@@ -28,11 +28,17 @@
 |Note
 2+|
 Id, createdAt, lastModified are not required and will be ignored if included.
+
+|emailAddress
+2+| this field is required and an error will be thrown if its missing.
+
+|parameters
+2+| this field is optional.
 |===
 .Request json
 [source]
 {
-    emailAddress: {emailAddress},
+    emailAddress: emailAddress,
     parameters:
     {
         parameterName: parameterValue,
