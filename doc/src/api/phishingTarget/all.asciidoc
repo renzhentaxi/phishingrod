@@ -13,12 +13,17 @@
 |Returns all phishingTargets on the server as an array
 |====
 
+== Response
+
 .Json Response Format
 [source]
 ----
 [
-    PhishingTargetJson, <1>
+    PhishingTargetJson1,
+    PhishingTargetJson2
     ...
 ]
 ----
-<1> refer to <<PhishingTargetJson,Phishing Target Json Representation>>
+
+The format of the phishing Target json is the same as the json
+that is returned by api/phishingTarget/get

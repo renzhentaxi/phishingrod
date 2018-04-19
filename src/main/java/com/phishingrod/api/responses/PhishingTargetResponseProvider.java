@@ -1,12 +1,14 @@
 package com.phishingrod.api.responses;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.phishingrod.domain.PhishingTarget;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.util.List;
 import java.util.Map;
 
 import static com.phishingrod.api.responses.SimpleErrorResponse.generateErrorResponse;
@@ -38,6 +40,28 @@ public class PhishingTargetResponseProvider
 
     public static ResponseEntity<JsonNode> responseForGet(PhishingTarget target)
     {
+        return new ResponseEntity<>(convertToJson(target), HttpStatus.OK);
+    }
+
+    public static ResponseEntity<JsonNode> responseForModify(PhishingTarget target)
+    {
+        ObjectNode response = jsonFactory.objectNode();
+        response.put(LAST_MODIFIED, target.getLastModified().toString());
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    public static ResponseEntity<JsonNode> responseForAll(List<PhishingTarget> targets)
+    {
+        ArrayNode response = jsonFactory.arrayNode();
+        for (PhishingTarget target : targets)
+        {
+            response.add(convertToJson(target));
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    private static JsonNode convertToJson(PhishingTarget target)
+    {
 
         ObjectNode response = jsonFactory.objectNode();
         response.put(ID, target.getId());
@@ -50,14 +74,6 @@ public class PhishingTargetResponseProvider
         populateJsonUsingMap(parameters, parameterMap);
 
         response.set("parameters", parameters);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
-
-    public static ResponseEntity<JsonNode> responseForModify(PhishingTarget target)
-    {
-        ObjectNode response = jsonFactory.objectNode();
-        response.put(LAST_MODIFIED, target.getLastModified().toString());
-        return new ResponseEntity<>(response, HttpStatus.OK);
-
+        return response;
     }
 }

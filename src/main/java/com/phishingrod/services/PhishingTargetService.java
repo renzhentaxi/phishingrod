@@ -6,7 +6,9 @@ import com.phishingrod.repositories.PhishingTargetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -62,9 +64,11 @@ public class PhishingTargetService
         return repository.findDistinctByEmailAddress(emailAddress);
     }
 
-    public Iterable<PhishingTarget> getAll()
+    public List<PhishingTarget> getAll()
     {
-        return repository.findAll();
+        List<PhishingTarget> targets = new ArrayList<>();
+        repository.findAll().forEach(phishingTarget -> targets.add(parameterResolverService.toDomain(phishingTarget)));
+        return targets;
     }
 
     public boolean delete(long id)

@@ -93,9 +93,9 @@ public class PhishingTargetRestController
     }
 
     @GetMapping("all")
-    public Iterable<PhishingTarget> all()
+    public ResponseEntity<JsonNode> all()
     {
-        return service.getAll();
+        return responseForAll(service.getAll());
     }
 
 }
