@@ -12,7 +12,6 @@ import java.util.Map;
 
 import static com.phishingrod.api.responses.PhishingTargetResponseProvider.*;
 import static com.phishingrod.util.JsonUtil.mapFromJson;
-import static com.phishingrod.util.JsonUtil.populateMapUsingJson;
 
 @RestController
 @RequestMapping("/api/phishingTarget")
@@ -32,7 +31,8 @@ public class PhishingTargetRestController
 
         if (!targetJson.has("emailAddress")) return MISSING_EMAIL_ERROR_RESPONSE;
         String emailAddress = targetJson.get("emailAddress").asText();
-        if (service.get(emailAddress).isPresent()) return CONFLICTING_EMAIL_ERROR_RESPONSE;
+
+        if (service.has(emailAddress)) return CONFLICTING_EMAIL_ERROR_RESPONSE;
 
 
         PhishingTarget target = new PhishingTarget(emailAddress);
@@ -40,11 +40,10 @@ public class PhishingTargetRestController
         if (targetJson.has("parameters"))
         {
             JsonNode jsonParameterMap = targetJson.get("parameters");
-            Map<String, String> parameterMap = target.getParameterMap();
-            populateMapUsingJson(parameterMap, jsonParameterMap);
+            target.setParameterMap(mapFromJson(jsonParameterMap));
         }
-        service.add(target);
 
+        service.add(target);
         return responseForAdd(target);
     }
 

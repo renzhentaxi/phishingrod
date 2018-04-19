@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PhishingTargetService
@@ -59,9 +58,10 @@ public class PhishingTargetService
         return repository.findById(id).map(parameterResolverService::toDomain).orElse(null);
     }
 
-    public Optional<PhishingTarget> get(String emailAddress)
+
+    public PhishingTarget get(String emailAddress)
     {
-        return repository.findDistinctByEmailAddress(emailAddress);
+        return repository.findDistinctByEmailAddress(emailAddress).map(parameterResolverService::toDomain).orElse(null);
     }
 
     public List<PhishingTarget> getAll()
@@ -80,5 +80,13 @@ public class PhishingTargetService
         } else return false;
     }
 
+    public boolean has(String emailAddress)
+    {
+        return repository.findDistinctByEmailAddress(emailAddress).isPresent();
+    }
 
+    public boolean has(long id)
+    {
+        return repository.findById(id).isPresent();
+    }
 }
