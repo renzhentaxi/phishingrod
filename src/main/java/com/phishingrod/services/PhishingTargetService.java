@@ -23,11 +23,6 @@ public class PhishingTargetService
         this.parameterResolverService = parameterResolverService;
     }
 
-    public PhishingTarget simpleGet(long id)
-    {
-        return repository.findById(id).orElse(null);
-    }
-
     public PhishingTarget simpleGet(String emailAddress)
     {
         return repository.findDistinctByEmailAddress(emailAddress).orElse(null);
@@ -36,13 +31,12 @@ public class PhishingTargetService
 
     public PhishingTarget get(long id)
     {
-        PhishingTarget target = simpleGet(id);
-        return target != null ? parameterResolverService.toDomain(target) : null;
+        return repository.findById(id).map(parameterResolverService::toDomain).orElseThrow(() -> new RuntimeException("attempting to get target that does not exist"));
     }
 
     public PhishingTarget get(String emailAddress)
     {
-        return repository.findDistinctByEmailAddress(emailAddress).map(parameterResolverService::toDomain).orElse(null);
+        return repository.findDistinctByEmailAddress(emailAddress).map(parameterResolverService::toDomain).orElseThrow(() -> new RuntimeException("attempting to get target that does not exist"));
     }
 
     public PhishingTarget add(PhishingTarget target)
@@ -64,13 +58,14 @@ public class PhishingTargetService
 
     public PhishingTarget modify(PhishingTarget target)
     {
-        PhishingTarget original = simpleGet(target.getId());
+        PhishingTarget original = repository.findById(target.getId()).orElseThrow(() -> new RuntimeException("attempting modify target that does not exist"));
 
         if (target.getParameterMap() != null)
         {
             original.setParameterMap(target.getParameterMap());
             original = parameterResolverService.toRelational(original, ParameterSourceType.phishingTarget);
         }
+
         if (target.getEmailAddress() != null)
             original.setEmailAddress(target.getEmailAddress());
         original.setLastModified(new Date());
@@ -86,13 +81,12 @@ public class PhishingTargetService
         return targets;
     }
 
-    public boolean delete(long id)
+    public void delete(long id)
     {
         if (repository.findById(id).isPresent())
         {
             repository.deleteById(id);
-            return true;
-        } else return false;
+        } else throw new RuntimeException("attempting to delete entity that does not exist");
     }
 
     public boolean exist(String emailAddress)

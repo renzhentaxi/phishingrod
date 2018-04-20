@@ -1,5 +1,6 @@
 package com.phishingrod.api.phishingTarget.validation;
 
+import com.phishingrod.api.phishingTarget.SimpleValidator;
 import com.phishingrod.domain.PhishingTarget;
 import com.phishingrod.services.PhishingTargetService;
 import org.springframework.stereotype.Component;
@@ -7,11 +8,13 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 @Component
-public class PhishingTargetModValidator extends PhishingTargetValidator<PhishingTarget>
+public class PhishingTargetModValidator extends SimpleValidator<PhishingTarget>
 {
+    private PhishingTargetService phishingTargetService;
+
     public PhishingTargetModValidator(PhishingTargetService phishingTargetService)
     {
-        super(phishingTargetService);
+        this.phishingTargetService = phishingTargetService;
     }
 
     @Override
@@ -21,6 +24,8 @@ public class PhishingTargetModValidator extends PhishingTargetValidator<Phishing
         String emailAddress = target.getEmailAddress();
         if (emailAddress == null)
         {
+            System.out.println(target.getParameterMap()==null);
+            System.out.println(target.getParameterMap());
             if (target.getParameterMap() == null)
             {
                 errors.put("Missing Fields", "Either emailAddress and/or parameters should be supplied in the request body");

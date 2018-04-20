@@ -2,7 +2,7 @@ package com.phishingrod.api;
 
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.phishingrod.api.phishingTarget.validation.ValidationException;
+import com.phishingrod.api.phishingTarget.ValidationException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;

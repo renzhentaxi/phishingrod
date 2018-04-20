@@ -1,4 +1,4 @@
-package com.phishingrod.api.phishingTarget.validation;
+package com.phishingrod.api.phishingTarget;
 
 import java.util.Map;
 

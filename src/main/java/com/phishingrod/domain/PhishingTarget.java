@@ -29,11 +29,12 @@ public class PhishingTarget extends EmailedEntity implements ParameterContainer<
     @Transient
     @JsonView(RestView.Get.class)
     @JsonProperty("parameters")
-    private Map<String, String> parameterMap = new HashMap<>();
+    private Map<String, String> parameterMap;
 
     public PhishingTarget(String emailAddress)
     {
         super(emailAddress);
+        parameterMap = new HashMap<>();
     }
 
     public PhishingTarget(String emailAddress, Map<String, String> parameterMap)

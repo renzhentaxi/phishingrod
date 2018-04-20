@@ -1,5 +1,6 @@
 package com.phishingrod.api.phishingTarget.validation;
 
+import com.phishingrod.api.phishingTarget.SimpleValidator;
 import com.phishingrod.domain.PhishingTarget;
 import com.phishingrod.services.PhishingTargetService;
 import org.springframework.stereotype.Component;
@@ -7,12 +8,13 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 @Component
-public class PhishingTargetAddValidator extends PhishingTargetValidator<PhishingTarget>
+public class PhishingTargetAddValidator extends SimpleValidator<PhishingTarget>
 {
+    private PhishingTargetService phishingTargetService;
 
     public PhishingTargetAddValidator(PhishingTargetService phishingTargetService)
     {
-        super(phishingTargetService);
+        this.phishingTargetService = phishingTargetService;
     }
 
     @Override

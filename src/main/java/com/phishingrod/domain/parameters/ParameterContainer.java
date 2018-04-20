@@ -11,6 +11,8 @@ public interface ParameterContainer<p extends EntityParameter>
 
     Map<String, String> getParameterMap();
 
+    void setParameterMap(Map<String,String> map);
+
     default boolean isNew()
     {
         return getId() == 0;
