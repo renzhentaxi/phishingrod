@@ -47,7 +47,7 @@
 //
 //|original Html
 //|string
-//|the original plain html that the source html is created from. does not contain any parameters.
+//|the original plain html that the source html is created from. does not contain any parameterList.
 //|not null
 //
 //|===

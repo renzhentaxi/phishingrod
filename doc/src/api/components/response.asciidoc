@@ -33,7 +33,7 @@ Id, createdAt, lastModified are not required and will be ignored if included.
 [source]
 {
     emailAddress: {emailAddress},
-    parameters:
+    parameterList:
     {
         parameterName: parameterValue,
         ...

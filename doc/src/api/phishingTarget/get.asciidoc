@@ -48,9 +48,10 @@ When the request is valid and has been executed successfully.
 [source]
 ----
 id : number,
+emailAddress : emailAddress,
 lastModified :time,
 createdAt: time,
-parameters:
+parameterList:
     {
         parameterName: parameterValue,
         ....

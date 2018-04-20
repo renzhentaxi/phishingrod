@@ -23,45 +23,60 @@ public class PhishingTargetService
         this.parameterResolverService = parameterResolverService;
     }
 
-    public boolean add(PhishingTarget target)
+    public PhishingTarget simpleGet(long id)
+    {
+        return repository.findById(id).orElse(null);
+    }
+
+    public PhishingTarget simpleGet(String emailAddress)
+    {
+        return repository.findDistinctByEmailAddress(emailAddress).orElse(null);
+    }
+
+
+    public PhishingTarget get(long id)
+    {
+        PhishingTarget target = simpleGet(id);
+        return target != null ? parameterResolverService.toDomain(target) : null;
+    }
+
+    public PhishingTarget get(String emailAddress)
+    {
+        return repository.findDistinctByEmailAddress(emailAddress).map(parameterResolverService::toDomain).orElse(null);
+    }
+
+    public PhishingTarget add(PhishingTarget target)
     {
         //basic validation
-        if (target.getEmailAddress().trim().isEmpty()) return false;
+        if (target.getEmailAddress().trim().isEmpty()) throw new RuntimeException("Invalid email addresss");
 
         //set dates
         Date current = new Date();
         target.setCreatedAt(current);
         target.setLastModified(current);
-        //sync parameters
+        //sync parameterList
         target = parameterResolverService.toRelational(target, ParameterSourceType.phishingTarget);
 
         //persist
         repository.save(target);
-        return true;
+        return target;
     }
 
-    public void modify(PhishingTarget target)
+    public PhishingTarget modify(PhishingTarget target)
     {
-        //set date
-        Date current = new Date();
-        target.setLastModified(current);
+        PhishingTarget original = simpleGet(target.getId());
 
-        //sync parameters
-        target = parameterResolverService.toRelational(target, ParameterSourceType.phishingTarget);
+        if (target.getParameterMap() != null)
+        {
+            original.setParameterMap(target.getParameterMap());
+            original = parameterResolverService.toRelational(original, ParameterSourceType.phishingTarget);
+        }
+        if (target.getEmailAddress() != null)
+            original.setEmailAddress(target.getEmailAddress());
+        original.setLastModified(new Date());
 
         //persist
-        repository.save(target);
-    }
-
-    public PhishingTarget get(long id)
-    {
-        return repository.findById(id).map(parameterResolverService::toDomain).orElse(null);
-    }
-
-
-    public PhishingTarget get(String emailAddress)
-    {
-        return repository.findDistinctByEmailAddress(emailAddress).map(parameterResolverService::toDomain).orElse(null);
+        return repository.save(original);
     }
 
     public List<PhishingTarget> getAll()
@@ -80,12 +95,12 @@ public class PhishingTargetService
         } else return false;
     }
 
-    public boolean has(String emailAddress)
+    public boolean exist(String emailAddress)
     {
         return repository.findDistinctByEmailAddress(emailAddress).isPresent();
     }
 
-    public boolean has(long id)
+    public boolean exist(long id)
     {
         return repository.findById(id).isPresent();
     }

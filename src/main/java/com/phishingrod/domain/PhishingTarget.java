@@ -1,8 +1,10 @@
 package com.phishingrod.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.phishingrod.api.RestView;
 import com.phishingrod.domain.base.EmailedEntity;
-import com.phishingrod.domain.parameters.Parameter;
 import com.phishingrod.domain.parameters.ParameterContainer;
 import com.phishingrod.domain.parameters.PhishingTargetParameter;
 import lombok.Getter;
@@ -22,9 +24,11 @@ import java.util.Map;
 public class PhishingTarget extends EmailedEntity implements ParameterContainer<PhishingTargetParameter>
 {
     @OneToMany(mappedBy = "phishingTarget", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<PhishingTargetParameter> parameters = new ArrayList<>();
+    private List<PhishingTargetParameter> parameterList = new ArrayList<>();
 
     @Transient
+    @JsonView(RestView.Get.class)
+    @JsonProperty("parameters")
     private Map<String, String> parameterMap = new HashMap<>();
 
     public PhishingTarget(String emailAddress)
@@ -32,19 +36,9 @@ public class PhishingTarget extends EmailedEntity implements ParameterContainer<
         super(emailAddress);
     }
 
-    public void addParameterOld(Parameter parameter, String value)
+    public PhishingTarget(String emailAddress, Map<String, String> parameterMap)
     {
-        PhishingTargetParameter p = new PhishingTargetParameter(this, parameter, value);
-        parameters.add(p);
-    }
-
-    public void addParameter(String name, String value)
-    {
-        parameterMap.put(name, value);
-    }
-
-    public void removeParameter(String userName)
-    {
-        parameterMap.remove(userName);
+        super(emailAddress);
+        this.parameterMap = parameterMap;
     }
 }

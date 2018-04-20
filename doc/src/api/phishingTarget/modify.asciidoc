@@ -31,24 +31,24 @@ It is optional, meaning that you don't need to include it in the request json if
 
 |Parameters
 2+a|
-if parameters is included, then its content will replace the parameters of the phishingTarget on the server.
+if parameterList is included, then its content will replace the parameterList of the phishingTarget on the server.
 |===
 
-.Change email address and set parameters
+.Change email address and set parameterList
 [source]
 {
     emailAddress: emailAddress,
-    parameters:
+    parameterList:
     {
         parameterName: parameterValue,
         ...
     }
 }
 
-.Remove all parameters
+.Remove all parameterList
 [source]
 {
-    parameters:{}
+    parameterList:{}
 }
 
 .Do nothing [todo: should this be considered invalid?]
@@ -62,10 +62,10 @@ if parameters is included, then its content will replace the parameters of the p
     emailAddress: newEmailAddress,
 }
 
-.Set parameters only
+.Set parameterList only
 [source]
 {
-    parameters:
+    parameterList:
     {
         parameterName1 : parameterValue1,
         parameterName2 : parameterValue2,

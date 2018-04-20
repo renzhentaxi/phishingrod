@@ -1,6 +1,5 @@
 package com.phishingrod.services;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.phishingrod.domain.PhishingTarget;
 import com.phishingrod.domain.parameters.*;
 import com.phishingrod.repositories.parameters.ParameterRepository;
@@ -8,7 +7,6 @@ import com.phishingrod.repositories.parameters.PhishingTargetParameterRepository
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +25,7 @@ public class ParameterResolverService
 
     public <p extends EntityParameter, E extends ParameterContainer<p>> E toRelational(E entity, ParameterSourceType sourceType)
     {
-        List<p> parameters = entity.getParameters();
+        List<p> parameters = entity.getParameterList();
         parameters.clear();
 
         for (Map.Entry<String, String> entry : entity.getParameterMap().entrySet())
@@ -45,7 +43,7 @@ public class ParameterResolverService
     {
         Map<String, String> parameterMap = entity.getParameterMap();
         parameterMap.clear();
-        for (P parameter : entity.getParameters())
+        for (P parameter : entity.getParameterList())
         {
             parameterMap.put(parameter.getParameter().getName(), parameter.getValue());
         }

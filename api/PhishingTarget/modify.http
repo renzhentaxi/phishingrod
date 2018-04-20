@@ -1,4 +1,4 @@
-# Successful Get
+# Successful modification
 POST http://localhost:8080/api/phishingTarget/mod?
     id=1
 Host: localhost:8080
@@ -18,7 +18,7 @@ Content-Type: application/json
 
 ###
 
-# Unsuccessful Get due to invalid id
+# Unsuccessful modfication due to empty body
 POST http://localhost:8080/api/phishingTarget/mod
     ?id=1
 Host: localhost:8080
@@ -28,5 +28,37 @@ Accept-Language: en-US,en;q=0.9
 Content-Type: application/json
 
 {
+}
+###
+
+# successful modification of email only
+POST http://localhost:8080/api/phishingTarget/mod
+    ?id=1
+Host: localhost:8080
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Content-Type: application/json
+
+{
+    "emailAddress": "newNewEmailAddress@email.com"
+}
+###
+
+# successful modification of parameters only
+POST http://localhost:8080/api/phishingTarget/mod
+    ?id=1
+Host: localhost:8080
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Content-Type: application/json
+
+{
+    "parameters":
+    {
+        "userName":"newNewNewUserName",
+        "age": "1"
+    }
 }
 ###
