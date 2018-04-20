@@ -1,4 +1,4 @@
-package com.phishingrod.api.errors;
+package com.phishingrod.api;
 
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;

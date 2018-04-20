@@ -1,4 +1,4 @@
-package com.phishingrod.api;
+package com.phishingrod.api.emailTemplate;
 
 import com.phishingrod.domain.EmailTemplate;
 import com.phishingrod.services.EmailTemplateService;
