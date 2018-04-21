@@ -51,7 +51,7 @@
             <td>${phishingTarget.emailAddress}</td>
             <td>${phishingTarget.createdAt}</td>
             <td>${phishingTarget.lastModified}</td>
-            <td>${phishingTarget.parameters}</td>
+            <td>${JSON.stringify(phishingTarget.parameters)}</td>
         </tr>`;
 
         return toNode(html);
