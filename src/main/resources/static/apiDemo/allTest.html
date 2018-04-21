@@ -16,10 +16,6 @@
 </table>
 <script>
 
-
-    //call getTargets
-    getTargets(onTargetsReturned);
-
     // locates the table
     const table = document.querySelector("#viewTable");
 
@@ -30,7 +26,7 @@
     fetch(url)
         .then((response) => response.json()) //converts response to json
         .then(json => {
-                for (let jsonTarget of targets) {
+                for (let jsonTarget of json) {
                     let row = jsonToRow(jsonTarget);
                     table.appendChild(row);
                 }
