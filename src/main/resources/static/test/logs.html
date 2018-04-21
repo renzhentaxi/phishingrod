@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <title>Phishing Training Platform</title>
+</head>
+
+<body>
+<style>
+    body{
+        background: linear-gradient(to right, rgba(255,0,0,0), rgba(204, 204, 255));
+    }
+    .navbar{
+        margin-bottom: 0 !important;
+    }
+</style>
+
+<!-- navbar       -->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="uploadEmail.html">Upload Email Template</a></li>
+                <li><a href="editEmail.html">Edit Email Template</a></li>
+                <li><a href="logs.html">Logs</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!-- Navbar       -->
+
+<!---display statistics---->
+<hr size="1" noshade>
+Log session start time 09/22/11 13:19:23<br>
+<br>
+<table id="logTable" cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+    <tr>
+        <th>Email Address</th>
+        <th>Last Modified</th>
+        <th>Created At</th>
+        <th>Parameters</th>
+    </tr>
+</table>
+<br>
+<script>
+    // locates the table
+    const table = document.querySelector("#logTable");
+
+    //api url
+    const url = "http://localhost:8080/api/phishingTarget/all";
+
+    //request data from the url
+    fetch(url)
+        .then((response) => response.json()) //converts response to json
+        .then(json => {
+                for (let jsonTarget of json) {
+                    let row = jsonToRow(jsonTarget);
+                    table.appendChild(row);
+                }
+
+            }
+        );
+
+
+    // what phishingTarget json look like
+    // {
+    //     "id": 9,
+    //     "createdAt": "2018-04-21T03:22:34.515+0000",
+    //     "lastModified": "2018-04-21T03:22:34.515+0000",
+    //     "emailAddress": "txi@gamil.com8",
+    //     "parameters": {}
+    // }
+
+    //transforms a json object to a row using template literals
+    function jsonToRow(phishingTarget) {
+        const html = `
+        <tr data-id="${phishingTarget.id}">
+            <td>${phishingTarget.emailAddress}</td>
+            <td>${phishingTarget.createdAt}</td>
+            <td>${phishingTarget.lastModified}</td>
+            <td>${JSON.stringify(phishingTarget.parameters)}</td>
+        </tr>`;
+
+        return toNode(html);
+    }
+
+    //converts a string representation of a html node into an actual node.
+    function toNode(html) {
+        const template = document.createElement('template');
+        html = html.trim();
+        template.innerHTML = html;
+        return template.content;
+    }
+
+</script>
+
+</body>
+</html>
