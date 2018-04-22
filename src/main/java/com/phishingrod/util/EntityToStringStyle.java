@@ -7,9 +7,10 @@ import java.util.Collection;
 
 public class EntityToStringStyle extends StandardToStringStyle
 {
+    public final static EntityToStringStyle instance = new EntityToStringStyle();
     private static NoCollectionStyle style = new NoCollectionStyle();
 
-    public EntityToStringStyle()
+    private EntityToStringStyle()
     {
         setContentStart("\n");
         setFieldSeparator("\n");

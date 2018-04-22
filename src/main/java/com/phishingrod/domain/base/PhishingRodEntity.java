@@ -16,8 +16,6 @@ import javax.persistence.*;
 @Setter
 public class PhishingRodEntity
 {
-    private static EntityToStringStyle style = new EntityToStringStyle();
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView(RestView.Add.class)
@@ -35,7 +33,7 @@ public class PhishingRodEntity
     @Override
     public String toString()
     {
-        return ToStringBuilder.reflectionToString(this, style);
+        return ToStringBuilder.reflectionToString(this, EntityToStringStyle.instance);
     }
 
 }
