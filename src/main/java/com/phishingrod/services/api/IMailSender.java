@@ -1,9 +1,9 @@
 package com.phishingrod.services.api;
 
 
-import com.phishingrod.domain.PhishingTarget;
 import com.phishingrod.domain.Sender;
 import com.phishingrod.domain.SpoofTarget;
+import com.phishingrod.domain.next.phishingTarget.PhishingTarget;
 
 public interface IMailSender
 {

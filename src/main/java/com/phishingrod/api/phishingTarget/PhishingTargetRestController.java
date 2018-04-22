@@ -5,7 +5,7 @@ import com.phishingrod.api.RestView;
 import com.phishingrod.api.phishingTarget.validation.PhishingTargetAddValidator;
 import com.phishingrod.api.phishingTarget.validation.PhishingTargetIdValidator;
 import com.phishingrod.api.phishingTarget.validation.PhishingTargetModValidator;
-import com.phishingrod.domain.PhishingTarget;
+import com.phishingrod.domain.next.phishingTarget.PhishingTarget;
 import com.phishingrod.services.PhishingTargetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/phishingTarget")

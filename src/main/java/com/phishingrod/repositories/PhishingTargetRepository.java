@@ -1,6 +1,6 @@
 package com.phishingrod.repositories;
 
-import com.phishingrod.domain.PhishingTarget;
+import com.phishingrod.domain.next.phishingTarget.PhishingTarget;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.Optional;

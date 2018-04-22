@@ -1,6 +1,6 @@
 package com.phishingrod.core;
 
-import com.phishingrod.domain.PhishingTarget;
+import com.phishingrod.domain.next.phishingTarget.PhishingTarget;
 import com.phishingrod.services.PhishingTargetService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

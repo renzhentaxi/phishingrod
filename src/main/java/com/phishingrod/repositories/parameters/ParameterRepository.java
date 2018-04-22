@@ -1,6 +1,6 @@
 package com.phishingrod.repositories.parameters;
 
-import com.phishingrod.domain.parameters.Parameter;
+import com.phishingrod.domain.next.components.params.Parameter;
 import com.phishingrod.domain.parameters.ParameterSourceType;
 import org.springframework.data.repository.PagingAndSortingRepository;
 

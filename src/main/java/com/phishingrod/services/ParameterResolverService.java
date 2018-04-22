@@ -1,7 +1,12 @@
 package com.phishingrod.services;
 
-import com.phishingrod.domain.PhishingTarget;
-import com.phishingrod.domain.parameters.*;
+import com.phishingrod.domain.next.components.PhishingRodEntity;
+import com.phishingrod.domain.next.components.params.EntityParameter;
+import com.phishingrod.domain.next.components.params.Parameter;
+import com.phishingrod.domain.next.components.params.ParameterContainer;
+import com.phishingrod.domain.next.phishingTarget.PhishingTarget;
+import com.phishingrod.domain.next.phishingTarget.PhishingTargetParameter;
+import com.phishingrod.domain.parameters.ParameterSourceType;
 import com.phishingrod.repositories.parameters.ParameterRepository;
 import com.phishingrod.repositories.parameters.PhishingTargetParameterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +29,9 @@ public class ParameterResolverService
         this.phishingTargetParameterRepository = phishingTargetParameterRepository;
     }
 
-    public <p extends EntityParameter, E extends ParameterContainer<p>> E toRelational(E entity, ParameterSourceType sourceType)
+    public <P extends EntityParameter<E>, E extends PhishingRodEntity & ParameterContainer<E, P>> E toRelational(E entity, ParameterSourceType sourceType)
     {
-        List<p> parameters = entity.getParameterList();
+        List<P> parameters = entity.getParameterList();
         Map<String, String> parameterMap = entity.getParameterMap();
         if (parameterMap != null)
         {
@@ -35,7 +40,7 @@ public class ParameterResolverService
             {
                 String paramName = entry.getKey();
                 String paramValue = entry.getValue();
-                p parameter = resolveEntityParameter(entity, sourceType, paramName);
+                P parameter = resolveEntityParameter(entity, sourceType, paramName);
                 parameter.setValue(paramValue);
                 parameters.add(parameter);
             }
@@ -43,7 +48,7 @@ public class ParameterResolverService
         return entity;
     }
 
-    public <P extends EntityParameter, E extends ParameterContainer<P>> E toDomain(E entity)
+    public <P extends EntityParameter<E>, E extends PhishingRodEntity & ParameterContainer<E, P>> E toDomain(E entity)
     {
         Map<String, String> parameterMap = entity.getParameterMap();
         if (parameterMap == null)
@@ -66,7 +71,7 @@ public class ParameterResolverService
     }
 
     @SuppressWarnings("unchecked")
-    private <P extends EntityParameter, E extends ParameterContainer<P>> P resolveEntityParameter(E entity, ParameterSourceType sourceType, String parameterName)
+    private <P extends EntityParameter<E>, E extends PhishingRodEntity & ParameterContainer<E, P>> P resolveEntityParameter(E entity, ParameterSourceType sourceType, String parameterName)
     {
         switch (sourceType)
         {
@@ -90,7 +95,7 @@ public class ParameterResolverService
             return new PhishingTargetParameter(target, parameter);
         } else
         {
-            return phishingTargetParameterRepository.findDistinctByPhishingTargetAndParameter(target, parameter).orElse(new PhishingTargetParameter(target, parameter));
+            return phishingTargetParameterRepository.findDistinctByEntityAndParameter(target, parameter).orElse(new PhishingTargetParameter(target, parameter));
         }
     }
 }

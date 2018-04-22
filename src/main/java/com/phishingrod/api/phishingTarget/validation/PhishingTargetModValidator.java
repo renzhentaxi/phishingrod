@@ -1,7 +1,7 @@
 package com.phishingrod.api.phishingTarget.validation;
 
 import com.phishingrod.api.phishingTarget.SimpleValidator;
-import com.phishingrod.domain.PhishingTarget;
+import com.phishingrod.domain.next.phishingTarget.PhishingTarget;
 import com.phishingrod.services.PhishingTargetService;
 import org.springframework.stereotype.Component;
 
@@ -24,7 +24,7 @@ public class PhishingTargetModValidator extends SimpleValidator<PhishingTarget>
         String emailAddress = target.getEmailAddress();
         if (emailAddress == null)
         {
-            System.out.println(target.getParameterMap()==null);
+            System.out.println(target.getParameterMap() == null);
             System.out.println(target.getParameterMap());
             if (target.getParameterMap() == null)
             {

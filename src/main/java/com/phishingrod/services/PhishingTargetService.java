@@ -1,6 +1,6 @@
 package com.phishingrod.services;
 
-import com.phishingrod.domain.PhishingTarget;
+import com.phishingrod.domain.next.phishingTarget.PhishingTarget;
 import com.phishingrod.domain.parameters.ParameterSourceType;
 import com.phishingrod.repositories.PhishingTargetRepository;
 import org.springframework.beans.factory.annotation.Autowired;

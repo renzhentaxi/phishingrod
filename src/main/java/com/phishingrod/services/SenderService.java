@@ -1,9 +1,9 @@
 package com.phishingrod.services;
 
-import com.phishingrod.domain.PhishingTarget;
 import com.phishingrod.domain.Sender;
 import com.phishingrod.domain.SenderServer;
 import com.phishingrod.domain.SpoofTarget;
+import com.phishingrod.domain.next.phishingTarget.PhishingTarget;
 import com.phishingrod.repositories.SenderRepository;
 import com.phishingrod.repositories.SenderServerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
