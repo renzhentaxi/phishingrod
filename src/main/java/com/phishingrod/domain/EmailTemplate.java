@@ -2,6 +2,7 @@ package com.phishingrod.domain;
 
 
 import com.phishingrod.domain.base.NamedEntity;
+import com.phishingrod.domain.spoofTarget.SpoofTarget;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,8 +1,10 @@
-package com.phishingrod.services.entity;
+package com.phishingrod.services;
 
 import com.phishingrod.domain.parameters.ParameterSourceType;
 import com.phishingrod.domain.phishingTarget.PhishingTarget;
 import com.phishingrod.repositories.PhishingTargetRepository;
+import com.phishingrod.services.entity.EmailKeyedEntityService;
+import com.phishingrod.services.entity.ParameterResolverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,32 +23,31 @@ public class PhishingTargetService extends EmailKeyedEntityService<PhishingTarge
     }
 
     @Override
-    protected PhishingTarget merge(PhishingTarget source, PhishingTarget change)
+    protected void merge(PhishingTarget source, PhishingTarget change)
     {
         String emailAddress = change.getEmailAddress();
         if (emailAddress != null)
             source.setEmailAddress(emailAddress);
-        Map<String, String> map = change.getParameterMap();
 
+        Map<String, String> map = change.getParameterMap();
         if (map != null)
         {
             source.setParameterMap(map);
         }
-        return source;
     }
 
     @Override
-    protected PhishingTarget preAdd(PhishingTarget entity)
+    protected void preAdd(PhishingTarget entity)
     {
         entity.initialDate();
-        return parameterResolver.toRelational(entity, ParameterSourceType.phishingTarget);
+        parameterResolver.toRelational(entity, ParameterSourceType.phishingTarget);
     }
 
     @Override
-    protected PhishingTarget preMod(PhishingTarget entity)
+    protected void preMod(PhishingTarget entity)
     {
         entity.updateLastModified();
-        return parameterResolver.toRelational(entity, ParameterSourceType.phishingTarget);
+        parameterResolver.toRelational(entity, ParameterSourceType.phishingTarget);
     }
 
     @Override

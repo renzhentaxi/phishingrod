@@ -7,8 +7,11 @@ import com.phishingrod.domain.components.params.ParameterContainer;
 import com.phishingrod.domain.parameters.ParameterSourceType;
 import com.phishingrod.domain.phishingTarget.PhishingTarget;
 import com.phishingrod.domain.phishingTarget.PhishingTargetParameter;
+import com.phishingrod.domain.spoofTarget.SpoofTarget;
+import com.phishingrod.domain.spoofTarget.SpoofTargetParameter;
 import com.phishingrod.repositories.parameters.ParameterRepository;
 import com.phishingrod.repositories.parameters.PhishingTargetParameterRepository;
+import com.phishingrod.repositories.parameters.SpoofTargetParameterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,15 +24,18 @@ public class ParameterResolverService
 {
     private ParameterRepository parameterRepository;
     private PhishingTargetParameterRepository phishingTargetParameterRepository;
+    private SpoofTargetParameterRepository spoofTargetParameterRepository;
 
     @Autowired
-    public ParameterResolverService(ParameterRepository parameterRepository, PhishingTargetParameterRepository phishingTargetParameterRepository)
+    public ParameterResolverService(ParameterRepository parameterRepository, PhishingTargetParameterRepository phishingTargetParameterRepository, SpoofTargetParameterRepository spoofTargetParameterRepository)
     {
         this.parameterRepository = parameterRepository;
         this.phishingTargetParameterRepository = phishingTargetParameterRepository;
+        this.spoofTargetParameterRepository = spoofTargetParameterRepository;
     }
 
-    public <P extends EntityParameter<E>, E extends PhishingRodEntity & ParameterContainer<E, P>> E toRelational(E entity, ParameterSourceType sourceType)
+
+    public <P extends EntityParameter<E>, E extends PhishingRodEntity & ParameterContainer<E, P>> void toRelational(E entity, ParameterSourceType sourceType)
     {
         List<P> parameters = entity.getParameterList();
         Map<String, String> parameterMap = entity.getParameterMap();
@@ -47,7 +53,6 @@ public class ParameterResolverService
                 parameters.add(parameter);
             }
         }
-        return entity;
     }
 
     public <P extends EntityParameter<E>, E extends PhishingRodEntity & ParameterContainer<E, P>> E toDomain(E entity)
@@ -83,6 +88,12 @@ public class ParameterResolverService
                 PhishingTargetParameter parameter = resolvePhishingTargetParameter(target, parameterName);
                 return (P) parameter;
             }
+            case spoofTarget:
+            {
+                SpoofTarget target = (SpoofTarget) entity;
+                SpoofTargetParameter parameter = resolveSpoofTargetParameter(target, parameterName);
+                return (P) parameter;
+            }
             default:
                 throw new RuntimeException("Cant not find parameter of type!!");
         }
@@ -98,6 +109,19 @@ public class ParameterResolverService
         } else
         {
             return phishingTargetParameterRepository.findDistinctByEntityAndParameter(target, parameter).orElse(new PhishingTargetParameter(target, parameter));
+        }
+    }
+
+    private SpoofTargetParameter resolveSpoofTargetParameter(SpoofTarget target, String parameterName)
+    {
+        Parameter parameter = resolveParameter(ParameterSourceType.spoofTarget, parameterName);
+
+        if (target.isNew())//if the target is transient/ not in database yet
+        {
+            return new SpoofTargetParameter(target, parameter);
+        } else
+        {
+            return spoofTargetParameterRepository.findDistinctByEntityAndParameter(target, parameter).orElse(new SpoofTargetParameter(target, parameter));
         }
     }
 }

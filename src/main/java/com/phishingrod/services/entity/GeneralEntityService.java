@@ -15,11 +15,11 @@ public abstract class GeneralEntityService<E extends PhishingRodEntity, R extend
         this.repository = repository;
     }
 
-    protected abstract E merge(E source, E change);
+    protected abstract void merge(E source, E change);
 
-    protected abstract E preAdd(E entity);
+    protected abstract void preAdd(E entity);
 
-    protected abstract E preMod(E entity);
+    protected abstract void preMod(E entity);
 
     protected abstract E postGet(E entity);
 

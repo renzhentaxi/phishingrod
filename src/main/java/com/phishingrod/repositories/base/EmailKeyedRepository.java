@@ -1,4 +1,4 @@
-package com.phishingrod.repositories;
+package com.phishingrod.repositories.base;
 
 import com.phishingrod.domain.components.EmailKeyedEntity;
 import com.phishingrod.domain.components.PhishingRodEntity;

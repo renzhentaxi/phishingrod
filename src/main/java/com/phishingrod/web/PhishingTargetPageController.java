@@ -1,6 +1,6 @@
 package com.phishingrod.web;
 
-import com.phishingrod.services.entity.PhishingTargetService;
+import com.phishingrod.services.PhishingTargetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

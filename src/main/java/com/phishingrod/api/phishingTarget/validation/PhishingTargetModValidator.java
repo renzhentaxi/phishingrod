@@ -2,7 +2,7 @@ package com.phishingrod.api.phishingTarget.validation;
 
 import com.phishingrod.api.phishingTarget.SimpleValidator;
 import com.phishingrod.domain.phishingTarget.PhishingTarget;
-import com.phishingrod.services.entity.PhishingTargetService;
+import com.phishingrod.services.PhishingTargetService;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;

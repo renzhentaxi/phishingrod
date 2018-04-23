@@ -3,7 +3,7 @@ package com.phishingrod.services.entity;
 import com.phishingrod.domain.components.EmailKeyedEntity;
 import com.phishingrod.domain.components.PhishingRodEntity;
 import com.phishingrod.domain.phishingTarget.PhishingTarget;
-import com.phishingrod.repositories.EmailKeyedRepository;
+import com.phishingrod.repositories.base.EmailKeyedRepository;
 
 public abstract class EmailKeyedEntityService<E extends PhishingRodEntity & EmailKeyedEntity, R extends EmailKeyedRepository<E>> extends GeneralEntityService<E, R>
 {
