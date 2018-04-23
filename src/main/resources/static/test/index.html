@@ -19,7 +19,7 @@
     }
 </style>
 
-<!-- 메뉴바       -->
+<!-- navbar       -->
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -44,11 +44,105 @@
     </div><!-- /.container-fluid -->
 </nav>
 
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+<h2>Scoreboard</h2>
+<table id="scoreboard" border="1" width="50%">
+    <tr>
+        <th>Email Address</th>
+        <th>Current Score</th>
+    </tr>
+</table>
 <!-- Navbar       -->
 
 <!---display statistics---->
 <script>
+    window.onload = function () {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        theme: "light2",
+        title:{
+            text: "Number of Phishied Victims"
+        },
+        axisX:{
+          title: "Dates"
+        },
+        axisY:{
+            title: "Number of victims",
+            includeZero: true
+        },
+        data: [{
+            type: "line",
+            dataPoints: [
+                { x:new Date(2018, 3, 13), y: 450 },
+                { x:new Date(2018, 3, 14), y: 414},
+                { x:new Date(2018, 3, 15), y: 520 },
+                { x:new Date(2018, 3, 16), y: 460 },
+                { x:new Date(2018, 3, 17), y: 450 },
+                { x:new Date(2018, 3, 18), y: 500 },
+                { x:new Date(2018, 3, 19), y: 480 },
+                { x:new Date(2018, 3, 20), y: 480 },
+                { x:new Date(2018, 3, 21), y: 410 },
+                { x:new Date(2018, 3, 22), y: 500 },
+                { x:new Date(2018, 3, 23), y: 480 },
+                { x:new Date(2018, 3, 24), y: 510 }
+            ]
+        }]
+    });
+    chart.render();
+
+}
+
+    // locates the table
+    const table = document.querySelector("#scoreboard");
+
+    //api url
+    const url = "http://localhost:8080/api/phishingTarget/all";
+
+    //request data from the url
+    fetch(url)
+        .then((response) => response.json()) //converts response to json
+        .then(json => {
+                for (let jsonTarget of json) {
+                    let row = jsonToRow(jsonTarget);
+                    table.appendChild(row);
+                }
+
+            }
+        );
+
+
+    // what phishingTarget json look like
+    // {
+    //     "id": 9,
+    //     "createdAt": "2018-04-21T03:22:34.515+0000",
+    //     "lastModified": "2018-04-21T03:22:34.515+0000",
+    //     "emailAddress": "txi@gamil.com8",
+    //     "parameters": {}
+    // }
+
+    //transforms a json object to a row using template literals
+    function jsonToRow(phishingTarget) {
+        const html = `
+        <tr data-id="${phishingTarget.id}">
+            <td>${phishingTarget.emailAddress}</td>
+            <td>${phishingTarget.id}</td>
+        </tr>`;
+
+        return toNode(html);
+    }
+
+    //converts a string representation of a html node into an actual node.
+    function toNode(html) {
+        const template = document.createElement('template');
+        html = html.trim();
+        template.innerHTML = html;
+        return template.content;
+    }
+
 </script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 </body>
 </html>
