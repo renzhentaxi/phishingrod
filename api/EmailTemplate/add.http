@@ -1,9 +1,10 @@
+//make sure to add the spoofTarget good@gmail.com before running this request
 POST localhost:8080/api/emailTemplate/add
 Host: localhost:8080
 Content-Type:application/json
 
 {
-    "name" : "testTemplate",
+    "name" : "testTemplate2",
     "sourceHtml" : "source Html",
     "originalHtml": "original Html",
 

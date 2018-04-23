@@ -32,13 +32,42 @@ public class EmailTemplateService extends NameKeyedEntityService<EmailTemplate, 
     @Override
     protected void merge(EmailTemplate source, EmailTemplate change)
     {
+        String changedName = change.getName();
+        if (changedName != null)
+        {
+            //todo:check for duplicate
+            source.setName(changedName);
+        }
 
+        String changedOriginalHtml = change.getOriginalHtml();
+        if (changedOriginalHtml != null)
+        {
+            source.setOriginalHtml(changedOriginalHtml);
+        }
+
+        String changedSourceHtml = change.getSourceHtml();
+        if (changedSourceHtml != null)
+        {
+            source.setSourceHtml(changedSourceHtml);
+        }
+
+        List<Parameter> changedParameters = change.getParameters();
+        if (changedParameters != null)
+        {
+            source.setParameters(changedParameters);
+        }
+
+        List<SpoofTarget> changedSpoofTargets = change.getSpoofTargets();
+        if (changedSpoofTargets != null)
+        {
+            source.setSpoofTargets(changedSpoofTargets);
+        }
     }
 
     @Override
     protected void preAdd(EmailTemplate entity)
     {
-        createSpoofTargetIfDoesNotExist(entity);
+        checkAllSpoofTargetsExist(entity);
         createParametersIfDoesNotExist(entity);
         entity.initialDate();
     }
@@ -47,7 +76,7 @@ public class EmailTemplateService extends NameKeyedEntityService<EmailTemplate, 
     @Override
     protected void preMod(EmailTemplate entity)
     {
-        createSpoofTargetIfDoesNotExist(entity);
+        checkAllSpoofTargetsExist(entity);
         createParametersIfDoesNotExist(entity);
         entity.updateLastModified();
     }
@@ -58,7 +87,7 @@ public class EmailTemplateService extends NameKeyedEntityService<EmailTemplate, 
         return entity;
     }
 
-    private void createSpoofTargetIfDoesNotExist(EmailTemplate entity)
+    private void checkAllSpoofTargetsExist(EmailTemplate entity)
     {
         List<SpoofTarget> actualSpoofTargets = new ArrayList<>();
         for (SpoofTarget target : entity.getSpoofTargets())
@@ -71,7 +100,12 @@ public class EmailTemplateService extends NameKeyedEntityService<EmailTemplate, 
                 else throw new ValidationException("Invalid Fields", "SpoofTarget with id: " + id + " does not exist");
             } else
             {
-                target = spoofTargetService.createIfDoesNotExist(target);
+                String email = target.getEmailAddress();
+                if (!spoofTargetService.exist(email))
+                {
+                    throw new ValidationException("Invalid Fields", "SpoofTarget with email:" + email + " does not exist.");
+                }
+                target = spoofTargetService.get(email);
             }
             actualSpoofTargets.add(target);
         }
@@ -93,6 +127,7 @@ public class EmailTemplateService extends NameKeyedEntityService<EmailTemplate, 
                     break;
                 case spoofTarget:
                     validateParameterName(entity.getSpoofTargets(), name);
+                    actualParameters.add(parameterResolver.resolveParameter(sourceType, name));
                     break;
             }
         }

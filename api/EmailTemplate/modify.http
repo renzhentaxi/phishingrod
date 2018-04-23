@@ -1,0 +1,17 @@
+//make sure to add the testTemplate first before running this request
+POST localhost:8080/api/emailTemplate/mod?id=1
+Host: localhost:8080
+Content-Type:application/json
+
+{
+//    "id": 1,
+    "name" : "testTemplate",
+    "sourceHtml" : "new html source Html",
+    "originalHtml": "new html original Html",
+    "parameters":
+    [
+        {"source": "spoofTarget", "name": "userName"}
+    ]
+}
+
+###
