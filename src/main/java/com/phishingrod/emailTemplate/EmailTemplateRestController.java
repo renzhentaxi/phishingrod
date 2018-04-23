@@ -28,18 +28,25 @@ public class EmailTemplateRestController extends EntityRestController<EmailTempl
     @Override
     public void validateGet(long id)
     {
-
+        if (!service.exist(id))
+        {
+            throw new ValidationException("Conflict", "Template With the id: " + id + " does not exist");
+        }
     }
 
     @Override
     public void validateDelete(long id)
     {
-
+        if (!service.exist(id))
+            throw new ValidationException("Conflict", "Template With the id: " + id + " does not exist");
     }
 
     @Override
     public void validateModify(EmailTemplate toModify)
     {
-
+        if (!service.exist(toModify.getId()))
+        {
+            throw new ValidationException("Conflict", "Template With the id: " + toModify.getId() + " does not exist");
+        }
     }
 }

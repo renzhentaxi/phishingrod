@@ -1,0 +1,18 @@
+POST localhost:8080/api/emailTemplate/add
+Host: localhost:8080
+Content-Type:application/json
+
+{
+    "name" : "testTemplate",
+    "sourceHtml" : "source Html",
+    "originalHtml": "original Html",
+
+    "spoofTargets": ["good@gmail.com"],
+    "parameters":
+    [
+        {"source": "phishingTarget", "name": "userName"},
+        {"source": "spoofTarget", "name": "userName"}
+    ]
+}
+
+###

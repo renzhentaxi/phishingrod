@@ -3,7 +3,6 @@ package com.phishingrod.emailTemplate;
 import com.phishingrod.api.ValidationException;
 import com.phishingrod.domain.parameters.Parameter;
 import com.phishingrod.domain.parameters.ParameterSourceType;
-import com.phishingrod.repositories.parameters.ParameterRepository;
 import com.phishingrod.services.entity.NameKeyedEntityService;
 import com.phishingrod.services.entity.ParameterResolverService;
 import com.phishingrod.spoofTarget.SpoofTarget;
@@ -20,7 +19,6 @@ public class EmailTemplateService extends NameKeyedEntityService<EmailTemplate, 
 {
     private ParameterResolverService parameterResolver;
     private SpoofTargetService spoofTargetService;
-    private ParameterRepository parameterRepository;
 
     @Autowired
     public EmailTemplateService(EmailTemplateRepository repository, ParameterResolverService parameterResolver, SpoofTargetService spoofTargetService)
