@@ -1,12 +1,12 @@
-package com.phishingrod.services;
+package com.phishingrod.services.entity;
 
-import com.phishingrod.domain.next.components.PhishingRodEntity;
-import com.phishingrod.domain.next.components.params.EntityParameter;
-import com.phishingrod.domain.next.components.params.Parameter;
-import com.phishingrod.domain.next.components.params.ParameterContainer;
-import com.phishingrod.domain.next.phishingTarget.PhishingTarget;
-import com.phishingrod.domain.next.phishingTarget.PhishingTargetParameter;
+import com.phishingrod.domain.components.PhishingRodEntity;
+import com.phishingrod.domain.components.params.EntityParameter;
+import com.phishingrod.domain.components.params.Parameter;
+import com.phishingrod.domain.components.params.ParameterContainer;
 import com.phishingrod.domain.parameters.ParameterSourceType;
+import com.phishingrod.domain.phishingTarget.PhishingTarget;
+import com.phishingrod.domain.phishingTarget.PhishingTargetParameter;
 import com.phishingrod.repositories.parameters.ParameterRepository;
 import com.phishingrod.repositories.parameters.PhishingTargetParameterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +40,10 @@ public class ParameterResolverService
             {
                 String paramName = entry.getKey();
                 String paramValue = entry.getValue();
+
                 P parameter = resolveEntityParameter(entity, sourceType, paramName);
                 parameter.setValue(paramValue);
+
                 parameters.add(parameter);
             }
         }

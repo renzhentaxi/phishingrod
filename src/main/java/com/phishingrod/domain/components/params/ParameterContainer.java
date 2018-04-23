@@ -1,6 +1,6 @@
-package com.phishingrod.domain.next.components.params;
+package com.phishingrod.domain.components.params;
 
-import com.phishingrod.domain.next.components.PhishingRodEntity;
+import com.phishingrod.domain.components.PhishingRodEntity;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.phishingrod.domain.next.components;
+package com.phishingrod.domain.components;
 
 public interface EmailKeyedEntity
 {

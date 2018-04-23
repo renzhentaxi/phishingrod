@@ -1,6 +1,6 @@
-package com.phishingrod.domain.next.components.params;
+package com.phishingrod.domain.components.params;
 
-import com.phishingrod.domain.next.components.PhishingRodEntity;
+import com.phishingrod.domain.components.PhishingRodEntity;
 import com.phishingrod.domain.parameters.ParameterSourceType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

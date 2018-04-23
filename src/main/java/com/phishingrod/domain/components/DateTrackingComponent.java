@@ -1,4 +1,4 @@
-package com.phishingrod.domain.next.components;
+package com.phishingrod.domain.components;
 
 import java.util.Date;
 
@@ -20,7 +20,7 @@ public interface DateTrackingComponent
     }
 
 
-    default void initializeDateTrackingComponent()
+    default void initialDate()
     {
         Date current = new Date();
         setLastModified(current);

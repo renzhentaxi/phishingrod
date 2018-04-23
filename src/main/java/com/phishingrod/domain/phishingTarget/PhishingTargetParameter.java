@@ -1,7 +1,7 @@
-package com.phishingrod.domain.next.phishingTarget;
+package com.phishingrod.domain.phishingTarget;
 
-import com.phishingrod.domain.next.components.params.EntityParameter;
-import com.phishingrod.domain.next.components.params.Parameter;
+import com.phishingrod.domain.components.params.EntityParameter;
+import com.phishingrod.domain.components.params.Parameter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;

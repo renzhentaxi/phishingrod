@@ -1,7 +1,7 @@
 package com.phishingrod.tools;
 
-import com.phishingrod.domain.next.phishingTarget.PhishingTarget;
-import com.phishingrod.services.PhishingTargetService;
+import com.phishingrod.domain.phishingTarget.PhishingTarget;
+import com.phishingrod.services.entity.PhishingTargetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

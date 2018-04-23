@@ -3,7 +3,7 @@ package com.phishingrod.core;
 import com.phishingrod.domain.Sender;
 import com.phishingrod.domain.SenderServer;
 import com.phishingrod.domain.SpoofTarget;
-import com.phishingrod.domain.next.phishingTarget.PhishingTarget;
+import com.phishingrod.domain.phishingTarget.PhishingTarget;
 import com.phishingrod.services.SenderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

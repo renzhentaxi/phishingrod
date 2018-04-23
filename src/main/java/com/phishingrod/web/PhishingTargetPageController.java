@@ -1,6 +1,6 @@
 package com.phishingrod.web;
 
-import com.phishingrod.services.PhishingTargetService;
+import com.phishingrod.services.entity.PhishingTargetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ public class PhishingTargetPageController
     private PhishingTargetService service;
 
     @Autowired
-    public PhishingTargetPageController( PhishingTargetService service)
+    public PhishingTargetPageController(PhishingTargetService service)
     {
         this.service = service;
     }
@@ -22,7 +22,7 @@ public class PhishingTargetPageController
     @GetMapping("all")
     public String getAll(Model model)
     {
-        model.addAttribute("targets", service.getAll());
+        model.addAttribute("targets", service.all());
         return "PhishingTarget/phishingTargets";
     }
 }

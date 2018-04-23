@@ -1,7 +1,7 @@
 package com.phishingrod.api.phishingTarget.validation;
 
 import com.phishingrod.api.phishingTarget.SimpleValidator;
-import com.phishingrod.services.PhishingTargetService;
+import com.phishingrod.services.entity.PhishingTargetService;
 
 import java.util.Map;
 

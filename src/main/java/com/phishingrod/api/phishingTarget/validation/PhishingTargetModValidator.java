@@ -1,8 +1,8 @@
 package com.phishingrod.api.phishingTarget.validation;
 
 import com.phishingrod.api.phishingTarget.SimpleValidator;
-import com.phishingrod.domain.next.phishingTarget.PhishingTarget;
-import com.phishingrod.services.PhishingTargetService;
+import com.phishingrod.domain.phishingTarget.PhishingTarget;
+import com.phishingrod.services.entity.PhishingTargetService;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -33,10 +33,10 @@ public class PhishingTargetModValidator extends SimpleValidator<PhishingTarget>
         } else if (emailAddress.trim().isEmpty())
         {
             errors.put("Blank Email Address", "The emailAddress field is empty.");
-        } else
+        } else if (phishingTargetService.exist(emailAddress))
         {
 
-            PhishingTarget old = phishingTargetService.simpleGet(emailAddress);
+            PhishingTarget old = phishingTargetService.find(emailAddress);
             if (old != null && old.getId() != target.getId())
                 errors.put("Conflict", "The email address: " + emailAddress + " is associated with another phishing target");
 

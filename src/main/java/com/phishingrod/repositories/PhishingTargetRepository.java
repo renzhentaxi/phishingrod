@@ -1,11 +1,10 @@
 package com.phishingrod.repositories;
 
-import com.phishingrod.domain.next.phishingTarget.PhishingTarget;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import com.phishingrod.domain.phishingTarget.PhishingTarget;
 
 import java.util.Optional;
 
-public interface PhishingTargetRepository extends PagingAndSortingRepository<PhishingTarget, Long>
+public interface PhishingTargetRepository extends EmailKeyedRepository<PhishingTarget>
 {
     Optional<PhishingTarget> findDistinctByEmailAddress(String emailAddress);
 }

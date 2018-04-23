@@ -1,7 +1,7 @@
 package com.phishingrod.core;
 
-import com.phishingrod.domain.next.phishingTarget.PhishingTarget;
-import com.phishingrod.services.PhishingTargetService;
+import com.phishingrod.domain.phishingTarget.PhishingTarget;
+import com.phishingrod.services.entity.PhishingTargetService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

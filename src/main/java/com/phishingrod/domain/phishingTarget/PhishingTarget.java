@@ -1,12 +1,12 @@
-package com.phishingrod.domain.next.phishingTarget;
+package com.phishingrod.domain.phishingTarget;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.phishingrod.api.RestView;
-import com.phishingrod.domain.next.components.DateTrackingComponent;
-import com.phishingrod.domain.next.components.EmailKeyedEntity;
-import com.phishingrod.domain.next.components.PhishingRodEntity;
-import com.phishingrod.domain.next.components.params.ParameterContainer;
+import com.phishingrod.domain.components.DateTrackingComponent;
+import com.phishingrod.domain.components.EmailKeyedEntity;
+import com.phishingrod.domain.components.PhishingRodEntity;
+import com.phishingrod.domain.components.params.ParameterContainer;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -48,7 +48,7 @@ public class PhishingTarget extends PhishingRodEntity implements EmailKeyedEntit
     @JsonProperty("parameters")
     private Map<String, String> parameterMap;
 
-    //************* Parameter Container Component *************
+    //************* Constructor *************
     public PhishingTarget(String emailAddress)
     {
         this.emailAddress = emailAddress;
