@@ -48,4 +48,8 @@ public class EmailTemplate extends DateTrackingEntity implements NameKeyedEntity
     @JsonView(RestView.Get.class)
     private List<Parameter> parameters = new ArrayList<>();
 
+    public EmailTemplate(String name)
+    {
+        this.name = name;
+    }
 }

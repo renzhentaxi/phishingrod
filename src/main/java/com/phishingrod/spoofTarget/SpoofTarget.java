@@ -2,9 +2,9 @@ package com.phishingrod.spoofTarget;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.phishingrod.api.RestView;
-import com.phishingrod.domain.EmailTemplateOld;
 import com.phishingrod.domain.components.EmailKeyedEntity;
 import com.phishingrod.domain.components.ParameterContainingEntity;
+import com.phishingrod.emailTemplate.EmailTemplate;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,7 +26,7 @@ public class SpoofTarget extends ParameterContainingEntity<SpoofTarget, SpoofTar
     private String emailAddress;
 
     @ManyToMany(mappedBy = "spoofTargets")
-    private List<EmailTemplateOld> templates = new ArrayList<>();
+    private List<EmailTemplate> templates = new ArrayList<>();
 
     //****************************Constructor****************************
     public SpoofTarget(String emailAddress)
