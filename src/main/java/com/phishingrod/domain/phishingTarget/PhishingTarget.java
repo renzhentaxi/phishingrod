@@ -6,7 +6,7 @@ import com.phishingrod.api.RestView;
 import com.phishingrod.domain.components.DateTrackingComponent;
 import com.phishingrod.domain.components.EmailKeyedEntity;
 import com.phishingrod.domain.components.PhishingRodEntity;
-import com.phishingrod.domain.components.params.ParameterContainer;
+import com.phishingrod.domain.parameters.ParameterContainer;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

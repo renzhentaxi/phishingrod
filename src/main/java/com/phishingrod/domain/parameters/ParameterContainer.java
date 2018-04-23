@@ -1,22 +1,17 @@
 package com.phishingrod.domain.parameters;
 
+import com.phishingrod.domain.components.PhishingRodEntity;
+
 import java.util.List;
 import java.util.Map;
 
-public interface ParameterContainer<p extends EntityParameter>
+public interface ParameterContainer<E extends PhishingRodEntity, P extends EntityParameter<E>>
 {
-    long getId();
-
-    List<p> getParameterList();
+    List<P> getParameterList();
 
     Map<String, String> getParameterMap();
 
-    void setParameterMap(Map<String,String> map);
-
-    default boolean isNew()
-    {
-        return getId() == 0;
-    }
+    void setParameterMap(Map<String, String> map);
 
     default void addParameter(String name, String value)
     {

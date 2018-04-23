@@ -1,9 +1,9 @@
 package com.phishingrod.repositories.parameters;
 
 import com.phishingrod.domain.components.PhishingRodEntity;
-import com.phishingrod.domain.components.params.EntityParameter;
-import com.phishingrod.domain.components.params.Parameter;
-import com.phishingrod.domain.components.params.ParameterContainer;
+import com.phishingrod.domain.parameters.EntityParameter;
+import com.phishingrod.domain.parameters.Parameter;
+import com.phishingrod.domain.parameters.ParameterContainer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 

@@ -1,7 +1,7 @@
 package com.phishingrod.domain.spoofTarget;
 
-import com.phishingrod.domain.components.params.EntityParameter;
-import com.phishingrod.domain.components.params.Parameter;
+import com.phishingrod.domain.parameters.EntityParameter;
+import com.phishingrod.domain.parameters.Parameter;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

@@ -1,5 +1,6 @@
 package com.phishingrod.domain.parameters;
 
+import com.phishingrod.domain.components.PhishingRodEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,12 +14,8 @@ import javax.persistence.*;
 @Table(
         uniqueConstraints = @UniqueConstraint(name = "uk_name_sourceType", columnNames = {"name", "sourceType"})
 )
-public class Parameter
+public class Parameter extends PhishingRodEntity
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
     private String name;
 
     @Enumerated(EnumType.STRING)
