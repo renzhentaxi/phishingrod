@@ -22,4 +22,14 @@ public interface ParameterContainer<E extends PhishingRodEntity, P extends Entit
     {
         getParameterMap().remove(userName);
     }
+
+    default boolean hasParameter(String name)
+    {
+        return getParameterMap().containsKey(name);
+    }
+
+    default String getParameterValue(String name)
+    {
+        return getParameterMap().get(name);
+    }
 }

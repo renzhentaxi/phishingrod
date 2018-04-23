@@ -20,4 +20,16 @@ public abstract class EmailKeyedEntityService<E extends PhishingRodEntity & Emai
     {
         return repository.existsByEmailAddress(emailAddress);
     }
+
+    public E get(String emailAddress)
+    {
+        E entity = find(emailAddress);
+        return postGet(entity);
+    }
+
+    public E createIfDoesNotExist(E entity)
+    {
+        if (exist(entity.getEmailAddress())) return get(entity.getEmailAddress());
+        else return postGet(add(entity));
+    }
 }

@@ -1,7 +1,7 @@
 package com.phishingrod.api.emailTemplate;
 
 import com.phishingrod.domain.EmailTemplateOld;
-import com.phishingrod.services.EmailTemplateService;
+import com.phishingrod.services.EmailTemplateServiceOld;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +12,10 @@ import java.util.Date;
 
 public class TemplateController
 {
-    private EmailTemplateService emailService;
+    private EmailTemplateServiceOld emailService;
 
     @Autowired
-    public TemplateController(EmailTemplateService emailService)
+    public TemplateController(EmailTemplateServiceOld emailService)
     {
         this.emailService = emailService;
     }

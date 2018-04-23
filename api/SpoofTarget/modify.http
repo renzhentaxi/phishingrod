@@ -8,7 +8,7 @@ Accept-Language: en-US,en;q=0.9
 Content-Type: application/json
 
 {
-    "emailAddress" :"newEmailAddress@gmail.com",
+    "emailAddress" :"good@gmail.com",
     "parameters":
     {
         "userName": "newUsername",

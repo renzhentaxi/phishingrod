@@ -72,9 +72,9 @@ public class ParameterResolverService
 
     }
 
-    private Parameter resolveParameter(ParameterSourceType type, String name)
+    public Parameter resolveParameter(ParameterSourceType type, String name)
     {
-        return parameterRepository.findDistinctBySourceTypeAndName(type, name).orElse(parameterRepository.save(new Parameter(type, name)));
+        return parameterRepository.findDistinctBySourceTypeAndName(type, name).orElseGet(() -> parameterRepository.save(new Parameter(type, name)));
     }
 
     @SuppressWarnings("unchecked")
@@ -108,7 +108,7 @@ public class ParameterResolverService
             return new PhishingTargetParameter(target, parameter);
         } else
         {
-            return phishingTargetParameterRepository.findDistinctByEntityAndParameter(target, parameter).orElse(new PhishingTargetParameter(target, parameter));
+            return phishingTargetParameterRepository.findDistinctByEntityAndParameter(target, parameter).orElseGet(() -> new PhishingTargetParameter(target, parameter));
         }
     }
 
@@ -121,7 +121,7 @@ public class ParameterResolverService
             return new SpoofTargetParameter(target, parameter);
         } else
         {
-            return spoofTargetParameterRepository.findDistinctByEntityAndParameter(target, parameter).orElse(new SpoofTargetParameter(target, parameter));
+            return spoofTargetParameterRepository.findDistinctByEntityAndParameter(target, parameter).orElseGet(() -> new SpoofTargetParameter(target, parameter));
         }
     }
 }

@@ -1,17 +1,17 @@
 package com.phishingrod.services;
 
 import com.phishingrod.domain.EmailTemplateOld;
-import com.phishingrod.repositories.EmailTemplateRepository;
+import com.phishingrod.repositories.EmailTemplateRepositoryOld;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmailTemplateService
+public class EmailTemplateServiceOld
 {
-    private EmailTemplateRepository emailTemplateRepository;
+    private EmailTemplateRepositoryOld emailTemplateRepository;
 
     @Autowired
-    public EmailTemplateService(EmailTemplateRepository emailTemplateRepository)
+    public EmailTemplateServiceOld(EmailTemplateRepositoryOld emailTemplateRepository)
     {
         this.emailTemplateRepository = emailTemplateRepository;
     }

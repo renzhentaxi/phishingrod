@@ -54,4 +54,5 @@ public class SpoofTargetService extends EmailKeyedEntityService<SpoofTarget, Spo
     {
         return parameterResolver.toDomain(entity);
     }
+
 }

@@ -9,6 +9,5 @@ import java.util.Optional;
 public interface ParameterRepository extends PagingAndSortingRepository<Parameter, Long>
 {
     Optional<Parameter> findDistinctBySourceTypeAndName(ParameterSourceType sourceType, String name);
-
 }
 

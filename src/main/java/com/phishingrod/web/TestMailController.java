@@ -1,7 +1,7 @@
 package com.phishingrod.web;
 
 import com.phishingrod.domain.EmailTemplateOld;
-import com.phishingrod.services.EmailTemplateService;
+import com.phishingrod.services.EmailTemplateServiceOld;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class TestMailController
 {
-    private EmailTemplateService service;
+    private EmailTemplateServiceOld service;
 
     @Autowired
-    public TestMailController(EmailTemplateService service)
+    public TestMailController(EmailTemplateServiceOld service)
     {
         this.service = service;
     }

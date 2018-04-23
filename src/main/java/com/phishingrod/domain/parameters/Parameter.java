@@ -1,5 +1,6 @@
 package com.phishingrod.domain.parameters;
 
+import com.phishingrod.domain.components.NameKeyedEntity;
 import com.phishingrod.domain.components.PhishingRodEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import javax.persistence.*;
 @Table(
         uniqueConstraints = @UniqueConstraint(name = "uk_name_sourceType", columnNames = {"name", "sourceType"})
 )
-public class Parameter extends PhishingRodEntity
+public class Parameter extends PhishingRodEntity implements NameKeyedEntity
 {
     private String name;
 
