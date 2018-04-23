@@ -1,6 +1,6 @@
 package com.phishingrod.api.emailTemplate;
 
-import com.phishingrod.domain.EmailTemplate;
+import com.phishingrod.domain.EmailTemplateOld;
 import com.phishingrod.services.EmailTemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +24,7 @@ public class TemplateController
     @PostMapping()
     public long upload(@RequestParam("name") String name, @RequestParam("email") String email)
     {
-        EmailTemplate template = new EmailTemplate(name, email, email, new Date());
+        EmailTemplateOld template = new EmailTemplateOld(name, email, email, new Date());
         template = emailService.saveTemplate(template);
         return template.getId();
     }
@@ -32,7 +32,7 @@ public class TemplateController
     @GetMapping(params = {"id"})
     public String get(@RequestParam("id") long id)
     {
-        EmailTemplate template = emailService.getTemplate(id);
+        EmailTemplateOld template = emailService.getTemplate(id);
         return template.getSourceHtml();
     }
 }

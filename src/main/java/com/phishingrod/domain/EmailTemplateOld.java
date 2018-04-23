@@ -2,7 +2,7 @@ package com.phishingrod.domain;
 
 
 import com.phishingrod.domain.base.NamedEntity;
-import com.phishingrod.domain.spoofTarget.SpoofTarget;
+import com.phishingrod.spoofTarget.SpoofTarget;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,7 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class EmailTemplate extends NamedEntity
+public class EmailTemplateOld extends NamedEntity
 {
     @Column(nullable = false, length = 1000000)
     private String sourceHtml;
@@ -32,7 +32,7 @@ public class EmailTemplate extends NamedEntity
     )
     private List<SpoofTarget> spoofTargets = new ArrayList<>();
 
-    public EmailTemplate(String name, String sourceHtml, String originalHtml, Date timeAdded)
+    public EmailTemplateOld(String name, String sourceHtml, String originalHtml, Date timeAdded)
     {
         super(name);
         this.sourceHtml = sourceHtml;
@@ -46,7 +46,7 @@ public class EmailTemplate extends NamedEntity
             throw new RuntimeException("target is already included");
         }
         spoofTargets.add(target);
-        target.getTemplates().add(this);
+//        target.getTemplates().add(this);
     }
 
     public void removeSpoofTarget(SpoofTarget target)
@@ -57,7 +57,8 @@ public class EmailTemplate extends NamedEntity
         }
 
         spoofTargets.remove(target);
-        target.getTemplates().remove(this);
+//        target.getTemplates().remove(this);
     }
+
 
 }

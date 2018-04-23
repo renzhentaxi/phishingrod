@@ -1,8 +1,6 @@
-package com.phishingrod.services;
+package com.phishingrod.spoofTarget;
 
 import com.phishingrod.domain.parameters.ParameterSourceType;
-import com.phishingrod.domain.spoofTarget.SpoofTarget;
-import com.phishingrod.repositories.SpoofTargetRepository;
 import com.phishingrod.services.entity.EmailKeyedEntityService;
 import com.phishingrod.services.entity.ParameterResolverService;
 import org.springframework.beans.factory.annotation.Autowired;

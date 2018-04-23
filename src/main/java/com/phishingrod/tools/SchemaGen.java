@@ -19,7 +19,7 @@ import java.util.logging.Level;
 public class SchemaGen
 {
     private final static String fileName = "db-schema.sql";
-    private final static String domainPackage = "com.phishingrod.domain.next";
+    private final static String domainPackage = "com.phishingrod";
 
     public static void main(String[] args)
     {

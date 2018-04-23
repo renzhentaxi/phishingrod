@@ -9,7 +9,7 @@ public abstract class SimpleValidator<T>
     {
         Map<String, String> errors = new HashMap<>();
         validateThis(target, errors);
-        if (!errors.isEmpty()) throw new ValidationException(errors);
+        if (!errors.isEmpty()) throw new ValidationExceptionOld(errors);
     }
 
     protected abstract void validateThis(T target, Map<String, String> errors);

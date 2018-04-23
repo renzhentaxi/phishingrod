@@ -1,9 +1,8 @@
 package com.phishingrod.repositories;
 
-import com.phishingrod.domain.EmailTemplate;
+import com.phishingrod.domain.EmailTemplateOld;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
-public interface EmailTemplateRepository extends CrudRepository<EmailTemplate, Long>
+public interface EmailTemplateRepository extends CrudRepository<EmailTemplateOld, Long>
 {
 }

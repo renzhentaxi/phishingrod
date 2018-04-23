@@ -7,11 +7,11 @@ import com.phishingrod.domain.parameters.ParameterContainer;
 import com.phishingrod.domain.parameters.ParameterSourceType;
 import com.phishingrod.domain.phishingTarget.PhishingTarget;
 import com.phishingrod.domain.phishingTarget.PhishingTargetParameter;
-import com.phishingrod.domain.spoofTarget.SpoofTarget;
-import com.phishingrod.domain.spoofTarget.SpoofTargetParameter;
 import com.phishingrod.repositories.parameters.ParameterRepository;
 import com.phishingrod.repositories.parameters.PhishingTargetParameterRepository;
-import com.phishingrod.repositories.parameters.SpoofTargetParameterRepository;
+import com.phishingrod.spoofTarget.SpoofTarget;
+import com.phishingrod.spoofTarget.SpoofTargetParameter;
+import com.phishingrod.spoofTarget.SpoofTargetParameterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

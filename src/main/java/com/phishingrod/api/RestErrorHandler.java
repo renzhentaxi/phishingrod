@@ -2,7 +2,7 @@ package com.phishingrod.api;
 
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.phishingrod.api.phishingTarget.ValidationException;
+import com.phishingrod.api.phishingTarget.ValidationExceptionOld;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -18,8 +18,8 @@ public class RestErrorHandler
 {
     private static final JsonNodeFactory nodeFactory = JsonNodeFactory.instance;
 
-    @ExceptionHandler(ValidationException.class)
-    public ResponseEntity<Object> handleValidationExceptionNew(ValidationException exception)
+    @ExceptionHandler(ValidationExceptionOld.class)
+    public ResponseEntity<Object> handleValidationExceptionNew(ValidationExceptionOld exception)
     {
         ObjectNode response = nodeFactory.objectNode();
         ObjectNode errorNodes = nodeFactory.objectNode();
@@ -29,6 +29,16 @@ public class RestErrorHandler
             errorNodes.put(entry.getKey(), entry.getValue());
         }
         response.set("Error", errorNodes);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity<Object> handleValidationException(ValidationException exception)
+    {
+        ObjectNode response = nodeFactory.objectNode();
+        ObjectNode error = nodeFactory.objectNode();
+        error.put(exception.type, exception.message);
+        response.set("Error", error);
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 }

@@ -1,6 +1,6 @@
 package com.phishingrod.web;
 
-import com.phishingrod.domain.EmailTemplate;
+import com.phishingrod.domain.EmailTemplateOld;
 import com.phishingrod.services.EmailTemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ public class TestMailController
     @ResponseBody
     public String templateGenerator(@RequestParam("id") long id)
     {
-        EmailTemplate t = service.getTemplate(id);
+        EmailTemplateOld t = service.getTemplate(id);
         if(t == null) return "no template";
         return t.getSourceHtml();
     }
