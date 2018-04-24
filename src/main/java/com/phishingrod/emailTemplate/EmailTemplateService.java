@@ -129,11 +129,12 @@ public class EmailTemplateService extends NameKeyedEntityService<EmailTemplate, 
             switch (sourceType)
             {
                 case phishingTarget:
-                    actualParameters.add(parameterResolver.resolveParameter(sourceType, name));
+
+                    actualParameters.add(parameterResolver.replaceWithActualIfExist(sourceType,name));
                     break;
                 case spoofTarget:
                     validateParameterName(entity.getSpoofTargets(), name);
-                    actualParameters.add(parameterResolver.resolveParameter(sourceType, name));
+                    actualParameters.add(parameterResolver.replaceWithActualIfExist(sourceType, name));
                     break;
             }
         }

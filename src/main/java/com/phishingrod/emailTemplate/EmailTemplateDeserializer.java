@@ -66,7 +66,6 @@ public class EmailTemplateDeserializer extends JsonDeserializer<EmailTemplate>
                             } else
                                 throw new RuntimeException("invalid json field");
                             targets.add(target);
-                            System.out.println(jsonNode);
                         }
                 );
         return targets.isEmpty() ? null : targets;

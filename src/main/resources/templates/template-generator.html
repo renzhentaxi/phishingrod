@@ -61,16 +61,68 @@
     </div>
 
     <div class="body">
-        <div class="pr-source" data-templateUrl="nope" th:attr="data-templateUrl='/testHtml?id=' + ${id}">
+        <div class="pr-source" data-templateUrl="nope" data-id=1
+             th:attr="data-templateUrl='/testHtml?id=' + ${id}, data-id=${id}">
         </div>
         <div class="pr-config">
             configuration
             <div class="Parameter-list"></div>
-            <button id="save">submit</button>
+            <button id="save" onclick="onSubmit();">submit</button>
         </div>
 
     </div>
 </div>
 
+<script>
+
+    const phishingTargetAlias = ["phishingTarget", "p", "ps", "pst", "pt", "phishing", "receiver", "to"];
+    const spoofTargetAlias = ["spoofTarget", "s", "sp", "spt", "st", "spoof", "sender", "from"];
+
+
+    function upload(modData) {
+        fetch("http://localhost:8080/api/emailTemplate/mod?id=" + modData.id,
+            {
+                method: "POST",
+                body: JSON.stringify(modData),
+                    headers:
+                    {
+                        'content-type': "application/json"
+                    }
+            }).then(response => console.log(response));
+    }
+
+    function onSubmit() {
+        const id = document.querySelector(".pr-source").getAttribute("data-id");
+        const sourceHtml = document.querySelector(".pr-source").firstElementChild.contentDocument.body;
+
+        const parameterList = document.querySelector(".Parameter-list");
+        const parameters = [];
+        for (parameter of parameterList.children) {
+            let full = parameter.getAttribute("pr-param-name");
+            if (!full.includes(".")) full = "phishingTarget." + full;
+            let [sourceType, name] = full.split(".");
+
+            if (phishingTargetAlias.includes(sourceType)) sourceType = "phishingTarget";
+            else if (spoofTargetAlias.includes(sourceType)) sourceType = "spoofTarget";
+            else console.error("invalid source " + sourceType);
+
+            const param =
+                {
+                    source: sourceType,
+                    name: name,
+                };
+
+            parameters.push(param);
+        }
+
+        const modData = {
+            id, sourceHtml, parameters
+        };
+
+
+        upload(modData)
+    }
+
+</script>
 </body>
 </html>

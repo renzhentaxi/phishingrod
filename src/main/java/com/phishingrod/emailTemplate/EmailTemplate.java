@@ -40,7 +40,7 @@ public class EmailTemplate extends DateTrackingEntity implements NameKeyedEntity
     @JsonView(RestView.Get.class)
     private List<SpoofTarget> spoofTargets = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             joinColumns = @JoinColumn(name = "template_id"),
             inverseJoinColumns = @JoinColumn(name = "parameter_id")
