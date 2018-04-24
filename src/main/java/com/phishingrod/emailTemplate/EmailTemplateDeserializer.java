@@ -75,6 +75,7 @@ public class EmailTemplateDeserializer extends JsonDeserializer<EmailTemplate>
     private static ParameterSourceType readSourceType(JsonNode tree, String fieldName)
     {
         String sourceString = readString(tree, fieldName);
+        System.out.println(sourceString);
         return ParameterSourceType.valueOf(sourceString);
     }
 

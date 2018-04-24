@@ -5,7 +5,7 @@ Content-Type:application/json
 
 {
 //    "id": 1,
-    "name" : "testTemplate",
+    "name" : "testTemplate2",
     "sourceHtml" : "new html source Html",
     "originalHtml": "new html original Html",
     "parameters":

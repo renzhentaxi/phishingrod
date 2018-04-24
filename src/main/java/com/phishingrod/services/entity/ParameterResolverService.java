@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class ParameterResolverService
@@ -72,9 +73,24 @@ public class ParameterResolverService
 
     }
 
+    public Parameter replaceWithActualIfExist(ParameterSourceType type, String name)
+    {
+        return parameterRepository.findDistinctBySourceTypeAndName(type, name).orElseGet(() -> new Parameter(type, name));
+    }
+
     public Parameter resolveParameter(ParameterSourceType type, String name)
     {
-        return parameterRepository.findDistinctBySourceTypeAndName(type, name).orElseGet(() -> parameterRepository.save(new Parameter(type, name)));
+        Optional<Parameter> optionalParameter = parameterRepository.findDistinctBySourceTypeAndName(type, name);
+        if (optionalParameter.isPresent())
+        {
+            return optionalParameter.get();
+        } else
+        {
+            System.out.println(parameterRepository.findAll());
+            System.out.println(type + " " + name);
+            System.out.println(parameterRepository.findDistinctBySourceTypeAndName(type, name));
+            return parameterRepository.save(new Parameter(type, name));
+        }
     }
 
     @SuppressWarnings("unchecked")
