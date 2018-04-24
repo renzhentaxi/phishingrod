@@ -66,7 +66,6 @@ public class EmailTemplateDeserializer extends JsonDeserializer<EmailTemplate>
                             } else
                                 throw new RuntimeException("invalid json field");
                             targets.add(target);
-                            System.out.println(jsonNode);
                         }
                 );
         return targets.isEmpty() ? null : targets;
@@ -75,7 +74,6 @@ public class EmailTemplateDeserializer extends JsonDeserializer<EmailTemplate>
     private static ParameterSourceType readSourceType(JsonNode tree, String fieldName)
     {
         String sourceString = readString(tree, fieldName);
-        System.out.println(sourceString);
         return ParameterSourceType.valueOf(sourceString);
     }
 

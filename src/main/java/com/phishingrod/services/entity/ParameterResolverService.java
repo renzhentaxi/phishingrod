@@ -81,16 +81,7 @@ public class ParameterResolverService
     public Parameter resolveParameter(ParameterSourceType type, String name)
     {
         Optional<Parameter> optionalParameter = parameterRepository.findDistinctBySourceTypeAndName(type, name);
-        if (optionalParameter.isPresent())
-        {
-            return optionalParameter.get();
-        } else
-        {
-            System.out.println(parameterRepository.findAll());
-            System.out.println(type + " " + name);
-            System.out.println(parameterRepository.findDistinctBySourceTypeAndName(type, name));
-            return parameterRepository.save(new Parameter(type, name));
-        }
+        return optionalParameter.orElseGet(() -> parameterRepository.save(new Parameter(type, name)));
     }
 
     @SuppressWarnings("unchecked")
