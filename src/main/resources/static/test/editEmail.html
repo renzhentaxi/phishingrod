@@ -64,11 +64,23 @@
         <th>Last Modified</th>
         <th>Edit</th>
         <th>Delete</th>
+        <th>Send</th>
     </tr>
 </table>
 
+<dialog class="selectionDialog">
+    From:
+    <select class="spoofTargetSelect">
+    </select>
+    To:
+    <select class="phishingTargetSelect">
+    </select>
+    <button onclick="send(this)">Send</button>
+</dialog>
+
 <script src="apiHelper.js"></script>
 <script>
+
 
     const addUrl = "http://localhost:8080/api/emailTemplate/all";
     const deleteUrl = "http://localhost:8080/api/emailTemplate/del";
@@ -82,7 +94,7 @@
         }
     }
 
-    getRequest(addUrl, showTemplates);
+    getRequest(addUrl, null, showTemplates);
 
 
     function toRow(templateJson) {
@@ -93,6 +105,7 @@
         <td>${templateJson.lastModified}</td>
         <td><button onclick="editTemplate(${templateJson.id})">Edit</button></td>
         <td><button onclick="deleteTemplate(${templateJson.id},this)">Delete</button></td>
+        <td><button onclick="startSend(this)">Send</button></td>
         </tr>
         `;
 
@@ -116,6 +129,68 @@
     function editTemplate(id) {
         window.location.href = "http://localhost:8080/template-generator?id=" + id;
     }
+
+    function startSend(element) {
+        const templateId = element.parentElement.parentElement.getAttribute("data-id");
+        openSelectionDialog(templateId)
+    }
+
+    function send(element) {
+        const sendUrl = new URL("http://localhost:8080/api/send");
+        const dialog = element.parentElement;
+        const phishingTargetId = document.querySelector(".phishingTargetSelect").value;
+        const spoofTargetId = document.querySelector(".spoofTargetSelect").value;
+        const templateId = dialog.getAttribute("pr-templateId");
+
+        const sendParam = {templateId, spoofTargetId, phishingTargetId};
+
+        sendUrl.search = new URLSearchParams(sendParam);
+        closeSelectionDialog();
+        fetch(sendUrl, {method:"POST"}).then(response => {
+            console.log(response)
+        })
+    }
+
+    function openSelectionDialog(templateId) {
+        const dialog = document.querySelector(".selectionDialog");
+        dialog.setAttribute("pr-templateId", templateId);
+        dialog.setAttribute("open", "true");
+
+    }
+
+    function closeSelectionDialog() {
+        const dialog = document.querySelector(".selectionDialog").removeAttribute("open");
+    }
+
+    function loadPhishingTargets() {
+        const select = document.querySelector(".phishingTargetSelect");
+        fetch("http://localhost:8080/api/phishingTarget/all").then(response => response.json()).then(json => {
+                for (let j of json) {
+                    const option = document.createElement("option");
+                    option.value = j.id;
+                    option.text = j.emailAddress;
+                    select.appendChild(option);
+                }
+            }
+        );
+    }
+
+    function loadSpoofTargets() {
+        const select = document.querySelector(".spoofTargetSelect");
+        fetch("http://localhost:8080/api/spoofTarget/all").then(response => response.json()).then(json => {
+                for (let j of json) {
+                    const option = document.createElement("option");
+                    option.value = j.id;
+                    option.text = j.emailAddress;
+                    select.appendChild(option);
+                }
+            }
+        );
+    }
+
+    loadPhishingTargets();
+    loadSpoofTargets();
+
 </script>
 
 </body>

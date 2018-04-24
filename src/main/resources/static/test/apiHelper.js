@@ -16,6 +16,6 @@ function postRequest(url, parameters, jsonData, callback) {
     fetch(url, options).then(response => callback(response));
 }
 
-function getRequest(url, callback) {
+function getRequest(url, parameters, callback) {
     fetch(url, {method: "GET"}).then(response => response.json()).then(json => callback(json));
 }

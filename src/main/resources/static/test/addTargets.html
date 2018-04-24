@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Type: <select id="type">
+    <option value="phishingTarget">Phishing Target</option>
+    <option value="spoofTarget">Spoof Target</option>
+</select>
+
+Email Address: <input id="emailAddress" type="text">
+
+<table>
+    <caption>Parameters</caption>
+    <tr>
+        <th>Name</th>
+        <th>Value</th>
+        <th>
+            <button onclick="newParameter(this)">New</button>
+        </th>
+    </tr>
+    <tr class="parameter">
+        <td><input class="param-name" type="text"></td>
+        <td><input class="param-data" type="text"></td>
+    </tr>
+</table>
+
+<button onclick="submit()">Add</button>
+
+<script>
+    function newParameter(element) {
+        const table = element.parentElement.parentElement.parentElement;
+        const row = document.createElement("tr");
+        row.classList.add("parameter");
+        const nameInput = document.createElement("td");
+        nameInput.innerHTML = "<input class='param-name' type='text'>";
+        const dataInput = document.createElement("td");
+        dataInput.innerHTML = "<input class='param-data' type='text'>";
+
+        row.appendChild(nameInput);
+        row.appendChild(dataInput);
+        table.appendChild(row);
+    }
+
+    function submit() {
+        const rows = document.querySelectorAll(".parameter");
+        const parameters = {};
+        for (let i = 0; i < rows.length; i++) {
+            let rowNode = rows[i];
+            let row = {
+                name: rowNode.firstElementChild.firstElementChild.value,
+                value: rowNode.lastElementChild.firstElementChild.value
+            };
+            parameters[row.name] = row.value;
+        }
+
+        const emailAddress = document.querySelector("#emailAddress").value;
+        const postData =
+            {
+                emailAddress,
+                parameters
+            };
+
+        console.log(document.querySelector("#type").value);
+        let url;
+        if (document.querySelector("#type").value ==="phishingTarget")
+        {
+            url = "http://localhost:8080/api/phishingTarget/add";
+        }else
+        {
+            url ="http://localhost:8080/api/spoofTarget/add"
+        }
+        fetch(url, {method: "POST", headers:{'content-type':'application/json'}, body:JSON.stringify(postData)}).then(response => console.log(response));
+    }
+</script>
+</body>
+</html>
