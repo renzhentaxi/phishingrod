@@ -39,7 +39,7 @@
             {
                 method: "POST",
                 body: JSON.stringify(modData),
-                    headers:
+                headers:
                     {
                         'content-type': "application/json"
                     }
@@ -47,35 +47,60 @@
     }
 
     function onSubmit() {
+        const sourceDocument = document.querySelector(".pr-source").firstElementChild.contentDocument;
+        const sourceHtml = sourceDocument.body;
         const id = document.querySelector(".pr-source").getAttribute("data-id");
-        const sourceHtml = document.querySelector(".pr-source").firstElementChild.contentDocument.body;
 
         const parameterList = document.querySelector(".Parameter-list");
+        const parameters = processParameterList(sourceDocument, parameterList);
+
+        upload(
+            {
+                id, sourceHtml, parameters
+            }
+        )
+    }
+
+    function processParameterList(sourceDocument, parameterList) {
         const parameters = [];
+
         for (parameter of parameterList.children) {
-            let full = parameter.getAttribute("pr-param-name");
-            if (!full.includes(".")) full = "phishingTarget." + full;
-            let [sourceType, name] = full.split(".");
+            let raw = parameter.getAttribute("pr-param-name");
 
-            if (phishingTargetAlias.includes(sourceType)) sourceType = "phishingTarget";
-            else if (spoofTargetAlias.includes(sourceType)) sourceType = "spoofTarget";
-            else console.error("invalid source " + sourceType);
 
-            const param =
-                {
-                    source: sourceType,
-                    name: name,
-                };
-
+            const param = normalizeParameter(raw);
+            fixParameterNodes(sourceDocument, param, raw);
             parameters.push(param);
         }
+        return parameters;
+    }
 
-        const modData = {
-            id, sourceHtml, parameters
-        };
+    function normalizeParameter(rawName) {
+        let sourceType, name;
+        if (!rawName.includes(".")) {
+            sourceType = "phishingTarget";
+            name = rawName;
+        }
+        else {
+            [sourceType, name] = rawName.split(".");
+        }
 
+        if (phishingTargetAlias.includes(sourceType)) sourceType = "phishingTarget";
+        else if (spoofTargetAlias.includes(sourceType)) sourceType = "spoofTarget";
+        else console.error("invalid source " + sourceType);
 
-        upload(modData)
+        return {source: sourceType, name: name};
+    }
+
+    function fixParameterNodes(doc, param, originalName) {
+        const query = `.pr-param-node[pr-param-name='${originalName}']`;
+        const nodeList = doc.querySelectorAll(query);
+
+        for (let i = 0; i < nodeList.length; i++) {
+            const node = nodeList[i];
+            node.setAttribute("pr-param-name", param.source + "." + param.name);
+        }
+
     }
 
 </script>

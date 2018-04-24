@@ -33,6 +33,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web-services')
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
     compile group: 'com.cloudinary', name: 'cloudinary-http44', version: '1.18.0'
+    compile 'org.jsoup:jsoup:1.11.3'
     runtime('org.springframework.boot:spring-boot-devtools')
     runtime('com.h2database:h2')
     compileOnly('org.projectlombok:lombok')
