@@ -75,6 +75,7 @@
     To:
     <select class="phishingTargetSelect">
     </select>
+    <button onclick="addSpoopTarget()">Add Targets</button>
     <button onclick="send(this)">Send</button>
 </dialog>
 
@@ -135,6 +136,9 @@
         openSelectionDialog(templateId)
     }
 
+    function addSpoopTarget(){
+        window.open("addTargets.html");
+    }
     function send(element) {
         const sendUrl = new URL("http://localhost:8080/api/send");
         const dialog = element.parentElement;
