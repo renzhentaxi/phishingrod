@@ -13,6 +13,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
             integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -29,10 +31,12 @@
         float: left;
     }
 
+    body{
+        background: rgb(198,199,190);
+    }
     #wrapper {
         padding-top: 5px;
         width: 100%;
-        background: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(204, 204, 255));
     }
 
     #preview {
@@ -97,7 +101,7 @@
              style="position:relative;max-width:1500px;overflow:auto">
 
         </div>
-        <button id="upload" onclick="uploadEmailTemplate();clearContents()">Upload Email</button>
+        <button type="button" class="btn btn-lg" id="upload" onclick="uploadEmailTemplate();clearContents()">Upload Email</button>
     </div>
 
     <div id="dialog" title="Successful" style="display:none">
