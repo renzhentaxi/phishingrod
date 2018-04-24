@@ -97,7 +97,7 @@
              style="position:relative;max-width:1500px;overflow:auto">
 
         </div>
-        <button id="upload" onclick="uploadEmailTemplate()">Upload Email</button>
+        <button id="upload" onclick="uploadEmailTemplate();clearContents()">Upload Email</button>
     </div>
 
     <div id="dialog" title="Successful" style="display:none">
@@ -131,6 +131,10 @@
     $("#upload").click( function() {
         $( "#dialog" ).dialog();
     } );
+
+    function clearContents() {
+        document.getElementById("email").value = '';
+    }
 </script>
 
 </body>
