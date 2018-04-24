@@ -4,17 +4,9 @@ Host: localhost:8080
 Content-Type:application/json
 
 {
-    "name" : "testTemplate2",
-    "sourceHtml" : "source Html",
-    "originalHtml": "original Html",
-
-//    "spoofTargets": ["good@gmail.com"],
-    "parameters":
-    [
-        {"source": "phishingTarget", "name": "userName"}
-//        ,
-//        {"source": "spoofTarget", "name": "userName"}
-    ]
+    "name" : "template",
+    "sourceHtml" : "Hi jack, My name is Joe",
+    "originalHtml": "original Html"
 }
 
 ###

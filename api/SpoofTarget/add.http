@@ -8,11 +8,10 @@ Accept-Language: en-US,en;q=0.9
 Content-Type:application/json
 
 {
-   "emailAddress": "good@gmail.com",
+   "emailAddress": "good@email.com",
    "parameters":
    {
-        "userName": "renzhentaxi",
-        "lastName": "baerde"
+        "name": "renzhentaxi"
    }
 }
 ###

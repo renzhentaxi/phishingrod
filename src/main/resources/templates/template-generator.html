@@ -53,10 +53,9 @@
 
         const parameterList = document.querySelector(".Parameter-list");
         const parameters = processParameterList(sourceDocument, parameterList);
-
         upload(
             {
-                id, sourceHtml, parameters
+                id, sourceHtml:sourceHtml.innerHTML, parameters
             }
         )
     }
