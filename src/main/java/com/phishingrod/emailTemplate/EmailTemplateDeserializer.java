@@ -41,7 +41,12 @@ public class EmailTemplateDeserializer extends JsonDeserializer<EmailTemplate>
 
     private static String readString(JsonNode tree, String fieldName)
     {
-        return tree.get(fieldName).textValue();
+        JsonNode field = tree.get(fieldName);
+        if (field == null)
+        {
+            return null;
+        }
+        return field.textValue();
     }
 
     private static List<SpoofTarget> readSpoofTargets(JsonNode tree, String fieldName)

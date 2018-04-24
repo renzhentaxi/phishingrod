@@ -69,6 +69,8 @@ public class EmailTemplateService extends NameKeyedEntityService<EmailTemplate, 
     {
         checkAllSpoofTargetsExist(entity);
         createParametersIfDoesNotExist(entity);
+        if (entity.getSourceHtml() == null)
+            entity.setSourceHtml(entity.getOriginalHtml());
         entity.initialDate();
     }
 
@@ -89,8 +91,10 @@ public class EmailTemplateService extends NameKeyedEntityService<EmailTemplate, 
 
     private void checkAllSpoofTargetsExist(EmailTemplate entity)
     {
+        List<SpoofTarget> suppliedSpoofTargets = entity.getSpoofTargets();
+        if (suppliedSpoofTargets == null) return;
         List<SpoofTarget> actualSpoofTargets = new ArrayList<>();
-        for (SpoofTarget target : entity.getSpoofTargets())
+        for (SpoofTarget target : suppliedSpoofTargets)
         {
             long id = target.getId();
             if (id != 0)
@@ -114,8 +118,10 @@ public class EmailTemplateService extends NameKeyedEntityService<EmailTemplate, 
 
     private void createParametersIfDoesNotExist(EmailTemplate entity)
     {
+        List<Parameter> suppliedParameters = entity.getParameters();
         List<Parameter> actualParameters = new ArrayList<>();
 
+        if (suppliedParameters == null) return;
         for (Parameter parameter : entity.getParameters())
         {
             String name = parameter.getName();
