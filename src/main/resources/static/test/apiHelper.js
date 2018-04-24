@@ -1,7 +1,8 @@
 function postRequest(url, parameters, jsonData, callback) {
 
     url = new URL(url);
-    url.search = new URLSearchParams(parameters);
+    if (parameters != null)
+        url.search = new URLSearchParams(parameters);
     const options =
         {
             method: "POST",
@@ -17,5 +18,6 @@ function postRequest(url, parameters, jsonData, callback) {
 }
 
 function getRequest(url, parameters, callback) {
+    console.log(callback);
     fetch(url, {method: "GET"}).then(response => response.json()).then(json => callback(json));
 }

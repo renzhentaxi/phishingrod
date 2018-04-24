@@ -46,9 +46,8 @@ public class SendEmailController
 
         String parsedEmail = factory.from(template, spoofTarget, phishingTarget);
 
-        System.out.println(parsedEmail);
-        SenderServer server = new SenderServer("gmail", "smtp.gmail.com", true, 587);
-        Sender sender = new Sender(server, "phishingrod123@gmail.com", "2132018fish");
+        SenderServer server = new SenderServer("gmail", "smtp.sendgrid.net", true, 587);
+        Sender sender = new Sender(server, "apikey", "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");
 
         senderService.send(parsedEmail, spoofTarget, phishingTarget, sender);
     }
