@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Getter
@@ -26,5 +27,22 @@ public class Parameter extends PhishingRodEntity implements NameKeyedEntity
     {
         this.sourceType = type;
         this.name = name;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(sourceType, name);
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (obj instanceof Parameter)
+        {
+            Parameter other = (Parameter) obj;
+            return other.name.equals(this.name) && other.sourceType.equals(this.sourceType);
+        }
+        return false;
     }
 }
