@@ -1,0 +1,9 @@
+EntityService
+    * add/get entity by id
+    * delete entity
+    * modify entity
+    * add duplicate
+ NameEntity
+    * add/get by name
+    * delete by name
+ParameterContainer
