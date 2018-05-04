@@ -1,4 +1,4 @@
-package com.phishingrod.util;
+package com.phishingrod.core.util;
 
 
 import java.io.*;

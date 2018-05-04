@@ -1,7 +1,7 @@
-package com.phishingrod.tools;
+package com.phishingrod.core.tools;
 
 
-import com.phishingrod.util.IOUtil;
+import com.phishingrod.core.util.IOUtil;
 
 import javax.mail.*;
 import javax.mail.internet.MimeMultipart;

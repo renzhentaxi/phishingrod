@@ -1,4 +1,4 @@
-package com.phishingrod.tools;
+package com.phishingrod.core.tools;
 
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -19,7 +19,7 @@ import java.util.logging.Level;
 public class SchemaGen
 {
     private final static String fileName = "db-schema.sql";
-    private final static String domainPackage = "com.phishingrod";
+    private final static String domainPackage = "com.phishingrod.core.domain";
 
     public static void main(String[] args)
     {
