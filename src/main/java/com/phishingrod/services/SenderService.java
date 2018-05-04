@@ -3,6 +3,7 @@ package com.phishingrod.services;
 import com.phishingrod.domain.Sender;
 import com.phishingrod.domain.SenderServer;
 import com.phishingrod.domain.phishingTarget.PhishingTarget;
+import com.phishingrod.phishingAttempt.PhishingAttempt;
 import com.phishingrod.repositories.SenderRepository;
 import com.phishingrod.repositories.SenderServerRepository;
 import com.phishingrod.spoofTarget.SpoofTarget;

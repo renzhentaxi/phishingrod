@@ -24,8 +24,8 @@ public class SendEmailController
     private SpoofTargetService spoofTargetService;
     private EmailTemplateService templateService;
     private PhishingTargetService phishingTargetService;
-
     private SenderService senderService;
+//    private PhishingAttemptService attemptService;
 
     @Autowired
     public SendEmailController(EmailFactory factory, SpoofTargetService spoofTargetService, EmailTemplateService templateService, PhishingTargetService phishingTargetService, SenderService senderService)
@@ -35,21 +35,22 @@ public class SendEmailController
         this.templateService = templateService;
         this.phishingTargetService = phishingTargetService;
         this.senderService = senderService;
+//        this.attemptService = attemptService;
     }
 
     @PostMapping
     public void send(@RequestParam("templateId") long templateId, @RequestParam("spoofTargetId") long spoofTargetId, @RequestParam("phishingTargetId") long phishingTargetId)
     {
         EmailTemplate template = templateService.get(templateId);
-        SpoofTarget spoofTarget = spoofTargetService.get(spoofTargetId);
         PhishingTarget phishingTarget = phishingTargetService.get(phishingTargetId);
-
+        SpoofTarget spoofTarget = spoofTargetService.get(spoofTargetId);
         String parsedEmail = factory.from(template, spoofTarget, phishingTarget);
 
         SenderServer server = new SenderServer("gmail", "smtp.sendgrid.net", true, 587);
         Sender sender = new Sender(server, "apikey", "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");
 
         senderService.send(parsedEmail, spoofTarget, phishingTarget, sender);
+//        attemptService.startAttempt(new PhishingAttempt(template, phishingTarget, spoofTarget));
     }
 }
 

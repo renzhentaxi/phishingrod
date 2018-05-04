@@ -21,3 +21,19 @@ function getRequest(url, parameters, callback) {
     console.log(callback);
     fetch(url, {method: "GET"}).then(response => response.json()).then(json => callback(json));
 }
+
+class PhishingTargetAPI
+{
+    constructor()
+    {
+        this.baseUrl = "http://localhost:8080/phishingTarget/";
+        this.getUrl = baseUrl + "get";
+        this.addUrl = baseUrl + "add";
+    }
+    
+    add(phishingTargetJson)
+    {
+        
+    }
+
+}
