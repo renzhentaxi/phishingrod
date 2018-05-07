@@ -42,7 +42,6 @@ export class AddParameterRow extends React.Component {
 
     render() {
         const {name, value} = this.state;
-        const {onAdd} = this.props;
         return (
             <TableRow>
                 <TableCell>

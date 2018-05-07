@@ -6,32 +6,58 @@ import TableBody from "material-ui/es/Table/TableBody";
 import {AddButton, RefreshButton} from "../ui/Buttons";
 import PhishingTargetRow from "./PhishingTargetRow";
 import {PhishingTargetAPI} from "../API";
+import update from "immutability-helper";
+import PhishingTargetAddDialog from "./details/PhishingTargetAddDialog";
 
 class PhishingTargetTable extends React.Component {
 
+    state =
+        {
+            data: [],
+            showAddDialog: false
+        };
+
     constructor() {
         super();
-        this.state = {data: []};
         this.handleDelete = this.handleDelete.bind(this);
-        this.loadData = this.loadData.bind(this);
+        this.refreshData = this.refreshData.bind(this);
+        this.openAddDialog = this.openAddDialog.bind(this);
+        this.handleAdd = this.handleAdd.bind(this);
+        this.closeAddDialog = this.closeAddDialog.bind(this);
     }
 
-    async loadData() {
+    componentWillMount() {
+        this.refreshData();
+    }
+
+    async refreshData() {
         const {data} = await PhishingTargetAPI.all();
         this.setState({data});
     }
 
     async handleDelete(id) {
         await PhishingTargetAPI.delete(id);
-        this.loadData();
+        this.refreshData();
     }
 
-    componentWillMount() {
-        this.loadData();
+    async handleAdd(target)
+    {
+        await PhishingTargetAPI.add(target);
+        this.refreshData();
     }
 
-    render() {
-        const head = (
+    openAddDialog() {
+        const newState = update(this.state, {showAddDialog: {$set: true}});
+        this.setState(newState);
+    }
+
+    closeAddDialog()
+    {
+        this.setState(update(this.state, {showAddDialog: {$set: false}}))
+    }
+
+    renderHead() {
+        return (
             <TableHead>
                 <TableRow>
                     <TableCell>Id</TableCell>
@@ -40,22 +66,30 @@ class PhishingTargetTable extends React.Component {
                     <TableCell>Created On</TableCell>
                     <TableCell>Last Modified On</TableCell>
                     <TableCell>
-                        <RefreshButton onClick={this.loadData}/>
-                        <AddButton/>
+                        <RefreshButton onClick={this.refreshData}/>
+                        <AddButton onClick={this.openAddDialog}/>
+                        <PhishingTargetAddDialog open={this.state.showAddDialog} onClose={this.closeAddDialog} onAdd={this.handleAdd}/>
                     </TableCell>
 
                 </TableRow>
             </TableHead>
         );
+    }
 
-        const body = this.state.data.map((t) => <PhishingTargetRow key={t.id} data={t} onChange={this.loadData}
-                                                                   onDelete={this.handleDelete}/>);
+    renderBody() {
+        return (<TableBody>
+            {this.state.data.map((t) => <PhishingTargetRow key={t.id} data={t} onChange={this.refreshData}
+                                                           onDelete={this.handleDelete}/>)}
+        </TableBody>);
+    }
+
+    render() {
+        const head = this.renderHead();
+        const body = this.renderBody();
         return (
             <Table>
-                {head}
-                <TableBody>
-                    {body}
-                </TableBody>
+                {this.renderHead()}
+                {this.renderBody()}
             </Table>
         );
     }
