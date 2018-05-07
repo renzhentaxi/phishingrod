@@ -19,7 +19,7 @@ import java.util.Set;
 public abstract class ParameterContainerEntity extends StatTrackingEntity
 {
     @JsonIgnore
-    @OneToMany(mappedBy = "container", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "container", cascade = CascadeType.ALL, fetch = FetchType.EAGER,orphanRemoval = true)
     private Set<ParameterInstance> parameterSet;
 
     @Transient

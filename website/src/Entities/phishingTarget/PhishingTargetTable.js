@@ -5,7 +5,6 @@ import Table from "material-ui/es/Table/Table";
 import TableBody from "material-ui/es/Table/TableBody";
 import {AddButton, RefreshButton} from "../ui/Buttons";
 import PhishingTargetRow from "./PhishingTargetRow";
-import axios from "axios";
 import {PhishingTargetAPI} from "../API";
 
 class PhishingTargetTable extends React.Component {
@@ -13,12 +12,18 @@ class PhishingTargetTable extends React.Component {
     constructor() {
         super();
         this.state = {data: []};
+        this.handleDelete = this.handleDelete.bind(this);
+        this.loadData = this.loadData.bind(this);
     }
 
     async loadData() {
-        // const {data} = await axios.get('http://localhost:8080/api/phishingTarget');
         const {data} = await PhishingTargetAPI.all();
         this.setState({data});
+    }
+
+    async handleDelete(id) {
+        await PhishingTargetAPI.delete(id);
+        this.loadData();
     }
 
     componentWillMount() {
@@ -35,7 +40,7 @@ class PhishingTargetTable extends React.Component {
                     <TableCell>Created On</TableCell>
                     <TableCell>Last Modified On</TableCell>
                     <TableCell>
-                        <RefreshButton/>
+                        <RefreshButton onClick={this.loadData}/>
                         <AddButton/>
                     </TableCell>
 
@@ -43,8 +48,8 @@ class PhishingTargetTable extends React.Component {
             </TableHead>
         );
 
-        const body = this.state.data.map((t) => <PhishingTargetRow key={t.id} data={t}/>);
-
+        const body = this.state.data.map((t) => <PhishingTargetRow key={t.id} data={t} onChange={this.loadData}
+                                                                   onDelete={this.handleDelete}/>);
         return (
             <Table>
                 {head}

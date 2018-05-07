@@ -56,14 +56,7 @@ class PhishingTargetDetail extends React.Component {
     }
 
     handleDeleteParameter(name) {
-        let parameters = Object.assign({}, this.state.data.parameters);
-        delete parameters[name];
-        const newState = update(this.state, {
-            data:
-                {
-                    parameters: {$set: parameters}
-                }
-        });
+        const newState = update(this.state, {data: {parameters: {$unset: [name]}}});
         this.setState(newState);
     }
 
@@ -104,10 +97,10 @@ class PhishingTargetDetail extends React.Component {
         }
     }
 
-    handleSave() {
-        console.log(this.state.data);
-        PhishingTargetAPI.modify(this.state.data.id, this.state.data);
-        console.log("pressed save");
+    async handleSave() {
+        this.props.onClose();
+        await PhishingTargetAPI.modify(this.state.data.id, this.state.data);
+        this.props.onChange();
     }
 
     handleEmailChange(label, value, onError) {

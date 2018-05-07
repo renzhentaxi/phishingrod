@@ -12,4 +12,8 @@ export class PhishingTargetAPI {
     static modify(id, phishingTarget) {
         return axios.put(`${PhishingTargetAPI.url}/${id}`, phishingTarget)
     }
+    static delete(id)
+    {
+        return axios.delete(`${PhishingTargetAPI.url}/${id}`);
+    }
 }

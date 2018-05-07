@@ -29,7 +29,10 @@ public class PhishingTargetService extends EmailKeyedEntityService<PhishingTarge
     {
         PhishingTarget original = find(change.getId());
         if (change.getEmailAddress() != null) original.setEmailAddress(change.getEmailAddress());
-        if (change.getParameterMap() != null) original.setParameterMap(change.getParameterMap());
+        if (change.getParameterMap() != null)
+        {
+            original.setParameterMap(change.getParameterMap());
+        }
         return original;
     }
 

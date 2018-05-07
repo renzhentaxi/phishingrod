@@ -84,8 +84,8 @@ public abstract class TargetRestTest extends EntityRestControllerTest
 
         String newEmailAddress = makeUnique("newEmailAddress@gmail.com");
         ObjectNode modifyJson = targetJson(newEmailAddress, "toChange", "changed", "toAdd", "added");
-        restModify(id, modifyJson)
-                .andExpect(status().isOk())
+        restModify(id, modifyJson).andExpect(status().isOk());
+        restGet(id)
                 .andExpect(jsonPath("$.emailAddress").value(newEmailAddress))
                 .andExpect(jsonPath("$.parameters.toChange").value("changed"))
                 .andExpect(jsonPath("$.parameters.toDelete").doesNotExist())

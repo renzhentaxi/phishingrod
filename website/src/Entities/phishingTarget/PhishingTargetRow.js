@@ -15,7 +15,7 @@ const styles = theme => ({
 });
 
 class PhishingTargetRow extends React.Component {
-    state = {showView: true};
+    state = {showView: false};
 
     constructor() {
         super();
@@ -35,7 +35,7 @@ class PhishingTargetRow extends React.Component {
     render() {
         const {id, emailAddress, createdOn, lastModifiedOn, score = 1, parameters} = this.props.data;
         const {showView} = this.state;
-        const {classes} = this.props;
+        const {onDelete} = this.props;
         return (
             <React.Fragment key={id}>
                 <TableRow hover>
@@ -46,8 +46,9 @@ class PhishingTargetRow extends React.Component {
                     <TableCell>{lastModifiedOn}</TableCell>
                     <TableCell>
                         <ViewButton onClick={this.openView}/>
-                        <PhishingTargetDetail data={this.props.data} open={showView} onClose={this.closeView}/>
-                        <DeleteButton/>
+                        <PhishingTargetDetail data={this.props.data} open={showView} onClose={this.closeView}
+                                              onChange={this.props.onChange}/>
+                        <DeleteButton onClick={() => onDelete(id)}/>
                     </TableCell>
                 </TableRow>
             </React.Fragment>

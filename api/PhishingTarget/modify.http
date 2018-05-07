@@ -1,5 +1,5 @@
 # Successful modification
-POST http://localhost:8080/api/phishingTarget/id=1
+PUT http://localhost:8080/api/phishingTarget/1
 Host: localhost:8080
 Content-Type: application/json
 

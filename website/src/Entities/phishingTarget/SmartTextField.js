@@ -32,11 +32,11 @@ export class SmartTextField extends React.Component {
     }
 
     render() {
-        const {label, value} = this.props;
+        const {label, value, disabled} = this.props;
         const {error, message} = this.state;
         return (<TextField label={upperCase(label)} value={value}
                            error={error} helperText={message}
-                           onChange={this.handleChange}/>);
+                           onChange={this.handleChange} disabled={disabled}/>);
     }
 }
 

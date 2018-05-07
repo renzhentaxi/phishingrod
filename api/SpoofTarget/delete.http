@@ -1,4 +1,4 @@
-# Successful delete
+# Successful handleDelete
 POST http://localhost:8080/api/spoofTarget/del?
     id=1
 Host: localhost:8080
@@ -7,7 +7,7 @@ Accept-Encoding: gzip, deflate, br
 Accept-Language: en-US,en;q=0.9
 ###
 
-# Unsuccessful delete due to invalid id
+# Unsuccessful handleDelete due to invalid id
 POST http://localhost:8080/api/spoofTarget/del?
     id=0
 Host: localhost:8080
