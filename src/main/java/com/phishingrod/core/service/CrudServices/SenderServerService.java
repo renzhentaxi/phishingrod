@@ -23,6 +23,7 @@ public class SenderServerService extends NameKeyedEntityService<SenderServer, Se
     private SenderServer merge(SenderServer change)
     {
         SenderServer original = find(change.getId());
+        if (change.getName() != null) original.setName(change.getName());
         if (change.getHost() != null) original.setHost(change.getHost());
         original.setPort(change.getPort());
         return original;

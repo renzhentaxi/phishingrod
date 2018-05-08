@@ -49,6 +49,14 @@ export function attachErrorState(state, ...errorTypes) {
     return state;
 }
 
+export function attachDataState(state, ...dataTypes) {
+    state.data = {};
+    for (const name of dataTypes) {
+        state.data[name] = "";
+    }
+    return attachErrorState(state, ...dataTypes);
+}
+
 export function AddErrorUpdater(errorType) {
     return (state) => update(state, {errors: {[errorType]: {$set: {error: false, message: ""}}}})
 }

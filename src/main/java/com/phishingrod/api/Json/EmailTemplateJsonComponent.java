@@ -1,4 +1,4 @@
-package com.phishingrod.api;
+package com.phishingrod.api.Json;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -24,7 +24,6 @@ public class EmailTemplateJsonComponent
 
     public static class deserializer extends JsonDeserializer<EmailTemplate>
     {
-
         @Override
         public EmailTemplate deserialize(JsonParser p, DeserializationContext ctxt) throws IOException
         {

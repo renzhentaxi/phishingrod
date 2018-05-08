@@ -1,12 +1,13 @@
 import React from 'react';
 import {Divider, Drawer, List, ListItem, ListItemText} from "material-ui";
 import {Link} from "react-router-dom";
+import logo from './logo.svg'
 
 export function AppMenu(props) {
     return (<Drawer variant="permanent" anchor="left">
-        <List>
-            <ListItem>
-                <ListItemText primary="Menu"/>
+        <List disablePadding>
+            <ListItem style={{backgroundColor: "gray"}}>
+                <img src={logo} className="App-logo" alt="logo"/>
             </ListItem>
             <Divider/>
 

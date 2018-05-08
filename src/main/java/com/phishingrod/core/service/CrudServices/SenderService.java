@@ -4,8 +4,8 @@ import com.phishingrod.core.domain.Sender;
 import com.phishingrod.core.domain.SenderServer;
 import com.phishingrod.core.exceptions.UnknownIdValidationException;
 import com.phishingrod.core.repository.SenderRepository;
-import com.phishingrod.core.service.serviceAddons.StatTrackerAddonProvider;
 import com.phishingrod.core.service.base.NameKeyedEntityService;
+import com.phishingrod.core.service.serviceAddons.StatTrackerAddonProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,12 +21,22 @@ public class SenderService extends NameKeyedEntityService<Sender, SenderReposito
     @Autowired
     public SenderService(SenderRepository repository, SenderServerService senderServerService)
     {
-        super(repository,"Sender");
+        super(repository, "Sender");
         this.senderServerService = senderServerService;
         registerAddon(preAdd, StatTrackerAddonProvider::onCreate);
+        registerAddon(preMod, this::merge);
         registerAddon(preMod, StatTrackerAddonProvider::onUpdate);
         registerAddon(modValidation, this::checkServerIsKnown);
         registerAddon(addValidation, this::checkServerIsKnown);
+    }
+
+    private Sender merge(Sender change)
+    {
+        Sender original = find(change.getId());
+        if (change.getName() != null) original.setName(change.getName());
+        if (change.getServer() != null) original.setServer(change.getServer());
+        if (change.getPassword() != null) original.setPassword(change.getPassword());
+        return original;
     }
 
     public Sender checkServerIsKnown(Sender sender)
