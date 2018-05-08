@@ -19,7 +19,7 @@ export function SmartRow(props) {
 }
 
 export function BasicRow(props) {
-    const cells = props.data.map(field => <TableCell key={field}>{field}</TableCell>)
+    const cells = props.data.map(field => field ? <TableCell key={field}>{field}</TableCell> : null);
     return (
         <TableRow>
             {cells}

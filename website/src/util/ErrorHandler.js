@@ -58,7 +58,8 @@ export function DeleteErrorUpdater(errorType) {
 }
 
 export function notEmptyValidator(name, value) {
-    if (value.trim().length === 0) return `${name} can not be empty`;
+
+    if (value.toString().trim().length === 0) return `${name} can not be empty`;
 }
 
 export function isNumberValidator(name, value) {
