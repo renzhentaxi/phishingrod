@@ -16,6 +16,25 @@ export function AppMenu(props) {
                 </ListItem>
             </Link>
 
+            <Link to="/templates">
+                <ListItem button>
+                    <ListItemText primary="Templates"/>
+                </ListItem>
+            </Link>
+
+            <Link to="/sender">
+                <ListItem button>
+                    <ListItemText primary="Senders"/>
+                </ListItem>
+            </Link>
+
+            <Link to="/senderServers">
+                <ListItem button>
+                    <ListItemText primary="SenderServers"/>
+                </ListItem>
+            </Link>
+
+
             <Link to="/phishingTarget">
                 <ListItem button>
                     <ListItemText primary="Phishing Targets"/>

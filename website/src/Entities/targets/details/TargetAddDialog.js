@@ -16,8 +16,8 @@ import {
     DeleteErrorUpdater,
     smartSetState,
     smartValidate
-} from "../../../ErrorHandler";
-import {DeleteParameterUpdater, SetParameterUpdater} from "../../../ParameterHandler";
+} from "../../../util/ErrorHandler";
+import {DeleteParameterUpdater, SetParameterUpdater} from "../../../util/ParameterHandler";
 
 function ButtonRow(props) {
     return (<TableRow>

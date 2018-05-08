@@ -4,7 +4,7 @@ import {SmartTextField} from "../SmartTextField";
 import TableCell from "material-ui/es/Table/TableCell";
 import {AddButton} from "../../ui/Buttons";
 import update from "immutability-helper";
-import {attachErrorState, smartSetState, smartValidate} from "../../../ErrorHandler";
+import {attachErrorState, smartSetState, smartValidate} from "../../../util/ErrorHandler";
 
 const DEFAULT_STATE = attachErrorState(
     {

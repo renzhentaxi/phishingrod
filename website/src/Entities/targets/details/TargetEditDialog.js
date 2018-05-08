@@ -16,8 +16,8 @@ import {
     DeleteErrorUpdater,
     smartSetState,
     smartValidate
-} from "../../../ErrorHandler";
-import {DeleteParameterUpdater, SetParameterUpdater} from "../../../ParameterHandler";
+} from "../../../util/ErrorHandler";
+import {DeleteParameterUpdater, SetParameterUpdater} from "../../../util/ParameterHandler";
 
 function ButtonRow(props) {
     return (<TableRow>
@@ -152,7 +152,7 @@ export class TargetEditDialog extends React.Component {
     }
 
     render() {
-        const {open, data} = this.props;
+        const {open} = this.props;
         const {id, createdOn, lastModifiedOn, emailAddress} = this.state.data;
         const hasError = this.state.hasError;
         const emailError = this.state.errors.emailAddress;

@@ -9,8 +9,9 @@ import {SpoofTargetAPI} from "../API";
 import update from "immutability-helper";
 import {TargetAddDialog} from "./details/TargetAddDialog";
 import {TargetEditDialog} from "./details/TargetEditDialog";
+import {AppHeader} from "../../app/AppHeader";
 
-class SpoofTargetTable extends React.Component {
+export class SpoofTargetTable extends React.Component {
 
     state = {
         data: [],
@@ -114,15 +115,14 @@ class SpoofTargetTable extends React.Component {
     }
 
     render() {
-        const head = this.renderHead();
-        const body = this.renderBody();
         return (
-            <Table>
-                {this.renderHead()}
-                {this.renderBody()}
-            </Table>
+            <div>
+                <AppHeader title="Spoof Targets" color="lightcoral"/>
+                <Table>
+                    {this.renderHead()}
+                    {this.renderBody()}
+                </Table>
+            </div>
         );
     }
 }
-
-export default SpoofTargetTable;
