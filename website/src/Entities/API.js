@@ -1,43 +1,44 @@
 import axios from "axios";
 
-const base = "http://localhost:8080/api";
+const base = "http://localhost:8080/api/";
 
-export class PhishingTargetAPI {
-    static url = `${base}/phishingTarget`;
+function stripData(entity) {
+    const stripped = Object.assign({}, entity);
+    delete stripped.id;
+    delete stripped.createdOn;
+    delete stripped.lastModifiedOn;
+    return stripped;
+}
 
-    static all() {
-        return axios.get(PhishingTargetAPI.url);
+class API {
+    constructor(url) {
+        this.url = base + url;
     }
 
-    static modify(id, phishingTarget) {
-        return axios.put(`${PhishingTargetAPI.url}/${id}`, phishingTarget)
+    instanceUrl(id) {
+        return `${this.url}/${id}`
     }
 
-    static delete(id) {
-        return axios.delete(`${PhishingTargetAPI.url}/${id}`);
+    all() {
+        return axios.get(this.url);
     }
 
-    static add(target) {
-        return axios.post(`${PhishingTargetAPI.url}`, target);
+    modify(id, entity) {
+        return axios.put(this.instanceUrl(id), stripData(entity));
+    }
+
+    delete(id) {
+        return axios.delete(this.instanceUrl(id));
+    }
+
+    add(entity) {
+        return axios.post(this.url, entity);
     }
 }
 
-export class SpoofTargetAPI {
-    static url = `${base}/spoofTarget`;
-
-    static all() {
-        return axios.get(SpoofTargetAPI.url);
-    }
-
-    static modify(id, spoofTarget) {
-        return axios.put(`${SpoofTargetAPI.url}/${id}`, spoofTarget)
-    }
-
-    static delete(id) {
-        return axios.delete(`${SpoofTargetAPI.url}/${id}`);
-    }
-
-    static add(target) {
-        return axios.post(`${SpoofTargetAPI.url}`, target);
-    }
-}
+export const PhishingTargetAPI = new API("phishingTarget");
+export const SpoofTargetAPI = new API("spoofTarget");
+export const SenderAPI = new API("sender");
+export const SenderServerAPI = new API("senderServer");
+export const EmailTemplateAPI = new API("emailTemplate");
+export const AttemptAPI = new API("attempt");

@@ -18,8 +18,8 @@ public class PhishingTargetService extends EmailKeyedEntityService<PhishingTarge
     {
         super(repository, "Phishing Target");
         registerAddon(preAdd, StatTrackerAddonProvider::onCreate);
-        registerAddon(preMod, StatTrackerAddonProvider::onUpdate);
         registerAddon(preMod, this::merge);
+        registerAddon(preMod, StatTrackerAddonProvider::onUpdate);
         registerAddon(addValidation, this::validateInsert);
         registerAddon(preInsert, service::syncUsingMap);
         registerAddon(postExtract, service::syncUsingSet);

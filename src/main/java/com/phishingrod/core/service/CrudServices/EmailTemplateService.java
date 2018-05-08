@@ -30,9 +30,9 @@ public class EmailTemplateService extends NameKeyedEntityService<EmailTemplate, 
         this.parameterService = parameterService;
 
         registerAddon(EntityServiceAddonType.preInsert, this::preInsert);
+        registerAddon(EntityServiceAddonType.preMod, this::merge);
         registerAddon(EntityServiceAddonType.preAdd, StatTrackerAddonProvider::onCreate);
         registerAddon(EntityServiceAddonType.preMod, StatTrackerAddonProvider::onUpdate);
-        registerAddon(EntityServiceAddonType.preMod, this::merge);
     }
 
     private EmailTemplate merge(EmailTemplate change)

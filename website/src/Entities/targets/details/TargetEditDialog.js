@@ -31,6 +31,9 @@ function ButtonRow(props) {
 const DEFAULT_STATE = attachErrorState(
     {
         data: {
+            id: 0,
+            lastModifiedOn: "",
+            createdOn: "",
             emailAddress: "",
             parameters: {}
         },

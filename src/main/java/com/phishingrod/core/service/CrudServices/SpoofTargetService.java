@@ -2,8 +2,8 @@ package com.phishingrod.core.service.CrudServices;
 
 import com.phishingrod.core.domain.SpoofTarget;
 import com.phishingrod.core.repository.SpoofTargetRepository;
-import com.phishingrod.core.service.serviceAddons.StatTrackerAddonProvider;
 import com.phishingrod.core.service.base.EmailKeyedEntityService;
+import com.phishingrod.core.service.serviceAddons.StatTrackerAddonProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +17,8 @@ public class SpoofTargetService extends EmailKeyedEntityService<SpoofTarget, Spo
     {
         super(repository, "Spoof Target");
         registerAddon(preAdd, StatTrackerAddonProvider::onCreate);
-        registerAddon(preMod, StatTrackerAddonProvider::onUpdate);
         registerAddon(preMod, this::merge);
+        registerAddon(preMod, StatTrackerAddonProvider::onUpdate);
         registerAddon(preInsert, service::syncUsingMap);
         registerAddon(postExtract, service::syncUsingSet);
     }
