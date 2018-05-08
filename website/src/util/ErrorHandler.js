@@ -56,3 +56,26 @@ export function AddErrorUpdater(errorType) {
 export function DeleteErrorUpdater(errorType) {
     return (state) => update(state, {errors: {$unset: [errorType]}})
 }
+
+export function notEmptyValidator(name, value) {
+    if (value.trim().length === 0) return `${name} can not be empty`;
+}
+
+export function isNumberValidator(name, value) {
+    if (isNaN(value)) return `${name} has to be a number`
+}
+
+export function createValidator(context, name, ...validators) {
+    return () => {
+        const result = {type: name};
+        const {[name]: value} = context.state.data;
+        for (const validator of validators) {
+            const message = validator(name, value);
+            if (message) {
+                result.message = message;
+                return result;
+            }
+        }
+        return result;
+    };
+}

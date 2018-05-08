@@ -4,15 +4,16 @@ import TableHead from "material-ui/es/Table/TableHead";
 import Table from "material-ui/es/Table/Table";
 import TableBody from "material-ui/es/Table/TableBody";
 import {AddButton, RefreshButton} from "../ui/Buttons";
-import {TargetRow} from "./TargetRow";
-import {SpoofTargetAPI} from "../API";
+import {SenderServerAPI} from "../API";
 import update from "immutability-helper";
-import {TargetAddDialog} from "./details/TargetAddDialog";
-import {TargetEditDialog} from "./details/TargetEditDialog";
+import {TargetEditDialog} from "../targets/details/TargetEditDialog";
 import {AppHeader} from "../../app/AppHeader";
+import {SenderServerAddDialog} from "./dialog/SenderServerAddDialog";
+import {SmartRow} from "../ui/SmartRow";
 
-export class SpoofTargetTable extends React.Component {
+export class SenderServerTable extends React.Component {
 
+    api = SenderServerAPI;
     state = {
         data: [],
         showAddDialog: false,
@@ -39,22 +40,22 @@ export class SpoofTargetTable extends React.Component {
     }
 
     async refreshData() {
-        const {data} = await SpoofTargetAPI.all();
+        const {data} = await this.api.all();
         this.setState({data});
     }
 
     async handleDelete(id) {
-        await SpoofTargetAPI.delete(id);
+        await this.api.delete(id);
         this.refreshData();
     }
 
     async handleAdd(target) {
-        await SpoofTargetAPI.add(target);
+        await this.api.add(target);
         this.refreshData();
     }
 
     async handleSave(target) {
-        await SpoofTargetAPI.modify(target.id, target);
+        await this.api.modify(target.id, target);
         this.refreshData();
     }
 
@@ -84,16 +85,16 @@ export class SpoofTargetTable extends React.Component {
             <TableHead>
                 <TableRow>
                     <TableCell>Id</TableCell>
-                    <TableCell>Email Addresss</TableCell>
+                    <TableCell>Name</TableCell>
+                    <TableCell>Host</TableCell>
+                    <TableCell>Port</TableCell>
                     <TableCell>Score</TableCell>
-                    <TableCell>Created On</TableCell>
-                    <TableCell>Last Modified On</TableCell>
                     <TableCell>
                         <RefreshButton onClick={this.refreshData}/>
                         <AddButton onClick={this.openAddDialog}/>
-                        <TargetAddDialog open={this.state.showAddDialog}
-                                         onClose={this.closeAddDialog}
-                                         onAdd={this.handleAdd}/>
+                        <SenderServerAddDialog open={this.state.showAddDialog}
+                                               onClose={this.closeAddDialog}
+                                               onAdd={this.handleAdd}/>
                         <TargetEditDialog open={this.state.showEditDialog}
                                           ref={this.editRef}
                                           onClose={this.closeEditDialog}
@@ -105,18 +106,21 @@ export class SpoofTargetTable extends React.Component {
         );
     }
 
+    orders = ["id", "name", "host", "port", "score"];
+
     renderBody() {
         return (<TableBody>
-            {this.state.data.map((t) => <TargetRow key={t.id} data={t}
-                                                   onView={this.openEditDialog}
-                                                   onDelete={this.handleDelete}/>)}
+            {this.state.data.map((t) => <SmartRow key={t.id} data={t}
+                                                  orders={this.orders}
+                                                  onView={this.openEditDialog}
+                                                  onDelete={this.handleDelete}/>)}
         </TableBody>);
     }
 
     render() {
         return (
             <div>
-                <AppHeader title="Spoof Targets" color="lightcoral"/>
+                <AppHeader title="Sender Servers" color="firebrick"/>
                 <Table>
                     {this.renderHead()}
                     {this.renderBody()}

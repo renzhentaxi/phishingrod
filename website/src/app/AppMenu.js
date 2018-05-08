@@ -28,7 +28,7 @@ export function AppMenu(props) {
                 </ListItem>
             </Link>
 
-            <Link to="/senderServers">
+            <Link to="/senderServer">
                 <ListItem button>
                     <ListItemText primary="SenderServers"/>
                 </ListItem>

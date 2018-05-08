@@ -1,11 +1,11 @@
 import React from 'react';
 import IconButton from "material-ui/es/IconButton/IconButton";
 import "./Buttons.css";
-import editIcon from './edit.svg';
-import deleteIcon from './delete.svg';
-import viewIcon from './view.svg';
-import refreshIcon from './refreshIcon.svg';
-import addIcon from './addIcon.svg';
+import editIcon from './icons/edit.svg';
+import deleteIcon from './icons/delete.svg';
+import viewIcon from './icons/view.svg';
+import refreshIcon from './icons/refreshIcon.svg';
+import addIcon from './icons/addIcon.svg';
 import Tooltip from "material-ui/es/Tooltip/Tooltip";
 
 export class ActionButton extends React.Component {
@@ -51,3 +51,4 @@ export function AddButton(props) {
         <ActionButton {...props} icon={addIcon} alt="add"/>
     )
 }
+
