@@ -21,7 +21,8 @@ export class SmartTextField extends React.Component {
 
     render() {
         const {label, errors = [], onChange, ...rest} = this.props;
-        const {error, message} = errors.find((e) => e.error) || {error: false, message: ""};
+        const {error, message} = (errors.find((e) => e && e.error) || {error: false, message: ""});
+
 
         return (<TextField error={error} helperText={message} label={upperCase(label)}
                            onChange={this.handleChange} {...rest}/>);

@@ -4,26 +4,34 @@ import TableHead from "material-ui/es/Table/TableHead";
 import Table from "material-ui/es/Table/Table";
 import TableBody from "material-ui/es/Table/TableBody";
 import {AddButton, RefreshButton} from "../ui/Buttons";
-import PhishingTargetRow from "./PhishingTargetRow";
+import {TargetRow} from "./TargetRow";
 import {PhishingTargetAPI} from "../API";
 import update from "immutability-helper";
-import PhishingTargetAddDialog from "./details/PhishingTargetAddDialog";
+import {TargetAddDialog} from "./details/TargetAddDialog";
+import {TargetEditDialog} from "./details/TargetEditDialog";
 
 class PhishingTargetTable extends React.Component {
 
-    state =
-        {
-            data: [],
-            showAddDialog: false
-        };
+    state = {
+        data: [],
+        showAddDialog: false,
+        showEditDialog: false,
+        editing: {}
+    };
 
     constructor() {
         super();
+        this.editRef = React.createRef();
         this.handleDelete = this.handleDelete.bind(this);
         this.refreshData = this.refreshData.bind(this);
-        this.openAddDialog = this.openAddDialog.bind(this);
+
         this.handleAdd = this.handleAdd.bind(this);
+        this.openAddDialog = this.openAddDialog.bind(this);
         this.closeAddDialog = this.closeAddDialog.bind(this);
+
+        this.handleSave = this.handleSave.bind(this);
+        this.openEditDialog = this.openEditDialog.bind(this);
+        this.closeEditDialog = this.closeEditDialog.bind(this);
     }
 
     componentWillMount() {
@@ -45,13 +53,30 @@ class PhishingTargetTable extends React.Component {
         this.refreshData();
     }
 
+    async handleSave(target) {
+        await PhishingTargetAPI.modify(target.id, target);
+        this.refreshData();
+    }
+
     openAddDialog() {
         const newState = update(this.state, {showAddDialog: {$set: true}});
         this.setState(newState);
     }
 
+    openEditDialog(id) {
+        const target = this.state.data.find(t => t.id === id);
+        this.editRef.current.initalize(target);
+        this.setState((state) => {
+            return update(state, {showEditDialog: {$set: true}});
+        });
+    }
+
     closeAddDialog() {
         this.setState(update(this.state, {showAddDialog: {$set: false}}))
+    }
+
+    closeEditDialog(id) {
+        this.setState(update(this.state, {showEditDialog: {$set: false}}))
     }
 
     renderHead() {
@@ -66,9 +91,13 @@ class PhishingTargetTable extends React.Component {
                     <TableCell>
                         <RefreshButton onClick={this.refreshData}/>
                         <AddButton onClick={this.openAddDialog}/>
-                        <PhishingTargetAddDialog open={this.state.showAddDialog}
-                                                 onClose={this.closeAddDialog}
-                                                 onAdd={this.handleAdd}/>
+                        <TargetAddDialog open={this.state.showAddDialog}
+                                         onClose={this.closeAddDialog}
+                                         onAdd={this.handleAdd}/>
+                        <TargetEditDialog open={this.state.showEditDialog}
+                                          ref={this.editRef}
+                                          onClose={this.closeEditDialog}
+                                          onSave={this.handleSave}/>
                     </TableCell>
 
                 </TableRow>
@@ -78,8 +107,9 @@ class PhishingTargetTable extends React.Component {
 
     renderBody() {
         return (<TableBody>
-            {this.state.data.map((t) => <PhishingTargetRow key={t.id} data={t} onChange={this.refreshData}
-                                                           onDelete={this.handleDelete}/>)}
+            {this.state.data.map((t) => <TargetRow key={t.id} data={t}
+                                                   onView={this.openEditDialog}
+                                                   onDelete={this.handleDelete}/>)}
         </TableBody>);
     }
 

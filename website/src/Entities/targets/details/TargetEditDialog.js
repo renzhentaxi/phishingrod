@@ -39,7 +39,7 @@ const DEFAULT_STATE = attachErrorState(
     "parameters"
 );
 
-class PhishingTargetAddDialog extends React.Component {
+export class TargetEditDialog extends React.Component {
 
     constructor() {
         super();
@@ -57,7 +57,7 @@ class PhishingTargetAddDialog extends React.Component {
         this.handleDeleteParameter = this.handleDeleteParameter.bind(this);
         this.handleChangeParameter = this.handleChangeParameter.bind(this);
         this.handleClose = this.handleClose.bind(this);
-        this.handleAdd = this.handleAdd.bind(this);
+        this.handleSave = this.handleSave.bind(this);
     }
 
     validateParameter(name) {
@@ -101,14 +101,23 @@ class PhishingTargetAddDialog extends React.Component {
         this.setState(DeleteErrorUpdater("param_" + name));
     }
 
+    initalize(data) {
+        const {parameters} = data;
+        for (const paramName of Object.keys(parameters)) {
+            this.setState(AddErrorUpdater("param_" + paramName));
+        }
+
+        this.setState((state) => update(state, {data: {$set: data}}));
+    }
+
     checkDuplicate(name) {
         return this.state.data.parameters.hasOwnProperty(name);
     }
 
-    handleAdd() {
+    handleSave() {
         const {data} = this.state;
         if (smartValidate(this, this.validateEmailAddress, ...this.getAllParameterValidators())) {
-            this.props.onAdd(data);
+            this.props.onSave(data);
             this.props.onClose();
             this.reset();
         }
@@ -143,7 +152,8 @@ class PhishingTargetAddDialog extends React.Component {
     }
 
     render() {
-        const {open} = this.props;
+        const {open, data} = this.props;
+        const {id, createdOn, lastModifiedOn, emailAddress} = this.state.data;
         const hasError = this.state.hasError;
         const emailError = this.state.errors.emailAddress;
 
@@ -152,13 +162,16 @@ class PhishingTargetAddDialog extends React.Component {
                 <DialogTitle style={{textAlign: "center"}}>Add Dialog</DialogTitle>
                 <Table>
                     <TableBody>
-                        <SmartTextFieldRow label="Email Address" onChange={this.handleEmailChange}
+                        <SmartTextFieldRow label="Id" value={id} disabled/>
+                        <SmartTextFieldRow label="CreatedOn" value={createdOn} disabled/>
+                        <SmartTextFieldRow label="LastModifiedOn" value={lastModifiedOn} disabled/>
+                        <SmartTextFieldRow label="Email Address" value={emailAddress} onChange={this.handleEmailChange}
                                            errors={[emailError]}/>
                         {this.genParameterRows()}
                         <AddParameterRow
                             onAdd={this.handleAddParameter}
                             checkDuplicate={this.checkDuplicate}/>
-                        <ButtonRow onClick={this.handleAdd} text="add" disabled={hasError}/>
+                        <ButtonRow onClick={this.handleSave} text="save" disabled={hasError}/>
                     </TableBody>
                 </Table>
             </Dialog>
@@ -166,4 +179,3 @@ class PhishingTargetAddDialog extends React.Component {
     }
 }
 
-export default PhishingTargetAddDialog;
