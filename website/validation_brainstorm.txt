@@ -1,0 +1,18 @@
+validate(toValidate)->
+{
+ error: true|false,
+ message: string
+}
+
+updateError(type, error)
+{
+
+}
+
+each object will have an error state
+    {
+        type: {error:true, message:none}
+        "emailAddress": {error:true, message:none}
+        "parameter.paramName":
+
+    }

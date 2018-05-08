@@ -11,10 +11,10 @@ import Tooltip from "material-ui/es/Tooltip/Tooltip";
 export class ActionButton extends React.Component {
 
     render() {
-        const {icon, alt, onClick} = this.props;
+        const {icon, alt, onClick, disabled = false} = this.props;
         return (
             <Tooltip title={alt}>
-                <IconButton onClick={onClick}>
+                <IconButton onClick={onClick} disabled={disabled}>
                     <img src={icon} className="actionButton" alt={alt}/>
                 </IconButton>
             </Tooltip>

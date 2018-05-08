@@ -1,2 +1,3 @@
-xterm -hold -e "./gradlew bootrun" &
-xterm -hold -e "cd website; npm start";
+#!/usr/bin/env bash
+xterm -e "./gradlew bootrun" &
+xterm -e "cd website; npm start";

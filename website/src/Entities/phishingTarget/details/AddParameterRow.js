@@ -3,55 +3,86 @@ import TableRow from "material-ui/es/Table/TableRow";
 import {SmartTextField} from "../SmartTextField";
 import TableCell from "material-ui/es/Table/TableCell";
 import {AddButton} from "../../ui/Buttons";
+import update from "immutability-helper";
+import {attachErrorState, smartSetState, smartValidate} from "../../../ErrorHandler";
 
+const DEFAULT_STATE = attachErrorState(
+    {
+        name: "",
+        value: "",
+    },
+    "name", "value");
 
 export class AddParameterRow extends React.Component {
-    state = {
-        name: "",
-        value: ""
-    };
-
     constructor() {
         super();
-        this.nameRef = React.createRef();
-        this.valueRef = React.createRef();
+        this.state = Object.assign({}, DEFAULT_STATE);
         this.handleChange = this.handleChange.bind(this);
         this.handleAdd = this.handleAdd.bind(this);
-        this.handleError = this.handleError.bind(this);
+        this.validateValue = this.validateValue.bind(this);
+        this.validateName = this.validateName.bind(this);
+    }
+
+    validateName() {
+        const {checkDuplicate} = this.props;
+        const {name} = this.state;
+        const result = {type: "name"};
+
+        if (name.trim().length === 0) {
+            result.message = "Name can not be empty";
+        } else if (checkDuplicate(name)) {
+            result.message = "Paramter with the same name already exist";
+        }
+        return result;
+    }
+
+    validateValue() {
+        const {value} = this.state;
+        const result = {type: "value"};
+        if (value.trim().length === 0) {
+            result.message = "Value can not be empty"
+        }
+        return result;
     }
 
     handleChange(label, value) {
-        this.setState({[label]: value});
-        return true;
+        const newState = update(this.state, {[label]: {$set: value}});
+        switch (label) {
+            case "name":
+                smartSetState(this, newState, this.validateName);
+                break;
+            case "value":
+                smartSetState(this, newState, this.validateValue);
+                break;
+            default:
+                console.error("invalid label");
+        }
     }
 
     handleAdd() {
-        const {name, value} = this.state;
-        const added = this.props.onAdd(name, value, this.handleError);
-
-        if (added) {
-            this.setState({name: "", value: ""})
+        if (smartValidate(this, this.validateValue, this.validateName)) {
+            const {name, value} = this.state;
+            this.props.onAdd(name, value);
+            this.reset()
         }
-
     }
 
-    handleError(source, message) {
-        const ref = (source === "name") ? this.nameRef : this.valueRef;
-        ref.current.handleError(message);
+    reset() {
+        this.setState(DEFAULT_STATE)
     }
 
     render() {
-        const {name, value} = this.state;
+        const {name, value, errors: {name: nameError, value: valueError}} = this.state;
         return (
             <TableRow>
                 <TableCell>
-                    <SmartTextField ref={this.nameRef} label="name" value={name} onChange={this.handleChange}/>
+                    <SmartTextField label="name" errors={[nameError]} value={name} onChange={this.handleChange}/>
                 </TableCell>
                 <TableCell>
-                    <SmartTextField ref={this.valueRef} label="value" value={value} onChange={this.handleChange}/>
+                    <SmartTextField label="value" errors={[valueError]} value={value} onChange={this.handleChange}/>
                 </TableCell>
                 <TableCell>
-                    <AddButton onClick={this.handleAdd}/>
+                    <AddButton onClick={this.handleAdd} disabled={this.state.hasError}/>
                 </TableCell>
             </TableRow>
         )

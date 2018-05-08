@@ -40,8 +40,7 @@ class PhishingTargetTable extends React.Component {
         this.refreshData();
     }
 
-    async handleAdd(target)
-    {
+    async handleAdd(target) {
         await PhishingTargetAPI.add(target);
         this.refreshData();
     }
@@ -51,8 +50,7 @@ class PhishingTargetTable extends React.Component {
         this.setState(newState);
     }
 
-    closeAddDialog()
-    {
+    closeAddDialog() {
         this.setState(update(this.state, {showAddDialog: {$set: false}}))
     }
 
@@ -68,7 +66,9 @@ class PhishingTargetTable extends React.Component {
                     <TableCell>
                         <RefreshButton onClick={this.refreshData}/>
                         <AddButton onClick={this.openAddDialog}/>
-                        <PhishingTargetAddDialog open={this.state.showAddDialog} onClose={this.closeAddDialog} onAdd={this.handleAdd}/>
+                        <PhishingTargetAddDialog open={this.state.showAddDialog}
+                                                 onClose={this.closeAddDialog}
+                                                 onAdd={this.handleAdd}/>
                     </TableCell>
 
                 </TableRow>

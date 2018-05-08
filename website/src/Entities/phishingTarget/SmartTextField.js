@@ -10,44 +10,31 @@ export class SmartTextField extends React.Component {
 
     constructor() {
         super();
-        this.state = {error: false, message: ""};
         this.handleChange = this.handleChange.bind(this);
-        this.handleError = this.handleError.bind(this);
     }
 
     handleChange(e) {
+        const {label, onChange} = this.props;
         const value = e.target.value;
-        const hasChanged = this.props.onChange(this.props.label, value, this.handleError);
-        if (hasChanged) {
-            this.clearError();
-        }
-    }
-
-
-    handleError(message) {
-        this.setState({error: true, message});
-    }
-
-    clearError() {
-        this.setState({error: false, message: ""})
+        onChange(label, value);
     }
 
     render() {
-        const {label, value, disabled} = this.props;
-        const {error, message} = this.state;
-        return (<TextField label={upperCase(label)} value={value}
-                           error={error} helperText={message}
-                           onChange={this.handleChange} disabled={disabled}/>);
+        const {label, errors = [], onChange, ...rest} = this.props;
+        const {error, message} = errors.find((e) => e.error) || {error: false, message: ""};
+
+        return (<TextField error={error} helperText={message} label={upperCase(label)}
+                           onChange={this.handleChange} {...rest}/>);
     }
 }
-export class SmartTextFieldRow extends React.Component
-{
-    render()
-    {
+
+export class SmartTextFieldRow extends React.Component {
+    render() {
+        const {label} = this.props;
         return (
             <TableRow>
                 <TableCell>
-                    {this.props.label}
+                    {label}
                 </TableCell>
                 <TableCell colSpan="2">
                     <SmartTextField {...this.props}/>
