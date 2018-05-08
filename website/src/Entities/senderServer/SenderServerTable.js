@@ -6,10 +6,10 @@ import TableBody from "material-ui/es/Table/TableBody";
 import {AddButton, RefreshButton} from "../ui/Buttons";
 import {SenderServerAPI} from "../API";
 import update from "immutability-helper";
-import {TargetEditDialog} from "../targets/details/TargetEditDialog";
 import {AppHeader} from "../../app/AppHeader";
 import {SenderServerAddDialog} from "./dialog/SenderServerAddDialog";
 import {SmartRow} from "../ui/SmartRow";
+import {SenderServerEditDialog} from "./dialog/SenderServerEditDialog";
 
 export class SenderServerTable extends React.Component {
 
@@ -66,7 +66,8 @@ export class SenderServerTable extends React.Component {
 
     openEditDialog(id) {
         const target = this.state.data.find(t => t.id === id);
-        this.editRef.current.initalize(target);
+        console.log(this.editRef.current);
+        this.editRef.current.initialize(target);
         this.setState((state) => {
             return update(state, {showEditDialog: {$set: true}});
         });
@@ -95,10 +96,10 @@ export class SenderServerTable extends React.Component {
                         <SenderServerAddDialog open={this.state.showAddDialog}
                                                onClose={this.closeAddDialog}
                                                onAdd={this.handleAdd}/>
-                        <TargetEditDialog open={this.state.showEditDialog}
-                                          ref={this.editRef}
-                                          onClose={this.closeEditDialog}
-                                          onSave={this.handleSave}/>
+                        <SenderServerEditDialog open={this.state.showEditDialog}
+                                                ref={this.editRef}
+                                                onClose={this.closeEditDialog}
+                                                onSave={this.handleSave}/>
                     </TableCell>
 
                 </TableRow>
@@ -112,7 +113,7 @@ export class SenderServerTable extends React.Component {
         return (<TableBody>
             {this.state.data.map((t) => <SmartRow key={t.id} data={t}
                                                   orders={this.orders}
-                                                  onView={this.openEditDialog}
+                                                  onEdit={this.openEditDialog}
                                                   onDelete={this.handleDelete}/>)}
         </TableBody>);
     }
