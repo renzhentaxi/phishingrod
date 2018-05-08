@@ -16,7 +16,7 @@ import java.util.Set;
 @JsonComponent
 public class EmailTemplateJsonComponent
 {
-    public final static String HTML_FIELD = "sourceHtml";
+    public final static String HTML_FIELD = "html";
     public final static String NAME_FIELD = "name";
     public final static String PARAM_FIELD = "parameters";
     public final static String PARAM_SOURCETYPE_FIELD = "sourceType";

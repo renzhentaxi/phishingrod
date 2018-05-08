@@ -17,7 +17,7 @@ export function AppMenu(props) {
                 </ListItem>
             </Link>
 
-            <Link to="/templates">
+            <Link to="/emailTemplate">
                 <ListItem button>
                     <ListItemText primary="Templates"/>
                 </ListItem>

@@ -8,6 +8,7 @@ import {PhishingTargetTable} from "../Entities/targets/PhishingTargetTable";
 import {SpoofTargetTable} from "../Entities/targets/SpoofTargetTable";
 import {SenderServerTable} from "../Entities/senderServer/SenderServerTable";
 import {SenderTable} from "../Entities/senders/SenderTable";
+import {TemplateTable} from "../Entities/templates/TemplateTable";
 
 class App extends Component {
 
@@ -24,6 +25,7 @@ class App extends Component {
                         <Route exact path='/spoofTarget' component={SpoofTargetTable}/>
                         <Route exact path='/senderServer' component={SenderServerTable}/>
                         <Route exact path='/sender' component={SenderTable}/>
+                        <Route exact path='/emailTemplate' component={TemplateTable}/>
                     </Switch>
                 </div>
             </div>

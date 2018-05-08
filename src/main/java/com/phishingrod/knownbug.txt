@@ -1,1 +1,2 @@
-1.no validation on any input... emailAddress, createdOn... can all be changed via the rest api.
+1. serverSide validation
+2. error message

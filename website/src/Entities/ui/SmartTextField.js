@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from "material-ui/es/TextField/TextField";
 import {TableCell, TableRow} from "material-ui/es/Table"
+import {upperCase} from "../../util/util";
 
 export class SmartTextField extends React.Component {
 
@@ -16,10 +17,17 @@ export class SmartTextField extends React.Component {
     }
 
     render() {
-        const {name, errorState: {[name]: {error, message}}, value} = this.props;
-        return (<TextField label={name} value={value}
-                           error={error} helperText={message}
-                           onChange={this.handleChange}/>);
+        const {name, errorState: {[name]: {error, message}}, value, line} = this.props;
+        const multiline = line && true;
+        return (<TextField
+            fullWidth
+            label={name} value={value}
+            error={error} helperText={message}
+            multiline={multiline}
+            rows={line}
+            onChange={this.handleChange}
+            style={multiline ? {minWidth: 800} : undefined}
+        />);
     }
 }
 
@@ -29,12 +37,12 @@ export class SmartTextFieldRow extends React.Component {
         return (
             <TableRow>
                 <TableCell>
-                    {name}
+                    {upperCase(name)}
                 </TableCell>
-                <TableCell colSpan="2">
+                <TableCell>
                     <SmartTextField {...this.props}/>
                 </TableCell>
             </TableRow>
-        )
+        );
     }
 }

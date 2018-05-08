@@ -1,8 +1,6 @@
 package com.phishingrod.core.service.CrudServices;
 
 import com.phishingrod.core.domain.EmailTemplate;
-import com.phishingrod.core.domain.SpoofTarget;
-import com.phishingrod.core.domain.parameters.Parameter;
 import com.phishingrod.core.repository.EmailTemplateRepository;
 import com.phishingrod.core.service.base.EntityServiceAddonType;
 import com.phishingrod.core.service.base.NameKeyedEntityService;
@@ -11,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.HashSet;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,10 +28,17 @@ public class EmailTemplateService extends NameKeyedEntityService<EmailTemplate, 
         this.phishingTargetService = phishingTargetService;
         this.parameterService = parameterService;
 
+        registerAddon(EntityServiceAddonType.preAdd, this::setNullParamtersToEmptyParameter);
         registerAddon(EntityServiceAddonType.preInsert, this::preInsert);
         registerAddon(EntityServiceAddonType.preMod, this::merge);
         registerAddon(EntityServiceAddonType.preAdd, StatTrackerAddonProvider::onCreate);
         registerAddon(EntityServiceAddonType.preMod, StatTrackerAddonProvider::onUpdate);
+    }
+
+    private EmailTemplate setNullParamtersToEmptyParameter(EmailTemplate newEmail)
+    {
+        if (newEmail.getParameters() == null) newEmail.setParameters(new HashSet<>());
+        return newEmail;
     }
 
     private EmailTemplate merge(EmailTemplate change)
@@ -43,18 +49,6 @@ public class EmailTemplateService extends NameKeyedEntityService<EmailTemplate, 
         if (change.getName() != null) original.setName(change.getName());
         if (change.getParameters() != null) original.replaceParameters(change.getParameters());
         return original;
-    }
-
-    private boolean isValidSpoofTarget(EmailTemplate template, SpoofTarget spoofTarget)
-    {
-        for (Parameter p : template.getParameters())
-        {
-            if (!spoofTarget.hasParameter(p.getName()))
-            {
-                return false;
-            }
-        }
-        return true;
     }
 
     private EmailTemplate preInsert(EmailTemplate template)

@@ -21,7 +21,6 @@ import java.util.Set;
 @NoArgsConstructor
 public class EmailTemplate extends StatTrackingNameKeyEntity
 {
-    @JsonProperty("sourceHtml")
     @Column(length = 1000000, nullable = false)
     private String html;
 
@@ -37,10 +36,10 @@ public class EmailTemplate extends StatTrackingNameKeyEntity
 
     public EmailTemplate(String name, String html)
     {
-        this(name, html, new HashSet<>(), new HashSet<>());
+        this(name, html, new HashSet<>());
     }
 
-    public EmailTemplate(String name, String html, Set<Parameter> parameters, Set<SpoofTarget> spoofTargets)
+    public EmailTemplate(String name, String html, Set<Parameter> parameters)
     {
         super(name);
         this.html = html;
