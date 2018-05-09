@@ -17,6 +17,7 @@ import {DataUpdater} from "../../../util/Updaters";
 import {BasicRow} from "../../ui/SmartRow";
 import Button from "material-ui/es/Button/Button";
 import {TemplateSmartEditDialog} from "./TemplateSmartEditDialog";
+import {bind} from "./ParameterDialog";
 
 function ButtonRow(props) {
     const {data} = props;
@@ -34,15 +35,13 @@ function ButtonRow(props) {
 
     return (<TableRow>
         {cells}
-        {/*<Button onClick={props.onClick} variant="raised" color="primary" disabled={props.disabled}*/}
-        {/*style={{width: "100%"}}>{props.text}</Button>*/}
     </TableRow>);
 }
 
 const FIELDS = ["name", "html"];
 
 const DEFAULT_STATE = attachDataState({}, ...FIELDS);
-
+DEFAULT_STATE.openAdvanced = false;
 
 export class TemplateEditDialog extends React.Component {
 
@@ -55,6 +54,7 @@ export class TemplateEditDialog extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.handleSave = this.handleSave.bind(this);
+        bind(this, "openAdvanced", "closeAdvanced", "onSaveAdvanced")
     }
 
     validators =
@@ -83,7 +83,19 @@ export class TemplateEditDialog extends React.Component {
         }
     }
 
-    handleAdvanced() {
+    openAdvanced() {
+        this.setState({openAdvanced: true});
+        this.advancedEditorRef.current.init(this.state.data.html);
+    }
+
+    closeAdvanced() {
+        this.setState({openAdvanced: false});
+    }
+
+    onSaveAdvanced(html, parameters) {
+        this.closeAdvanced();
+        this.setState(DataUpdater("html", html));
+        this.setState(DataUpdater("parameters", parameters));
 
     }
 
@@ -97,16 +109,18 @@ export class TemplateEditDialog extends React.Component {
     }
 
     readRows = ["id", "createdOn", "lastModifiedOn"];
+    advancedEditorRef = React.createRef();
 
     render() {
         const {open} = this.props;
-        const {hasError, errors, data} = this.state;
+        const {hasError, errors, data, openAdvanced} = this.state;
 
         const readTextFields = this.readRows.map(name => <BasicRow key={name} data={[name, data[name]]}/>);
         return (
             <Dialog open={open} onClose={this.handleClose} maxWidth={false}>
                 <DialogTitle style={{textAlign: "center"}}>Edit Template</DialogTitle>
-                <TemplateSmartEditDialog/>
+                <TemplateSmartEditDialog ref={this.advancedEditorRef} open={openAdvanced} onClose={this.closeAdvanced}
+                                         onSave={this.onSaveAdvanced}/>
                 <Table>
                     <TableBody>
                         {readTextFields}
@@ -116,7 +130,7 @@ export class TemplateEditDialog extends React.Component {
                                            errorState={errors} line={20}/>
                         <ButtonRow data={
                             [
-                                {text: "Advanced", onClick: this.handleAdvanced, disabled: false},
+                                {text: "Advanced", onClick: this.openAdvanced, disabled: false},
                                 {text: "Save", onClick: this.handleSave, disabled: hasError},
                             ]
                         }/>
