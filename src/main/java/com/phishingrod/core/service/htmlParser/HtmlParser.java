@@ -71,7 +71,7 @@ public class HtmlParser
      */
     public Document replaceLinkWithTrackLink(Document document, long attemptId)
     {
-        String url = "https://protected-reef-24647.herokuapp.com//api/attempt/" + attemptId + "/track";
+        String url = "https://protected-reef-24647.herokuapp.com/api/attempt/" + attemptId + "/track";
         Elements linkNodes = document.select("a");
         linkNodes.forEach(element -> element.attr("href", url));
         return document;
