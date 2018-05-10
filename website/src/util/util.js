@@ -1,3 +1,7 @@
+export function bind(context, ...funcNames) {
+    funcNames.forEach(name => context[name] = context[name].bind(context));
+}
+
 export function upperCase(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }

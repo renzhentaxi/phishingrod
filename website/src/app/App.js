@@ -9,6 +9,7 @@ import {SpoofTargetTable} from "../Entities/targets/SpoofTargetTable";
 import {SenderServerTable} from "../Entities/senderServer/SenderServerTable";
 import {SenderTable} from "../Entities/senders/SenderTable";
 import {TemplateTable} from "../Entities/templates/TemplateTable";
+import {AttemptTable} from "../Entities/attempts/AttemptTable";
 
 class App extends Component {
 
@@ -20,12 +21,13 @@ class App extends Component {
                 </div>
                 <div className="prPage">
                     <Switch>
-                        <Route exact path='/' component={PhishingTargetTable}/>
+                        <Route exact path='/' component={AttemptTable}/>
                         <Route exact path='/phishingTarget' component={PhishingTargetTable}/>
                         <Route exact path='/spoofTarget' component={SpoofTargetTable}/>
                         <Route exact path='/senderServer' component={SenderServerTable}/>
                         <Route exact path='/sender' component={SenderTable}/>
                         <Route exact path='/emailTemplate' component={TemplateTable}/>
+                        <Route exact path='/attempt' component={AttemptTable}/>
                     </Switch>
                 </div>
             </div>

@@ -11,7 +11,7 @@ export function AppMenu(props) {
             </ListItem>
             <Divider/>
 
-            <Link to="/attempts">
+            <Link to="/attempt">
                 <ListItem button>
                     <ListItemText primary="Attempts"/>
                 </ListItem>

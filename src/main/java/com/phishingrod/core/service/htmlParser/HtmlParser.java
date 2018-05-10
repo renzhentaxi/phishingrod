@@ -31,7 +31,7 @@ public class HtmlParser
      * @param phishingTarget the spoofTarget that contains the parameters required
      * @return a html document with every parameter parsed
      */
-    private Document parseParams(EmailTemplate template, SpoofTarget spoofTarget, PhishingTarget phishingTarget)
+    public Document parseParams(EmailTemplate template, SpoofTarget spoofTarget, PhishingTarget phishingTarget)
     {
 
         String message = template.getHtml();
@@ -69,7 +69,7 @@ public class HtmlParser
      * @param attemptId the id to track
      * @return a document with links replaced
      */
-    private Document replaceLinkWithTrackLink(Document document, long attemptId)
+    public Document replaceLinkWithTrackLink(Document document, long attemptId)
     {
         String url = "http://localhost:8080/api/attempt/" + attemptId + "/track";
         Elements linkNodes = document.select("a");
@@ -77,7 +77,7 @@ public class HtmlParser
         return document;
     }
 
-    private Document installOpenDetector(Document document, long attemptId)
+    public Document installOpenDetector(Document document, long attemptId)
     {
         String url = "http://localhost:8080/api/attempt/" + attemptId + "/open";
         Element image = new Element("img");

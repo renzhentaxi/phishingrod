@@ -1,11 +1,15 @@
 package com.phishingrod.core.service.CrudServices;
 
 import com.phishingrod.core.domain.Attempt;
+import com.phishingrod.core.domain.PhishingTarget;
+import com.phishingrod.core.domain.SpoofTarget;
 import com.phishingrod.core.domain.Stage;
 import com.phishingrod.core.repository.AttemptRepository;
+import com.phishingrod.core.service.MailService;
 import com.phishingrod.core.service.base.BasicEntityService;
 import com.phishingrod.core.service.htmlParser.HtmlParser;
 import com.phishingrod.core.service.htmlParser.TemplateConfig;
+import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,24 +18,43 @@ import java.util.Date;
 @Service
 public class AttemptService extends BasicEntityService<Attempt, AttemptRepository>
 {
+    private ParameterService parameterService;
 
     @Autowired
-    public AttemptService(AttemptRepository repository)
+    public AttemptService(AttemptRepository repository, ParameterService parameterService)
     {
         super(repository, "Attempt");
+        this.parameterService = parameterService;
     }
 
-    public void schedule(Attempt attempt)
+
+    public Attempt schedule(Attempt attempt)
     {
+        attempt.setStage(Stage.scheduled);
+        return add(attempt);
     }
 
-    public void execute(long id)
+    public String execute(long id)
     {
         Attempt attempt = find(id);
+        if (attempt.getStage() != Stage.scheduled) return "already sent";
+
+        SpoofTarget spoofTarget = parameterService.syncUsingSet(attempt.getSpoofTarget());
+        PhishingTarget phishingTarget = parameterService.syncUsingSet(attempt.getPhishingTarget());
+
         HtmlParser parser = new HtmlParser(TemplateConfig.DEFAULT_CONFIG);
-        String parsedMessage = parser.parse(attempt);
+        Document document = parser.parseParams(attempt.getTemplate(), spoofTarget, phishingTarget);
+        String parsedMessage = document.toString();
+
+        document = parser.replaceLinkWithTrackLink(document, id);
+        document = parser.installOpenDetector(document, id);
+        //send email
+        MailService mailer = new MailService();
+        mailer.Send(phishingTarget, spoofTarget, attempt.getSender(), document.toString());
+        attempt.setSendOn(new Date());
         attempt.setStage(Stage.sent);
-        System.out.println(parsedMessage);
+        modify(attempt);
+        return parsedMessage;
     }
 
     /**

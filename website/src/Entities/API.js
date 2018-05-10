@@ -34,6 +34,10 @@ class API {
     add(entity) {
         return axios.post(this.url, entity);
     }
+
+    post(url, data) {
+        return axios.post(this.url + url, data);
+    }
 }
 
 export const PhishingTargetAPI = new API("phishingTarget");
