@@ -139,7 +139,7 @@ public class EmailTemplateRestTest extends EntityRestControllerTest
         String html = "html_message";
         Parameter toKeep = Parameter.spoofTarget("keep");
         Parameter toDelete = Parameter.phishingTarget("delete");
-        Parameter toAdd = Parameter.spoofTarget("add");
+        Parameter toAdd = Parameter.spoofTarget("schedule");
 
         ObjectNode addJson = templateJson(name, html, json(toDelete, toKeep));
         ObjectNode modifyJson = json("parameters", json(toAdd, toKeep));

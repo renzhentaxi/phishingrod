@@ -22,7 +22,7 @@
 //    {
 //        for (int i = 0; i < 10; i++)
 //        {
-//            service.add(new PhishingTarget("txi@gamil.com" + i));
+//            service.schedule(new PhishingTarget("txi@gamil.com" + i));
 //        }
 //
 //        PhishingTarget target = service.get(1);

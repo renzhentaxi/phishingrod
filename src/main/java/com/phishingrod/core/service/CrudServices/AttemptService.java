@@ -1,6 +1,7 @@
 package com.phishingrod.core.service.CrudServices;
 
-import com.phishingrod.core.domain.*;
+import com.phishingrod.core.domain.Attempt;
+import com.phishingrod.core.domain.Stage;
 import com.phishingrod.core.repository.AttemptRepository;
 import com.phishingrod.core.service.base.BasicEntityService;
 import com.phishingrod.core.service.htmlParser.HtmlParser;
@@ -9,60 +10,59 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class AttemptService extends BasicEntityService<Attempt, AttemptRepository>
 {
-    private SenderService senderService;
-    private SpoofTargetService spoofTargetService;
-    private EmailTemplateService emailTemplateService;
-    private PhishingTargetService phishingTargetService;
 
     @Autowired
-    public AttemptService(AttemptRepository repository, SenderService senderService, SpoofTargetService spoofTargetService, EmailTemplateService emailTemplateService, PhishingTargetService phishingTargetService)
+    public AttemptService(AttemptRepository repository)
     {
         super(repository, "Attempt");
-        this.senderService = senderService;
-        this.spoofTargetService = spoofTargetService;
-        this.emailTemplateService = emailTemplateService;
-        this.phishingTargetService = phishingTargetService;
     }
 
-//    public Attempt generateRandom()
-//    {
-//        EmailTemplate emailTemplate = emailTemplateService.getRandom();
-//        List<PhishingTarget> possiblePhishingTarget = emailTemplateService.getPhishingTargetCandidates(emailTemplate);
-//        List<SpoofTarget> possibleSpoofTargets = emailTemplateService.getSpoofTargetCandidates(emailTemplate);
-//
-//        PhishingTarget phishingTarget = pickRandom(possiblePhishingTarget);
-//        SpoofTarget spoofTarget = pickRandom(possibleSpoofTargets);
-//        Sender sender = senderService.getRandom();
-//        return new Attempt(emailTemplate, phishingTarget, spoofTarget, sender);
-//    }
-
-    private <E> E pickRandom(List<E> list)
+    public void schedule(Attempt attempt)
     {
-        if (list.size() == 0) return null;
-        return list.get((int) (Math.random() * list.size() - 1));
     }
 
-    public void execute(Attempt attempt)
+    public void execute(long id)
     {
+        Attempt attempt = find(id);
         HtmlParser parser = new HtmlParser(TemplateConfig.DEFAULT_CONFIG);
-        String parsedMessage = parser.parse(attempt.getTemplate(), attempt.getSpoofTarget(), attempt.getPhishingTarget());
+        String parsedMessage = parser.parse(attempt);
+        attempt.setStage(Stage.sent);
         System.out.println(parsedMessage);
     }
 
-    public void open(Attempt attempt)
+    /**
+     * marks the attempt as opened.
+     * records the time it was opened as well
+     * @param id the id of the attempt
+     */
+    public void open(long id)
     {
-        attempt.setOpenedOn(new Date());
-        modify(attempt);
+        Attempt attempt = find(id);
+        if (attempt.getStage() == Stage.sent)
+        {
+            attempt.setOpenedOn(new Date());
+            attempt.setStage(Stage.opened);
+            modify(attempt);
+        }
     }
 
-    public void trick(Attempt attempt)
+    /**
+     * marks the attempt as tricked
+     * records the time it was tricked as well
+     * @param id the id of the attempt
+     */
+    public void track(long id)
     {
-        attempt.setTrickedOn(new Date());
-        modify(attempt);
+        Attempt attempt = find(id);
+        if (attempt.getStage() != Stage.tricked)
+        {
+            attempt.setTrickedOn(new Date());
+            attempt.setStage(Stage.tricked);
+            modify(attempt);
+        }
     }
 }

@@ -34,8 +34,8 @@
 //        spoofTargetMap.put("name", "taxi");
 //        phishingTargetMap.put("name", "baerde");
 //
-//        parameterList.add(new Parameter(ParameterSourceType.phishingTarget, "name"));
-//        parameterList.add(new Parameter(ParameterSourceType.spoofTarget, "name"));
+//        parameterList.schedule(new Parameter(ParameterSourceType.phishingTarget, "name"));
+//        parameterList.schedule(new Parameter(ParameterSourceType.spoofTarget, "name"));
 //
 //        String testHtml = "To: <div class=\"pr-param-node\" pr-param-name=\"phishingTarget.name\"> hi </div> " +
 //                "From: <div class=\"pr-param-node\" pr-param-name=\"spoofTarget.name\"> hi2 </div>";

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="width:100%; height:100%; background:greenyellow">
+
+<pre style="text-align: center">
+    Congratulation you have just got phished
+    You will be redirected to a third party info page in <x id="time">10</x>
+</pre>
+
+<script>
+    var timeRemain = 10;
+    var x = setInterval(() => {
+        if (timeRemain === 0)
+            window.location = "http://www.phishing.org/what-is-phishing";
+        timeRemain -= 1;
+        document.querySelector("#time").innerHTML = timeRemain;
+    }, 1000);
+</script>
+</body>
+</html>

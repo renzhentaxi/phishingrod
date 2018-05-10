@@ -8,6 +8,7 @@ import com.phishingrod.core.domain.parameters.ParameterSourceType;
 import com.phishingrod.core.exceptions.MissingParameterValidationException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
 
@@ -22,26 +23,15 @@ public class HtmlParser
         this.configuration = configuration;
     }
 
-//    private String parse(String error_message, Map<String, String> spoofTargetParameters, Map<String, String> phishingTargetParameters)
-//    {
-//        Document document = Jsoup.parse(error_message);
-//
-//        Elements parameterNodes = document.select("." + configuration.class_parameterNode);
-//        parameterNodes.forEach(element ->
-//                {
-//                    String name = element.attr(configuration.attribute_parameterName);
-//                    ParameterSourceType error_type = ParameterSourceType.valueOf(element.attr(configuration.attribute_parameterType));
-//                    String value = (error_type == ParameterSourceType.phishingTarget) ? phishingTargetParameters.get(name) : spoofTargetParameters.get(name);
-//                    if (value == null) throw new MissingParameterValidationException(error_type.name(), name);
-//                    TextNode node = new TextNode(value);
-//                    element.replaceWith(node);
-//                }
-//        );
-//
-//        return document.toString();
-//    }
-
-    public String parse(EmailTemplate template, SpoofTarget spoofTarget, PhishingTarget phishingTarget)
+    /**
+     * swaps every parameter in the template with actual values provided by spoofTarget and phishingTarget
+     *
+     * @param template       the template containing the html to parse
+     * @param spoofTarget    the spoofTarget that contains the parameters required
+     * @param phishingTarget the spoofTarget that contains the parameters required
+     * @return a html document with every parameter parsed
+     */
+    private Document parseParams(EmailTemplate template, SpoofTarget spoofTarget, PhishingTarget phishingTarget)
     {
 
         String message = template.getHtml();
@@ -49,7 +39,7 @@ public class HtmlParser
         Map<String, String> phishingTargetParameters = phishingTarget.getParameterMap();
         Document document = Jsoup.parse(message);
 
-        Elements parameterNodes = document.select("." + configuration.class_parameterNode);
+        Elements parameterNodes = document.select(configuration.class_parameterNode);
         parameterNodes.forEach(element ->
                 {
                     String name = element.attr(configuration.attribute_parameterName);
@@ -69,11 +59,39 @@ public class HtmlParser
                 }
         );
 
-        return document.toString();
+        return document;
+    }
+
+    /**
+     * replaces link on this document with track url
+     *
+     * @param document  the document to work with
+     * @param attemptId the id to track
+     * @return a document with links replaced
+     */
+    private Document replaceLinkWithTrackLink(Document document, long attemptId)
+    {
+        String url = "http://localhost:8080/api/attempt/" + attemptId + "/track";
+        Elements linkNodes = document.select("a");
+        linkNodes.forEach(element -> element.attr("href", url));
+        return document;
+    }
+
+    private Document installOpenDetector(Document document, long attemptId)
+    {
+        String url = "http://localhost:8080/api/attempt/" + attemptId + "/open";
+        Element image = new Element("img");
+        image.attr("src", url);
+        image.attr("alt", "");
+        document.body().appendChild(image);
+        return document;
     }
 
     public String parse(Attempt attempt)
     {
-        return parse(attempt.getTemplate(), attempt.getSpoofTarget(), attempt.getPhishingTarget());
+        Document document = parseParams(attempt.getTemplate(), attempt.getSpoofTarget(), attempt.getPhishingTarget());
+        document = replaceLinkWithTrackLink(document, attempt.getId());
+        document = installOpenDetector(document, attempt.getId());
+        return document.toString();
     }
 }
