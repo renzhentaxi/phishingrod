@@ -86,7 +86,6 @@ export class PhishingTargetTable extends React.Component {
                 <TableRow>
                     <TableCell>Id</TableCell>
                     <TableCell>Email Addresss</TableCell>
-                    <TableCell>Score</TableCell>
                     <TableCell>Created On</TableCell>
                     <TableCell>Last Modified On</TableCell>
                     <TableCell>

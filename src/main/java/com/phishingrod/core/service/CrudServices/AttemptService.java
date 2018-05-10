@@ -37,6 +37,7 @@ public class AttemptService extends BasicEntityService<Attempt, AttemptRepositor
     /**
      * marks the attempt as opened.
      * records the time it was opened as well
+     *
      * @param id the id of the attempt
      */
     public void open(long id)
@@ -53,6 +54,7 @@ public class AttemptService extends BasicEntityService<Attempt, AttemptRepositor
     /**
      * marks the attempt as tricked
      * records the time it was tricked as well
+     *
      * @param id the id of the attempt
      */
     public void track(long id)

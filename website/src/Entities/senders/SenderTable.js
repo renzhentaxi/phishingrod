@@ -82,7 +82,7 @@ export class SenderTable extends React.Component {
         this.setState(update(this.state, {showEditDialog: {$set: false}}))
     }
 
-    display = ["id", "name", "password", "server", "score"];
+    display = ["id", "name", "password", "server"];
     title = "Senders";
     color = "purple";
 

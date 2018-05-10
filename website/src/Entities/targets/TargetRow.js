@@ -11,7 +11,6 @@ export function TargetRow(props) {
             <TableRow hover>
                 <TableCell>{id}</TableCell>
                 <TableCell>{emailAddress}</TableCell>
-                <TableCell>{score}</TableCell>
                 <TableCell>{createdOn}</TableCell>
                 <TableCell>{lastModifiedOn}</TableCell>
                 <TableCell>

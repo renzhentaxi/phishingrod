@@ -82,7 +82,7 @@ export class TemplateTable extends React.Component {
         this.setState(update(this.state, {showEditDialog: {$set: false}}))
     }
 
-    display = ["id", "name", "score"];
+    display = ["id", "name"];
     title = "Templates";
     color = "darkblue";
 

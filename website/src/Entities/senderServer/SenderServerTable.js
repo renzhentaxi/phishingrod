@@ -89,7 +89,6 @@ export class SenderServerTable extends React.Component {
                     <TableCell>Name</TableCell>
                     <TableCell>Host</TableCell>
                     <TableCell>Port</TableCell>
-                    <TableCell>Score</TableCell>
                     <TableCell>
                         <RefreshButton onClick={this.refreshData}/>
                         <AddButton onClick={this.openAddDialog}/>
@@ -107,7 +106,7 @@ export class SenderServerTable extends React.Component {
         );
     }
 
-    orders = ["id", "name", "host", "port", "score"];
+    orders = ["id", "name", "host", "port"];
 
     renderBody() {
         return (<TableBody>
