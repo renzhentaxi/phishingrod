@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const base = "http://localhost:8080/api/";
+const base = "https://protected-reef-24647.herokuapp.com/";
 
 function stripData(entity) {
     const stripped = Object.assign({}, entity);

@@ -1,2 +1,0 @@
-1. serverSide validation
-2. error message
